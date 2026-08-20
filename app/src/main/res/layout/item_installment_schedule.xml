@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/dp_10"
+    android:layout_marginVertical="@dimen/dp_6">
+
+    <TextView
+        android:id="@+id/tvDueDate"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_22"
+        android:gravity="center_vertical"
+        android:text="2025/09/21"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintEnd_toStartOf="@id/tvAmount"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_22"
+        android:gravity="center_vertical|end"
+        android:paddingEnd="@dimen/dp_24"
+        android:text="$10,000"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@id/tvDueDate"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivArrow"
+        android:layout_width="@dimen/dp_22"
+        android:layout_height="@dimen/dp_22"
+        android:src="@mipmap/product_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        android:id="@+id/info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:paddingVertical="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@id/ivArrow"
+        app:radius="@dimen/dp_16"
+        app:solidColor="@color/surface_tertiary">
+
+        <TextView
+            android:id="@+id/tvLoanAmountTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/l_amount"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintEnd_toStartOf="@id/tvLoanAmount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvLoanAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="$10,000"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvLoanAmountTitle" />
+
+        <TextView
+            android:id="@+id/tvInterestTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:text="@string/interest"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintEnd_toStartOf="@id/tvInterest"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLoanAmountTitle" />
+
+        <TextView
+            android:id="@+id/tvInterest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="21.2"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvInterestTitle" />
+
+        <TextView
+            android:id="@+id/tvServiceFeeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:text="@string/service_fee"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvServiceFee"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvInterestTitle" />
+
+        <TextView
+            android:id="@+id/tvServiceFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="0"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvServiceFeeTitle" />
+    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

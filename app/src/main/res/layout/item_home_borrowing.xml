@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/dp_10"
+    android:paddingTop="@dimen/dp_20">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Product Name"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        android:id="@+id/amountLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:paddingHorizontal="@dimen/dp_10"
+        android:paddingVertical="@dimen/dp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        app:radius="@dimen/dp_16"
+        app:solidColor="@color/aide_color">
+
+        <com.novexa.platform.core.ui.component.StyledTextView
+            android:id="@+id/tvState"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/pending_repayment"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textColorSelected="@color/status_error" />
+
+        <com.novexa.platform.core.ui.component.StyledTextView
+            android:id="@+id/tvDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:text="@string/pending_repayment_desc"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvState"
+            app:textColorSelected="@color/status_error" />
+    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvAmountTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        android:text="@string/total_repayment"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/amountLayout" />
+
+    <TextView
+        android:id="@+id/tvLoanAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="200,000,000₫"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/sp_11"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvAmountTitle"
+        app:layout_constraintEnd_toStartOf="@id/tvRepay"
+        app:layout_constraintStart_toEndOf="@id/tvAmountTitle" />
+
+    <TextView
+        android:id="@+id/tvDateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:text="@string/due_date"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAmountTitle" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="11/11Day"
+        android:textStyle="bold"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/sp_11"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvDateTitle"
+        app:layout_constraintEnd_toStartOf="@id/tvRepay"
+        app:layout_constraintStart_toEndOf="@id/tvDateTitle" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvRepay"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_38"
+        android:layout_marginStart="@dimen/dp_12"
+        android:gravity="center"
+        android:minWidth="@dimen/dp_104"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:text="@string/repay"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:autoFillPressedColor="true"
+        app:layout_constraintBottom_toBottomOf="@id/tvDateTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvAmountTitle"
+        app:radius="@dimen/dp_16"
+        app:selectedColor="@color/status_error"
+        app:solidColor="@color/brand_primary"
+        app:textColorSelected="@color/text_inverse" />
+
+    <View
+        android:id="@+id/itemDivider"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_18"
+        android:background="@color/surface_secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDateTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

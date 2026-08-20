@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="p40_FFFFFF">#66FFFFFF</color>
+    <color name="p50_000000">#80000000</color>
+    <color name="text_primary">#111827</color>
+    <color name="text_body">#374151</color>
+    <color name="text_secondary">#6D7280</color>
+    <color name="text_tertiary">#9CA3AF</color>
+    <color name="text_inverse">#FFFFFFFF</color>
+
+    <color name="surface_primary">#FFFFFFFF</color>
+    <color name="surface_secondary">#F6F6F6</color>
+    <color name="surface_tertiary">#EFEFEF</color>
+    <color name="surface_muted">#ECEEF3</color>
+    <color name="surface_disabled">#9CA3AF</color>
+    <color name="surface_tint">#F8F7F3</color>
+    <color name="badge_promotion">#FFDD00</color>
+
+    <color name="brand_primary">#396401</color>
+    <color name="brand_primary_light">#A3B2FF</color>
+    <color name="brand_secondary">#FF8000</color>
+    <color name="action_withdraw">#FA560D</color>
+    <color name="credit_dialog_badge">#3E7D32</color>
+    <color name="credit_dialog_button_end">#4BD329</color>
+
+    <color name="border_default">#D2D5DA</color>
+    <color name="status_error">#F62909</color>
+    <color name="status_success">#08994E</color>
+   <color name="page_bg_color1">#FBF5EE</color>
+   <color name="aide_color">#E4EED4</color>
+    <color name="color_verify_tip">#FFEFA0</color>
+    <color name="color_track">#1D3BFD</color>
+    <color name="color_goal">#6717D7</color>
+    <color name="color_order_over">#FFD4BB</color>
+    <color name="installment_tip_bg">#FFF4E5</color>
+</resources>

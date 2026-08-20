@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/accountAccessRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg_color1">
+
+    <ImageView
+        android:id="@+id/ivLoginTopBackground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_login_top_bg"
+        app:layout_constraintBottom_toTopOf="@id/loginHeaderBottom"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Space
+        android:id="@+id/loginHeaderMinHeight"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_192"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.novexa.platform.core.ui.component.PageHeaderView
+        android:id="@+id/accessPageHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIconColor="@color/text_inverse" />
+
+    <TextView
+        android:id="@+id/tvAccessHeadline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_30"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:gravity="start"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_28"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/accessPageHeader" />
+
+    <LinearLayout
+        android:id="@+id/loginPhoneHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAccessHeadline">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_invalid_phone_hint"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:text="@string/login_modify_phone"
+            android:textColor="@color/badge_promotion"
+            android:textSize="@dimen/sp_12"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvOtpDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_24"
+        android:gravity="center"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/accessPageHeader" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/loginHeaderBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="false"
+        app:barrierDirection="bottom"
+        app:barrierMargin="@dimen/dp_8"
+        app:constraint_referenced_ids="loginHeaderMinHeight,loginPhoneHint,tvOtpDescription" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/accessFormScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="false"
+        android:paddingStart="@dimen/dp_20"
+        android:paddingTop="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/loginHeaderBottom">
+
+        <com.novexa.platform.core.ui.component.StyledLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dp_12"
+            android:paddingBottom="@dimen/dp_18"
+            app:radius="@dimen/dp_30"
+            app:solidColor="@color/text_inverse">
+
+            <com.novexa.platform.core.ui.component.FormItemView
+                android:id="@+id/formPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editMaxLength="11"
+                app:errorText="@string/phone_number_required"
+                app:hintText="@string/phone_number"
+                app:inputBackgroundColor="@color/text_inverse"
+                app:inputFocusedStrokeColor="@color/text_primary"
+                app:inputStrokeColor="@color/border_default"
+                app:inputType="phone"
+                app:prefixText="+63"
+                app:titleText="@string/phone_number" />
+
+            <com.novexa.platform.core.ui.component.FormItemView
+                android:id="@+id/formOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:editMaxLength="10"
+                app:errorText="@string/verification_code_required"
+                app:hintText="@string/otp_enter"
+                app:inputBackgroundColor="@color/text_inverse"
+                app:inputFocusedStrokeColor="@color/text_primary"
+                app:inputStrokeColor="@color/border_default"
+                app:inputType="number"
+                app:titleText="@string/otp" />
+
+            <TextView
+                android:id="@+id/tvResendOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:gravity="center"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/sp_14"
+                android:visibility="gone" />
+
+            <com.novexa.platform.core.ui.component.StatefulActionButton
+                android:id="@+id/tvLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_54"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:gravity="center"
+                android:text="@string/lets_go"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold"
+                app:buttonRadius="@dimen/dp_16"
+                app:buttonSolidColor="@color/brand_primary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:gravity="top"
+                android:orientation="horizontal">
+
+                <com.novexa.platform.core.ui.component.SelectableImageView
+                    android:id="@+id/cbAccept"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/dp_2"
+                    android:src="@mipmap/ic_check_normal"
+                    app:srcSelected="@mipmap/ic_check_select" />
+
+                <TextView
+                    android:id="@+id/tvAccept"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_8"
+                    android:layout_weight="1"
+                    android:text="@string/accept_policy"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+        </com.novexa.platform.core.ui.component.StyledLinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

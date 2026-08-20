@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_10"
+    app:radius="@dimen/dp_10">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAccountIcon"
+        android:layout_width="@dimen/dp_42"
+        android:layout_height="@dimen/dp_42"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_12"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_bank_header" />
+
+    <TextView
+        android:id="@+id/tvBankName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_12"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivAccountIcon"
+        app:layout_constraintTop_toTopOf="@id/ivAccountIcon"
+        tools:text="GT BANK" />
+
+    <TextView
+        android:id="@+id/tvBankCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvBankName"
+        app:layout_constraintTop_toBottomOf="@id/tvBankName"
+        tools:text="457 356 565" />
+
+    <com.novexa.platform.core.ui.component.StatefulActionButton
+        android:id="@+id/tvDelete"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_36"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:text="@string/untie"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        app:buttonSolidColor="@color/text_inverse"
+        app:buttonStrokeColor="@color/text_inverse"
+        app:buttonTextColor="@color/brand_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvDefault"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBankCard" />
+
+    <com.novexa.platform.core.ui.component.StatefulActionButton
+        android:id="@+id/tvDefault"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_36"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:text="@string/default_str"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        app:buttonSolidColor="@color/brand_primary"
+        app:buttonTextColor="@color/text_inverse"
+        app:layout_constraintBottom_toBottomOf="@id/tvDelete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/tvDelete"
+        app:layout_constraintTop_toTopOf="@id/tvDelete" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/menuGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tvDelete,tvDefault" />
+
+    <TextView
+        android:id="@+id/tvDefaultStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:drawableEnd="@mipmap/icon_default_checked"
+        android:drawablePadding="@dimen/dp_4"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:text="@string/default_str"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintTop_toBottomOf="@id/tvBankCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

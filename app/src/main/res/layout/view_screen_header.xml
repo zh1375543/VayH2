@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tvBarTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/dp_60"
+        android:autoSizeMaxTextSize="@dimen/sp_16"
+        android:autoSizeMinTextSize="@dimen/sp_12"
+        android:autoSizeTextType="uniform"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        tools:text="Title" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBack"
+        android:layout_width="@dimen/dp_34"
+        android:layout_height="@dimen/dp_34"
+        android:layout_gravity="start|center_vertical"
+        android:layout_marginStart="@dimen/dp_16"
+        android:contentDescription="@null"
+        android:paddingVertical="@dimen/dp_6"
+        android:src="@mipmap/ic_title_left_back" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvBarRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:gravity="center_vertical"
+        android:textColor="@color/brand_primary"
+        android:textSize="@dimen/sp_12"
+        android:paddingVertical="@dimen/dp_5"
+        android:paddingHorizontal="@dimen/dp_12"
+        app:radius="@dimen/dp_24"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivRightCoin"
+        android:layout_width="@dimen/dp_34"
+        android:layout_height="@dimen/dp_34"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:visibility="gone">
+
+    </androidx.appcompat.widget.AppCompatImageView>
+</merge>

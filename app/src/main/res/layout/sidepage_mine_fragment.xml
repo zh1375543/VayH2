@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg_color1">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_224"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@mipmap/page_mine_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/accountScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_24"
+            android:paddingEnd="@dimen/dp_16"
+            android:paddingBottom="@dimen/dp_24">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_72"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="@dimen/dp_64"
+                    android:layout_height="@dimen/dp_64"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/page_mine_header" />
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_24"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tvShareApp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_84"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@drawable/bg_mine_share_gradient"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:includeFontPadding="false"
+                    android:text="@string/share_app"
+                    android:textColor="@color/text_inverse"
+                    android:textSize="@dimen/sp_24"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tvShareArrow"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.novexa.platform.core.ui.component.StyledTextView
+                    android:id="@+id/tvShareArrow"
+                    android:layout_width="@dimen/dp_96"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:gravity="center"
+                    android:text="@string/mine_share_arrow"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="@dimen/sp_28"
+                    app:radius="@dimen/dp_8"
+                    app:solidColor="@color/text_inverse"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_12"
+                android:paddingHorizontal="@dimen/dp_16"
+                app:radius="@dimen/dp_12"
+                app:solidColor="@color/surface_primary"
+                app:strokeColor="@color/border_default"
+                app:strokeWidth="@dimen/dp_1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <FrameLayout
+                        android:id="@+id/tvHelpCenter"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_56"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/dp_32"
+                            android:layout_height="@dimen/dp_32"
+                            android:layout_gravity="start|center_vertical"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/page_mine_contact" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:includeFontPadding="false"
+                            android:paddingStart="@dimen/dp_44"
+                            android:paddingEnd="@dimen/dp_32"
+                            android:text="@string/contact_support"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_13"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
+                            android:layout_gravity="end|center_vertical"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/mine_right" />
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"
+                        android:background="@color/border_default" />
+
+                    <FrameLayout
+                        android:id="@+id/tvPrivacy"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_56"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/dp_32"
+                            android:layout_height="@dimen/dp_32"
+                            android:layout_gravity="start|center_vertical"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/page_mine_privacy" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:includeFontPadding="false"
+                            android:paddingStart="@dimen/dp_44"
+                            android:paddingEnd="@dimen/dp_32"
+                            android:text="@string/privacy_policy"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_13"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
+                            android:layout_gravity="end|center_vertical"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/mine_right" />
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"
+                        android:background="@color/border_default" />
+
+                    <FrameLayout
+                        android:id="@+id/tvSettings"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_56"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/dp_32"
+                            android:layout_height="@dimen/dp_32"
+                            android:layout_gravity="start|center_vertical"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/page_mine_set" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:includeFontPadding="false"
+                            android:paddingStart="@dimen/dp_44"
+                            android:paddingEnd="@dimen/dp_32"
+                            android:text="@string/settings"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_13"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
+                            android:layout_gravity="end|center_vertical"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/mine_right" />
+                    </FrameLayout>
+                </LinearLayout>
+            </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/ratingCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_12"
+                android:minHeight="@dimen/dp_130"
+                android:background="@drawable/bg_mine_share_gradient"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dp_20"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingEnd="@dimen/dp_20"
+                android:paddingBottom="@dimen/dp_10">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvRatingMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="@string/account_rating_title"
+                        android:textColor="@color/text_inverse"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tvRatingPrompt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:includeFontPadding="false"
+                        android:lineSpacingExtra="@dimen/dp_2"
+                        android:text="@string/account_rating_prompt"
+                        android:textColor="@color/text_inverse"
+                        android:textSize="@dimen/sp_16" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/tvRate"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_64"
+                    android:layout_marginStart="@dimen/dp_8"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:contentDescription="@string/rate"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_48"
+                        android:layout_gravity="top"
+                        android:contentDescription="@null"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/page_enjoy_bg" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_32"
+                        android:layout_gravity="top"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/dp_12"
+                        android:paddingEnd="@dimen/dp_12">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dp_20"
+                            android:layout_weight="1"
+                            android:contentDescription="@null"
+                            android:scaleType="centerInside"
+                            android:src="@mipmap/icon_review_star" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dp_20"
+                            android:layout_weight="1"
+                            android:contentDescription="@null"
+                            android:scaleType="centerInside"
+                            android:src="@mipmap/icon_review_star" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dp_20"
+                            android:layout_weight="1"
+                            android:contentDescription="@null"
+                            android:scaleType="centerInside"
+                            android:src="@mipmap/icon_review_star" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dp_20"
+                            android:layout_weight="1"
+                            android:contentDescription="@null"
+                            android:scaleType="centerInside"
+                            android:src="@mipmap/icon_review_star" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dp_20"
+                            android:layout_weight="1"
+                            android:contentDescription="@null"
+                            android:scaleType="centerInside"
+                            android:src="@mipmap/icon_review_star" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/dp_56"
+                        android:layout_height="@dimen/dp_48"
+                        android:layout_gravity="bottom|start"
+                        android:contentDescription="@null"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/icon_review_tap" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

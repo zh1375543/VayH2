@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg_color1">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSuccessBackground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@mipmap/image_verify_success_bg"
+        app:layout_constraintBottom_toBottomOf="@id/viewSuccessContentSpacer"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSuccess"
+        android:layout_width="@dimen/dp_112"
+        android:layout_height="@dimen/dp_112"
+        android:layout_marginTop="@dimen/dp_64"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/image_verify_success"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="@dimen/dp_2"
+        android:text="@string/submit_success"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_24"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivSuccess" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:gravity="center"
+        android:text="@string/you_can_borrow"
+        android:textColor="@color/brand_primary"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <View
+        android:id="@+id/viewSuccessContentSpacer"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_38"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
+
+    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        android:id="@+id/bottomActionPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewSuccessContentSpacer"
+        app:layout_constraintVertical_bias="1">
+
+        <TextView
+            android:id="@+id/tvTips"
+            style="@style/SuccessPageCountdownText"
+            android:text="@string/back_to_home_tips" />
+
+        <com.novexa.platform.core.ui.component.StatefulActionButton
+            android:id="@+id/tvOK"
+            style="@style/SuccessPageActionButton"
+            android:text="@string/back_to_home" />
+
+    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

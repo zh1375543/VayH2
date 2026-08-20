@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        android:id="@+id/expirationCard"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_0"
+        android:layout_marginHorizontal="@dimen/dp_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius="@dimen/dp_8"
+        app:solidColor="@color/text_inverse" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivExpirationStatus"
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_90"
+        android:layout_marginTop="@dimen/dp_20"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/icon_dialog_credit_fail"
+        app:layout_constraintEnd_toEndOf="@id/expirationCard"
+        app:layout_constraintStart_toStartOf="@id/expirationCard"
+        app:layout_constraintTop_toTopOf="@id/expirationCard" />
+
+    <TextView
+        android:id="@+id/tvExpirationTitle"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_19"
+        android:gravity="center"
+        android:text="@string/pre_credit_has_expired"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/expirationCard"
+        app:layout_constraintStart_toStartOf="@id/expirationCard"
+        app:layout_constraintTop_toBottomOf="@id/ivExpirationStatus" />
+
+    <TextView
+        android:id="@+id/tvExpirationMessage"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_30"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp"
+        android:text="@string/pre_credit_has_expired_tips"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/expirationCard"
+        app:layout_constraintStart_toStartOf="@id/expirationCard"
+        app:layout_constraintTop_toBottomOf="@id/tvExpirationTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

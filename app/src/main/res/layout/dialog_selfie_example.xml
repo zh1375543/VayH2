@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginHorizontal="@dimen/dp_20"
+    android:paddingBottom="@dimen/dp_20"
+    app:radius="@dimen/dp_24"
+    app:solidColor="@color/text_inverse">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:text="@string/shoot_req"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_6"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/dp_4"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:text="@string/dialog_example_self_desc"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv1"
+        style="@style/KycExampleImage"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:src="@mipmap/ic_face_standard"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/iv2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv2"
+        style="@style/KycExampleImage"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:src="@mipmap/ic_face_dark"
+        app:layout_constraintBottom_toBottomOf="@id/iv1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv1"
+        app:layout_constraintTop_toTopOf="@id/iv1" />
+
+    <TextView
+        android:id="@+id/tv1"
+        style="@style/KycExampleLabel"
+        android:text="@string/standard"
+        app:layout_constraintEnd_toEndOf="@id/iv1"
+        app:layout_constraintStart_toStartOf="@id/iv1"
+        app:layout_constraintTop_toBottomOf="@id/iv1" />
+
+    <TextView
+        android:id="@+id/tv2"
+        style="@style/KycExampleLabel"
+        android:text="@string/dark_light"
+        app:layout_constraintEnd_toEndOf="@id/iv2"
+        app:layout_constraintStart_toStartOf="@id/iv2"
+        app:layout_constraintTop_toBottomOf="@id/iv2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv3"
+        style="@style/KycExampleImage"
+        android:layout_marginTop="@dimen/dp_20"
+        android:src="@mipmap/ic_face_vague"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/iv1"
+        app:layout_constraintStart_toStartOf="@id/iv1"
+        app:layout_constraintTop_toBottomOf="@id/tv1" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv4"
+        style="@style/KycExampleImage"
+        android:src="@mipmap/ic_face_highlight"
+        app:layout_constraintBottom_toBottomOf="@id/iv3"
+        app:layout_constraintEnd_toEndOf="@id/iv2"
+        app:layout_constraintStart_toStartOf="@id/iv2"
+        app:layout_constraintTop_toTopOf="@id/iv3" />
+
+    <TextView
+        android:id="@+id/tv3"
+        style="@style/KycExampleLabel"
+        android:text="@string/vague"
+        app:layout_constraintEnd_toEndOf="@id/iv3"
+        app:layout_constraintStart_toStartOf="@id/iv3"
+        app:layout_constraintTop_toBottomOf="@id/iv3" />
+
+    <TextView
+        android:id="@+id/tv4"
+        style="@style/KycExampleLabel"
+        android:text="@string/high_light"
+        app:layout_constraintEnd_toEndOf="@id/iv4"
+        app:layout_constraintStart_toStartOf="@id/iv4"
+        app:layout_constraintTop_toBottomOf="@id/iv4" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvOk"
+        style="@style/mainButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginHorizontal="@dimen/dp_34"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="@string/i_know"
+        app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

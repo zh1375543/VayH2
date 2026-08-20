@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg_color1">
+
+    <com.novexa.platform.core.ui.component.PageHeaderView
+        android:id="@+id/titleBar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_56"
+        app:centerText="@string/calculator_set_salary"
+        app:fitStatusBar="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/salaryScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/dp_12"
+        android:paddingTop="@dimen/dp_4"
+        android:paddingEnd="@dimen/dp_12"
+        android:paddingBottom="@dimen/dp_16"
+        app:layout_constraintBottom_toTopOf="@id/tvSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar">
+
+        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+            android:id="@+id/salaryForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dp_8"
+            app:radius="@dimen/dp_12"
+            app:solidColor="@color/surface_primary"
+            app:strokeColor="@color/brand_primary"
+            app:strokeWidth="@dimen/dp_1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.novexa.platform.core.ui.component.FormItemView
+                    android:id="@+id/monthlySalaryView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="input"
+                    app:hintText="@string/please_enter"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:inputType="number"
+                    app:titleText="@string/calculator_monthly_salary_input" />
+
+                <com.novexa.platform.core.ui.component.FormItemView
+                    android:id="@+id/workingDaysView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="select"
+                    app:hintText="@string/please_select"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:titleText="@string/calculator_working_days" />
+
+                <com.novexa.platform.core.ui.component.FormItemView
+                    android:id="@+id/hoursPerDayView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="select"
+                    app:hintText="@string/please_select"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:titleText="@string/calculator_hours_per_day" />
+
+                <com.novexa.platform.core.ui.component.FormItemView
+                    android:id="@+id/paydayView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="select"
+                    app:hintText="@string/please_select"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:titleText="@string/calculator_payday" />
+
+                <com.novexa.platform.core.ui.component.FormItemView
+                    android:id="@+id/workLocationView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formEndIcon="@mipmap/page_address"
+                    app:formType="input"
+                    app:hintText="@string/please_enter"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:inputType="text"
+                    app:titleText="@string/calculator_work_location" />
+            </LinearLayout>
+        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.novexa.platform.core.ui.component.StatefulActionButton
+        android:id="@+id/tvSave"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginHorizontal="@dimen/dp_14"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:text="@string/calculator_save"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:buttonRadius="@dimen/dp_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

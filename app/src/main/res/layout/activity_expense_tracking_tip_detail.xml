@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg_color1">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/page_track_detail_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/detailHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp_16">
+
+                <com.novexa.platform.core.ui.component.PageHeaderView
+                    android:id="@+id/titleBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fitStatusBar="false"
+                    app:navigationIconColor="@color/text_inverse"
+                    app:navigationMarginStart="@dimen/dp_0" />
+
+                <TextView
+                    android:layout_width="@dimen/dp_220"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_52"
+                    android:gravity="top"
+                    android:includeFontPadding="false"
+                    android:minLines="2"
+                    android:text="@string/calculator_tips_expenses_title"
+                    android:textColor="@color/text_inverse"
+                    android:textSize="@dimen/sp_24"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                app:radius="@dimen/dp_12"
+                app:solidColor="@color/surface_primary">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="@string/calculator_track_tip_updated"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/sp_14"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvHabitsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:lineSpacingExtra="@dimen/dp_2"
+                        android:text="@string/calculator_track_tip_habits_description"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/sp_10" />
+
+                    <TextView
+                        android:id="@+id/tvCategorizeTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:text="@string/calculator_track_tip_categorize_description"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/sp_10" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:text="@string/calculator_budget_tip_examples"
+                        android:textColor="@color/color_track"
+                        android:textSize="@dimen/sp_10"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvExamples"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="@dimen/dp_1"
+                        android:textSize="@dimen/sp_10" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:text="@string/calculator_track_tip_categorize_note"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/sp_10" />
+
+                    <TextView
+                        android:id="@+id/tvImproveTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:lineSpacingExtra="@dimen/dp_2"
+                        android:text="@string/calculator_track_tip_improve_description"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/sp_10" />
+
+                    <TextView
+                        android:id="@+id/tvReviewTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:lineSpacingExtra="@dimen/dp_2"
+                        android:text="@string/calculator_track_tip_review_description"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/sp_10" />
+                </LinearLayout>
+            </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp_12"
+                android:background="@color/surface_primary"
+                android:minHeight="@dimen/dp_112"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_12"
+                android:paddingEnd="@dimen/dp_16"
+                android:paddingBottom="@dimen/dp_24"
+                android:layout_weight="1">
+
+                <include
+                    android:id="@+id/quickTools"
+                    layout="@layout/view_calculation_quick_tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

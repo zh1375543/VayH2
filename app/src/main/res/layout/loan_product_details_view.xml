@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvDetailsTitle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_28"
+        android:gravity="center_vertical"
+        android:text="@string/product_details"
+        android:textColor="@color/brand_primary"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/ivExpandDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivExpandDetails"
+        android:layout_width="@dimen/dp_28"
+        android:layout_height="@dimen/dp_28"
+        android:padding="@dimen/dp_4"
+        android:src="@mipmap/product_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvDetailsTitle" />
+
+    <TextView
+        android:id="@+id/tvDurationLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:text="@string/loan_period_days"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintEnd_toStartOf="@id/tvDuration"
+        app:layout_goneMarginTop="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDetailsTitle" />
+
+    <TextView
+        android:id="@+id/tvDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvDurationLabel"
+        tools:text="91 Days" />
+
+    <TextView
+        android:id="@+id/tvDisbursedLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:text="@string/actually_amount"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintEnd_toStartOf="@id/tvDisbursedAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDurationLabel" />
+
+    <TextView
+        android:id="@+id/tvDisbursedAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvDisbursedLabel"
+        tools:text="19,991,000" />
+
+    <TextView
+        android:id="@+id/tvInterestLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:text="@string/interest_day"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintEnd_toStartOf="@id/tvInterestAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDisbursedLabel" />
+
+    <TextView
+        android:id="@+id/tvInterestAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvInterestLabel"
+        tools:text="9,000" />
+
+    <TextView
+        android:id="@+id/tvDueLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:text="@string/due_date"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintEnd_toStartOf="@id/tvDueDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvInterestLabel" />
+
+    <TextView
+        android:id="@+id/tvDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvDueLabel"
+        tools:text="25/12/2025" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFeeSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/tvDueLabel"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_offer_fee_summary" />
+
+    <TextView
+        android:id="@+id/tvServiceFeeLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:text="@string/install_fee"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/sp_15"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@id/tvServiceFee"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvFeeSummary" />
+
+    <TextView
+        android:id="@+id/tvServiceFee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvServiceFeeLabel"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tvDeviceLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:text="@string/phone_model"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintEnd_toStartOf="@id/tvDeviceModel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvServiceFeeLabel" />
+
+    <TextView
+        android:id="@+id/tvDeviceModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvDeviceLabel"
+        tools:text="xiaomi15" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/detailsToggleGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tvDurationLabel,tvDuration,tvDisbursedLabel,tvDisbursedAmount,tvInterestLabel,tvInterestAmount,tvDueLabel,tvDueDate,rvFeeSummary,tvDeviceLabel,tvDeviceModel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

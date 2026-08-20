@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivErrorState"
+        android:layout_width="@dimen/dp_197"
+        android:layout_height="@dimen/dp_197"
+        android:layout_marginTop="@dimen/dp_56"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/icon_network_fail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvErrorRetry"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/dp_4"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:text="@string/net_error"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivErrorState" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

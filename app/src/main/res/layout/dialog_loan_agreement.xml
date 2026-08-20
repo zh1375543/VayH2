@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dp_20"
+    app:left_top_radius="@dimen/dp_20"
+    app:right_top_radius="@dimen/dp_20"
+    app:solidColor="@color/text_inverse">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:gravity="center"
+        android:text="@string/agreement_confirmation"
+        android:textColor="@color/brand_primary"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/dp_3"
+        android:text="@string/agreement_confirmation_desc"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvPlease"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_20"
+        android:gravity="center"
+        android:text="@string/please_review_agreement_confirmation"
+        android:textColor="@color/brand_primary"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"
+        tools:visibility="visible" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvLease"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_10"
+        android:drawableEnd="@mipmap/mine_right"
+        android:drawableTint="@color/text_body"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:text="@string/lease_contract"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tvPlease"
+        app:radius="@dimen/dp_50"
+        app:solidColor="@color/surface_secondary"
+        tools:visibility="visible" />
+
+    <com.novexa.platform.core.ui.component.StatefulActionButton
+        android:id="@+id/btnApply"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_25"
+        android:text="@string/confirm"
+        app:layout_constraintTop_toBottomOf="@id/tvLease"/>
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

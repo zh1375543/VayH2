@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_10"
+    app:radius="@dimen/dp_18"
+    app:solidColor="@color/text_inverse"
+    app:strokeColor="@color/brand_primary"
+    app:strokeWidth="@dimen/dp_1">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivRepayTop"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginHorizontal="@dimen/dp_48"
+        android:contentDescription="@null"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        android:src="@mipmap/icon_repay_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginHorizontal="@dimen/dp_54"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Product Name" />
+
+    <TextView
+        android:id="@+id/tvRepayAmountLabel"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/total_repayment"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toStartOf="@id/tvRepayAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivRepayTop" />
+
+    <TextView
+        android:id="@+id/tvRepayAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvRepayAmountLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="₱50,000,000" />
+
+    <TextView
+        android:id="@+id/tvStatusLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/order_status"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRepayAmountLabel" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvStatusValue"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:ellipsize="end"
+        android:gravity="end"
+        android:maxLines="1"
+        android:text="@string/overdue"
+        android:textColor="@color/brand_primary"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvStatusLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvStatusLabel"
+        app:textColorSelected="@color/status_error" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnProductDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatusLabel">
+
+        <TextView
+            android:id="@+id/tvDetailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/product_details"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDetailArrow"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:layout_marginStart="@dimen/dp_4"
+            android:contentDescription="@null"
+            android:importantForAccessibility="no"
+            android:scaleType="centerInside"
+            android:src="@mipmap/mine_right"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailLabel"
+            app:layout_constraintStart_toEndOf="@id/tvDetailLabel"
+            app:layout_constraintTop_toTopOf="@id/tvDetailLabel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.novexa.platform.core.ui.component.SelectableImageView
+        android:id="@+id/ivSelect"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:src="@mipmap/icon_repay_check"
+        app:layout_constraintBottom_toBottomOf="@id/btnProductDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcSelected="@mipmap/ic_verify_ok"
+        app:layout_constraintTop_toTopOf="@id/btnProductDetail" />
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

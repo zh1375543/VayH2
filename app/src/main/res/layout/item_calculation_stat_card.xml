@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/dp_10"
+    android:paddingTop="@dimen/dp_6"
+    android:paddingEnd="@dimen/dp_8"
+    android:paddingBottom="@dimen/dp_10"
+    app:radius="@dimen/dp_10"
+    app:solidColor="@color/surface_primary"
+    app:strokeColor="@color/brand_primary"
+    app:strokeWidth="@dimen/dp_0_5">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivStatIcon"
+        android:layout_width="@dimen/dp_65"
+        android:layout_height="@dimen/dp_48"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvStatTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivStatIcon" />
+
+    <TextView
+        android:id="@+id/tvStatValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/brand_primary"
+        android:textSize="@dimen/sp_18"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatTitle" />
+
+    <TextView
+        android:id="@+id/tvStatDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_9"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatValue" />
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

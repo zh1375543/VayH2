@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dp_20"
+    app:left_top_radius="@dimen/dp_20"
+    app:right_top_radius="@dimen/dp_20"
+    app:solidColor="@color/text_inverse">
+
+    <com.novexa.platform.core.ui.component.WheelTimeView
+        android:id="@+id/timeView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_250"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvOk"
+        style="@style/mainButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginHorizontal="@dimen/dp_40"
+        android:layout_marginVertical="@dimen/dp_20"
+        android:text="@string/ok"
+        app:layout_constraintTop_toBottomOf="@id/timeView" />
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_tint"
+    android:clipToPadding="false"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    tools:context="com.novexa.platform.feature.profile.presentation.ProfileCenterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp_24">
+
+        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+            android:id="@+id/profileHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_60"
+            android:clipToOutline="true"
+            android:outlineProvider="background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:radius="@dimen/dp_24"
+            app:solidColor="@color/brand_primary">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_main_card_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="@dimen/dp_65"
+                android:layout_height="@dimen/dp_65"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginVertical="@dimen/dp_20"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/page_mine_header"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvPhone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_24"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/text_inverse"
+                android:textSize="@dimen/sp_24"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivAvatar"
+                app:layout_constraintTop_toTopOf="@id/ivAvatar"
+                app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+                tools:text="966****983" />
+        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+            android:id="@+id/tvQuick"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_76"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:paddingHorizontal="@dimen/dp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileHeader"
+            app:radius="@dimen/dp_18"
+            app:solidColor="@color/surface_primary"
+            app:strokeColor="@color/brand_primary"
+            app:strokeWidth="@dimen/dp_2">
+
+            <TextView
+                android:id="@+id/tvQuickText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/quick_repayment"
+                android:textColor="@color/brand_primary"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="italic|bold"
+                app:layout_constraintEnd_toStartOf="@id/tvPayBack"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <com.novexa.platform.core.ui.component.StyledTextView
+                android:id="@+id/tvPayBack"
+                android:layout_width="@dimen/dp_120"
+                android:layout_height="@dimen/dp_48"
+                android:gravity="center"
+                android:text="@string/pay_back_now"
+                android:textColor="@color/text_inverse"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:radius="@dimen/dp_12"
+                app:solidColor="@color/brand_primary" />
+        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/profileShortcutRow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_20"
+            android:gravity="top"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQuick">
+
+            <LinearLayout
+                android:id="@+id/tvAccount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_72"
+                    android:layout_height="@dimen/dp_72"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/icon_account_pro" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@string/accounts"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tvOrder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_72"
+                    android:layout_height="@dimen/dp_72"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/icon_order_pro" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@string/order_center"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tvCert"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_72"
+                    android:layout_height="@dimen/dp_72"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/icon_certification_pro" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@string/certification"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.novexa.platform.core.ui.component.StyledLinearLayout
+            android:id="@+id/profileMenuContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_28"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/dp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileShortcutRow"
+            app:radius="@dimen/dp_18"
+            app:solidColor="@color/surface_primary">
+
+            <FrameLayout
+                android:id="@+id/tvPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_54"
+                android:clickable="true"
+                android:focusable="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_gravity="start|center_vertical"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/icon_privacy_pro" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_40"
+                    android:paddingEnd="@dimen/dp_32"
+                    android:text="@string/privacy_policy"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_13"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_gravity="end|center_vertical"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/mine_right" />
+            </FrameLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="@dimen/dp_1" android:background="@color/border_default" />
+
+            <FrameLayout
+                android:id="@+id/tvSettings"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_54"
+                android:clickable="true"
+                android:focusable="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_gravity="start|center_vertical"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/icon_set_pro" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_40"
+                    android:paddingEnd="@dimen/dp_32"
+                    android:text="@string/settings"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_13"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_gravity="end|center_vertical"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/mine_right" />
+            </FrameLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="@dimen/dp_1" android:background="@color/border_default" />
+
+            <FrameLayout
+                android:id="@+id/tvContactUs"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_54"
+                android:clickable="true"
+                android:focusable="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_gravity="start|center_vertical"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/icon_contact_pro" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_40"
+                    android:paddingEnd="@dimen/dp_32"
+                    android:text="@string/contact_us"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_13"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_gravity="end|center_vertical"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/mine_right" />
+            </FrameLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="@dimen/dp_1" android:background="@color/border_default" />
+
+            <FrameLayout
+                android:id="@+id/tvAboutUs"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_54"
+                android:clickable="true"
+                android:focusable="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_gravity="start|center_vertical"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/icon_about_pro" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_40"
+                    android:paddingEnd="@dimen/dp_32"
+                    android:text="@string/about_us"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_13"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_gravity="end|center_vertical"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/mine_right" />
+            </FrameLayout>
+        </com.novexa.platform.core.ui.component.StyledLinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

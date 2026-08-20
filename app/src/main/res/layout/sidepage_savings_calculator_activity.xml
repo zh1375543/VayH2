@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg_color1">
+
+    <com.novexa.platform.core.ui.component.PageHeaderView
+        android:id="@+id/titleBar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_56"
+        app:centerText="@string/calculator_savings_title"
+        app:fitStatusBar="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/savingsInputScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_4"
+        android:paddingEnd="@dimen/dp_16"
+        android:paddingBottom="@dimen/dp_16"
+        app:layout_constraintBottom_toTopOf="@id/tvCalculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar">
+
+        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dp_8"
+            app:radius="@dimen/dp_12"
+            app:solidColor="@color/surface_primary"
+            app:strokeColor="@color/brand_primary"
+            app:strokeWidth="@dimen/dp_1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.novexa.platform.core.ui.component.FormItemView
+                    android:id="@+id/savingsGoalView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="input"
+                    app:hintText="@string/please_enter"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:inputType="number"
+                    app:titleText="@string/calculator_savings_goal" />
+
+                <com.novexa.platform.core.ui.component.FormItemView
+                    android:id="@+id/currentSavingsView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="input"
+                    app:hintText="@string/please_enter"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:inputType="number"
+                    app:titleText="@string/calculator_current_savings" />
+
+                <com.novexa.platform.core.ui.component.FormItemView
+                    android:id="@+id/monthlySavingsView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="input"
+                    app:hintText="@string/please_enter"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:inputType="number"
+                    app:titleText="@string/calculator_monthly_savings" />
+
+                <com.novexa.platform.core.ui.component.FormItemView
+                    android:id="@+id/monthlyIncomeView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="input"
+                    app:hintText="@string/please_enter"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:inputType="number"
+                    app:titleText="@string/calculator_monthly_income" />
+            </LinearLayout>
+        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        android:id="@+id/analysisCard"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_360"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar"
+        app:radius="@dimen/dp_12"
+        app:solidColor="@color/surface_primary"
+        app:strokeColor="@color/brand_primary"
+        app:strokeWidth="@dimen/dp_1">
+
+        <TextView
+            android:id="@+id/tvAnalysisTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:text="@string/calculator_analysis"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvGoalAmountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_20"
+            android:includeFontPadding="false"
+            android:text="@string/calculator_goal_amount"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAnalysisTitle" />
+
+        <TextView
+            android:id="@+id/tvGoalAmountValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvGoalAmountLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCurrentSavingsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_18"
+            android:includeFontPadding="false"
+            android:text="@string/calculator_current_savings_label"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvGoalAmountLabel" />
+
+        <TextView
+            android:id="@+id/tvCurrentSavingsValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvCurrentSavingsLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvRemainingAmountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_18"
+            android:includeFontPadding="false"
+            android:text="@string/calculator_remaining_amount"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCurrentSavingsLabel" />
+
+        <TextView
+            android:id="@+id/tvRemainingAmountValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvRemainingAmountLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvEstimatedCompletionTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_18"
+            android:includeFontPadding="false"
+            android:text="@string/calculator_estimated_completion_time"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRemainingAmountLabel" />
+
+        <TextView
+            android:id="@+id/tvEstimatedCompletionTimeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvEstimatedCompletionTimeLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMonthlySavingsRateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_18"
+            android:includeFontPadding="false"
+            android:text="@string/calculator_monthly_savings_rate"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEstimatedCompletionTimeLabel" />
+
+        <TextView
+            android:id="@+id/tvMonthlySavingsRateValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvMonthlySavingsRateLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+    <com.novexa.platform.core.ui.component.StatefulActionButton
+        android:id="@+id/tvCalculate"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:text="@string/calculator_calculate"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:buttonRadius="@dimen/dp_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

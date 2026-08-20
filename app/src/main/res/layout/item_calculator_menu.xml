@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/CalculatorMenuCard">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivCalculatorIcon"
+        style="@style/CalculatorMenuIcon" />
+
+    <TextView
+        android:id="@+id/tvCalculatorTitle"
+        style="@style/CalculatorMenuTitle" />
+
+    <TextView
+        android:id="@+id/tvCalculatorDescription"
+        style="@style/CalculatorMenuDescription" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivCalculatorArrow"
+        style="@style/CalculatorMenuArrow"
+        android:src="@mipmap/page_right" />
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

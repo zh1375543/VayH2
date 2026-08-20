@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/accountItemBackground"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_10"
+    android:paddingVertical="@dimen/dp_12"
+    app:radius="@dimen/dp_16"
+    app:selectedStrokeColor="@color/brand_primary"
+    app:solidColor="@color/surface_primary"
+    app:strokeColor="@color/border_default"
+    app:strokeWidth="@dimen/dp_1">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAccountIcon"
+        android:layout_width="@dimen/dp_36"
+        android:layout_height="@dimen/dp_36"
+        android:layout_marginStart="@dimen/dp_12"
+        android:src="@mipmap/icon_dialog_bank_unselect"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/ivBankState"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_20"
+        android:layout_marginStart="@dimen/dp_5"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/dp_8"
+        android:text="@string/disbursed_quickly"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_11"
+        app:layout_constraintEnd_toStartOf="@id/ivAccountSelectState"
+        app:layout_constraintStart_toEndOf="@id/tvCard"
+        app:layout_constraintTop_toTopOf="@id/tvCard"
+        app:radius="@dimen/dp_10"
+        app:solidColor="@color/badge_promotion" />
+
+    <TextView
+        android:id="@+id/tvCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="547857765765"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toStartOf="@id/ivBankState"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/ivAccountIcon"
+        app:layout_constraintTop_toTopOf="@id/ivAccountIcon" />
+
+    <TextView
+        android:id="@+id/tvBank"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_6"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="GT BANK"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintEnd_toStartOf="@id/ivAccountSelectState"
+        app:layout_constraintStart_toEndOf="@id/ivAccountIcon"
+        app:layout_constraintTop_toBottomOf="@id/tvCard" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAccountSelectState"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:src="@mipmap/icon_account_select"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

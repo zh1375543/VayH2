@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="OrderDetailInfoLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/dp_16</item>
+        <item name="android:layout_marginTop">@dimen/dp_16</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="OrderDetailInfoValue">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/dp_12</item>
+        <item name="android:layout_marginEnd">@dimen/dp_16</item>
+        <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+    <style name="AuthDataEncryptedTipText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableStart">@mipmap/ic_verify_img</item>
+        <item name="android:drawablePadding">@dimen/dp_6</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:text">@string/data_encrypted_tips</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/sp_11</item>
+        <item name="android:padding">@dimen/sp_5</item>
+        <item name="solidColor">@color/color_verify_tip</item>
+        <item name="radius">@dimen/dp_8</item>
+    </style>
+
+    <!-- Reusable compact label for section/category types; callers provide only the text and constraints. -->
+    <style name="TypeTag">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/dp_2</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">@dimen/dp_10</item>
+        <item name="android:paddingEnd">@dimen/dp_10</item>
+        <item name="android:paddingTop">@dimen/dp_5</item>
+        <item name="android:paddingBottom">@dimen/dp_5</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:textStyle">bold</item>
+        <item name="radius">@dimen/dp_8</item>
+        <item name="solidColor">@color/aide_color</item>
+    </style>
+
+    <style name="KycExampleImage">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="KycCardExampleImage" parent="KycExampleImage">
+        <item name="android:layout_height">@dimen/dp_79</item>
+    </style>
+
+    <style name="KycExampleLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/dp_5</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="LogoutAccountValueText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">@dimen/dp_18</item>
+        <item name="android:textColor">@color/text_inverse</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LogoutAccountLabelText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/dp_18</item>
+        <item name="android:textColor">@color/text_inverse</item>
+        <item name="android:textSize">@dimen/sp_13</item>
+    </style>
+
+    <style name="LogoutReasonItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_63</item>
+        <item name="android:drawableStart">@mipmap/icon_account_unselect</item>
+        <item name="android:drawablePadding">@dimen/dp_16</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">@dimen/dp_15</item>
+        <item name="android:paddingEnd">@dimen/dp_15</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="drawableStartSelected">@mipmap/icon_account_select</item>
+        <item name="radius">@dimen/dp_24</item>
+        <item name="solidColor">@color/surface_primary</item>
+        <item name="strokeColor">@color/border_default</item>
+        <item name="strokeWidth">@dimen/dp_1</item>
+        <item name="selectedColor">@color/aide_color</item>
+        <item name="selectedStrokeColor">@color/brand_primary</item>
+        <item name="textColorSelected">@color/text_primary</item>
+    </style>
+
+    <style name="SettingsMenuItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_56</item>
+        <item name="android:layout_marginStart">@dimen/dp_30</item>
+        <item name="android:layout_marginEnd">@dimen/dp_30</item>
+        <item name="android:drawableEnd">@mipmap/mine_right</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">@dimen/dp_12</item>
+        <item name="android:paddingEnd">@dimen/dp_12</item>
+        <item name="android:textColor">@color/text_body</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textStyle">bold</item>
+        <item name="autoFillPressedColor">false</item>
+        <item name="radius">@dimen/dp_12</item>
+        <item name="solidColor">@color/surface_primary</item>
+    </style>
+
+    <style name="SuccessPageCountdownText">
+        <item name="android:layout_width">@dimen/dp_0</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/dp_16</item>
+        <item name="android:layout_marginRight">@dimen/dp_16</item>
+        <item name="android:layout_marginBottom">@dimen/dp_12</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_body</item>
+        <item name="android:textSize">@dimen/sp_13</item>
+        <item name="layout_constraintBottom_toTopOf">@id/tvOK</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+    </style>
+
+    <style name="SuccessPageActionButton">
+        <item name="android:layout_width">@dimen/dp_0</item>
+        <item name="android:layout_height">@dimen/dp_48</item>
+        <item name="android:layout_marginLeft">@dimen/dp_16</item>
+        <item name="android:layout_marginRight">@dimen/dp_16</item>
+        <item name="android:layout_marginBottom">@dimen/dp_24</item>
+        <item name="actionButtonVariant">filled</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+    </style>
+
+    <style name="CalculatorMenuCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_72</item>
+        <item name="android:paddingStart">@dimen/dp_10</item>
+        <item name="android:paddingEnd">@dimen/dp_10</item>
+        <item name="radius">@dimen/dp_10</item>
+        <item name="solidColor">@color/surface_primary</item>
+        <item name="strokeColor">@color/brand_primary</item>
+        <item name="strokeWidth">@dimen/dp_1</item>
+    </style>
+
+    <style name="CalculatorMenuIcon">
+        <item name="android:layout_width">@dimen/dp_48</item>
+        <item name="android:layout_height">@dimen/dp_48</item>
+        <item name="android:contentDescription">@null</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="CalculatorMenuTitle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/dp_10</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/brand_primary</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:textStyle">bold</item>
+        <item name="layout_constraintBottom_toTopOf">@id/tvCalculatorDescription</item>
+        <item name="layout_constraintEnd_toStartOf">@id/ivCalculatorArrow</item>
+        <item name="layout_constraintStart_toEndOf">@id/ivCalculatorIcon</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintVertical_chainStyle">packed</item>
+    </style>
+
+    <style name="CalculatorMenuDescription">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/dp_10</item>
+        <item name="android:layout_marginTop">@dimen/dp_4</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toStartOf">@id/ivCalculatorArrow</item>
+        <item name="layout_constraintStart_toEndOf">@id/ivCalculatorIcon</item>
+        <item name="layout_constraintTop_toBottomOf">@id/tvCalculatorTitle</item>
+    </style>
+
+    <style name="CalculatorMenuArrow">
+        <item name="android:layout_width">@dimen/dp_20</item>
+        <item name="android:layout_height">@dimen/dp_20</item>
+        <item name="android:contentDescription">@null</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+</resources>

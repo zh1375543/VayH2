@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToOutline="true"
+    app:cardBackgroundColor="@color/surface_primary"
+    app:cardCornerRadius="@dimen/dp_16"
+    app:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_450">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLeftCoin"
+            android:layout_width="@dimen/dp_79"
+            android:layout_height="@dimen/dp_66"
+            android:layout_marginTop="@dimen/dp_116"
+            android:importantForAccessibility="no"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/icon_credit_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRightCoin"
+            android:layout_width="@dimen/dp_85"
+            android:layout_height="@dimen/dp_89"
+            android:layout_marginTop="@dimen/dp_102"
+            android:elevation="@dimen/dp_1"
+            android:importantForAccessibility="no"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/icon_credit_right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCreditBottomBackground"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_136"
+            android:importantForAccessibility="no"
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_credit_bottom_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_36"
+            android:layout_marginTop="@dimen/dp_24"
+            android:layout_marginEnd="@dimen/dp_36"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="2"
+            android:text="@string/credit_dialog_title"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAmountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:includeFontPadding="false"
+            android:text="@string/credit_dialog_available_amount"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_28"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAmountLabel"
+            tools:text="500,000,000₫" />
+
+        <TextView
+            android:id="@+id/tvBenefitsTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_208"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:includeFontPadding="false"
+            android:text="@string/credit_dialog_benefits_title"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.novexa.platform.core.ui.component.StyledTextView
+            android:id="@+id/tvStepOne"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_18"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="1"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBenefitsTitle"
+            app:radius="@dimen/dp_12"
+            app:solidColor="@color/credit_dialog_badge" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:text="@string/credit_dialog_fast_application"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/tvStepOne"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvStepOne"
+            app:layout_constraintTop_toTopOf="@id/tvStepOne" />
+
+        <com.novexa.platform.core.ui.component.StyledTextView
+            android:id="@+id/tvStepTwo"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="2"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/tvStepOne"
+            app:layout_constraintTop_toBottomOf="@id/tvStepOne"
+            app:radius="@dimen/dp_12"
+            app:solidColor="@color/credit_dialog_badge" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:text="@string/credit_dialog_quick_review"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/tvStepTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvStepTwo"
+            app:layout_constraintTop_toTopOf="@id/tvStepTwo" />
+
+        <com.novexa.platform.core.ui.component.StyledTextView
+            android:id="@+id/tvStepThree"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="3"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/tvStepOne"
+            app:layout_constraintTop_toBottomOf="@id/tvStepTwo"
+            app:radius="@dimen/dp_12"
+            app:solidColor="@color/credit_dialog_badge" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="@string/credit_dialog_funds_after_approval"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/tvStepThree"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvStepThree"
+            app:layout_constraintTop_toTopOf="@id/tvStepThree" />
+
+        <com.novexa.platform.core.ui.component.StyledTextView
+            android:id="@+id/btnWithdraw"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_18"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/withdraw_now"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:gradientEndColor="@color/credit_dialog_button_end"
+            app:gradientOrientation="LEFT_RIGHT"
+            app:gradientStartColor="@color/brand_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStepThree"
+            app:radius="@dimen/dp_16" />
+
+        <TextView
+            android:id="@+id/tvLater"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_32"
+            android:layout_marginTop="@dimen/dp_6"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:minWidth="@dimen/dp_64"
+            android:text="@string/credit_dialog_later"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnWithdraw" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

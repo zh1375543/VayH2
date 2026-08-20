@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/page_bg_color1"
+    android:layout_height="match_parent">
+
+    <com.novexa.platform.core.ui.component.PageHeaderView
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerText="@string/settings"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="@dimen/dp_52"
+            android:layout_height="@dimen/dp_52"
+            android:layout_marginTop="@dimen/dp_75"
+            android:padding="@dimen/dp_2"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/Round_8" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_6"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_3"
+            android:gravity="center"
+            android:text="1.0"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+        <com.novexa.platform.core.ui.component.StyledTextView
+            android:id="@+id/tvCloseAccount"
+            style="@style/SettingsMenuItem"
+            android:layout_marginTop="@dimen/dp_52"
+            android:text="@string/close_account"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvVersion" />
+
+        <com.novexa.platform.core.ui.component.StyledTextView
+            android:id="@+id/tvFeedback"
+            style="@style/SettingsMenuItem"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/feedback"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCloseAccount" />
+
+        <com.novexa.platform.core.ui.component.StatefulActionButton
+            android:id="@+id/tvLogout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginHorizontal="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dp_24"
+            android:gravity="center"
+            android:text="@string/logout"
+            app:buttonStrokeWidth="@dimen/dp_1"
+            app:buttonStrokeColor="@color/brand_primary"
+            app:buttonSolidColor="@color/text_inverse"
+            app:buttonTextColor="@color/brand_primary"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

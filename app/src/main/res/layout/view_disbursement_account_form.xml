@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <com.novexa.platform.core.ui.component.StyledLinearLayout
+        android:id="@+id/disbursementMethodCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_10"
+        app:radius="@dimen/dp_12"
+        app:solidColor="@color/text_inverse">
+
+        <com.novexa.platform.core.ui.component.StyledTextView
+            style="@style/TypeTag"
+            android:text="@string/bank_card" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:text="@string/bank_tips"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_12" />
+
+        <com.novexa.platform.core.ui.component.FormItemView
+            android:id="@+id/disbursementMethodField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            app:errorText="@string/select_withdraw_method"
+            app:formType="select"
+            app:hintText="@string/please_select"
+            app:titleText="@string/withdraw_method" />
+
+        <LinearLayout
+            android:id="@+id/bankDetailsSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <com.novexa.platform.core.ui.component.FormItemView
+                android:id="@+id/bankSelectorField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorText="@string/please_choose_current_info"
+                app:formType="select"
+                app:hintText="@string/please_choose"
+                app:titleText="@string/please_choose_bank" />
+
+            <com.novexa.platform.core.ui.component.FormItemView
+                android:id="@+id/accountHolderField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorText="@string/please_enter_holder_name"
+                app:formType="input"
+                app:hintText="@string/please_enter_holder_name"
+                app:inputType="text"
+                app:titleText="@string/cardholder_name" />
+
+            <com.novexa.platform.core.ui.component.FormItemView
+                android:id="@+id/bankAccountNumberField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorText="@string/please_enter_bank_account"
+                app:formType="input"
+                app:hintText="@string/please_enter_bank_account"
+                app:inputType="number"
+                app:titleText="@string/bank_account" />
+
+            <com.novexa.platform.core.ui.component.FormItemView
+                android:id="@+id/bankAccountConfirmationField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorText="@string/bank_account_not_match"
+                app:formType="input"
+                app:hintText="@string/please_enter_bank_account"
+                app:inputType="number"
+                app:titleText="@string/confirm_bank_account" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/walletDetailsSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <com.novexa.platform.core.ui.component.FormItemView
+                android:id="@+id/walletProviderField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorText="@string/please_choose_wallet"
+                app:formType="select"
+                app:hintText="@string/please_choose"
+                app:titleText="@string/e_wallet" />
+
+            <com.novexa.platform.core.ui.component.FormItemView
+                android:id="@+id/walletAccountNumberField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorText="@string/please_enter_wallet_account"
+                app:formType="input"
+                app:hintText="@string/please_enter_wallet_account"
+                app:inputType="number"
+                app:titleText="@string/account_number" />
+
+            <com.novexa.platform.core.ui.component.FormItemView
+                android:id="@+id/walletAccountConfirmationField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorText="@string/wallet_account_not_match"
+                app:formType="input"
+                app:hintText="@string/please_enter_wallet_account"
+                app:inputType="number"
+                app:titleText="@string/confirm_account_number" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_18" />
+        </LinearLayout>
+    </com.novexa.platform.core.ui.component.StyledLinearLayout>
+</LinearLayout>

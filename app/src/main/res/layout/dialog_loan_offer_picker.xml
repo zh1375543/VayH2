@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:paddingHorizontal="@dimen/dp_20">
+
+    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_96"
+        android:layout_marginTop="@dimen/dp_45"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius="@dimen/dp_12"
+        app:solidColor="@color/brand_primary">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_100"
+            android:gravity="start|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="2"
+            android:text="@string/home_product_num"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Congratulations on getting 2 new products!" />
+
+    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivProductNew"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_94"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:importantForAccessibility="no"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/icon_new_product"
+        app:layout_constraintEnd_toEndOf="@id/headerLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:radius="@dimen/dp_12"
+        app:solidColor="@color/text_inverse">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProduct"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:nestedScrollingEnabled="true"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="@dimen/dp_180"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_product_option" />
+
+        <com.novexa.platform.core.ui.component.StatefulActionButton
+            android:id="@+id/tvLoan"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/immediate_loan"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvProduct" />
+
+    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivDataLine"
+        android:layout_width="@dimen/dp_18"
+        android:layout_height="@dimen/dp_52"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:importantForAccessibility="no"
+        android:src="@mipmap/icon_data_line"
+        android:translationY="@dimen/dp_m_20"
+        app:layout_constraintEnd_toEndOf="@id/contentLayout"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivClose"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_20"
+        android:importantForAccessibility="no"
+        android:src="@mipmap/ic_dialog_bottom_close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contentLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

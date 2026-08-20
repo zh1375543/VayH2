@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:radius="@dimen/dp_24"
+    app:solidColor="@color/text_inverse">
+
+    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        android:id="@+id/messageLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius="@dimen/dp_16"
+        app:selectedColor="@color/installment_tip_bg"
+        app:solidColor="@color/aide_color">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:gravity="center"
+            android:text="@string/repay_auto_apply_dialog_title"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_6"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:text="@string/repay_auto_apply_dialog_desc"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_goneMarginTop="@dimen/dp_20" />
+
+        <TextView
+            android:id="@+id/tvHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:text="@string/repay_auto_apply_dialog_hint"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDesc" />
+
+    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+    <com.novexa.platform.core.ui.component.SelectableImageView
+        android:id="@+id/cbUnderstand"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_18"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:padding="0dp"
+        android:src="@mipmap/icon_account_unselect"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/messageLayout"
+        app:srcSelected="@mipmap/icon_account_select" />
+
+    <TextView
+        android:id="@+id/tvUnderstand"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_6"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:text="@string/repay_auto_apply_dialog_understand"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintBottom_toBottomOf="@id/cbUnderstand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cbUnderstand"
+        app:layout_constraintTop_toTopOf="@id/cbUnderstand" />
+
+    <com.novexa.platform.core.ui.component.StatefulActionButton
+        android:id="@+id/btnApply"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:text="@string/repay_auto_apply"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        app:buttonSolidColor="@color/brand_primary"
+        app:buttonTextColor="@color/text_inverse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbUnderstand"
+        tools:text="Repay &amp; Auto-Apply" />
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

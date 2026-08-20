@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/dp_20"
+    android:gravity="center"
+    android:orientation="vertical"
+    app:radius="@dimen/dp_24"
+    app:gradientStartColor="@color/text_inverse"
+    app:gradientEndColor="@color/text_inverse"
+    app:gradientOrientation="TOP_BOTTOM">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:gravity="center"
+        android:text="@string/new_version"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_28"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:gravity="center"
+        android:textColor="@color/text_secondary"
+        android:text="@string/new_version_desc"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/update_img"
+        android:layout_width="wrap_content"
+        android:src="@mipmap/icon_update_img"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+        android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvOK"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginHorizontal="@dimen/dp_34"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_15"
+        style="@style/mainButton"
+        android:text="@string/update"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/update_img" />
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

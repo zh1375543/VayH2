@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/page_bg_color1"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/outcomeBackgroundBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/dp_450" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivOutcomeBackground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@mipmap/image_verify_success_bg"
+        app:layout_constraintBottom_toTopOf="@id/outcomeBackgroundBottom"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/pageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pageContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivFail"
+                android:layout_width="@dimen/dp_102"
+                android:layout_height="@dimen/dp_102"
+                android:layout_marginTop="@dimen/dp_8"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/icon_apply_fail"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivSuccess"
+                android:layout_width="@dimen/dp_102"
+                android:layout_height="@dimen/dp_102"
+                android:layout_marginTop="@dimen/dp_8"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/icon_apply_ok"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                android:id="@+id/success_layout"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_118"
+                android:layout_marginHorizontal="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivSuccess">
+
+                <TextView
+                    android:id="@+id/tvApplySuccessTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="@dimen/dp_2"
+                    android:text="@string/application_submit_title"
+                    android:textColor="@color/text_inverse"
+                    android:textSize="@dimen/sp_24"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/tvApplySuccessDesc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tvApplySuccessDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:gravity="center"
+                    android:text="@string/application_submit_desc"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="@dimen/sp_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvApplySuccessTitle" />
+
+            </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fail_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_12"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivFail">
+
+                <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                    android:id="@+id/failCardGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_118"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvApplyFailTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:lineSpacingExtra="@dimen/dp_2"
+                        android:text="@string/submit_failed_title"
+                        android:textColor="@color/status_error"
+                        android:textSize="@dimen/sp_24"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@id/tvApplyFailDesc"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/tvApplyFailDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:gravity="center"
+                        android:text="@string/submit_failed_desc"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="@dimen/sp_12"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvApplyFailTitle" />
+
+                </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+                <com.novexa.platform.core.ui.component.StyledTextView
+                    android:id="@+id/tvLoanResultTip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/dp_3"
+                    android:paddingHorizontal="@dimen/dp_20"
+                    android:paddingVertical="@dimen/dp_16"
+                    android:text="@string/loan_result"
+                    android:textColor="@color/text_body"
+                    android:textSize="@dimen/sp_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/failCardGroup"
+                    app:radius="@dimen/dp_16"
+                    app:solidColor="@color/text_inverse" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/outcomeCardBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="success_layout,fail_layout" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/outcomeScrollView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:fillViewport="true"
+                android:overScrollMode="never"
+                android:paddingBottom="@dimen/dp_16"
+                app:layout_constraintBottom_toTopOf="@id/tvWithdrawal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/outcomeCardBarrier">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                        android:id="@+id/resultsCard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:paddingHorizontal="@dimen/dp_16"
+                        android:paddingBottom="@dimen/dp_12"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible">
+
+                        <com.novexa.platform.core.ui.component.StyledRecyclerView
+                            android:id="@+id/rvProduct"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            android:orientation="vertical"
+                            android:overScrollMode="never"
+                            android:paddingHorizontal="@dimen/dp_20"
+                            android:paddingVertical="@dimen/dp_6"
+                            android:visibility="gone"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toTopOf="@id/cashableProductLayout"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:itemCount="4"
+                            tools:listitem="@layout/item_application_status"
+                            tools:visibility="visible"
+                            app:radius="@dimen/dp_16"
+                            app:solidColor="@color/surface_secondary" />
+
+                        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                            android:id="@+id/cashableProductLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/rvProduct"
+                            app:radius="@dimen/dp_16"
+                            app:solidColor="@color/aide_color"
+                            tools:visibility="visible">
+
+                            <com.novexa.platform.core.ui.component.DecoratedTitleView
+                                android:id="@+id/tvRecommendTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_10"
+                                app:decoratedTitleIcon="@mipmap/ic_state_img"
+                                app:decoratedTitleText="@string/products"
+                                app:decoratedTitleTextColor="@color/text_primary"
+                                app:decoratedTitleTextSize="@dimen/sp_16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvCashableProduct"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/dp_16"
+                                android:nestedScrollingEnabled="false"
+                                android:orientation="vertical"
+                                android:overScrollMode="never"
+                                android:paddingBottom="@dimen/dp_12"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvRecommendTitle"
+                                tools:itemCount="2"
+                                tools:listitem="@layout/item_home_product" />
+
+                        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+                    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <com.novexa.platform.core.ui.component.StyledTextView
+                android:id="@+id/tvWithdrawal"
+                style="@style/mainButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:layout_marginHorizontal="@dimen/dp_24"
+                android:layout_marginBottom="@dimen/dp_25"
+                android:text="@string/withdrawl_all"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.novexa.platform.core.ui.component.PageStateOverlayView
+            android:id="@+id/pageState"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true" />
+    </FrameLayout>
+
+    <com.novexa.platform.core.ui.component.PageHeaderView
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/dp_8"
+        app:navigationIconColor="@color/text_inverse"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

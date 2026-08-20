@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_12"
+    android:paddingHorizontal="@dimen/dp_16"
+    android:paddingTop="@dimen/dp_16"
+    android:paddingBottom="@dimen/dp_14"
+    app:radius="@dimen/dp_16"
+    app:solidColor="@color/aide_color">
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tvProductName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Pending repayment" />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="end"
+        android:maxLines="1"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/tvStatus"
+        app:layout_constraintTop_toTopOf="@id/tvStatus"
+        tools:text="Product name" />
+
+    <View
+        android:id="@+id/amountLayout"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/text_inverse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatus" />
+
+    <TextView
+        android:id="@+id/tvLoanAmount"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toStartOf="@id/tvAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/amountLayout"
+        tools:text="Loan Amount" />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_24"
+        android:ellipsize="end"
+        android:gravity="center_vertical|end"
+        android:maxLines="1"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvLoanAmount"
+        tools:text="₱20,000,000" />
+
+    <TextView
+        android:id="@+id/tvLoanPeriod"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_24"
+        android:gravity="center_vertical"
+        android:text="@string/loan_period"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toStartOf="@id/tvDays"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLoanAmount" />
+
+    <TextView
+        android:id="@+id/tvDays"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_24"
+        android:ellipsize="end"
+        android:gravity="center_vertical|end"
+        android:maxLines="1"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvLoanPeriod"
+        tools:text="91 days" />
+
+    <TextView
+        android:id="@+id/tvDateTitle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_24"
+        android:gravity="center_vertical"
+        android:text="@string/due_date"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toStartOf="@id/tvDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLoanPeriod" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_24"
+        android:ellipsize="end"
+        android:gravity="center_vertical|end"
+        android:maxLines="1"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvDateTitle"
+        tools:text="05/12/2014" />
+
+    <TextView
+        android:id="@+id/tvStatusTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDateTitle" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/statusValueLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDateTitle">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivArrow"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

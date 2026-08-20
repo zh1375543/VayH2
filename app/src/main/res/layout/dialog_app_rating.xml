@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dp_30"
+    app:left_top_radius="@dimen/dp_24"
+    app:right_top_radius="@dimen/dp_24"
+    app:solidColor="@color/text_inverse">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_20"
+        android:gravity="center"
+        android:text="@string/rate_title"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_18"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_8"
+        app:layout_constraintBottom_toBottomOf="@id/finger"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:radius="@dimen/dp_16"
+        app:solidColor="@color/surface_secondary" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_28"
+        android:layout_marginTop="@dimen/dp_20"
+        android:gravity="center"
+        android:text="@string/rate_content"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="normal"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <LinearLayout
+        android:id="@+id/ratingActionContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_74"
+        android:layout_marginTop="@dimen/dp_28"
+        android:layout_marginEnd="@dimen/dp_28"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc">
+
+        <com.novexa.platform.core.ui.component.StyledLinearLayout
+            android:id="@+id/rate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_48"
+            app:gradientStartColor="@color/brand_primary"
+            app:gradientEndColor="@color/brand_primary"
+            app:radius="@dimen/dp_6"
+            app:gradientOrientation="LEFT_RIGHT"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dp_20">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:src="@mipmap/icon_review_star" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:src="@mipmap/icon_review_star" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:src="@mipmap/icon_review_star" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:src="@mipmap/icon_review_star" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/dp_16"
+                android:src="@mipmap/icon_review_star" />
+        </com.novexa.platform.core.ui.component.StyledLinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/very_sat"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvRatingQuote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_28"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:text="@string/rate_name"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_12"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toStartOf="@id/ratingActionContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ratingActionContainer" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/finger"
+        android:layout_width="@dimen/dp_49"
+        android:layout_height="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_m_40"
+        android:src="@mipmap/icon_review_tap"
+        app:layout_constraintStart_toEndOf="@id/tvRatingQuote"
+        app:layout_constraintTop_toBottomOf="@id/ratingActionContainer" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_12"
+        android:src="@mipmap/icon_rate_img"
+        app:layout_constraintDimensionRatio="343:168"
+        app:layout_constraintTop_toBottomOf="@id/finger" />
+
+    <TextView
+        android:id="@+id/btnRatingDecline"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:gravity="center"
+        android:text="@string/no"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivBg" />
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

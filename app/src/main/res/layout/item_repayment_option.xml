@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contentView"
+    android:layout_width="@dimen/dp_91"
+    android:layout_height="@dimen/dp_103"
+    android:layout_marginEnd="@dimen/dp_6"
+    app:radius="@dimen/dp_8"
+    app:selectedColor="@color/surface_secondary"
+    app:selectedStrokeColor="@color/brand_primary"
+    app:solidColor="@color/surface_secondary"
+    app:strokeColor="@color/transparent"
+    app:strokeWidth="@dimen/dp_1">
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvNum1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_22"
+        android:duplicateParentState="false"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/dp_7"
+        android:text="@string/phase"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:left_top_radius="@dimen/dp_8"
+        app:right_top_radius="@dimen/dp_8"
+        app:selectedColor="@color/brand_primary"
+        app:solidColor="@color/border_default"
+        app:textColorSelected="@color/text_inverse" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvPeriod1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_2"
+        android:layout_marginTop="@dimen/dp_5"
+        android:gravity="center"
+        android:text="@string/loan_period"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNum1"
+        app:textColorSelected="@color/text_body" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvPeriodDays1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_2"
+        android:layout_marginTop="@dimen/dp_2"
+        android:gravity="center"
+        android:text="1 Days"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_11"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPeriod1"
+        app:textColorSelected="@color/text_primary" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvFirst"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_2"
+        android:layout_marginTop="@dimen/dp_7"
+        android:gravity="center"
+        android:text="@string/first_repayment"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPeriodDays1"
+        app:textColorSelected="@color/text_body" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvAmount1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_3"
+        android:layout_marginBottom="@dimen/dp_9"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="5,000"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_10"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFirst"
+        app:textColorSelected="@color/text_primary" />
+
+    <com.novexa.platform.core.ui.component.StyledTextView
+        android:id="@+id/tvNoInstall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_2"
+        android:gravity="center"
+        android:text="@string/no_installment"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/sp_11"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPeriodDays1"
+        app:textColorSelected="@color/text_body" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/firstRepaymentContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tvFirst,tvAmount1" />
+
+</com.novexa.platform.core.ui.component.StyledConstraintLayout>

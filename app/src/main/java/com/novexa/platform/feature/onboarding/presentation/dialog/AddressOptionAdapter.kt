@@ -1,0 +1,62 @@
+package com.novexa.platform.feature.onboarding.presentation.dialog
+
+import androidx.core.content.ContextCompat
+import androidx.core.view.isInvisible
+import com.novexa.platform.R
+import com.novexa.platform.core.common.data.bean.SelectionOption
+import com.novexa.platform.core.ui.base.BaseAdapter
+import com.novexa.platform.databinding.ItemAddressOptionBinding
+import java.util.Locale
+
+internal class AddressOptionAdapter :
+    BaseAdapter<SelectionOption, ItemAddressOptionBinding>(ItemAddressOptionBinding::inflate) {
+
+    private var selectedPosition = -1
+
+    override fun bindItem(
+        binding: ItemAddressOptionBinding,
+        item: SelectionOption,
+        position: Int,
+    ) = with(binding) {
+        val sectionLetter = addressInitial(item.info)
+        val previousLetter = items.getOrNull(position - 1)?.let { addressInitial(it.info) }
+        tvSectionLetter.text = sectionLetter.toString()
+        tvSectionLetter.isInvisible = position > 0 && sectionLetter == previousLetter
+        tvName.text = item.info
+        tvName.setTextColor(
+            ContextCompat.getColor(
+                context,
+                if (position == selectedPosition) R.color.brand_primary else R.color.text_body,
+            ),
+        )
+    }
+
+    fun select(position: Int) {
+        if (position !in items.indices || position == selectedPosition) return
+        val previousPosition = selectedPosition
+        selectedPosition = position
+        if (previousPosition in items.indices) notifyItemChanged(previousPosition)
+        notifyItemChanged(selectedPosition)
+    }
+
+    fun resetSelection() {
+        selectedPosition = -1
+    }
+}
+
+internal fun sortAddressOptions(items: List<SelectionOption>): List<SelectionOption> =
+    items.sortedWith(
+        compareBy<SelectionOption>(
+            { if (addressInitial(it.info) == '#') 1 else 0 },
+            { addressInitial(it.info) },
+            { sortableAddressName(it.info) },
+        ),
+    )
+
+internal fun addressInitial(name: String): Char {
+    val initial = sortableAddressName(name).firstOrNull { it.isLetter() } ?: return '#'
+    return initial.takeIf { it in 'A'..'Z' } ?: '#'
+}
+
+private fun sortableAddressName(name: String): String =
+    name.trim().uppercase(Locale.ENGLISH)

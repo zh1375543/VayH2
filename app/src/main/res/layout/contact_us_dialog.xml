@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        android:id="@+id/cardLayout"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:gradientEndColor="@color/text_inverse"
+        app:gradientOrientation="TOP_BOTTOM"
+        app:gradientStartColor="@color/aide_color"
+        app:radius="@dimen/dp_12"
+        app:strokeColor="@color/brand_primary"
+        app:strokeWidth="@dimen/dp_2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivCustomer"
+        android:layout_width="@dimen/dp_88"
+        android:layout_height="@dimen/dp_74"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/icon_dialog_contact"
+        app:layout_constraintEnd_toEndOf="@id/cardLayout"
+        app:layout_constraintTop_toTopOf="@id/cardLayout" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_22"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:gravity="start"
+        android:text="@string/contact_us"
+        android:textColor="@color/brand_primary"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/ivCustomer"
+        app:layout_constraintStart_toStartOf="@id/cardLayout"
+        app:layout_constraintTop_toTopOf="@id/cardLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCustomer"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/cardLayout"
+        app:layout_constraintStart_toStartOf="@id/cardLayout"
+        app:layout_constraintTop_toBottomOf="@id/ivCustomer"
+        tools:itemCount="2"
+        tools:listitem="@layout/item_support_contact" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
