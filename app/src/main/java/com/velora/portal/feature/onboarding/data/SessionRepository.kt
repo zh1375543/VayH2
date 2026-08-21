@@ -3,7 +3,7 @@ package com.velora.portal.feature.onboarding.data
 import android.os.Build
 import com.appsflyer.AppsFlyerLib
 import com.velora.portal.BuildConfig
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.core.common.data.appFlyer
 import com.velora.portal.core.common.data.bean.ApiRequest
 import com.velora.portal.core.common.data.firebaseId

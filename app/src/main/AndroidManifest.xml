@@ -58,7 +58,7 @@
         tools:node="remove" />
 
     <application
-        android:name=".app.MainApplication"
+        android:name=".application.MainApplication"
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -83,7 +83,7 @@
         </provider>
 
         <service
-            android:name=".app.push.PushService"
+            android:name=".application.push.PushService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -91,7 +91,7 @@
         </service>
 
         <activity
-            android:name=".app.LaunchActivity"
+            android:name=".application.LaunchActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -102,7 +102,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.MainActivity"
+            android:name=".application.MainActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"

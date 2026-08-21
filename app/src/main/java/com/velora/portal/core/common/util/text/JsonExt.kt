@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.core.common.util.LogUtil
 import java.io.File
 

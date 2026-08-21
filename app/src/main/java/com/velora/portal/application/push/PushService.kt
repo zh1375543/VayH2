@@ -1,4 +1,4 @@
-package com.velora.portal.app.push
+package com.velora.portal.application.push
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -12,7 +12,7 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.velora.portal.R
-import com.velora.portal.app.LaunchActivity
+import com.velora.portal.application.LaunchActivity
 
 class PushService : FirebaseMessagingService() {
 

@@ -13,7 +13,7 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.R
 import com.velora.portal.core.ui.base.BaseActivity
 import com.velora.portal.core.common.data.ACT_InputPhoneNumberEnd
@@ -35,7 +35,7 @@ import com.velora.portal.databinding.ActivityAccountAccessBinding
 import com.velora.portal.feature.content.presentation.ContentBrowserActivity
 import com.velora.portal.core.ui.extension.setSpannableClickableTexts
 import com.velora.portal.core.ui.extension.singleClick
-import com.velora.portal.app.MainNavigator
+import com.velora.portal.application.MainNavigator
 import com.velora.portal.core.ui.dialog.showConfirmDialog
 import com.velora.portal.calculation.CalculationActivity
 import com.velora.portal.feature.dashboard.presentation.VisitorPortalViewModel

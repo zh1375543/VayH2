@@ -14,7 +14,7 @@ import com.velora.portal.R
 import com.velora.portal.core.ui.base.BaseDialog
 import com.velora.portal.databinding.DialogNoActiveRepaymentBinding
 import com.velora.portal.databinding.DialogRepayAndReapplyBinding
-import com.velora.portal.app.MainActivity
+import com.velora.portal.application.MainActivity
 import com.velora.portal.core.ui.extension.singleClick
 import com.velora.portal.core.ui.component.StatefulActionButton
 import com.velora.portal.core.common.util.showToastMessage

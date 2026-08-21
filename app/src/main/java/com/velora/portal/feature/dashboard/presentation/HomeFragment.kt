@@ -25,7 +25,7 @@ import com.velora.portal.feature.catalog.presentation.ProductOptionsViewModel
 import com.velora.portal.feature.onboarding.model.VerificationProgressResponse
 import com.velora.portal.feature.dashboard.model.VisitorPortalResponse
 import com.velora.portal.feature.catalog.model.CatalogItemBean
-import com.velora.portal.app.MainActivity
+import com.velora.portal.application.MainActivity
 import com.velora.portal.feature.support.presentation.FeedbackViewModel
 import com.velora.portal.feature.dashboard.presentation.adapter.LoanCatalogAdapter
 import com.velora.portal.feature.dashboard.presentation.state.HomeEffect

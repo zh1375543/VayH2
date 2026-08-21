@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.R
 import com.velora.portal.core.ui.base.BaseActivity
 import com.velora.portal.core.common.data.ACT_clickNext

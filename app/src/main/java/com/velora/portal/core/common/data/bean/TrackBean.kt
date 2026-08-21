@@ -2,7 +2,7 @@ package com.velora.portal.core.common.data.bean
 
 import com.velora.portal.BuildConfig
 import com.velora.portal.R
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.core.common.data.afSource
 import com.velora.portal.core.common.data.gaId
 import com.velora.portal.core.common.data.refer

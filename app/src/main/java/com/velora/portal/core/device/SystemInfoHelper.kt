@@ -1,6 +1,6 @@
 package com.velora.portal.core.device
 
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.core.common.data.gaId
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

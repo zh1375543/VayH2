@@ -9,7 +9,7 @@ import android.provider.Settings
 import android.telephony.SubscriptionManager
 import android.telephony.TelephonyManager
 import androidx.core.app.ActivityCompat
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import java.io.File
 import java.util.UUID
 

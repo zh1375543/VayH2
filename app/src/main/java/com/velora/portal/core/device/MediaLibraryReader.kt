@@ -4,7 +4,7 @@ import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import org.json.JSONArray
 import org.json.JSONObject
 

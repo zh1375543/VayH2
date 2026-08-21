@@ -6,7 +6,7 @@ import android.os.Build
 import android.provider.CallLog
 import androidx.core.app.ActivityCompat
 import com.velora.portal.BuildConfig
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.core.common.data.APPCODE
 import com.velora.portal.core.common.data.gaId
 import com.velora.portal.core.common.util.encodeBase64

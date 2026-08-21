@@ -1,6 +1,6 @@
 package com.velora.portal.core.common.util.loanevent
 
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import java.io.File
 import java.io.FileWriter
 import java.io.IOException

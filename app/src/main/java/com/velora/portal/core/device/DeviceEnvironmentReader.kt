@@ -15,7 +15,7 @@ import android.os.SystemClock
 import android.provider.Settings
 import android.text.TextUtils
 import android.view.WindowManager
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader

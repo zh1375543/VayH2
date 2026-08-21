@@ -4,7 +4,7 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.provider.Telephony
 import androidx.core.content.ContextCompat
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import org.json.JSONArray
 import org.json.JSONObject
 

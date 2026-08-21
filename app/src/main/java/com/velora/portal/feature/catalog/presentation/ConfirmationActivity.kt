@@ -5,7 +5,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.R
 import com.velora.portal.feature.onboarding.presentation.login.AccessSessionViewModel
 import com.velora.portal.core.ui.base.BaseActivity
@@ -17,7 +17,7 @@ import com.velora.portal.core.session.SessionStore
 import com.velora.portal.core.common.data.signBackHome
 import com.velora.portal.databinding.ActivityAgreementSignatureBinding
 import com.velora.portal.feature.catalog.model.CatalogItemBean
-import com.velora.portal.app.MainActivity
+import com.velora.portal.application.MainActivity
 import com.velora.portal.core.ui.extension.singleClick
 import com.velora.portal.core.ui.component.SignatureView
 import com.velora.portal.core.common.util.loanevent.LoanEvent

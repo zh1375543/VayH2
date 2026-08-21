@@ -8,7 +8,7 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.provider.ContactsContract
 import androidx.lifecycle.LifecycleCoroutineScope
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay

@@ -5,7 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import androidx.core.net.toUri
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.core.common.data.ACT_copy
 import com.velora.portal.core.common.data.PageAll
 import com.velora.portal.core.common.data.bean.TrackBean

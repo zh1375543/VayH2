@@ -3,7 +3,7 @@ package com.velora.portal.core.common.util
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import androidx.core.content.edit
 
 object SPUtil {

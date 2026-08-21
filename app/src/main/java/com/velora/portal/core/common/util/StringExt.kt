@@ -6,7 +6,7 @@ import android.text.Html
 import android.text.Spanned
 import android.util.Base64
 import android.widget.Toast
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import java.security.MessageDigest
 
 /** String extension functions */

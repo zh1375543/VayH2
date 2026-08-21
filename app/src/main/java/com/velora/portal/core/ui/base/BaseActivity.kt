@@ -19,7 +19,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.core.common.data.ACT_back
 import com.velora.portal.core.common.data.ACT_copy
 import com.velora.portal.core.common.data.ACT_paste
@@ -29,7 +29,7 @@ import com.velora.portal.core.session.SessionStore
 import com.velora.portal.feature.onboarding.presentation.login.AccountAccessActivity
 import com.velora.portal.core.common.util.AppStackUtil
 import com.velora.portal.core.common.util.showToastMessage
-import com.velora.portal.app.LaunchActivity
+import com.velora.portal.application.LaunchActivity
 import com.velora.portal.core.ui.dialog.createLoadingDialog
 import com.velora.portal.core.ui.dialog.createVersionUpdateDialog
 import com.velora.portal.core.ui.component.StyledEditTextView

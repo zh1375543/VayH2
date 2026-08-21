@@ -1,4 +1,4 @@
-package com.velora.portal.app
+package com.velora.portal.application
 
 import com.velora.portal.core.common.data.bean.ApiRequest
 import com.velora.portal.core.common.data.bean.SignatureSecretResponse

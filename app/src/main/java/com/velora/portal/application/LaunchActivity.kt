@@ -1,4 +1,4 @@
-package com.velora.portal.app
+package com.velora.portal.application
 
 import android.content.Intent
 import android.graphics.Color

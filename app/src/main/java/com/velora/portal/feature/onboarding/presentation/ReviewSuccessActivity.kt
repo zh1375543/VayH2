@@ -4,7 +4,7 @@ import androidx.lifecycle.lifecycleScope
 import com.velora.portal.R
 import com.velora.portal.core.ui.base.BaseActivity
 import com.velora.portal.databinding.ActivityVerificationCompleteBinding
-import com.velora.portal.app.MainActivity
+import com.velora.portal.application.MainActivity
 import com.velora.portal.core.common.util.countdownTimer
 import com.velora.portal.core.common.util.context.resolveColorCompat
 import com.velora.portal.core.ui.extension.setClickableTextWithScale

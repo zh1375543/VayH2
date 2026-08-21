@@ -1,7 +1,7 @@
 package com.velora.portal.core.common.util
 
 import com.google.gson.JsonSyntaxException
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 import com.velora.portal.core.common.data.bean.ServiceResponse
 import com.velora.portal.core.common.data.bean.Event
 import com.velora.portal.core.common.data.repository.ServiceResponseException

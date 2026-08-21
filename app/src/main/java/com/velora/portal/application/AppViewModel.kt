@@ -1,4 +1,4 @@
-package com.velora.portal.app
+package com.velora.portal.application
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope

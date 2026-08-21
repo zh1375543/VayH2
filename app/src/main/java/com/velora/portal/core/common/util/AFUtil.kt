@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.appsflyer.AppsFlyerLib
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.velora.portal.BuildConfig
-import com.velora.portal.app.MainApplication
+import com.velora.portal.application.MainApplication
 
 const val LOGIN_VIA_OTP = "Login_Via_OTP" // on login button click
 const val APP_UPGRADE = "App_Upgrade" // on version update button click
