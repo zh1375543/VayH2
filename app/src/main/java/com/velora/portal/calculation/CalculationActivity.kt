@@ -16,7 +16,7 @@ import com.velora.portal.calculation.fragment.CalculationTipsFragment
 import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.databinding.SidepageMainActivityBinding
-import com.velora.portal.feature.onboarding.presentation.login.AccountAccessActivity
+import com.velora.portal.journey.access.presentation.login.AccountAccessActivity
 import com.velora.portal.platform.common.util.viewBinding
 import com.velora.portal.platform.common.util.showToastMessage
 

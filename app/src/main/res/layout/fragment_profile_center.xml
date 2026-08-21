@@ -8,7 +8,7 @@
     android:clipToPadding="false"
     android:fillViewport="true"
     android:overScrollMode="never"
-    tools:context="com.velora.portal.feature.profile.presentation.ProfileCenterFragment">
+    tools:context="com.velora.portal.journey.account.profile.presentation.ProfileCenterFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

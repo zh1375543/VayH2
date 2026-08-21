@@ -5,9 +5,9 @@ import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.databinding.SidepageAccountDeletionActivityBinding
-import com.velora.portal.feature.profile.presentation.LogoutSuccessActivity
+import com.velora.portal.journey.account.profile.presentation.LogoutSuccessActivity
 import com.velora.portal.platform.design.extension.singleClick
-import com.velora.portal.feature.onboarding.presentation.login.AccessSessionViewModel
+import com.velora.portal.journey.access.presentation.login.AccessSessionViewModel
 import com.velora.portal.platform.common.util.maskPhoneNumber
 import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.viewBinding

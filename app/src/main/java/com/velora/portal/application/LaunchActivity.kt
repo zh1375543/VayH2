@@ -6,7 +6,7 @@ import android.os.Build
 import android.os.SystemClock
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.lifecycleScope
-import com.velora.portal.feature.onboarding.presentation.login.AccountAccessActivity
+import com.velora.portal.journey.access.presentation.login.AccountAccessActivity
 import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.platform.common.data.ACT_inApp
 import com.velora.portal.platform.telemetry.analytics.AnalyticsTracker

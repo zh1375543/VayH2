@@ -595,7 +595,7 @@
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="homeTicketCard,rejectionStatusPanel,reviewStatusPanel" />
 
-        <com.velora.portal.feature.dashboard.presentation.component.BannerView
+        <com.velora.portal.journey.lending.dashboard.presentation.component.BannerView
             android:id="@+id/campaignBanner"
             android:layout_width="0dp"
             android:layout_height="0dp"

@@ -14,7 +14,7 @@ import com.velora.portal.platform.common.util.maskPhoneNumber
 import com.velora.portal.platform.common.util.showToastMessage
 import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.viewBinding
-import com.velora.portal.feature.content.presentation.ContentBrowserActivity
+import com.velora.portal.platform.browser.presentation.ContentBrowserActivity
 
 /** Account page for the calculation experience. */
 class CalculationAccountFragment : BaseFragment<SidepageMineFragmentBinding>(

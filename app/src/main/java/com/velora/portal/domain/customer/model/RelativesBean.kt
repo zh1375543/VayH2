@@ -1,0 +1,7 @@
+package com.velora.portal.domain.customer.model
+
+data class RelativesBean(
+    val relatives: Int?,
+    val relativesName: String? = null,
+    val relativesMobile: String? = null,
+)

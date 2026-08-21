@@ -5,7 +5,7 @@
     android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.velora.portal.feature.dashboard.presentation.HomeFragment">
+    tools:context="com.velora.portal.journey.lending.dashboard.presentation.HomeFragment">
 
     <FrameLayout
         android:id="@+id/page_container"

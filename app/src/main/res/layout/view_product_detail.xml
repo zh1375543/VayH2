@@ -9,7 +9,7 @@
     app:radius="@dimen/dp_24"
     app:solidColor="@color/surface_primary">
 
-    <com.velora.portal.feature.catalog.presentation.component.LoanProductDetailsView
+    <com.velora.portal.journey.lending.catalog.presentation.component.LoanProductDetailsView
         android:id="@+id/productDetailsView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.feature.catalog.presentation.component.RepaymentPlanView
+    <com.velora.portal.journey.lending.catalog.presentation.component.RepaymentPlanView
         android:id="@+id/repaymentPlanView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

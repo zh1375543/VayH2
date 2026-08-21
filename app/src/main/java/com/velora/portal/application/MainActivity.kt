@@ -20,18 +20,18 @@ import com.velora.portal.platform.common.data.ACT_exit
 import com.velora.portal.platform.common.data.ACT_in
 import com.velora.portal.platform.common.data.PageExit
 import com.velora.portal.platform.common.data.authConfigList
-import com.velora.portal.feature.inbox.presentation.InboxActivity
-import com.velora.portal.feature.catalog.presentation.LoanDashboardViewModel
-import com.velora.portal.feature.onboarding.presentation.AuthStatusViewModel
-import com.velora.portal.feature.dashboard.presentation.VisitorPortalViewModel
-import com.velora.portal.feature.dashboard.presentation.HomeFragment
-import com.velora.portal.feature.profile.presentation.ProfileCenterFragment
-import com.velora.portal.feature.records.presentation.RecordCenterFragment
+import com.velora.portal.journey.communication.inbox.presentation.InboxActivity
+import com.velora.portal.journey.lending.catalog.presentation.LoanDashboardViewModel
+import com.velora.portal.journey.access.presentation.AuthStatusViewModel
+import com.velora.portal.journey.lending.dashboard.presentation.VisitorPortalViewModel
+import com.velora.portal.journey.lending.dashboard.presentation.HomeFragment
+import com.velora.portal.journey.account.profile.presentation.ProfileCenterFragment
+import com.velora.portal.journey.servicing.records.presentation.RecordCenterFragment
 import com.velora.portal.platform.common.util.platform.requireLogin
 import com.velora.portal.platform.design.extension.addStatusBarTopMargin
 import com.velora.portal.platform.common.util.showToastMessage
 import com.velora.portal.platform.design.extension.singleClick
-import com.velora.portal.feature.dashboard.presentation.dialog.showContactUsDialog
+import com.velora.portal.journey.lending.dashboard.presentation.dialog.showContactUsDialog
 import com.velora.portal.platform.common.util.start
 
 import com.velora.portal.platform.common.util.viewBinding

@@ -26,7 +26,7 @@ import com.velora.portal.platform.common.data.ACT_paste
 import com.velora.portal.platform.common.data.PageAll
 import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.platform.session.SessionStore
-import com.velora.portal.feature.onboarding.presentation.login.AccountAccessActivity
+import com.velora.portal.journey.access.presentation.login.AccountAccessActivity
 import com.velora.portal.platform.common.util.AppStackUtil
 import com.velora.portal.platform.common.util.showToastMessage
 import com.velora.portal.application.LaunchActivity

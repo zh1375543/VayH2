@@ -5,13 +5,13 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dp_12">
 
-    <com.velora.portal.feature.catalog.presentation.component.LoanProductSummaryView
+    <com.velora.portal.journey.lending.catalog.presentation.component.LoanProductSummaryView
         android:id="@+id/offerSummaryCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.feature.catalog.presentation.component.SingleProductDetailView
+    <com.velora.portal.journey.lending.catalog.presentation.component.SingleProductDetailView
         android:id="@+id/offerDetailCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

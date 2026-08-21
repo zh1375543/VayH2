@@ -164,7 +164,9 @@
 # Gson accesses fields reflectively. Keep their names after the package refactor so
 # serialized request keys and deserialized response fields remain server-compatible.
 -keep,allowoptimization class com.velora.portal.platform.common.data.bean.** { <fields>; }
--keep,allowoptimization class com.velora.portal.feature.**.model.** { <fields>; }
+-keep,allowoptimization class com.velora.portal.domain.**.model.** { <fields>; }
+-keep,allowoptimization class com.velora.portal.journey.**.model.** { <fields>; }
+-keep,allowoptimization class com.velora.portal.platform.browser.model.** { <fields>; }
 -keep,allowoptimization class com.velora.portal.calculation.model.** { <fields>; }
 
 # AlertDialog (accessed through reflection)

@@ -2,7 +2,7 @@ package com.velora.portal.platform.common.data.bean
 
 import com.velora.portal.BuildConfig
 import com.velora.portal.platform.common.data.APPCODE
-import com.velora.portal.feature.onboarding.model.RelativesBean
+import com.velora.portal.domain.customer.model.RelativesBean
 
 data class ApiRequest(
     val version: String? = BuildConfig.VERSION_NAME,

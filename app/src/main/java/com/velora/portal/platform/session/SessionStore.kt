@@ -1,6 +1,6 @@
 package com.velora.portal.platform.session
 
-import com.velora.portal.feature.onboarding.model.AccessSessionResponse
+import com.velora.portal.domain.customer.model.AccessSessionResponse
 import com.velora.portal.platform.common.util.SPUtil
 import com.velora.portal.platform.common.util.text.parseJson
 import com.velora.portal.platform.common.util.text.toJsonString
