@@ -11,13 +11,13 @@ import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseDialog
+import com.velora.portal.platform.design.base.BaseDialog
 import com.velora.portal.databinding.DialogNoActiveRepaymentBinding
 import com.velora.portal.databinding.DialogRepayAndReapplyBinding
 import com.velora.portal.application.MainActivity
-import com.velora.portal.core.ui.extension.singleClick
-import com.velora.portal.core.ui.component.StatefulActionButton
-import com.velora.portal.core.common.util.showToastMessage
+import com.velora.portal.platform.design.extension.singleClick
+import com.velora.portal.platform.design.component.StatefulActionButton
+import com.velora.portal.platform.common.util.showToastMessage
 
 fun Context.showRepayAndReapplyDialog(
     isDue: Boolean,

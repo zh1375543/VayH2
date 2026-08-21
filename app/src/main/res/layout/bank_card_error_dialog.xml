@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         app:layout_goneMarginTop="@dimen/dp_58"
         tools:text="Your last order failed due to incorrect bankcard information. Please modify your bankcard and resubmit the order." />
 
-    <com.velora.portal.core.ui.component.StatefulActionButton
+    <com.velora.portal.platform.design.component.StatefulActionButton
         android:id="@+id/btnClose"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_44"
@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDesc" />
 
-    <com.velora.portal.core.ui.component.StatefulActionButton
+    <com.velora.portal.platform.design.component.StatefulActionButton
         android:id="@+id/btnSure"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_44"
@@ -53,4 +53,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnClose"
         app:layout_constraintTop_toTopOf="@id/btnClose" />
-</com.velora.portal.core.ui.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.StyledConstraintLayout>

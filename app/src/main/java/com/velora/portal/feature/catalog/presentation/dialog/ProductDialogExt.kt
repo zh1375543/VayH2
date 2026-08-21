@@ -8,18 +8,18 @@ import android.text.style.ForegroundColorSpan
 import androidx.core.view.isVisible
 import com.velora.portal.BuildConfig
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseDialog
-import com.velora.portal.core.ui.base.BaseSheetDialog
-import com.velora.portal.core.common.data.PRODUCT_AGREEMENT
-import com.velora.portal.core.common.util.context.resolveColorCompat
+import com.velora.portal.platform.design.base.BaseDialog
+import com.velora.portal.platform.design.base.BaseSheetDialog
+import com.velora.portal.platform.common.data.PRODUCT_AGREEMENT
+import com.velora.portal.platform.common.util.context.resolveColorCompat
 import com.velora.portal.feature.catalog.model.CatalogItemBean
-import com.velora.portal.core.session.SessionStore
+import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.databinding.DialogAvailableCreditBinding
 import com.velora.portal.databinding.DialogLoanAgreementBinding
 import com.velora.portal.databinding.DialogLoanOfferPickerBinding
 import com.velora.portal.feature.content.presentation.ContentBrowserActivity
 import com.velora.portal.feature.catalog.presentation.adapter.LoanOfferPickerAdapter
-import com.velora.portal.core.ui.extension.singleClick
+import com.velora.portal.platform.design.extension.singleClick
 
 fun Context.showLoanAgreementDialog(
     isTogether: Boolean = false,

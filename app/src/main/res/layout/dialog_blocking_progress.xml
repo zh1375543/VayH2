@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.velora.portal.core.ui.component.StyledLinearLayout
+    <com.velora.portal.platform.design.component.StyledLinearLayout
         android:layout_width="@dimen/dp_100"
         android:layout_height="@dimen/dp_100"
         android:layout_gravity="center"
@@ -13,7 +13,7 @@
         app:radius="@dimen/dp_8"
         app:solidColor="@color/p50_000000">
 
-        <com.velora.portal.core.ui.component.ShapeBounceLoadingView
+        <com.velora.portal.platform.design.component.ShapeBounceLoadingView
             android:layout_width="@dimen/dp_60"
             android:layout_height="@dimen/dp_60" />
 
@@ -28,5 +28,5 @@
             android:textColor="@color/text_inverse"
             android:textSize="@dimen/sp_15"
             android:textStyle="bold" />
-    </com.velora.portal.core.ui.component.StyledLinearLayout>
+    </com.velora.portal.platform.design.component.StyledLinearLayout>
 </FrameLayout>

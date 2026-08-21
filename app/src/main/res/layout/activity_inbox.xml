@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/page_bg_color1">
 
-    <com.velora.portal.core.ui.component.PageHeaderView
+    <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
         app:rightText="@string/read"
         app:centerText="@string/message" />
 
-    <com.velora.portal.core.ui.component.StyledLinearLayout
+    <com.velora.portal.platform.design.component.StyledLinearLayout
         android:id="@+id/notice_layout"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/dp_10"
@@ -27,7 +27,7 @@
         android:paddingHorizontal="@dimen/dp_20"
         app:layout_constraintTop_toBottomOf="@id/titleBar">
 
-        <com.velora.portal.core.ui.component.StyledTextView
+        <com.velora.portal.platform.design.component.StyledTextView
             android:id="@+id/tvOpen"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_24"
@@ -48,7 +48,7 @@
             android:text="@string/open_msg_permission"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/sp_11" />
-    </com.velora.portal.core.ui.component.StyledLinearLayout>
+    </com.velora.portal.platform.design.component.StyledLinearLayout>
 
     <FrameLayout
         android:id="@+id/contentContainer"
@@ -71,7 +71,7 @@
             tools:itemCount="4"
             tools:listitem="@layout/item_notice" />
 
-        <com.velora.portal.core.ui.component.PageStateOverlayView
+        <com.velora.portal.platform.design.component.PageStateOverlayView
             android:id="@+id/pageState"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -13,12 +13,12 @@ import com.velora.portal.calculation.fragment.CalculationAccountFragment
 import com.velora.portal.calculation.fragment.CalculationCalculatorFragment
 import com.velora.portal.calculation.fragment.CalculationHomeFragment
 import com.velora.portal.calculation.fragment.CalculationTipsFragment
-import com.velora.portal.core.ui.base.BaseActivity
-import com.velora.portal.core.session.SessionStore
+import com.velora.portal.platform.design.base.BaseActivity
+import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.databinding.SidepageMainActivityBinding
 import com.velora.portal.feature.onboarding.presentation.login.AccountAccessActivity
-import com.velora.portal.core.common.util.viewBinding
-import com.velora.portal.core.common.util.showToastMessage
+import com.velora.portal.platform.common.util.viewBinding
+import com.velora.portal.platform.common.util.showToastMessage
 
 class CalculationActivity : BaseActivity<SidepageMainActivityBinding>() {
 

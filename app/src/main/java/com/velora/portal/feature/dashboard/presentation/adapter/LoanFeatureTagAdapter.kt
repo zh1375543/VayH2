@@ -1,6 +1,6 @@
 package com.velora.portal.feature.dashboard.presentation.adapter
 
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemHomeTagBinding
 
 class LoanFeatureTagAdapter : BaseAdapter<String, ItemHomeTagBinding>(ItemHomeTagBinding::inflate) {

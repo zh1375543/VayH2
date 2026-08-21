@@ -14,41 +14,41 @@ import androidx.lifecycle.lifecycleScope
 import com.liveness.dflivenesslibrary.liveness.DFSilentLivenessActivity
 import com.velora.portal.R
 import com.velora.portal.application.MainApplication
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.databinding.ActivityDocumentReviewBinding
-import com.velora.portal.core.common.data.ACT_clickBack
-import com.velora.portal.core.common.data.ACT_clickContinue
-import com.velora.portal.core.common.data.ACT_clickNext
-import com.velora.portal.core.common.data.ACT_in
-import com.velora.portal.core.common.data.ACT_uploadBackEnd
-import com.velora.portal.core.common.data.ACT_uploadBackStart
-import com.velora.portal.core.common.data.ACT_uploadFaceEnd
-import com.velora.portal.core.common.data.ACT_uploadFaceStart
-import com.velora.portal.core.common.data.ACT_uploadFrontEnd
-import com.velora.portal.core.common.data.ACT_uploadFrontStart
-import com.velora.portal.core.common.data.PageInfoKyc
-import com.velora.portal.core.common.data.authConfigList
-import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.platform.common.data.ACT_clickBack
+import com.velora.portal.platform.common.data.ACT_clickContinue
+import com.velora.portal.platform.common.data.ACT_clickNext
+import com.velora.portal.platform.common.data.ACT_in
+import com.velora.portal.platform.common.data.ACT_uploadBackEnd
+import com.velora.portal.platform.common.data.ACT_uploadBackStart
+import com.velora.portal.platform.common.data.ACT_uploadFaceEnd
+import com.velora.portal.platform.common.data.ACT_uploadFaceStart
+import com.velora.portal.platform.common.data.ACT_uploadFrontEnd
+import com.velora.portal.platform.common.data.ACT_uploadFrontStart
+import com.velora.portal.platform.common.data.PageInfoKyc
+import com.velora.portal.platform.common.data.authConfigList
+import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.feature.onboarding.presentation.AuthStatusViewModel
 import com.velora.portal.feature.onboarding.presentation.routeToNextAuthStep
 import com.velora.portal.feature.onboarding.presentation.profile.ApplicantDetailsViewModel
 import com.velora.portal.feature.content.presentation.ContentBrowserActivity
-import com.velora.portal.core.ui.binding.bindImageUrl
-import com.velora.portal.core.common.util.KYC_AADHAAR_BACK_CLICK
-import com.velora.portal.core.common.util.KYC_AADHAAR_FRONT_CLICK
-import com.velora.portal.core.common.util.KYC_INFO_COMMIT
-import com.velora.portal.core.common.util.KYC_INFO_PAGE
-import com.velora.portal.core.common.util.image.ImageProcessor
-import com.velora.portal.core.ui.extension.resetScale
-import com.velora.portal.core.common.util.PermissionCoordinator
-import com.velora.portal.core.common.util.showToastMessage
-import com.velora.portal.core.ui.extension.singleClick
-import com.velora.portal.core.common.util.trackEvent
-import com.velora.portal.core.ui.dialog.showConfirmDialog
+import com.velora.portal.platform.design.binding.bindImageUrl
+import com.velora.portal.platform.common.util.KYC_AADHAAR_BACK_CLICK
+import com.velora.portal.platform.common.util.KYC_AADHAAR_FRONT_CLICK
+import com.velora.portal.platform.common.util.KYC_INFO_COMMIT
+import com.velora.portal.platform.common.util.KYC_INFO_PAGE
+import com.velora.portal.platform.common.util.image.ImageProcessor
+import com.velora.portal.platform.design.extension.resetScale
+import com.velora.portal.platform.common.util.PermissionCoordinator
+import com.velora.portal.platform.common.util.showToastMessage
+import com.velora.portal.platform.design.extension.singleClick
+import com.velora.portal.platform.common.util.trackEvent
+import com.velora.portal.platform.design.dialog.showConfirmDialog
 import com.velora.portal.feature.onboarding.presentation.dialog.showKycCardExampleDialog
 import com.velora.portal.feature.onboarding.presentation.dialog.showKycSelfieExampleDialog
-import com.velora.portal.core.ui.dialog.showOptionPickerDialog
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.design.dialog.showOptionPickerDialog
+import com.velora.portal.platform.common.util.viewBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -218,7 +218,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
                 if (cardTypes.isEmpty()) return@getEnums
                 showOptionPickerDialog(
                     cardTypes.indexOfFirst { it.info == documentTypeField.getText() },
-                    cardTypes.map { com.velora.portal.core.common.data.bean.SelectionOption(it.info.orEmpty()) },
+                    cardTypes.map { com.velora.portal.platform.common.data.bean.SelectionOption(it.info.orEmpty()) },
                 ) { index ->
                     documentTypeField.setText(cardTypes[index].info)
                     documentTypeField.hideError()

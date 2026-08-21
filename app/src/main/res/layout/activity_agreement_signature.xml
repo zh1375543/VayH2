@@ -5,14 +5,14 @@
     android:background="@color/page_bg_color1"
     android:layout_height="match_parent">
 
-    <com.velora.portal.core.ui.component.PageHeaderView
+    <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:centerText="@string/sign"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvBack"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_48"
@@ -30,7 +30,7 @@
         app:radius="@dimen/dp_50"
         app:solidColor="@color/brand_primary" />
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvSign"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_48"
@@ -52,7 +52,7 @@
         app:radius="@dimen/dp_50"
         app:solidColor="@color/brand_primary" />
 
-    <com.velora.portal.core.ui.component.SignatureView
+    <com.velora.portal.platform.design.component.SignatureView
         android:id="@+id/signView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleBar" />
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvSign2"
         android:layout_width="@dimen/dp_265"
         android:layout_height="@dimen/dp_48"

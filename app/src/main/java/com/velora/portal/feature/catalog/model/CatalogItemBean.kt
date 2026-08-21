@@ -1,10 +1,10 @@
 package com.velora.portal.feature.catalog.model
 
 import android.os.Parcelable
-import com.velora.portal.core.common.data.ORDER_STATUS_IN_RENEWAL
-import com.velora.portal.core.common.data.ORDER_STATUS_IN_RENEWAL_PROCESS
-import com.velora.portal.core.common.data.ORDER_STATUS_PAYMENT_PENDING
-import com.velora.portal.core.common.data.ORDER_STATUS_PAYMENT_PROCESS
+import com.velora.portal.platform.common.data.ORDER_STATUS_IN_RENEWAL
+import com.velora.portal.platform.common.data.ORDER_STATUS_IN_RENEWAL_PROCESS
+import com.velora.portal.platform.common.data.ORDER_STATUS_PAYMENT_PENDING
+import com.velora.portal.platform.common.data.ORDER_STATUS_PAYMENT_PROCESS
 import kotlinx.parcelize.Parcelize
 import java.math.BigDecimal
 

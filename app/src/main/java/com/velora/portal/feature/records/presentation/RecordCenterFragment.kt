@@ -3,25 +3,25 @@ package com.velora.portal.feature.records.presentation
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseFragment
-import com.velora.portal.core.common.data.ACT_inOrdersPage
-import com.velora.portal.core.common.data.PageOrder
-import com.velora.portal.core.common.data.ORDER_STATUS_IN_RENEWAL
-import com.velora.portal.core.common.data.ORDER_STATUS_IN_RENEWAL_PROCESS
-import com.velora.portal.core.common.data.ORDER_STATUS_OVERDUE
-import com.velora.portal.core.common.data.ORDER_STATUS_PAYMENT_PENDING
-import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.platform.design.base.BaseFragment
+import com.velora.portal.platform.common.data.ACT_inOrdersPage
+import com.velora.portal.platform.common.data.PageOrder
+import com.velora.portal.platform.common.data.ORDER_STATUS_IN_RENEWAL
+import com.velora.portal.platform.common.data.ORDER_STATUS_IN_RENEWAL_PROCESS
+import com.velora.portal.platform.common.data.ORDER_STATUS_OVERDUE
+import com.velora.portal.platform.common.data.ORDER_STATUS_PAYMENT_PENDING
+import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.databinding.FragmentRecordCenterBinding
 import com.velora.portal.feature.catalog.model.MemberOverviewResponse
 import com.velora.portal.feature.catalog.presentation.LoanDashboardViewModel
 import com.velora.portal.feature.checkout.presentation.BatchCheckoutActivity
 import com.velora.portal.feature.records.presentation.adapter.HomeOrderAdapter
-import com.velora.portal.core.ui.extension.setClickableTextWithScale
-import com.velora.portal.core.ui.extension.singleClick
-import com.velora.portal.core.common.util.context.resolveColorCompat
-import com.velora.portal.core.common.util.PageLoadState
-import com.velora.portal.core.common.util.start
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.design.extension.setClickableTextWithScale
+import com.velora.portal.platform.design.extension.singleClick
+import com.velora.portal.platform.common.util.context.resolveColorCompat
+import com.velora.portal.platform.common.util.PageLoadState
+import com.velora.portal.platform.common.util.start
+import com.velora.portal.platform.common.util.viewBinding
 
 class RecordCenterFragment : BaseFragment<FragmentRecordCenterBinding>(R.layout.fragment_record_center) {
     override val binding by viewBinding(FragmentRecordCenterBinding::bind)

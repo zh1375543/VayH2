@@ -3,13 +3,13 @@ package com.velora.portal.feature.onboarding.presentation.dialog
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.velora.portal.core.ui.base.BaseDialog
-import com.velora.portal.core.ui.base.BaseSheetDialog
-import com.velora.portal.core.common.data.bean.SelectionOption
+import com.velora.portal.platform.design.base.BaseDialog
+import com.velora.portal.platform.design.base.BaseSheetDialog
+import com.velora.portal.platform.common.data.bean.SelectionOption
 import com.velora.portal.databinding.AddressDialogBinding
 import com.velora.portal.databinding.DialogIdCardExampleBinding
 import com.velora.portal.databinding.DialogSelfieExampleBinding
-import com.velora.portal.core.ui.extension.singleClick
+import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.feature.onboarding.presentation.profile.ApplicantDetailsViewModel
 
 fun Context.showKycCardExampleDialog(

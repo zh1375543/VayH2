@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/page_bg_color1">
 
-    <com.velora.portal.core.ui.component.PageHeaderView
+    <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_56"
@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.core.ui.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.StyledConstraintLayout
         android:id="@+id/accountInfoCard"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_106"
@@ -92,7 +92,7 @@
             app:layout_constraintBaseline_toBaselineOf="@id/tvAccountNumberLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvAccountNumberLabel" />
-    </com.velora.portal.core.ui.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
     <TextView
         android:id="@+id/tvDescription"
@@ -126,7 +126,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDescription" />
 
-    <com.velora.portal.core.ui.component.StatefulActionButton
+    <com.velora.portal.platform.design.component.StatefulActionButton
         android:id="@+id/tvConfirm"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_48"

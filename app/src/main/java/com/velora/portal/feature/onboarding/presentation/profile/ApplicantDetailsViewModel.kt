@@ -1,17 +1,17 @@
 package com.velora.portal.feature.onboarding.presentation.profile
 
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
-import com.velora.portal.core.common.data.ACT_next
-import com.velora.portal.core.common.data.PageInfoPersonal
-import com.velora.portal.core.common.data.bean.ApiRequest
-import com.velora.portal.core.common.data.bean.SelectionOption
-import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.platform.design.base.BaseViewModel
+import com.velora.portal.platform.common.data.ACT_next
+import com.velora.portal.platform.common.data.PageInfoPersonal
+import com.velora.portal.platform.common.data.bean.ApiRequest
+import com.velora.portal.platform.common.data.bean.SelectionOption
+import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.feature.onboarding.data.DocumentReviewRepository
 import com.velora.portal.feature.onboarding.model.ApplicantFormOptionsResponse
 import com.velora.portal.feature.onboarding.model.ApplicantProfileResponse
 import com.velora.portal.feature.onboarding.model.EmploymentOptionsResponse
-import com.velora.portal.core.common.util.text.toJsonString
+import com.velora.portal.platform.common.util.text.toJsonString
 
 class ApplicantDetailsViewModel(
     private val verificationRepository: DocumentReviewRepository =

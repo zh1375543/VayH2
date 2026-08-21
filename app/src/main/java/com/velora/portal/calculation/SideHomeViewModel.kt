@@ -17,8 +17,8 @@ import com.velora.portal.calculation.model.TaxCalculationRequest
 import com.velora.portal.calculation.model.TaxCalculationResponse
 import com.velora.portal.calculation.model.WorkHoursCalculationRequest
 import com.velora.portal.calculation.model.WorkHoursCalculationResponse
-import com.velora.portal.core.common.util.PageLoadState
-import com.velora.portal.core.ui.base.BaseViewModel
+import com.velora.portal.platform.common.util.PageLoadState
+import com.velora.portal.platform.design.base.BaseViewModel
 
 class SideHomeViewModel(
     private val repository: SideHomeRepository = SideHomeRepository(),

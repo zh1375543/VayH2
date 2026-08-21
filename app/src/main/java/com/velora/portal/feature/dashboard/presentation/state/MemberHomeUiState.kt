@@ -2,7 +2,7 @@ package com.velora.portal.feature.dashboard.presentation.state
 
 import com.velora.portal.feature.catalog.model.MemberOverviewResponse
 import com.velora.portal.feature.catalog.model.CatalogItemBean
-import com.velora.portal.core.common.util.isPositive
+import com.velora.portal.platform.common.util.isPositive
 import java.math.BigDecimal
 
 /** The credit decision presented on the member home screen. */

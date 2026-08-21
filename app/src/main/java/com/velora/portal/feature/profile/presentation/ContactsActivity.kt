@@ -1,12 +1,12 @@
 package com.velora.portal.feature.profile.presentation
 
 import androidx.activity.viewModels
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.databinding.ActivityContactsBinding
 import com.velora.portal.feature.dashboard.model.CustomerContactConfig
 import com.velora.portal.feature.profile.presentation.adapter.ContactWayAdapter
 import com.velora.portal.feature.dashboard.presentation.VisitorPortalViewModel
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.common.util.viewBinding
 
 class ContactsActivity : BaseActivity<ActivityContactsBinding>() {
 

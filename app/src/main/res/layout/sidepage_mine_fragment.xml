@@ -86,7 +86,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.velora.portal.core.ui.component.StyledTextView
+                <com.velora.portal.platform.design.component.StyledTextView
                     android:id="@+id/tvShareArrow"
                     android:layout_width="@dimen/dp_96"
                     android:layout_height="@dimen/dp_40"
@@ -102,7 +102,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.velora.portal.core.ui.component.StyledConstraintLayout
+            <com.velora.portal.platform.design.component.StyledConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_12"
@@ -235,7 +235,7 @@
                             android:src="@mipmap/mine_right" />
                     </FrameLayout>
                 </LinearLayout>
-            </com.velora.portal.core.ui.component.StyledConstraintLayout>
+            </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/ratingCard"

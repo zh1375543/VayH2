@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.core.ui.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.StyledConstraintLayout
         android:id="@+id/info_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
             android:textSize="@dimen/sp_16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvServiceFeeTitle" />
-    </com.velora.portal.core.ui.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
 
-</com.velora.portal.core.ui.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.StyledConstraintLayout>

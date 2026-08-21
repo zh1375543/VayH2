@@ -2,7 +2,7 @@ package com.velora.portal.feature.accounts.presentation.adapter
 
 import androidx.core.view.isVisible
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.feature.accounts.model.LinkedAccountResponse
 import com.velora.portal.databinding.ItemAccountAddOptionBinding
 

@@ -2,19 +2,19 @@ package com.velora.portal.application
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.velora.portal.core.ui.base.BaseViewModel
-import com.velora.portal.core.common.data.ACT_UserAppUserDevice
-import com.velora.portal.core.common.data.ACT_UserAppUserDeviceHasDevice
-import com.velora.portal.core.common.data.bean.ServiceResponse
-import com.velora.portal.core.common.data.bean.Event
-import com.velora.portal.core.common.data.bean.TrackBean
-import com.velora.portal.core.common.data.isPostDeviceInfo
-import com.velora.portal.core.session.SessionStore
-import com.velora.portal.core.network.NetworkCredentialStore
-import com.velora.portal.core.device.RiskSnapshotCollector
-import com.velora.portal.core.common.util.PermissionCoordinator
-import com.velora.portal.core.common.util.PermissionScenario
-import com.velora.portal.core.common.util.text.toJsonString
+import com.velora.portal.platform.design.base.BaseViewModel
+import com.velora.portal.platform.common.data.ACT_UserAppUserDevice
+import com.velora.portal.platform.common.data.ACT_UserAppUserDeviceHasDevice
+import com.velora.portal.platform.common.data.bean.ServiceResponse
+import com.velora.portal.platform.common.data.bean.Event
+import com.velora.portal.platform.common.data.bean.TrackBean
+import com.velora.portal.platform.common.data.isPostDeviceInfo
+import com.velora.portal.platform.session.SessionStore
+import com.velora.portal.platform.network.NetworkCredentialStore
+import com.velora.portal.platform.telemetry.device.RiskSnapshotCollector
+import com.velora.portal.platform.common.util.PermissionCoordinator
+import com.velora.portal.platform.common.util.PermissionScenario
+import com.velora.portal.platform.common.util.text.toJsonString
 import kotlinx.coroutines.launch
 
 class AppViewModel(

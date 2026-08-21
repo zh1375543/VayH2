@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/page_bg_color1">
 
-    <com.velora.portal.core.ui.component.PageHeaderView
+    <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             tools:listitem="@layout/item_record_history"
             tools:visibility="visible" />
 
-        <com.velora.portal.core.ui.component.PageStateOverlayView
+        <com.velora.portal.platform.design.component.PageStateOverlayView
             android:id="@+id/pageState"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

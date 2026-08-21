@@ -1,9 +1,9 @@
 package com.velora.portal.feature.catalog.presentation.adapter
 
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemOfferFeeSummaryBinding
 import com.velora.portal.feature.catalog.model.CatalogFeeBean
-import com.velora.portal.core.common.util.text.formatAmountWithPrefix
+import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class OfferFeeSummaryAdapter :
     BaseAdapter<CatalogFeeBean, ItemOfferFeeSummaryBinding>(ItemOfferFeeSummaryBinding::inflate) {

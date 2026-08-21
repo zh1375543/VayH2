@@ -3,9 +3,9 @@ package com.velora.portal.feature.profile.presentation
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.databinding.ActivityProfileReviewBinding
-import com.velora.portal.core.common.data.authConfigList
+import com.velora.portal.platform.common.data.authConfigList
 import com.velora.portal.feature.onboarding.model.VerificationOptionResponse
 import com.velora.portal.feature.onboarding.model.VerificationProgressResponse
 import com.velora.portal.feature.onboarding.presentation.contact.PaymentDetailsActivity
@@ -13,11 +13,11 @@ import com.velora.portal.feature.onboarding.presentation.kyc.DocumentReviewActiv
 import com.velora.portal.feature.onboarding.presentation.profile.ApplicantDetailsActivity
 import com.velora.portal.feature.profile.presentation.adapter.VerificationRequirementAdapter
 import com.velora.portal.feature.onboarding.presentation.AuthStatusViewModel
-import com.velora.portal.core.common.util.PROFILE_PAGE
-import com.velora.portal.core.common.util.PageLoadState
-import com.velora.portal.core.common.util.start
-import com.velora.portal.core.common.util.trackEvent
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.common.util.PROFILE_PAGE
+import com.velora.portal.platform.common.util.PageLoadState
+import com.velora.portal.platform.common.util.start
+import com.velora.portal.platform.common.util.trackEvent
+import com.velora.portal.platform.common.util.viewBinding
 
 class ProfileReviewActivity : BaseActivity<ActivityProfileReviewBinding>() {
 

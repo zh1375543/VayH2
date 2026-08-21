@@ -1,9 +1,9 @@
 package com.velora.portal.feature.records.presentation.adapter
 
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.feature.catalog.model.CatalogFeeBean
 import com.velora.portal.databinding.ItemBorrowingFeeBinding
-import com.velora.portal.core.common.util.text.formatAmountWithPrefix
+import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class BorrowingFeeBreakdownAdapter :
     BaseAdapter<CatalogFeeBean, ItemBorrowingFeeBinding>(ItemBorrowingFeeBinding::inflate) {

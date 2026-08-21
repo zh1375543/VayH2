@@ -1,9 +1,9 @@
 package com.velora.portal.feature.inbox.presentation
 
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.databinding.ActivityInboxDetailBinding
 import com.velora.portal.feature.inbox.model.InboxMessageRecord
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.common.util.viewBinding
 
 class InboxDetailActivity :
     BaseActivity<ActivityInboxDetailBinding>() {

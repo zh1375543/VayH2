@@ -1,19 +1,19 @@
 package com.velora.portal.feature.onboarding.presentation.login
 
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
-import com.velora.portal.core.common.data.ACT_OTPFail
-import com.velora.portal.core.common.data.ACT_createPassword
-import com.velora.portal.core.common.data.ACT_getVerifyCode
-import com.velora.portal.core.common.data.ACT_loginOTP
-import com.velora.portal.core.common.data.ACT_loginPassword
-import com.velora.portal.core.common.data.PageCreatePassword
-import com.velora.portal.core.common.data.PageLogin
-import com.velora.portal.core.common.data.bean.TrackBean
-import com.velora.portal.core.session.SessionStore
+import com.velora.portal.platform.design.base.BaseViewModel
+import com.velora.portal.platform.common.data.ACT_OTPFail
+import com.velora.portal.platform.common.data.ACT_createPassword
+import com.velora.portal.platform.common.data.ACT_getVerifyCode
+import com.velora.portal.platform.common.data.ACT_loginOTP
+import com.velora.portal.platform.common.data.ACT_loginPassword
+import com.velora.portal.platform.common.data.PageCreatePassword
+import com.velora.portal.platform.common.data.PageLogin
+import com.velora.portal.platform.common.data.bean.TrackBean
+import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.feature.onboarding.data.SessionRepository
 import com.velora.portal.feature.onboarding.model.AccessSessionResponse
-import com.velora.portal.core.common.util.text.toJsonString
+import com.velora.portal.platform.common.util.text.toJsonString
 
 class AccessSessionViewModel(
     private val sessionRepository: SessionRepository = SessionRepository(),

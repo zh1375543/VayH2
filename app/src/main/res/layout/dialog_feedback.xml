@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.velora.portal.core.ui.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.StyledConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -26,7 +26,7 @@
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.velora.portal.core.ui.component.StyledEditTextView
+        <com.velora.portal.platform.design.component.StyledEditTextView
             android:id="@+id/etFeedbackMessage"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_180"
@@ -41,7 +41,7 @@
             app:radius="@dimen/dp_16"
             app:solidColor="@color/surface_secondary" />
 
-        <com.velora.portal.core.ui.component.StyledTextView
+        <com.velora.portal.platform.design.component.StyledTextView
             android:id="@+id/btnSubmitFeedback"
             style="@style/mainButton"
             android:layout_width="match_parent"
@@ -53,5 +53,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etFeedbackMessage" />
 
-    </com.velora.portal.core.ui.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.StyledConstraintLayout>
 </FrameLayout>

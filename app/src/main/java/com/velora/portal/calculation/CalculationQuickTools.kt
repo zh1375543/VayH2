@@ -5,7 +5,7 @@ import com.velora.portal.calculation.activitiy.OvertimeCalculatorActivity
 import com.velora.portal.calculation.activitiy.SalaryCalculatorActivity
 import com.velora.portal.calculation.activitiy.TaxCalculatorActivity
 import com.velora.portal.calculation.activitiy.WorkHoursCalculatorActivity
-import com.velora.portal.core.ui.extension.singleClick
+import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.databinding.ItemCalculationQuickToolBinding
 import com.velora.portal.databinding.ViewCalculationQuickToolsBinding
 

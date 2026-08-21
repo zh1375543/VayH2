@@ -3,17 +3,17 @@ package com.velora.portal.feature.checkout.presentation
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.databinding.ActivityBatchCheckoutBinding
 import com.velora.portal.feature.records.presentation.RecordDetailActivity
 import com.velora.portal.feature.checkout.presentation.adapter.BulkRepaymentLoanAdapter
 import com.velora.portal.feature.catalog.model.CatalogItemBean
-import com.velora.portal.core.common.util.PageLoadState
-import com.velora.portal.core.common.util.showToastMessage
-import com.velora.portal.core.common.util.start
-import com.velora.portal.core.ui.extension.singleClick
+import com.velora.portal.platform.common.util.PageLoadState
+import com.velora.portal.platform.common.util.showToastMessage
+import com.velora.portal.platform.common.util.start
+import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.feature.content.presentation.ContentBrowserActivity
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.common.util.viewBinding
 
 class BatchCheckoutActivity :
     BaseActivity<ActivityBatchCheckoutBinding>() {

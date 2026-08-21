@@ -1,13 +1,13 @@
 package com.velora.portal.feature.profile.presentation.adapter
 
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseAdapter
-import com.velora.portal.core.common.data.language
+import com.velora.portal.platform.design.base.BaseAdapter
+import com.velora.portal.platform.common.data.language
 import com.velora.portal.databinding.ItemContactWayBinding
 import com.velora.portal.feature.dashboard.model.CustomerContactConfig
-import com.velora.portal.core.ui.extension.singleClick
-import com.velora.portal.core.common.util.ExternalActionLauncher
-import com.velora.portal.core.common.util.showToastMessage
+import com.velora.portal.platform.design.extension.singleClick
+import com.velora.portal.platform.common.util.ExternalActionLauncher
+import com.velora.portal.platform.common.util.showToastMessage
 
 class ContactWayAdapter :
     BaseAdapter<CustomerContactConfig, ItemContactWayBinding>(ItemContactWayBinding::inflate) {

@@ -1,7 +1,7 @@
 package com.velora.portal.calculation.model
 
 import com.velora.portal.BuildConfig
-import com.velora.portal.core.common.data.APPCODE
+import com.velora.portal.platform.common.data.APPCODE
 import java.math.BigDecimal
 
 /** Request parameters for savings calculation. */

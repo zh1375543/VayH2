@@ -16,10 +16,10 @@ import com.velora.portal.calculation.model.TaxCalculationRequest
 import com.velora.portal.calculation.model.TaxCalculationResponse
 import com.velora.portal.calculation.model.WorkHoursCalculationRequest
 import com.velora.portal.calculation.model.WorkHoursCalculationResponse
-import com.velora.portal.core.common.data.bean.ApiRequest
-import com.velora.portal.core.common.data.repository.dataOrThrow
-import com.velora.portal.core.network.NetworkProvider
-import com.velora.portal.core.network.CalcuPageApi
+import com.velora.portal.platform.common.data.bean.ApiRequest
+import com.velora.portal.platform.common.data.repository.dataOrThrow
+import com.velora.portal.platform.network.NetworkProvider
+import com.velora.portal.platform.network.CalcuPageApi
 
 class SideHomeRepository(
     private val api: CalcuPageApi = NetworkProvider.calcuPageApi,

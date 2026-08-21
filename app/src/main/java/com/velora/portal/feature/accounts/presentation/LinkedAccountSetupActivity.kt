@@ -4,19 +4,19 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.feature.accounts.model.AccountChannelResponse
 import com.velora.portal.feature.accounts.model.AccountMethodResponse
 import com.velora.portal.feature.accounts.presentation.dialog.chooseBankDialog
 import com.velora.portal.feature.accounts.presentation.dialog.chooseWalletDialog
 import com.velora.portal.feature.accounts.presentation.dialog.showWithdrawMethodDialog
 import com.velora.portal.databinding.ActivityLinkedAccountSetupBinding
-import com.velora.portal.core.ui.extension.observeKeyboardVisibility
-import com.velora.portal.core.ui.extension.resetScale
-import com.velora.portal.core.ui.extension.singleClick
+import com.velora.portal.platform.design.extension.observeKeyboardVisibility
+import com.velora.portal.platform.design.extension.resetScale
+import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.feature.onboarding.presentation.profile.ApplicantDetailsViewModel
-import com.velora.portal.core.common.util.showToastMessage
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.common.util.showToastMessage
+import com.velora.portal.platform.common.util.viewBinding
 
 class LinkedAccountSetupActivity : BaseActivity<ActivityLinkedAccountSetupBinding>() {
 

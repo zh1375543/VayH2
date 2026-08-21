@@ -2,14 +2,14 @@ package com.velora.portal.feature.onboarding.presentation
 
 import androidx.lifecycle.lifecycleScope
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.databinding.ActivityVerificationCompleteBinding
 import com.velora.portal.application.MainActivity
-import com.velora.portal.core.common.util.countdownTimer
-import com.velora.portal.core.common.util.context.resolveColorCompat
-import com.velora.portal.core.ui.extension.setClickableTextWithScale
-import com.velora.portal.core.ui.extension.singleClick
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.common.util.countdownTimer
+import com.velora.portal.platform.common.util.context.resolveColorCompat
+import com.velora.portal.platform.design.extension.setClickableTextWithScale
+import com.velora.portal.platform.design.extension.singleClick
+import com.velora.portal.platform.common.util.viewBinding
 
 class ReviewSuccessActivity :
     BaseActivity<ActivityVerificationCompleteBinding>() {

@@ -8,7 +8,7 @@
     android:clipToPadding="false"
     android:paddingHorizontal="@dimen/dp_20">
 
-    <com.velora.portal.core.ui.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.StyledConstraintLayout
         android:id="@+id/headerLayout"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_96"
@@ -38,7 +38,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Congratulations on getting 2 new products!" />
 
-    </com.velora.portal.core.ui.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivProductNew"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="@id/headerLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.core.ui.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.StyledConstraintLayout
         android:id="@+id/contentLayout"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             tools:itemCount="2"
             tools:listitem="@layout/item_product_option" />
 
-        <com.velora.portal.core.ui.component.StatefulActionButton
+        <com.velora.portal.platform.design.component.StatefulActionButton
             android:id="@+id/tvLoan"
             android:layout_width="@dimen/dp_0"
             android:layout_height="@dimen/dp_48"
@@ -96,7 +96,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvProduct" />
 
-    </com.velora.portal.core.ui.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivDataLine"

@@ -12,8 +12,8 @@ import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import com.velora.portal.R
 import com.velora.portal.calculation.bindCalculationQuickTools
-import com.velora.portal.core.common.util.viewBinding
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.common.util.viewBinding
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.databinding.ActivityExpenseTrackingTipDetailBinding
 
 class ExpenseTrackingTipDetailActivity : BaseActivity<ActivityExpenseTrackingTipDetailBinding>() {

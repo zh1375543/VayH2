@@ -1,6 +1,6 @@
 package com.velora.portal.feature.profile.presentation.adapter
 
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemAuthEntryBinding
 import com.velora.portal.feature.onboarding.model.VerificationOptionResponse
 

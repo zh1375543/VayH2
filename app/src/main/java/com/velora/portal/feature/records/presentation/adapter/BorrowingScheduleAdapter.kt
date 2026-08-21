@@ -2,12 +2,12 @@ package com.velora.portal.feature.records.presentation.adapter
 
 import androidx.core.view.isVisible
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.feature.catalog.model.CatalogPlanBean
 import com.velora.portal.databinding.ItemRecordInstallmentBinding
 import com.velora.portal.feature.records.presentation.RecordDetailActivity
-import com.velora.portal.core.common.util.context.resolveColorCompat
-import com.velora.portal.core.common.util.text.formatAmountWithPrefix
+import com.velora.portal.platform.common.util.context.resolveColorCompat
+import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class BorrowingScheduleAdapter :
     BaseAdapter<CatalogPlanBean, ItemRecordInstallmentBinding>(ItemRecordInstallmentBinding::inflate) {

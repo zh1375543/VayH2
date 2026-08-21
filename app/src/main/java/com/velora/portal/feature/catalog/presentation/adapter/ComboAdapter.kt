@@ -1,10 +1,10 @@
 package com.velora.portal.feature.catalog.presentation.adapter
 
 import androidx.core.view.isVisible
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemComboBinding
 import com.velora.portal.feature.catalog.model.CatalogItemBean
-import com.velora.portal.core.common.util.text.formatAmountWithPrefix
+import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class ComboAdapter : BaseAdapter<CatalogItemBean, ItemComboBinding>(ItemComboBinding::inflate) {
 

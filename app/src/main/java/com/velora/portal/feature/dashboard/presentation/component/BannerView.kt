@@ -10,13 +10,13 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.createAdapter
+import com.velora.portal.platform.design.base.createAdapter
 import com.velora.portal.databinding.ItemCampaignBannerBinding
 import com.velora.portal.feature.dashboard.model.PromotionBannerResponse
-import com.velora.portal.core.common.util.context.resolveColorCompat
-import com.velora.portal.core.ui.extension.setRoundedRectangleBackground
+import com.velora.portal.platform.common.util.context.resolveColorCompat
+import com.velora.portal.platform.design.extension.setRoundedRectangleBackground
 import com.velora.portal.feature.content.presentation.ContentBrowserActivity
-import com.velora.portal.core.ui.extension.loadImage
+import com.velora.portal.platform.design.extension.loadImage
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/page_bg_color1">
 
-    <com.velora.portal.core.ui.component.PageHeaderView
+    <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_56"
@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.core.ui.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.StyledConstraintLayout
         android:id="@+id/helpContentCard"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -59,7 +59,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivAppLogo" />
 
-        <com.velora.portal.core.ui.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.StyledConstraintLayout
             android:id="@+id/tvContactUs"
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_54"
@@ -99,9 +99,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </com.velora.portal.core.ui.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
-        <com.velora.portal.core.ui.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.StyledConstraintLayout
             android:id="@+id/tvFaq"
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_54"
@@ -141,9 +141,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </com.velora.portal.core.ui.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
-        <com.velora.portal.core.ui.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.StyledConstraintLayout
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_54"
             android:layout_marginStart="@dimen/dp_18"
@@ -179,7 +179,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </com.velora.portal.core.ui.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
-         </com.velora.portal.core.ui.component.StyledConstraintLayout>
+         </com.velora.portal.platform.design.component.StyledConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

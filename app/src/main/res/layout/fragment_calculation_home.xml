@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_30">
 
-            <com.velora.portal.core.ui.component.StyledConstraintLayout
+            <com.velora.portal.platform.design.component.StyledConstraintLayout
                 android:layout_width="@dimen/dp_24"
                 android:layout_height="@dimen/dp_24"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -138,7 +138,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvGuestEarningsTitle" />
 
-                <com.velora.portal.core.ui.component.StyledTextView
+                <com.velora.portal.platform.design.component.StyledTextView
                     android:id="@+id/tvHeroAction"
                     android:layout_width="@dimen/dp_92"
                     android:layout_height="@dimen/dp_32"
@@ -251,7 +251,7 @@
         </androidx.core.widget.NestedScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <com.velora.portal.core.ui.component.PageStateOverlayView
+    <com.velora.portal.platform.design.component.PageStateOverlayView
         android:id="@+id/pageState"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

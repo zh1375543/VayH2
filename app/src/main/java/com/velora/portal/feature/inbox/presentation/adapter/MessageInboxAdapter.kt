@@ -1,7 +1,7 @@
 package com.velora.portal.feature.inbox.presentation.adapter
 
 import androidx.core.view.isVisible
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemNoticeBinding
 import com.velora.portal.feature.inbox.model.InboxMessageRecord
 

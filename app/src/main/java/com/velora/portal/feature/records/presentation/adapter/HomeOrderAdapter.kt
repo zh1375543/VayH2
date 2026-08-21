@@ -2,23 +2,23 @@ package com.velora.portal.feature.records.presentation.adapter
 
 import androidx.core.view.isVisible
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseAdapter
-import com.velora.portal.core.common.data.ORDER_STATUS_AUTO
-import com.velora.portal.core.common.data.ORDER_STATUS_BAD_DEBTS
-import com.velora.portal.core.common.data.ORDER_STATUS_CASH
-import com.velora.portal.core.common.data.ORDER_STATUS_IN_RENEWAL
-import com.velora.portal.core.common.data.ORDER_STATUS_IN_RENEWAL_PROCESS
-import com.velora.portal.core.common.data.ORDER_STATUS_MANUAL
-import com.velora.portal.core.common.data.ORDER_STATUS_OVERDUE
-import com.velora.portal.core.common.data.ORDER_STATUS_PAYMENT_FAIL
-import com.velora.portal.core.common.data.ORDER_STATUS_PAYMENT_ING
-import com.velora.portal.core.common.data.ORDER_STATUS_PAYMENT_PENDING
-import com.velora.portal.core.common.data.ORDER_STATUS_PAYMENT_PROCESS
-import com.velora.portal.core.common.data.ORDER_STATUS_REVIEW
-import com.velora.portal.core.common.data.ORDER_STATUS_SUCCESS
+import com.velora.portal.platform.design.base.BaseAdapter
+import com.velora.portal.platform.common.data.ORDER_STATUS_AUTO
+import com.velora.portal.platform.common.data.ORDER_STATUS_BAD_DEBTS
+import com.velora.portal.platform.common.data.ORDER_STATUS_CASH
+import com.velora.portal.platform.common.data.ORDER_STATUS_IN_RENEWAL
+import com.velora.portal.platform.common.data.ORDER_STATUS_IN_RENEWAL_PROCESS
+import com.velora.portal.platform.common.data.ORDER_STATUS_MANUAL
+import com.velora.portal.platform.common.data.ORDER_STATUS_OVERDUE
+import com.velora.portal.platform.common.data.ORDER_STATUS_PAYMENT_FAIL
+import com.velora.portal.platform.common.data.ORDER_STATUS_PAYMENT_ING
+import com.velora.portal.platform.common.data.ORDER_STATUS_PAYMENT_PENDING
+import com.velora.portal.platform.common.data.ORDER_STATUS_PAYMENT_PROCESS
+import com.velora.portal.platform.common.data.ORDER_STATUS_REVIEW
+import com.velora.portal.platform.common.data.ORDER_STATUS_SUCCESS
 import com.velora.portal.databinding.ItemHomeBorrowingBinding
 import com.velora.portal.feature.catalog.model.CatalogItemBean
-import com.velora.portal.core.common.util.text.formatAmountWithPrefix
+import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class HomeOrderAdapter :
     BaseAdapter<CatalogItemBean, ItemHomeBorrowingBinding>(ItemHomeBorrowingBinding::inflate) {

@@ -2,15 +2,15 @@ package com.velora.portal.feature.dashboard.presentation.dialog
 
 import android.content.Context
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseDialog
-import com.velora.portal.core.ui.extension.setSpannableClickableText
+import com.velora.portal.platform.design.base.BaseDialog
+import com.velora.portal.platform.design.extension.setSpannableClickableText
 import com.velora.portal.databinding.ContactUsDialogBinding
 import com.velora.portal.databinding.DialogApplicationRejectedBinding
 import com.velora.portal.databinding.DialogOfferExpiredBinding
 import com.velora.portal.feature.dashboard.model.CustomerContactConfig
 import com.velora.portal.feature.dashboard.model.VisitorPortalResponse
 import com.velora.portal.feature.dashboard.presentation.adapter.SupportContactDialogAdapter
-import com.velora.portal.core.common.util.context.resolveColorCompat
+import com.velora.portal.platform.common.util.context.resolveColorCompat
 
 fun Context.showContactUsDialog(homeBean: VisitorPortalResponse) {
     object : BaseDialog<ContactUsDialogBinding>(

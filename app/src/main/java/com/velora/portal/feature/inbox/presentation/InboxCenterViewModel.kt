@@ -2,10 +2,10 @@ package com.velora.portal.feature.inbox.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
+import com.velora.portal.platform.design.base.BaseViewModel
 import com.velora.portal.feature.inbox.data.InboxRepository
 import com.velora.portal.feature.inbox.model.InboxMessageRecord
-import com.velora.portal.core.common.util.PageLoadState
+import com.velora.portal.platform.common.util.PageLoadState
 
 class InboxCenterViewModel(
     private val messageRepository: InboxRepository = InboxRepository(),

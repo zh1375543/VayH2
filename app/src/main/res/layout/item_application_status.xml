@@ -5,7 +5,7 @@
     android:layout_height="@dimen/dp_64"
     android:paddingVertical="@dimen/dp_5">
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvProductName"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_24"
@@ -43,7 +43,7 @@
         app:layout_constraintBottom_toBottomOf="@id/tvLoanLabel"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.velora.portal.core.ui.component.SelectableImageView
+    <com.velora.portal.platform.design.component.SelectableImageView
         android:id="@+id/ivVerifyState"
         android:layout_width="@dimen/dp_24"
         android:layout_height="@dimen/dp_24"

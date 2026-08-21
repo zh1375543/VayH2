@@ -2,12 +2,12 @@ package com.velora.portal.feature.records.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
+import com.velora.portal.platform.design.base.BaseViewModel
 import com.velora.portal.feature.records.data.RecordRepository
 import com.velora.portal.feature.records.model.RecordDetailResponse
 import com.velora.portal.feature.records.model.RecordItemBean
 import com.velora.portal.feature.checkout.model.CheckoutActionResponse
-import com.velora.portal.core.common.util.PageLoadState
+import com.velora.portal.platform.common.util.PageLoadState
 
 class RecordCenterViewModel(
     private val loanOrderRepository: RecordRepository = RecordRepository(),

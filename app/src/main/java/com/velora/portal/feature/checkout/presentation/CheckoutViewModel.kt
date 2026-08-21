@@ -2,12 +2,12 @@ package com.velora.portal.feature.checkout.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
+import com.velora.portal.platform.design.base.BaseViewModel
 import com.velora.portal.feature.catalog.model.CatalogItemBean
 import com.velora.portal.feature.checkout.data.CheckoutRepository
 import com.velora.portal.feature.checkout.model.CheckoutActionResponse
-import com.velora.portal.core.common.util.PageLoadState
-import com.velora.portal.core.common.util.text.formatAmountWithPrefix
+import com.velora.portal.platform.common.util.PageLoadState
+import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 import java.math.BigDecimal
 
 class CheckoutViewModel(

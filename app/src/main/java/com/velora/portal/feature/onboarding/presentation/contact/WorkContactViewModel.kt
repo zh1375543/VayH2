@@ -1,16 +1,16 @@
 package com.velora.portal.feature.onboarding.presentation.contact
 
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
-import com.velora.portal.core.common.data.ACT_next
-import com.velora.portal.core.common.data.PageInfoBank
-import com.velora.portal.core.common.data.PageSupplementaryInformation
-import com.velora.portal.core.common.data.bean.ApiRequest
-import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.platform.design.base.BaseViewModel
+import com.velora.portal.platform.common.data.ACT_next
+import com.velora.portal.platform.common.data.PageInfoBank
+import com.velora.portal.platform.common.data.PageSupplementaryInformation
+import com.velora.portal.platform.common.data.bean.ApiRequest
+import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.feature.onboarding.data.DocumentReviewRepository
 import com.velora.portal.feature.onboarding.model.EmploymentContactResponse
 import com.velora.portal.feature.onboarding.model.EmploymentOptionsResponse
-import com.velora.portal.core.common.util.text.toJsonString
+import com.velora.portal.platform.common.util.text.toJsonString
 
 class WorkContactViewModel(
     private val verificationRepository: DocumentReviewRepository =

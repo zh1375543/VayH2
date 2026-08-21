@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.velora.portal.core.ui.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.StyledConstraintLayout
         android:id="@+id/cardLayout"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_0"

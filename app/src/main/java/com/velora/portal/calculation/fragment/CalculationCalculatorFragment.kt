@@ -9,9 +9,9 @@ import com.velora.portal.calculation.activitiy.SalaryCalculatorActivity
 import com.velora.portal.calculation.activitiy.SavingsCalculatorActivity
 import com.velora.portal.calculation.activitiy.TaxCalculatorActivity
 import com.velora.portal.calculation.activitiy.WorkHoursCalculatorActivity
-import com.velora.portal.core.common.util.viewBinding
-import com.velora.portal.core.ui.base.BaseFragment
-import com.velora.portal.core.ui.extension.singleClick
+import com.velora.portal.platform.common.util.viewBinding
+import com.velora.portal.platform.design.base.BaseFragment
+import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.databinding.FragmentCalculationCalculatorBinding
 import com.velora.portal.databinding.ItemCalculatorMenuBinding
 

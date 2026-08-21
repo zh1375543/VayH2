@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.velora.portal.R
-import com.velora.portal.core.common.util.text.formatAmountWithPrefix
+import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 import com.velora.portal.databinding.LoanProductDetailsViewBinding
 import com.velora.portal.feature.catalog.model.CatalogItemBean
 import com.velora.portal.feature.catalog.presentation.adapter.OfferFeeSummaryAdapter

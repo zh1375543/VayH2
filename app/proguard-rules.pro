@@ -30,7 +30,7 @@
 # ==========================================
 # BaseActivity is an internal abstract superclass and has no reflection-based callers.
 # Excluding it allows R8 to obfuscate and optimize it while keeping concrete Activities stable.
--keep public class !com.velora.portal.core.ui.base.BaseActivity extends android.app.Activity
+-keep public class !com.velora.portal.platform.design.base.BaseActivity extends android.app.Activity
 -keep public class * extends android.app.Application
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
@@ -163,7 +163,7 @@
 # Gson request and response DTOs
 # Gson accesses fields reflectively. Keep their names after the package refactor so
 # serialized request keys and deserialized response fields remain server-compatible.
--keep,allowoptimization class com.velora.portal.core.common.data.bean.** { <fields>; }
+-keep,allowoptimization class com.velora.portal.platform.common.data.bean.** { <fields>; }
 -keep,allowoptimization class com.velora.portal.feature.**.model.** { <fields>; }
 -keep,allowoptimization class com.velora.portal.calculation.model.** { <fields>; }
 

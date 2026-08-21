@@ -1,10 +1,10 @@
 package com.velora.portal.feature.checkout.data
 
-import com.velora.portal.core.common.data.bean.ApiRequest
+import com.velora.portal.platform.common.data.bean.ApiRequest
 import com.velora.portal.feature.catalog.model.CatalogItemBean
-import com.velora.portal.core.network.Api
-import com.velora.portal.core.network.NetworkProvider
-import com.velora.portal.core.common.data.repository.dataOrThrow
+import com.velora.portal.platform.network.Api
+import com.velora.portal.platform.network.NetworkProvider
+import com.velora.portal.platform.common.data.repository.dataOrThrow
 import com.velora.portal.feature.checkout.model.CheckoutActionResponse
 
 class CheckoutRepository(

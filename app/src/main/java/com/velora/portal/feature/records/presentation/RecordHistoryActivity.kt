@@ -3,16 +3,16 @@ package com.velora.portal.feature.records.presentation
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseActivity
-import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.platform.design.base.BaseActivity
+import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.databinding.ActivityRecordHistoryBinding
-import com.velora.portal.core.common.data.ACT_inOrderHistory
-import com.velora.portal.core.common.data.PageHistory
+import com.velora.portal.platform.common.data.ACT_inOrderHistory
+import com.velora.portal.platform.common.data.PageHistory
 import com.velora.portal.feature.records.model.RecordItemBean
 import com.velora.portal.feature.records.presentation.adapter.BorrowingHistoryAdapter
-import com.velora.portal.core.common.util.PageLoadState
-import com.velora.portal.core.common.util.start
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.common.util.PageLoadState
+import com.velora.portal.platform.common.util.start
+import com.velora.portal.platform.common.util.viewBinding
 
 class RecordHistoryActivity : BaseActivity<ActivityRecordHistoryBinding>() {
 

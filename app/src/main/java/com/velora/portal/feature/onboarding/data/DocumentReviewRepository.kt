@@ -2,12 +2,12 @@ package com.velora.portal.feature.onboarding.data
 
 import android.net.Uri
 import com.velora.portal.BuildConfig
-import com.velora.portal.core.common.data.APPCODE
-import com.velora.portal.core.common.data.bean.ApiRequest
-import com.velora.portal.core.common.data.bean.SelectionOption
-import com.velora.portal.core.network.Api
-import com.velora.portal.core.network.NetworkProvider
-import com.velora.portal.core.common.data.repository.dataOrThrow
+import com.velora.portal.platform.common.data.APPCODE
+import com.velora.portal.platform.common.data.bean.ApiRequest
+import com.velora.portal.platform.common.data.bean.SelectionOption
+import com.velora.portal.platform.network.Api
+import com.velora.portal.platform.network.NetworkProvider
+import com.velora.portal.platform.common.data.repository.dataOrThrow
 import com.velora.portal.feature.onboarding.model.IdentityDocumentResponse
 import com.velora.portal.feature.onboarding.model.IdentityPolicyResponse
 import com.velora.portal.feature.onboarding.model.FaceVerificationSessionResponse
@@ -15,8 +15,8 @@ import com.velora.portal.feature.onboarding.model.ApplicantFormOptionsResponse
 import com.velora.portal.feature.onboarding.model.ApplicantProfileResponse
 import com.velora.portal.feature.onboarding.model.EmploymentContactResponse
 import com.velora.portal.feature.onboarding.model.EmploymentOptionsResponse
-import com.velora.portal.core.common.util.generateRequestBody
-import com.velora.portal.core.common.util.uriToPart
+import com.velora.portal.platform.common.util.generateRequestBody
+import com.velora.portal.platform.common.util.uriToPart
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody

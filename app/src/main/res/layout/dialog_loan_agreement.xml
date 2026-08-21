@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvDesc"
         tools:visibility="visible" />
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvLease"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_44"
@@ -69,7 +69,7 @@
         app:solidColor="@color/surface_secondary"
         tools:visibility="visible" />
 
-    <com.velora.portal.core.ui.component.StatefulActionButton
+    <com.velora.portal.platform.design.component.StatefulActionButton
         android:id="@+id/btnApply"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
@@ -78,4 +78,4 @@
         android:text="@string/confirm"
         app:layout_constraintTop_toBottomOf="@id/tvLease"/>
 
-</com.velora.portal.core.ui.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.StyledConstraintLayout>

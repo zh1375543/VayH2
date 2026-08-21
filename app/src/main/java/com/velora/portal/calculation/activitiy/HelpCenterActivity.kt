@@ -4,12 +4,12 @@ import android.content.Intent
 import androidx.activity.viewModels
 import com.velora.portal.BuildConfig
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.databinding.SidepageHelpCenterActivityBinding
-import com.velora.portal.core.ui.extension.singleClick
+import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.feature.dashboard.presentation.dialog.showContactUsDialog
 import com.velora.portal.feature.dashboard.presentation.VisitorPortalViewModel
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.common.util.viewBinding
 
 /** Support landing page for the side-page experience. */
 class HelpCenterActivity : BaseActivity<SidepageHelpCenterActivityBinding>() {

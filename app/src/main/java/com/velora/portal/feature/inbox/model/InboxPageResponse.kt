@@ -1,7 +1,7 @@
 package com.velora.portal.feature.inbox.model
 
 import android.os.Parcelable
-import com.velora.portal.core.common.data.language
+import com.velora.portal.platform.common.data.language
 import kotlinx.parcelize.Parcelize
 import java.text.SimpleDateFormat
 import java.util.Date

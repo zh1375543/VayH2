@@ -1,13 +1,13 @@
 package com.velora.portal.feature.profile.presentation
 
 import androidx.activity.viewModels
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.databinding.ActivitySignOutConfirmationBinding
-import com.velora.portal.core.session.SessionStore
+import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.feature.onboarding.presentation.login.AccessSessionViewModel
-import com.velora.portal.core.ui.extension.singleClick
-import com.velora.portal.core.common.util.start
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.design.extension.singleClick
+import com.velora.portal.platform.common.util.start
+import com.velora.portal.platform.common.util.viewBinding
 
 class LogoutActivity : BaseActivity<ActivitySignOutConfirmationBinding>() {
 

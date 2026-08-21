@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseDialog
-import com.velora.portal.core.ui.base.BaseSheetDialog
+import com.velora.portal.platform.design.base.BaseDialog
+import com.velora.portal.platform.design.base.BaseSheetDialog
 import com.velora.portal.feature.accounts.model.LinkedAccountResponse
 import com.velora.portal.feature.accounts.model.AccountChannelResponse
 import com.velora.portal.feature.accounts.model.AccountMethodResponse
@@ -18,9 +18,9 @@ import com.velora.portal.feature.accounts.presentation.LinkedAccountSetupActivit
 import com.velora.portal.feature.accounts.presentation.adapter.PayoutAccountPickerAdapter
 import com.velora.portal.feature.accounts.presentation.adapter.ChooseBankDialogAdapter
 import com.velora.portal.feature.accounts.presentation.adapter.ChooseWalletDialogAdapter
-import com.velora.portal.core.ui.extension.hideKeyboard
-import com.velora.portal.core.ui.extension.singleClick
-import com.velora.portal.core.common.util.start
+import com.velora.portal.platform.design.extension.hideKeyboard
+import com.velora.portal.platform.design.extension.singleClick
+import com.velora.portal.platform.common.util.start
 import java.text.Normalizer
 import java.util.Locale
 import kotlin.math.max

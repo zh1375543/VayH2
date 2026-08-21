@@ -28,7 +28,7 @@
 
         </FrameLayout>
 
-        <com.velora.portal.core.ui.component.PageStateOverlayView
+        <com.velora.portal.platform.design.component.PageStateOverlayView
             android:id="@+id/pageState"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

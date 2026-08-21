@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvErrorRetry"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"

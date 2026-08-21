@@ -1,15 +1,15 @@
 package com.velora.portal.feature.dashboard.presentation
 
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
-import com.velora.portal.core.common.data.ACT_common
-import com.velora.portal.core.common.data.PageHome
-import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.platform.design.base.BaseViewModel
+import com.velora.portal.platform.common.data.ACT_common
+import com.velora.portal.platform.common.data.PageHome
+import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.feature.dashboard.data.DefaultPortalRepository
 import com.velora.portal.feature.dashboard.data.PortalRepository
 import com.velora.portal.feature.dashboard.model.PromotionBannerResponse
 import com.velora.portal.feature.dashboard.model.VisitorPortalResponse
-import com.velora.portal.core.common.util.text.toJsonString
+import com.velora.portal.platform.common.util.text.toJsonString
 
 /** Owns data requests and transient screen state that are exclusive to HomeFragment. */
 class HomeViewModel(

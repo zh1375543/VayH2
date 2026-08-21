@@ -17,7 +17,7 @@
         android:layout_marginHorizontal="@dimen/dp_16"
         android:layout_marginTop="@dimen/dp_4">
 
-        <com.velora.portal.core.ui.component.StyledEditTextView
+        <com.velora.portal.platform.design.component.StyledEditTextView
             android:id="@+id/etInput"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

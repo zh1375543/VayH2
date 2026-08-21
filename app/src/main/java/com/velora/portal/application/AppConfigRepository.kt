@@ -1,10 +1,10 @@
 package com.velora.portal.application
 
-import com.velora.portal.core.common.data.bean.ApiRequest
-import com.velora.portal.core.common.data.bean.SignatureSecretResponse
-import com.velora.portal.core.network.Api
-import com.velora.portal.core.network.NetworkProvider
-import com.velora.portal.core.common.data.repository.dataOrThrow
+import com.velora.portal.platform.common.data.bean.ApiRequest
+import com.velora.portal.platform.common.data.bean.SignatureSecretResponse
+import com.velora.portal.platform.network.Api
+import com.velora.portal.platform.network.NetworkProvider
+import com.velora.portal.platform.common.data.repository.dataOrThrow
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 

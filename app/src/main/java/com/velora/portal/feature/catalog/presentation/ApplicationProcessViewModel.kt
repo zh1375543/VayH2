@@ -2,16 +2,16 @@ package com.velora.portal.feature.catalog.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.LiveData
-import com.velora.portal.core.ui.base.BaseViewModel
-import com.velora.portal.core.common.data.ACT_apply
-import com.velora.portal.core.common.data.PageHome
-import com.velora.portal.core.common.data.PageProductDetail
-import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.platform.design.base.BaseViewModel
+import com.velora.portal.platform.common.data.ACT_apply
+import com.velora.portal.platform.common.data.PageHome
+import com.velora.portal.platform.common.data.PageProductDetail
+import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.feature.catalog.data.ApplicationRepository
 import com.velora.portal.feature.catalog.model.MemberOverviewResponse
 import com.velora.portal.feature.catalog.model.CatalogItemBean
-import com.velora.portal.core.common.util.text.toJsonString
-import com.velora.portal.core.common.util.PageLoadState
+import com.velora.portal.platform.common.util.text.toJsonString
+import com.velora.portal.platform.common.util.PageLoadState
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 

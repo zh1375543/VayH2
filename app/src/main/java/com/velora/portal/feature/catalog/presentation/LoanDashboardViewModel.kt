@@ -2,16 +2,16 @@ package com.velora.portal.feature.catalog.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.LiveData
-import com.velora.portal.core.ui.base.BaseViewModel
-import com.velora.portal.core.common.data.ACT_approvalDenied
-import com.velora.portal.core.common.data.ACT_approvalInProgress
-import com.velora.portal.core.common.data.ACT_index
-import com.velora.portal.core.common.data.HomeLoanAmountRange
-import com.velora.portal.core.common.data.PageHome
-import com.velora.portal.core.common.data.PageHomePre
-import com.velora.portal.core.common.data.PageHomeRefuse
-import com.velora.portal.core.common.data.bean.Event
-import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.platform.design.base.BaseViewModel
+import com.velora.portal.platform.common.data.ACT_approvalDenied
+import com.velora.portal.platform.common.data.ACT_approvalInProgress
+import com.velora.portal.platform.common.data.ACT_index
+import com.velora.portal.platform.common.data.HomeLoanAmountRange
+import com.velora.portal.platform.common.data.PageHome
+import com.velora.portal.platform.common.data.PageHomePre
+import com.velora.portal.platform.common.data.PageHomeRefuse
+import com.velora.portal.platform.common.data.bean.Event
+import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.feature.dashboard.data.DefaultPortalRepository
 import com.velora.portal.feature.dashboard.data.PortalRepository
 import com.velora.portal.feature.dashboard.presentation.state.CreditStage
@@ -20,8 +20,8 @@ import com.velora.portal.feature.dashboard.presentation.state.HomeEntryTracker
 import com.velora.portal.feature.dashboard.presentation.state.MemberHomeUiState
 import com.velora.portal.feature.dashboard.presentation.state.toMemberHomeUiState
 import com.velora.portal.feature.catalog.model.MemberOverviewResponse
-import com.velora.portal.core.common.util.text.toJsonString
-import com.velora.portal.core.common.util.PageLoadState
+import com.velora.portal.platform.common.util.text.toJsonString
+import com.velora.portal.platform.common.util.PageLoadState
 import kotlinx.coroutines.Job
 
 /** Supplies the loan dashboard payload to loan- and repayment-related screens. */

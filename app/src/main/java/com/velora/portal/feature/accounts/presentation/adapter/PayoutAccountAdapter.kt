@@ -4,9 +4,9 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.velora.portal.R
-import com.velora.portal.core.common.util.context.resolveColorCompat
-import com.velora.portal.core.ui.base.BaseAdapter
-import com.velora.portal.core.ui.component.StatefulActionButton
+import com.velora.portal.platform.common.util.context.resolveColorCompat
+import com.velora.portal.platform.design.base.BaseAdapter
+import com.velora.portal.platform.design.component.StatefulActionButton
 import com.velora.portal.databinding.ItemBankCardBinding
 import com.velora.portal.feature.accounts.model.LinkedAccountResponse
 import com.velora.portal.feature.accounts.presentation.binding.bindAccountIcon

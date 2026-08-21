@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/page_bg_color1">
 
-    <com.velora.portal.core.ui.component.PageHeaderView
+    <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/document_review_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <com.velora.portal.core.ui.component.StyledConstraintLayout
+                        <com.velora.portal.platform.design.component.StyledConstraintLayout
                             android:id="@+id/document_identity_section"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -46,14 +46,14 @@
                             app:radius="@dimen/dp_12"
                             app:solidColor="@color/text_inverse">
 
-                            <com.velora.portal.core.ui.component.StyledTextView
+                            <com.velora.portal.platform.design.component.StyledTextView
                                 android:id="@+id/tvCard"
                                 style="@style/TypeTag"
                                 android:text="@string/nic_card"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <com.velora.portal.core.ui.component.StyledTextView
+                            <com.velora.portal.platform.design.component.StyledTextView
                                 android:id="@+id/tv_document_example_action"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <com.velora.portal.core.ui.component.FormItemView
+                            <com.velora.portal.platform.design.component.FormItemView
                                 android:id="@+id/document_type_field"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                                 android:layout_marginTop="@dimen/dp_16"
                                 app:layout_constraintTop_toBottomOf="@id/document_type_field">
 
-                                <com.velora.portal.core.ui.component.StyledConstraintLayout
+                                <com.velora.portal.platform.design.component.StyledConstraintLayout
                                     android:id="@+id/face_layout"
                                     android:layout_width="@dimen/dp_147"
                                     android:layout_height="@dimen/dp_83"
@@ -145,7 +145,7 @@
                                         app:layout_constraintTop_toTopOf="parent"
                                         app:shapeAppearanceOverlay="@style/Round_6" />
 
-                                    <com.velora.portal.core.ui.component.StyledConstraintLayout
+                                    <com.velora.portal.platform.design.component.StyledConstraintLayout
                                         android:id="@+id/front_upload_state"
                                         android:layout_width="0dp"
                                         android:layout_height="0dp"
@@ -181,9 +181,9 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toBottomOf="@id/ivFrontVerifyStatus" />
-                                    </com.velora.portal.core.ui.component.StyledConstraintLayout>
+                                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
-                                </com.velora.portal.core.ui.component.StyledConstraintLayout>
+                                </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
                                 <TextView
                                     android:id="@+id/tvFrontTitle"
@@ -217,7 +217,7 @@
                                 android:layout_marginTop="@dimen/dp_10"
                                 app:layout_constraintTop_toBottomOf="@id/document_front_section">
 
-                                <com.velora.portal.core.ui.component.StyledConstraintLayout
+                                <com.velora.portal.platform.design.component.StyledConstraintLayout
                                     android:id="@+id/b_layout"
                                     android:layout_width="@dimen/dp_147"
                                     android:layout_height="@dimen/dp_83"
@@ -272,7 +272,7 @@
                                         app:layout_constraintTop_toTopOf="parent"
                                         app:shapeAppearanceOverlay="@style/Round_6" />
 
-                                    <com.velora.portal.core.ui.component.StyledConstraintLayout
+                                    <com.velora.portal.platform.design.component.StyledConstraintLayout
                                         android:id="@+id/back_upload_state"
                                         android:layout_width="0dp"
                                         android:layout_height="0dp"
@@ -308,9 +308,9 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toBottomOf="@id/ivBackVerifyStatus" />
-                                    </com.velora.portal.core.ui.component.StyledConstraintLayout>
+                                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
-                                </com.velora.portal.core.ui.component.StyledConstraintLayout>
+                                </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
                                 <TextView
                                     android:id="@+id/tvBackTitle"
@@ -337,9 +337,9 @@
                                     app:layout_constraintTop_toBottomOf="@id/tvBackTitle" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        </com.velora.portal.core.ui.component.StyledConstraintLayout>
+                        </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
-                        <com.velora.portal.core.ui.component.StyledConstraintLayout
+                        <com.velora.portal.platform.design.component.StyledConstraintLayout
                             android:id="@+id/selfie_capture_section"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -349,7 +349,7 @@
                             app:radius="@dimen/dp_12"
                             app:solidColor="@color/text_inverse">
 
-                            <com.velora.portal.core.ui.component.StyledConstraintLayout
+                            <com.velora.portal.platform.design.component.StyledConstraintLayout
                                 android:id="@+id/layoutSelfHeader"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -357,14 +357,14 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent">
 
-                                <com.velora.portal.core.ui.component.StyledTextView
+                                <com.velora.portal.platform.design.component.StyledTextView
                                     android:id="@+id/tvSelf"
                                     style="@style/TypeTag"
                                     android:text="@string/self_photo"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
-                                <com.velora.portal.core.ui.component.StyledTextView
+                                <com.velora.portal.platform.design.component.StyledTextView
                                     android:id="@+id/tv_selfie_example_action"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -379,7 +379,7 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
-                            </com.velora.portal.core.ui.component.StyledConstraintLayout>
+                            </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
                             <TextView
                                 android:id="@+id/tv_selfie_instruction"
@@ -393,7 +393,7 @@
                                 android:textSize="@dimen/sp_12"
                                 app:layout_constraintTop_toBottomOf="@id/layoutSelfHeader" />
 
-                            <com.velora.portal.core.ui.component.StyledConstraintLayout
+                            <com.velora.portal.platform.design.component.StyledConstraintLayout
                                 android:id="@+id/self_layout"
                                 android:layout_width="@dimen/dp_165"
                                 android:layout_height="@dimen/dp_145"
@@ -451,7 +451,7 @@
                                     app:layout_constraintTop_toTopOf="parent"
                                     app:shapeAppearanceOverlay="@style/Round_6" />
 
-                                <com.velora.portal.core.ui.component.StyledConstraintLayout
+                                <com.velora.portal.platform.design.component.StyledConstraintLayout
                                     android:id="@+id/selfie_upload_state"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
@@ -487,10 +487,10 @@
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@id/ivSelfVerifyStatus" />
-                                </com.velora.portal.core.ui.component.StyledConstraintLayout>
+                                </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
-                            </com.velora.portal.core.ui.component.StyledConstraintLayout>
-                        </com.velora.portal.core.ui.component.StyledConstraintLayout>
+                            </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                        </com.velora.portal.platform.design.component.StyledConstraintLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.core.widget.NestedScrollView>
 
@@ -503,13 +503,13 @@
                     android:visibility="gone"
                     tools:visibility="visible">
 
-                    <com.velora.portal.core.ui.component.StyledTextView
+                    <com.velora.portal.platform.design.component.StyledTextView
                         style="@style/AuthDataEncryptedTipText"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginHorizontal="@dimen/dp_16"
                         android:layout_marginBottom="@dimen/dp_10" />
 
-                    <com.velora.portal.core.ui.component.StatefulActionButton
+                    <com.velora.portal.platform.design.component.StatefulActionButton
                         android:id="@+id/btn_submit_review"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_48"
@@ -519,7 +519,7 @@
                 </LinearLayout>
         </LinearLayout>
 
-        <com.velora.portal.core.ui.component.PageStateOverlayView
+        <com.velora.portal.platform.design.component.PageStateOverlayView
             android:id="@+id/pageState"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

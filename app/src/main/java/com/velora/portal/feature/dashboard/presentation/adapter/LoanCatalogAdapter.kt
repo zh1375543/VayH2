@@ -2,12 +2,12 @@ package com.velora.portal.feature.dashboard.presentation.adapter
 
 import androidx.core.view.isVisible
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemHomeProductBinding
 import com.velora.portal.feature.dashboard.presentation.state.HomeProductUi
-import com.velora.portal.core.ui.extension.loadImage
-import com.velora.portal.core.common.util.text.formatAmountWithPrefix
-import com.velora.portal.core.common.util.platform.formatLoanTerm
+import com.velora.portal.platform.design.extension.loadImage
+import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
+import com.velora.portal.platform.common.util.platform.formatLoanTerm
 
 class LoanCatalogAdapter :
     BaseAdapter<HomeProductUi, ItemHomeProductBinding>(ItemHomeProductBinding::inflate) {

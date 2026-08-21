@@ -2,7 +2,7 @@ package com.velora.portal.application
 
 import android.content.Context
 import android.content.Intent
-import com.velora.portal.core.session.SessionStore
+import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.calculation.CalculationActivity
 
 /** Resolves and opens the correct home experience for the current session. */

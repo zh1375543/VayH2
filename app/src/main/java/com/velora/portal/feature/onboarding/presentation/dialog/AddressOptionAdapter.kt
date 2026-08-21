@@ -3,8 +3,8 @@ package com.velora.portal.feature.onboarding.presentation.dialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.isInvisible
 import com.velora.portal.R
-import com.velora.portal.core.common.data.bean.SelectionOption
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.common.data.bean.SelectionOption
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemAddressOptionBinding
 import java.util.Locale
 

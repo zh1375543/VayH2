@@ -2,11 +2,11 @@ package com.velora.portal.feature.onboarding.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
-import com.velora.portal.core.session.SessionStore
+import com.velora.portal.platform.design.base.BaseViewModel
+import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.feature.onboarding.data.AuthStatusRepository
 import com.velora.portal.feature.onboarding.model.VerificationProgressResponse
-import com.velora.portal.core.common.util.PageLoadState
+import com.velora.portal.platform.common.util.PageLoadState
 
 /** Provides authentication progress and the server-configured authentication steps. */
 class AuthStatusViewModel(

@@ -2,18 +2,18 @@ package com.velora.portal.calculation.fragment
 
 import android.content.Intent
 import com.velora.portal.R
-import com.velora.portal.core.common.data.PRIVACY_POLICY
-import com.velora.portal.core.ui.base.BaseFragment
-import com.velora.portal.core.session.SessionStore
+import com.velora.portal.platform.common.data.PRIVACY_POLICY
+import com.velora.portal.platform.design.base.BaseFragment
+import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.databinding.SidepageMineFragmentBinding
-import com.velora.portal.core.ui.extension.singleClick
+import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.calculation.activitiy.AccountSettingsActivity
 import com.velora.portal.calculation.activitiy.HelpCenterActivity
-import com.velora.portal.core.common.util.ExternalActionLauncher
-import com.velora.portal.core.common.util.maskPhoneNumber
-import com.velora.portal.core.common.util.showToastMessage
-import com.velora.portal.core.common.util.start
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.common.util.ExternalActionLauncher
+import com.velora.portal.platform.common.util.maskPhoneNumber
+import com.velora.portal.platform.common.util.showToastMessage
+import com.velora.portal.platform.common.util.start
+import com.velora.portal.platform.common.util.viewBinding
 import com.velora.portal.feature.content.presentation.ContentBrowserActivity
 
 /** Account page for the calculation experience. */

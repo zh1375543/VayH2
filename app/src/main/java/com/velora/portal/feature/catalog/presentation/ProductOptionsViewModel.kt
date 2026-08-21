@@ -3,13 +3,13 @@ package com.velora.portal.feature.catalog.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
-import com.velora.portal.core.common.data.ACT_LoanAppProductInfoDetail
-import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.platform.design.base.BaseViewModel
+import com.velora.portal.platform.common.data.ACT_LoanAppProductInfoDetail
+import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.feature.catalog.data.ProductOptionsRepository
 import com.velora.portal.feature.catalog.model.CatalogItemBean
-import com.velora.portal.core.common.util.text.toJsonString
-import com.velora.portal.core.common.util.PageLoadState
+import com.velora.portal.platform.common.util.text.toJsonString
+import com.velora.portal.platform.common.util.PageLoadState
 
 class ProductOptionsViewModel(
     private val loanProductRepository: ProductOptionsRepository = ProductOptionsRepository(),

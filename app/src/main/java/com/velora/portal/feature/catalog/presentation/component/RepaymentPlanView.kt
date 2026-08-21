@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
-import com.velora.portal.core.common.util.LogUtil
+import com.velora.portal.platform.common.util.LogUtil
 import com.velora.portal.databinding.RepaymentPlanViewBinding
 import com.velora.portal.feature.catalog.model.CatalogItemBean
 import com.velora.portal.feature.catalog.presentation.adapter.InstallmentScheduleAdapter

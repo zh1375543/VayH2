@@ -11,14 +11,14 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.velora.portal.core.ui.base.BaseActivity
+import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.feature.content.model.WebBridgeMessage
 import com.velora.portal.databinding.ActivityContentBrowserBinding
-import com.velora.portal.core.common.util.LogUtil
-import com.velora.portal.core.common.util.ExternalActionLauncher
-import com.velora.portal.core.common.util.text.parseJsonSafely
-import com.velora.portal.core.common.util.start
-import com.velora.portal.core.common.util.viewBinding
+import com.velora.portal.platform.common.util.LogUtil
+import com.velora.portal.platform.common.util.ExternalActionLauncher
+import com.velora.portal.platform.common.util.text.parseJsonSafely
+import com.velora.portal.platform.common.util.start
+import com.velora.portal.platform.common.util.viewBinding
 
 class ContentBrowserActivity : BaseActivity<ActivityContentBrowserBinding>() {
 

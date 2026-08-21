@@ -2,19 +2,19 @@ package com.velora.portal.feature.onboarding.presentation.kyc
 
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
-import com.velora.portal.core.common.data.ACT_next
-import com.velora.portal.core.common.data.ACT_uploadBack
-import com.velora.portal.core.common.data.ACT_uploadFace
-import com.velora.portal.core.common.data.ACT_uploadFront
-import com.velora.portal.core.common.data.PageInfoKyc
-import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.platform.design.base.BaseViewModel
+import com.velora.portal.platform.common.data.ACT_next
+import com.velora.portal.platform.common.data.ACT_uploadBack
+import com.velora.portal.platform.common.data.ACT_uploadFace
+import com.velora.portal.platform.common.data.ACT_uploadFront
+import com.velora.portal.platform.common.data.PageInfoKyc
+import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.feature.onboarding.data.DocumentReviewRepository
 import com.velora.portal.feature.onboarding.model.IdentityDocumentResponse
 import com.velora.portal.feature.onboarding.model.IdentityPolicyResponse
 import com.velora.portal.feature.onboarding.model.FaceVerificationSessionResponse
-import com.velora.portal.core.ui.image.UiImageSource
-import com.velora.portal.core.common.util.text.toJsonString
+import com.velora.portal.platform.design.image.UiImageSource
+import com.velora.portal.platform.common.util.text.toJsonString
 import java.io.File
 
 class KycUploadViewModel(

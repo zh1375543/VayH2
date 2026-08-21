@@ -1,13 +1,13 @@
 package com.velora.portal.feature.dashboard.presentation.adapter
 
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseAdapter
-import com.velora.portal.core.common.data.language
+import com.velora.portal.platform.design.base.BaseAdapter
+import com.velora.portal.platform.common.data.language
 import com.velora.portal.databinding.ItemSupportContactBinding
 import com.velora.portal.feature.dashboard.model.CustomerContactConfig
-import com.velora.portal.core.ui.extension.singleClick
-import com.velora.portal.core.common.util.ExternalActionLauncher
-import com.velora.portal.core.common.util.showToastMessage
+import com.velora.portal.platform.design.extension.singleClick
+import com.velora.portal.platform.common.util.ExternalActionLauncher
+import com.velora.portal.platform.common.util.showToastMessage
 
 class SupportContactDialogAdapter :
     BaseAdapter<CustomerContactConfig, ItemSupportContactBinding>(

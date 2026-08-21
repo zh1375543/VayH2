@@ -39,7 +39,7 @@
         app:layout_constraintStart_toEndOf="@id/vOrder"
         app:layout_constraintTop_toTopOf="@id/vBottomNavigation" />
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="@id/vHome"
         app:textColorSelected="@color/text_primary" />
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toTopOf="@id/vOrder"
         app:textColorSelected="@color/text_primary" />
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvMine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

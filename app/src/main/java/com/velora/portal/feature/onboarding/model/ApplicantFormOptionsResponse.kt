@@ -1,6 +1,6 @@
 package com.velora.portal.feature.onboarding.model
 
-import com.velora.portal.core.common.data.bean.SelectionOption
+import com.velora.portal.platform.common.data.bean.SelectionOption
 
 data class ApplicantFormOptionsResponse(
     val gender: MutableList<SelectionOption>? = null,

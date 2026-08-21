@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/dp_24">
 
-        <com.velora.portal.core.ui.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.StyledConstraintLayout
             android:id="@+id/profileHeader"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -73,9 +73,9 @@
                 app:layout_constraintTop_toTopOf="@id/ivAvatar"
                 app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
                 tools:text="966****983" />
-        </com.velora.portal.core.ui.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
-        <com.velora.portal.core.ui.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.StyledConstraintLayout
             android:id="@+id/tvQuick"
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_76"
@@ -103,7 +103,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
-            <com.velora.portal.core.ui.component.StyledTextView
+            <com.velora.portal.platform.design.component.StyledTextView
                 android:id="@+id/tvPayBack"
                 android:layout_width="@dimen/dp_120"
                 android:layout_height="@dimen/dp_48"
@@ -117,7 +117,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:radius="@dimen/dp_12"
                 app:solidColor="@color/brand_primary" />
-        </com.velora.portal.core.ui.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.StyledConstraintLayout>
 
         <LinearLayout
             android:id="@+id/profileShortcutRow"
@@ -207,7 +207,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <com.velora.portal.core.ui.component.StyledLinearLayout
+        <com.velora.portal.platform.design.component.StyledLinearLayout
             android:id="@+id/profileMenuContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -358,6 +358,6 @@
                     android:contentDescription="@null"
                     android:src="@mipmap/mine_right" />
             </FrameLayout>
-        </com.velora.portal.core.ui.component.StyledLinearLayout>
+        </com.velora.portal.platform.design.component.StyledLinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

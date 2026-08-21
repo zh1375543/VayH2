@@ -6,7 +6,7 @@
     android:background="@color/page_bg_color1"
     android:layout_height="match_parent">
 
-    <com.velora.portal.core.ui.component.PageHeaderView
+    <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

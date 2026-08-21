@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -40,7 +40,7 @@
         app:layout_goneMarginTop="@dimen/dp_50"
         tools:text="Make sure you want to unbind the electronic wallet" />
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvClose"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_44"
@@ -59,7 +59,7 @@
         app:strokeColor="@color/brand_primary"
         app:strokeWidth="@dimen/dp_1" />
 
-    <com.velora.portal.core.ui.component.StyledTextView
+    <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvSure"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_44"
@@ -76,4 +76,4 @@
         app:layout_constraintTop_toTopOf="@id/tvClose"
         app:solidColor="@color/brand_primary" />
 
-</com.velora.portal.core.ui.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.StyledConstraintLayout>

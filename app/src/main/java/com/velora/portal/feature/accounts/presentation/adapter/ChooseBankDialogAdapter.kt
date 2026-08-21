@@ -1,10 +1,10 @@
 package com.velora.portal.feature.accounts.presentation.adapter
 
 import com.velora.portal.R
-import com.velora.portal.core.ui.base.BaseAdapter
+import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.feature.accounts.model.AccountChannelResponse
 import com.velora.portal.databinding.ItemBankOptionBinding
-import com.velora.portal.core.ui.extension.loadImage
+import com.velora.portal.platform.design.extension.loadImage
 import androidx.core.view.isVisible
 
 class ChooseBankDialogAdapter :

@@ -4,18 +4,18 @@ import android.os.Build
 import com.appsflyer.AppsFlyerLib
 import com.velora.portal.BuildConfig
 import com.velora.portal.application.MainApplication
-import com.velora.portal.core.common.data.appFlyer
-import com.velora.portal.core.common.data.bean.ApiRequest
-import com.velora.portal.core.common.data.firebaseId
-import com.velora.portal.core.common.data.firebaseToken
-import com.velora.portal.core.common.data.location
-import com.velora.portal.core.network.Api
-import com.velora.portal.core.network.NetworkProvider
-import com.velora.portal.core.common.data.repository.dataOrThrow
-import com.velora.portal.core.session.SessionStore
+import com.velora.portal.platform.common.data.appFlyer
+import com.velora.portal.platform.common.data.bean.ApiRequest
+import com.velora.portal.platform.common.data.firebaseId
+import com.velora.portal.platform.common.data.firebaseToken
+import com.velora.portal.platform.common.data.location
+import com.velora.portal.platform.network.Api
+import com.velora.portal.platform.network.NetworkProvider
+import com.velora.portal.platform.common.data.repository.dataOrThrow
+import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.feature.onboarding.model.AccessSessionResponse
-import com.velora.portal.core.device.DeviceIdentityReader
-import com.velora.portal.core.common.util.toMd5
+import com.velora.portal.platform.telemetry.device.DeviceIdentityReader
+import com.velora.portal.platform.common.util.toMd5
 
 class SessionRepository(
     private val api: Api = NetworkProvider.api,

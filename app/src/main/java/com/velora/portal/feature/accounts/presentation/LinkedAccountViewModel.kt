@@ -2,12 +2,12 @@ package com.velora.portal.feature.accounts.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.velora.portal.core.ui.base.BaseViewModel
+import com.velora.portal.platform.design.base.BaseViewModel
 import com.velora.portal.feature.accounts.data.LinkedAccountRepository
 import com.velora.portal.feature.accounts.model.LinkedAccountResponse
 import com.velora.portal.feature.accounts.model.AccountChannelResponse
 import com.velora.portal.feature.accounts.model.AccountMethodResponse
-import com.velora.portal.core.common.util.PageLoadState
+import com.velora.portal.platform.common.util.PageLoadState
 
 class LinkedAccountViewModel(
     private val walletRepository: LinkedAccountRepository = LinkedAccountRepository(),

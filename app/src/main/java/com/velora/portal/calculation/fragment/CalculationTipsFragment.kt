@@ -5,9 +5,9 @@ import com.velora.portal.calculation.activitiy.BudgetTipDetailActivity
 import com.velora.portal.calculation.activitiy.ExpenseTrackingTipDetailActivity
 import com.velora.portal.calculation.activitiy.SavingsGoalTipDetailActivity
 import com.velora.portal.calculation.activitiy.SavingsTipDetailActivity
-import com.velora.portal.core.common.util.viewBinding
-import com.velora.portal.core.ui.base.BaseFragment
-import com.velora.portal.core.ui.extension.singleClick
+import com.velora.portal.platform.common.util.viewBinding
+import com.velora.portal.platform.design.base.BaseFragment
+import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.databinding.FragmentCalculationTipsBinding
 
 class CalculationTipsFragment : BaseFragment<FragmentCalculationTipsBinding>(

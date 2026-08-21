@@ -1,12 +1,12 @@
 package com.velora.portal.feature.onboarding.presentation
 
 import android.content.Context
-import com.velora.portal.core.common.data.authConfigList
+import com.velora.portal.platform.common.data.authConfigList
 import com.velora.portal.feature.onboarding.model.VerificationProgressResponse
 import com.velora.portal.feature.onboarding.presentation.contact.PaymentDetailsActivity
 import com.velora.portal.feature.onboarding.presentation.kyc.DocumentReviewActivity
 import com.velora.portal.feature.onboarding.presentation.profile.ApplicantDetailsActivity
-import com.velora.portal.core.common.util.start
+import com.velora.portal.platform.common.util.start
 
 fun VerificationProgressResponse.routeToNextAuthStep(
     context: Context,
