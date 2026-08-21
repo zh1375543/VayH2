@@ -97,7 +97,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.velora.portal.platform.design.component.StyledConstraintLayout
+                <com.velora.portal.platform.design.component.SurfacePanelLayout
                     android:id="@+id/productDetailsCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -109,8 +109,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/productSummaryCard"
-                    app:radius="@dimen/dp_24"
-                    app:solidColor="@color/surface_primary">
+                    app:panelCornerRadius="@dimen/dp_24"
+                    app:panelFillColor="@color/surface_primary">
 
                     <com.velora.portal.journey.lending.catalog.presentation.component.LoanProductDetailsView
                         android:id="@+id/productDetailsView"
@@ -119,9 +119,9 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-                </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-                <com.velora.portal.platform.design.component.StyledConstraintLayout
+                <com.velora.portal.platform.design.component.SurfacePanelLayout
                     android:id="@+id/repaymentPlanCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -133,8 +133,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/productDetailsCard"
-                    app:radius="@dimen/dp_24"
-                    app:solidColor="@color/surface_primary">
+                    app:panelCornerRadius="@dimen/dp_24"
+                    app:panelFillColor="@color/surface_primary">
 
                     <com.velora.portal.journey.lending.catalog.presentation.component.RepaymentPlanView
                         android:id="@+id/repaymentPlanView"
@@ -143,7 +143,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-                </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
@@ -172,7 +172,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottomCard"
         app:layout_goneMarginBottom="@dimen/dp_30" />
 
-    <com.velora.portal.platform.design.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:id="@+id/bottomCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -182,7 +182,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:solidColor="@color/surface_primary">
+        app:panelFillColor="@color/surface_primary">
 
         <TextView
             android:id="@+id/tvAccountTitle"
@@ -243,7 +243,7 @@
             app:radius="@dimen/dp_15"
             app:solidColor="@color/brand_primary" />
 
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/walletTipPanel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -252,8 +252,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAccountTitle"
-            app:radius="@dimen/dp_16"
-            app:solidColor="@color/color_verify_tip">
+            app:panelCornerRadius="@dimen/dp_16"
+            app:panelFillColor="@color/color_verify_tip">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivLoanTip"
@@ -277,9 +277,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ivLoanTip"
                 app:layout_constraintTop_toTopOf="@id/ivLoanTip" />
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/repaymentLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -299,8 +299,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLoanTip" />
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
-    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/bottomUiGroup"

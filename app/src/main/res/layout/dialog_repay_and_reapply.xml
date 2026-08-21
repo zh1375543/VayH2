@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.SurfacePanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:radius="@dimen/dp_24"
-    app:solidColor="@color/text_inverse">
+    app:panelCornerRadius="@dimen/dp_24"
+    app:panelFillColor="@color/text_inverse">
 
-    <com.velora.portal.platform.design.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:id="@+id/messageLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -16,9 +16,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:radius="@dimen/dp_16"
-        app:selectedColor="@color/installment_tip_bg"
-        app:solidColor="@color/aide_color">
+        app:panelCornerRadius="@dimen/dp_16"
+        app:panelSelectedFillColor="@color/installment_tip_bg"
+        app:panelFillColor="@color/aide_color">
 
         <TextView
             android:id="@+id/tvTitle"
@@ -68,7 +68,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDesc" />
 
-    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
     <com.velora.portal.platform.design.component.SelectableImageView
         android:id="@+id/cbUnderstand"
@@ -117,4 +117,4 @@
         app:layout_constraintTop_toBottomOf="@id/cbUnderstand"
         tools:text="Repay &amp; Auto-Apply" />
 
-</com.velora.portal.platform.design.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.SurfacePanelLayout>

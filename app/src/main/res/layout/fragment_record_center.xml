@@ -19,15 +19,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.velora.portal.platform.design.component.StyledConstraintLayout
+                <com.velora.portal.platform.design.component.SurfacePanelLayout
                     android:id="@+id/repayment_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_14"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:radius="@dimen/dp_24"
-                    app:solidColor="@color/aide_color">
+                    app:panelCornerRadius="@dimen/dp_24"
+                    app:panelFillColor="@color/aide_color">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/repaymentContent"
@@ -109,9 +109,9 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/repaymentContent" />
-                </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-                <com.velora.portal.platform.design.component.StyledConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/order_layout"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -132,12 +132,12 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.velora.portal.platform.design.component.StyledConstraintLayout
+                        <com.velora.portal.platform.design.component.SurfacePanelLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingBottom="@dimen/dp_16"
-                            app:radius="@dimen/dp_24"
-                            app:solidColor="@color/aide_color">
+                            app:panelCornerRadius="@dimen/dp_24"
+                            app:panelFillColor="@color/aide_color">
 
                             <com.velora.portal.platform.design.component.DecoratedTitleView
                                 android:id="@+id/tvOrders"
@@ -172,9 +172,9 @@
                                 tools:itemCount="1"
                                 tools:listitem="@layout/item_home_borrowing"
                                 tools:visibility="visible" />
-                        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                        </com.velora.portal.platform.design.component.SurfacePanelLayout>
                     </androidx.core.widget.NestedScrollView>
-                </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
                     android:id="@+id/emptyOrder"
@@ -220,14 +220,14 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                         android:id="@+id/benefitsLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp_20"
                         android:padding="@dimen/dp_16"
-                        app:radius="@dimen/dp_24"
-                        app:solidColor="@color/aide_color">
+                        app:panelCornerRadius="@dimen/dp_24"
+                        app:panelFillColor="@color/aide_color">
 
                         <com.velora.portal.platform.design.component.DecoratedTitleView
                             android:id="@+id/tvBenefits"
@@ -241,7 +241,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.velora.portal.platform.design.component.StyledConstraintLayout
+                        <com.velora.portal.platform.design.component.SurfacePanelLayout
                             android:id="@+id/benefitsContent"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -250,8 +250,8 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvBenefits"
-                            app:radius="@dimen/dp_24"
-                            app:solidColor="@color/surface_primary">
+                            app:panelCornerRadius="@dimen/dp_24"
+                            app:panelFillColor="@color/surface_primary">
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/ivTip1"
@@ -393,8 +393,8 @@
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@id/tvTitle3" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
-                        </com.velora.portal.platform.design.component.StyledConstraintLayout>
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                        </com.velora.portal.platform.design.component.SurfacePanelLayout>
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.SurfacePanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/contentView"
     android:layout_width="@dimen/dp_91"
     android:layout_height="@dimen/dp_103"
     android:layout_marginEnd="@dimen/dp_6"
-    app:radius="@dimen/dp_8"
-    app:selectedColor="@color/surface_secondary"
-    app:selectedStrokeColor="@color/brand_primary"
-    app:solidColor="@color/surface_secondary"
-    app:strokeColor="@color/transparent"
-    app:strokeWidth="@dimen/dp_1">
+    app:panelCornerRadius="@dimen/dp_8"
+    app:panelSelectedFillColor="@color/surface_secondary"
+    app:panelSelectedBorderColor="@color/brand_primary"
+    app:panelFillColor="@color/surface_secondary"
+    app:panelBorderColor="@color/transparent"
+    app:panelBorderWidth="@dimen/dp_1">
 
     <com.velora.portal.platform.design.component.StyledTextView
         android:id="@+id/tvNum1"
@@ -119,4 +119,4 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="tvFirst,tvAmount1" />
 
-</com.velora.portal.platform.design.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.SurfacePanelLayout>

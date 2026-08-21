@@ -8,7 +8,7 @@
     android:clipToPadding="false"
     android:paddingHorizontal="@dimen/dp_20">
 
-    <com.velora.portal.platform.design.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:id="@+id/headerLayout"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_96"
@@ -16,8 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:radius="@dimen/dp_12"
-        app:solidColor="@color/brand_primary">
+        app:panelCornerRadius="@dimen/dp_12"
+        app:panelFillColor="@color/brand_primary">
 
         <TextView
             android:id="@+id/tvTitle"
@@ -38,7 +38,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Congratulations on getting 2 new products!" />
 
-    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivProductNew"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="@id/headerLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.platform.design.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:id="@+id/contentLayout"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
@@ -59,8 +59,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerLayout"
-        app:radius="@dimen/dp_12"
-        app:solidColor="@color/text_inverse">
+        app:panelCornerRadius="@dimen/dp_12"
+        app:panelFillColor="@color/text_inverse">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvProduct"
@@ -96,7 +96,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvProduct" />
 
-    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivDataLine"

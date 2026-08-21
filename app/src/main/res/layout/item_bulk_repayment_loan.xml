@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.SurfacePanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dp_10"
-    app:radius="@dimen/dp_18"
-    app:solidColor="@color/text_inverse"
-    app:strokeColor="@color/brand_primary"
-    app:strokeWidth="@dimen/dp_1">
+    app:panelCornerRadius="@dimen/dp_18"
+    app:panelFillColor="@color/text_inverse"
+    app:panelBorderColor="@color/brand_primary"
+    app:panelBorderWidth="@dimen/dp_1">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivRepayTop"
@@ -149,4 +149,4 @@
         app:srcSelected="@mipmap/ic_verify_ok"
         app:layout_constraintTop_toTopOf="@id/btnProductDetail" />
 
-</com.velora.portal.platform.design.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.SurfacePanelLayout>

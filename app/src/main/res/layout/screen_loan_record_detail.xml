@@ -55,7 +55,7 @@
                         tools:text="Product name" />
 
                     <!-- The upper and lower sections use their own colors for overdue orders. -->
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                         android:id="@+id/topSummaryLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -63,10 +63,10 @@
                         android:layout_marginTop="@dimen/dp_10"
                         android:clipToOutline="true"
                         app:layout_constraintTop_toBottomOf="@id/tvProductName"
-                        app:radius="@dimen/dp_16"
-                        app:solidColor="@color/surface_primary"
-                        app:strokeColor="@color/border_default"
-                        app:strokeWidth="@dimen/dp_1">
+                        app:panelCornerRadius="@dimen/dp_16"
+                        app:panelFillColor="@color/surface_primary"
+                        app:panelBorderColor="@color/border_default"
+                        app:panelBorderWidth="@dimen/dp_1">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/headerMainLayout"
@@ -239,7 +239,7 @@
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
                     <!-- ===== Detail cards ===== -->
                     <com.velora.portal.platform.design.component.StyledLinearLayout
@@ -253,15 +253,15 @@
                         app:solidColor="@color/transparent">
 
                     <!-- ===== Order information card ===== -->
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                         android:id="@+id/info_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clipToOutline="true"
                         android:paddingBottom="@dimen/dp_16"
                         android:visibility="visible"
-                        app:radius="@dimen/dp_16"
-                        app:solidColor="@color/surface_primary"
+                        app:panelCornerRadius="@dimen/dp_16"
+                        app:panelFillColor="@color/surface_primary"
                         tools:visibility="visible">
 
                         <androidx.appcompat.widget.AppCompatImageView
@@ -467,17 +467,17 @@
                             android:layout_height="@dimen/dp_0"
                             android:visibility="gone" />
 
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
                     <!-- ===== Fee breakdown card ===== -->
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                         android:id="@+id/fee_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp_12"
                         android:clipToOutline="true"
-                        app:radius="@dimen/dp_16"
-                        app:solidColor="@color/surface_primary">
+                        app:panelCornerRadius="@dimen/dp_16"
+                        app:panelFillColor="@color/surface_primary">
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/ivFeeBreakdownIcon"
@@ -579,16 +579,16 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/feeContentBottom" />
 
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
                     <!-- ===== Amount Details card ===== -->
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                         android:id="@+id/amount_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp_12"
                         android:clipToOutline="true"
-                        app:radius="@dimen/dp_16"
-                        app:solidColor="@color/surface_primary">
+                        app:panelCornerRadius="@dimen/dp_16"
+                        app:panelFillColor="@color/surface_primary">
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/ivAmountDetailsIcon"
@@ -680,12 +680,12 @@
                             app:layout_constraintTop_toBottomOf="@id/tvAccountTitle"
                             tools:text="1234567890" />
 
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
                     </com.velora.portal.platform.design.component.StyledLinearLayout>
 
                     <!-- ===== Repayment detail card: due date, fees, installment list ===== -->
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                         android:id="@+id/detail_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -693,11 +693,11 @@
                         android:layout_marginTop="@dimen/dp_12"
                         android:visibility="visible"
                         app:layout_constraintTop_toBottomOf="@id/productDetailsLayout"
-                        app:radius="@dimen/dp_12"
-                        app:solidColor="@color/surface_primary">
+                        app:panelCornerRadius="@dimen/dp_12"
+                        app:panelFillColor="@color/surface_primary">
 
 
-                        <com.velora.portal.platform.design.component.StyledConstraintLayout
+                        <com.velora.portal.platform.design.component.SurfacePanelLayout
                             android:id="@+id/installmentTitleIndicator"
                             android:layout_width="@dimen/dp_4"
                             android:layout_height="@dimen/dp_10"
@@ -705,8 +705,8 @@
                             app:layout_constraintBottom_toBottomOf="@id/tvInstallment"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="@id/tvInstallment"
-                            app:radius="@dimen/dp_2"
-                            app:solidColor="@color/brand_primary" />
+                            app:panelCornerRadius="@dimen/dp_2"
+                            app:panelFillColor="@color/brand_primary" />
 
                         <TextView
                             android:id="@+id/tvInstallment"
@@ -721,7 +721,7 @@
                             app:layout_constraintStart_toEndOf="@id/installmentTitleIndicator"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.velora.portal.platform.design.component.StyledConstraintLayout
+                        <com.velora.portal.platform.design.component.SurfacePanelLayout
                             android:id="@+id/installmentTipLayout"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -730,8 +730,8 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvInstallment"
-                            app:radius="@dimen/dp_12"
-                            app:solidColor="@color/installment_tip_bg">
+                            app:panelCornerRadius="@dimen/dp_12"
+                            app:panelFillColor="@color/installment_tip_bg">
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/ivInstallmentTipStart"
@@ -785,7 +785,7 @@
                                 app:layout_constraintStart_toStartOf="@id/installmentTipFirstRow"
                                 app:layout_constraintTop_toBottomOf="@id/installmentTipFirstRow" />
 
-                        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
                         <TextView
                             android:id="@+id/tvDate"
@@ -826,7 +826,7 @@
                             tools:itemCount="2"
                             tools:listitem="@layout/item_record_installment" />
 
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
                     <TextView
                         android:id="@+id/contract_layout"
@@ -860,7 +860,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <!-- Fixed bottom action order: amount row, Repay, agreement, Auto-Apply, Auto-Apply All. -->
-            <com.velora.portal.platform.design.component.StyledConstraintLayout
+            <com.velora.portal.platform.design.component.SurfacePanelLayout
                 android:id="@+id/bottomActionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -868,10 +868,10 @@
                 android:paddingTop="@dimen/dp_14"
                 android:paddingBottom="@dimen/dp_18"
                 android:visibility="gone"
-                app:left_top_radius="@dimen/dp_24"
+                app:panelTopLeftRadius="@dimen/dp_24"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:right_top_radius="@dimen/dp_24"
-                app:solidColor="@color/surface_primary"
+                app:panelTopRightRadius="@dimen/dp_24"
+                app:panelFillColor="@color/surface_primary"
                 tools:visibility="visible">
 
                 <TextView
@@ -1090,7 +1090,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/bottomActionBarrier" />
 
-            </com.velora.portal.platform.design.component.StyledConstraintLayout>
+            </com.velora.portal.platform.design.component.SurfacePanelLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.velora.portal.platform.design.component.PageStateOverlayView

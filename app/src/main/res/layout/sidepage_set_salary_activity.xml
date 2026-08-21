@@ -29,15 +29,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleBar">
 
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/salaryForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="@dimen/dp_8"
-            app:radius="@dimen/dp_12"
-            app:solidColor="@color/surface_primary"
-            app:strokeColor="@color/brand_primary"
-            app:strokeWidth="@dimen/dp_1">
+            app:panelCornerRadius="@dimen/dp_12"
+            app:panelFillColor="@color/surface_primary"
+            app:panelBorderColor="@color/brand_primary"
+            app:panelBorderWidth="@dimen/dp_1">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -105,7 +105,7 @@
                     app:inputType="text"
                     app:titleText="@string/calculator_work_location" />
             </LinearLayout>
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
     </androidx.core.widget.NestedScrollView>
 
     <com.velora.portal.platform.design.component.StatefulActionButton

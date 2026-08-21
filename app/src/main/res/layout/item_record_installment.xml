@@ -70,7 +70,7 @@
         app:layout_constraintStart_toStartOf="@id/ivCheck"
         app:layout_constraintTop_toBottomOf="@id/ivCheck" />
 
-    <com.velora.portal.platform.design.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:id="@+id/detail_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -80,8 +80,8 @@
         app:layout_constraintEnd_toEndOf="@id/ivArrow"
         app:layout_constraintStart_toStartOf="@id/tvDate"
         app:layout_constraintTop_toBottomOf="@id/tvStatus"
-        app:radius="@dimen/dp_16"
-        app:solidColor="@color/surface_secondary">
+        app:panelCornerRadius="@dimen/dp_16"
+        app:panelFillColor="@color/surface_secondary">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/loanAmountItem"
@@ -221,7 +221,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
     <View
         android:id="@+id/spaceView"

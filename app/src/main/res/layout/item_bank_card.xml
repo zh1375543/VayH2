@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.SurfacePanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dp_10"
-    app:radius="@dimen/dp_10">
+    app:panelCornerRadius="@dimen/dp_10">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivAccountIcon"
@@ -111,4 +111,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-</com.velora.portal.platform.design.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.SurfacePanelLayout>

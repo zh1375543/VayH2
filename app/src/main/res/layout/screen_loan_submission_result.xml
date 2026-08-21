@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.velora.portal.platform.design.component.StyledConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/success_layout"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/dp_118"
@@ -103,7 +103,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvApplySuccessTitle" />
 
-            </com.velora.portal.platform.design.component.StyledConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/fail_layout"
@@ -116,7 +116,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivFail">
 
-                <com.velora.portal.platform.design.component.StyledConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/failCardGroup"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/dp_118"
@@ -156,7 +156,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvApplyFailTitle" />
 
-                </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <com.velora.portal.platform.design.component.StyledTextView
                     android:id="@+id/tvLoanResultTip"
@@ -203,7 +203,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/resultsCard"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -237,7 +237,7 @@
                             app:radius="@dimen/dp_16"
                             app:solidColor="@color/surface_secondary" />
 
-                        <com.velora.portal.platform.design.component.StyledConstraintLayout
+                        <com.velora.portal.platform.design.component.SurfacePanelLayout
                             android:id="@+id/cashableProductLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -247,8 +247,8 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/rvProduct"
-                            app:radius="@dimen/dp_16"
-                            app:solidColor="@color/aide_color"
+                            app:panelCornerRadius="@dimen/dp_16"
+                            app:panelFillColor="@color/aide_color"
                             tools:visibility="visible">
 
                             <com.velora.portal.platform.design.component.DecoratedTitleView
@@ -281,9 +281,9 @@
                                 tools:itemCount="2"
                                 tools:listitem="@layout/item_home_product" />
 
-                        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.core.widget.NestedScrollView>
@@ -317,4 +317,4 @@
         app:navigationIconColor="@color/text_inverse"
         app:layout_constraintTop_toTopOf="parent" />
 
-</com.velora.portal.platform.design.component.StyledConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

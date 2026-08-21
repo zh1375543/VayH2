@@ -14,7 +14,7 @@
         android:clipToPadding="false"
         android:paddingBottom="@dimen/dp_24">
 
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/homeTicketCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -26,8 +26,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:radius="@dimen/dp_24"
-            app:solidColor="@color/aide_color">
+            app:panelCornerRadius="@dimen/dp_24"
+            app:panelFillColor="@color/aide_color">
 
             <FrameLayout
                 android:id="@+id/homeTicketMainContainer"
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/dp_20">
 
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                         android:id="@+id/notice_layout"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/dp_46"
@@ -59,9 +59,9 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:solidColor="@color/p40_FFFFFF">
+                        app:panelFillColor="@color/p40_FFFFFF">
 
-                        <com.velora.portal.platform.design.component.StyledConstraintLayout
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/marqueeIconBackground"
                             android:layout_width="@dimen/dp_52"
                             android:layout_height="match_parent"
@@ -78,7 +78,7 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
-                        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <com.velora.portal.platform.design.component.RollingNoticeView
                             android:id="@+id/marqueeView"
@@ -90,7 +90,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/marqueeIconBackground"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/top_layout"
@@ -104,7 +104,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/notice_layout">
                 <!--no login laout-->
-                <com.velora.portal.platform.design.component.StyledConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/guestCreditPanel"
                     android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="20,000,000" />
 
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/rate_layout"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="wrap_content"
@@ -218,12 +218,12 @@
                             android:visibility="gone" />
 
 
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <!--login and verfy-->
-                <com.velora.portal.platform.design.component.StyledConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/memberCreditPanel"
                     android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
@@ -260,7 +260,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="20,000,000" />
 
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/amount_layout"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="wrap_content"
@@ -329,9 +329,9 @@
                             app:layout_constraintStart_toEndOf="@id/authMoneyGuide"
                             app:layout_constraintTop_toBottomOf="@id/tvUsed"
                             tools:text="5,000,000" />
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -474,7 +474,7 @@
                         app:layout_constraintTop_toBottomOf="@id/loanButtonFrame" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
         <!-- Credit rejected state. -->
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -607,7 +607,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/homePrimaryContentBottom" />
 
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/question_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -620,8 +620,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/campaignBanner"
-            app:radius="@dimen/dp_24"
-            app:solidColor="@color/aide_color">
+            app:panelCornerRadius="@dimen/dp_24"
+            app:panelFillColor="@color/aide_color">
 
             <com.velora.portal.platform.design.component.DecoratedTitleView
                 android:id="@+id/questionTitleLayout"
@@ -668,7 +668,7 @@
                     android:baselineAligned="false"
                     android:orientation="horizontal">
 
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1">
@@ -696,9 +696,9 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/premiumTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/dp_12"
@@ -727,7 +727,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/applyTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -737,7 +737,7 @@
                     android:baselineAligned="false"
                     android:orientation="horizontal">
 
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1">
@@ -765,9 +765,9 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/informationTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/dp_12"
@@ -796,10 +796,10 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/clearTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
             </com.velora.portal.platform.design.component.StyledLinearLayout>
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/homeSupplementaryContentBottom"
@@ -810,7 +810,7 @@
             app:constraint_referenced_ids="homePrimaryContentBottom,campaignBanner,question_layout" />
 
         <!-- Payout account alert. -->
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/payoutAccountAlert"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
@@ -821,8 +821,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/homeSupplementaryContentBottom"
-            app:radius="@dimen/dp_24"
-            app:solidColor="@color/surface_primary">
+            app:panelCornerRadius="@dimen/dp_24"
+            app:panelFillColor="@color/surface_primary">
 
             <TextView
                 android:id="@+id/tvFailed"
@@ -878,17 +878,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:tint="@color/text_secondary"
                 app:layout_constraintTop_toTopOf="parent" />
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
         <!--product list-->
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/offerSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp_16"
             android:layout_marginTop="@dimen/dp_10"
-            app:radius="@dimen/dp_24"
-            app:solidColor="@color/aide_color"
+            app:panelCornerRadius="@dimen/dp_24"
+            app:panelFillColor="@color/aide_color"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/payoutAccountAlert"
             app:layout_goneMarginTop="@dimen/dp_25">
@@ -918,7 +918,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tvHomeProducts"
                 tools:itemCount="1"
                 tools:listitem="@layout/item_home_product" />
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
         <com.velora.portal.platform.design.component.StyledLinearLayout
             android:id="@+id/emptyProduct"

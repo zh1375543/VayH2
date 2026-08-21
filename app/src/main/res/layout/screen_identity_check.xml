@@ -35,7 +35,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <com.velora.portal.platform.design.component.StyledConstraintLayout
+                        <com.velora.portal.platform.design.component.SurfacePanelLayout
                             android:id="@+id/document_identity_section"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -43,8 +43,8 @@
                             android:layout_marginHorizontal="@dimen/dp_16"
                             android:paddingBottom="@dimen/dp_20"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:radius="@dimen/dp_12"
-                            app:solidColor="@color/text_inverse">
+                            app:panelCornerRadius="@dimen/dp_12"
+                            app:panelFillColor="@color/text_inverse">
 
                             <com.velora.portal.platform.design.component.StyledTextView
                                 android:id="@+id/tvCard"
@@ -89,15 +89,15 @@
                                 android:layout_marginTop="@dimen/dp_16"
                                 app:layout_constraintTop_toBottomOf="@id/document_type_field">
 
-                                <com.velora.portal.platform.design.component.StyledConstraintLayout
+                                <com.velora.portal.platform.design.component.SurfacePanelLayout
                                     android:id="@+id/face_layout"
                                     android:layout_width="@dimen/dp_147"
                                     android:layout_height="@dimen/dp_83"
                                     android:layout_marginStart="@dimen/dp_12"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    app:radius="@dimen/dp_6"
-                                    app:solidColor="@color/surface_secondary">
+                                    app:panelCornerRadius="@dimen/dp_6"
+                                    app:panelFillColor="@color/surface_secondary">
 
                                     <androidx.appcompat.widget.AppCompatImageView
                                         android:layout_width="wrap_content"
@@ -145,7 +145,7 @@
                                         app:layout_constraintTop_toTopOf="parent"
                                         app:shapeAppearanceOverlay="@style/Round_6" />
 
-                                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                                         android:id="@+id/front_upload_state"
                                         android:layout_width="0dp"
                                         android:layout_height="0dp"
@@ -154,8 +154,8 @@
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent"
-                                        app:radius="@dimen/dp_6"
-                                        app:solidColor="@color/p50_000000">
+                                        app:panelCornerRadius="@dimen/dp_6"
+                                        app:panelFillColor="@color/p50_000000">
 
                                         <androidx.appcompat.widget.AppCompatImageView
                                             android:id="@+id/ivFrontVerifyStatus"
@@ -181,9 +181,9 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toBottomOf="@id/ivFrontVerifyStatus" />
-                                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-                                </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                                </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
                                 <TextView
                                     android:id="@+id/tvFrontTitle"
@@ -217,15 +217,15 @@
                                 android:layout_marginTop="@dimen/dp_10"
                                 app:layout_constraintTop_toBottomOf="@id/document_front_section">
 
-                                <com.velora.portal.platform.design.component.StyledConstraintLayout
+                                <com.velora.portal.platform.design.component.SurfacePanelLayout
                                     android:id="@+id/b_layout"
                                     android:layout_width="@dimen/dp_147"
                                     android:layout_height="@dimen/dp_83"
                                     android:layout_marginStart="@dimen/dp_12"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    app:radius="@dimen/dp_6"
-                                    app:solidColor="@color/surface_secondary">
+                                    app:panelCornerRadius="@dimen/dp_6"
+                                    app:panelFillColor="@color/surface_secondary">
 
                                     <androidx.appcompat.widget.AppCompatImageView
                                         android:layout_width="wrap_content"
@@ -272,7 +272,7 @@
                                         app:layout_constraintTop_toTopOf="parent"
                                         app:shapeAppearanceOverlay="@style/Round_6" />
 
-                                    <com.velora.portal.platform.design.component.StyledConstraintLayout
+                                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                                         android:id="@+id/back_upload_state"
                                         android:layout_width="0dp"
                                         android:layout_height="0dp"
@@ -281,8 +281,8 @@
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent"
-                                        app:radius="@dimen/dp_6"
-                                        app:solidColor="@color/p50_000000">
+                                        app:panelCornerRadius="@dimen/dp_6"
+                                        app:panelFillColor="@color/p50_000000">
 
                                         <androidx.appcompat.widget.AppCompatImageView
                                             android:id="@+id/ivBackVerifyStatus"
@@ -308,9 +308,9 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toBottomOf="@id/ivBackVerifyStatus" />
-                                    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-                                </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                                </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
                                 <TextView
                                     android:id="@+id/tvBackTitle"
@@ -337,19 +337,19 @@
                                     app:layout_constraintTop_toBottomOf="@id/tvBackTitle" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-                        <com.velora.portal.platform.design.component.StyledConstraintLayout
+                        <com.velora.portal.platform.design.component.SurfacePanelLayout
                             android:id="@+id/selfie_capture_section"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="@dimen/dp_16"
                             android:layout_marginTop="@dimen/dp_12"
                             app:layout_constraintTop_toBottomOf="@id/document_identity_section"
-                            app:radius="@dimen/dp_12"
-                            app:solidColor="@color/text_inverse">
+                            app:panelCornerRadius="@dimen/dp_12"
+                            app:panelFillColor="@color/text_inverse">
 
-                            <com.velora.portal.platform.design.component.StyledConstraintLayout
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/layoutSelfHeader"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -379,7 +379,7 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
-                            </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
                             <TextView
                                 android:id="@+id/tv_selfie_instruction"
@@ -393,7 +393,7 @@
                                 android:textSize="@dimen/sp_12"
                                 app:layout_constraintTop_toBottomOf="@id/layoutSelfHeader" />
 
-                            <com.velora.portal.platform.design.component.StyledConstraintLayout
+                            <com.velora.portal.platform.design.component.SurfacePanelLayout
                                 android:id="@+id/self_layout"
                                 android:layout_width="@dimen/dp_165"
                                 android:layout_height="@dimen/dp_145"
@@ -403,8 +403,8 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@id/tv_selfie_instruction"
-                                app:radius="@dimen/dp_6"
-                                app:solidColor="@color/surface_secondary">
+                                app:panelCornerRadius="@dimen/dp_6"
+                                app:panelFillColor="@color/surface_secondary">
 
                                 <androidx.appcompat.widget.AppCompatImageView
                                     android:layout_width="wrap_content"
@@ -451,7 +451,7 @@
                                     app:layout_constraintTop_toTopOf="parent"
                                     app:shapeAppearanceOverlay="@style/Round_6" />
 
-                                <com.velora.portal.platform.design.component.StyledConstraintLayout
+                                <com.velora.portal.platform.design.component.SurfacePanelLayout
                                     android:id="@+id/selfie_upload_state"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
@@ -460,8 +460,8 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    app:radius="@dimen/dp_6"
-                                    app:solidColor="@color/p50_000000">
+                                    app:panelCornerRadius="@dimen/dp_6"
+                                    app:panelFillColor="@color/p50_000000">
 
                                     <androidx.appcompat.widget.AppCompatImageView
                                         android:id="@+id/ivSelfVerifyStatus"
@@ -487,10 +487,10 @@
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@id/ivSelfVerifyStatus" />
-                                </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                                </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-                            </com.velora.portal.platform.design.component.StyledConstraintLayout>
-                        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+                            </com.velora.portal.platform.design.component.SurfacePanelLayout>
+                        </com.velora.portal.platform.design.component.SurfacePanelLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.core.widget.NestedScrollView>
 

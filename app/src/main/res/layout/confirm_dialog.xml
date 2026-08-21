@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.SurfacePanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,8 +8,8 @@
     android:layout_marginHorizontal="@dimen/dp_20"
     android:orientation="vertical"
     android:paddingBottom="@dimen/dp_20"
-    app:radius="@dimen/dp_12"
-    app:solidColor="@color/text_inverse">
+    app:panelCornerRadius="@dimen/dp_12"
+    app:panelFillColor="@color/text_inverse">
 
 
     <TextView
@@ -76,4 +76,4 @@
         app:layout_constraintTop_toTopOf="@id/tvClose"
         app:solidColor="@color/brand_primary" />
 
-</com.velora.portal.platform.design.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.SurfacePanelLayout>

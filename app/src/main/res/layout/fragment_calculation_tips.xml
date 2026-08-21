@@ -22,11 +22,11 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.velora.portal.platform.design.component.StyledConstraintLayout
+            <com.velora.portal.platform.design.component.SurfacePanelLayout
                 android:layout_width="@dimen/dp_28"
                 android:layout_height="@dimen/dp_28"
-                app:radius="@dimen/dp_4"
-                app:solidColor="@color/surface_muted" />
+                app:panelCornerRadius="@dimen/dp_4"
+                app:panelFillColor="@color/surface_muted" />
 
             <LinearLayout
                 android:layout_width="0dp"

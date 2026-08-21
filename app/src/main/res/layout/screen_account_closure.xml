@@ -13,15 +13,15 @@
         app:centerText="@string/close_account"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.platform.design.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:id="@+id/top_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dp_14"
         android:layout_marginTop="@dimen/dp_10"
         app:layout_constraintTop_toBottomOf="@id/titleBar"
-        app:radius="@dimen/dp_12"
-        app:solidColor="@color/brand_primary">
+        app:panelCornerRadius="@dimen/dp_12"
+        app:panelFillColor="@color/brand_primary">
 
         <TextView
             android:id="@+id/tvAppName"
@@ -80,7 +80,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/accountDivider"
             app:solidColor="@color/transparent" />
-    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
     <Space
         android:id="@+id/tipsBottomSpace"

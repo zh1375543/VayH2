@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.platform.design.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:id="@+id/accountInfoCard"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_106"
@@ -26,8 +26,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleBar"
-        app:radius="@dimen/dp_12"
-        app:solidColor="@color/text_inverse">
+        app:panelCornerRadius="@dimen/dp_12"
+        app:panelFillColor="@color/text_inverse">
 
         <TextView
             android:id="@+id/tvAppNameLabel"
@@ -92,7 +92,7 @@
             app:layout_constraintBaseline_toBaselineOf="@id/tvAccountNumberLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvAccountNumberLabel" />
-    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
     <TextView
         android:id="@+id/tvDescription"

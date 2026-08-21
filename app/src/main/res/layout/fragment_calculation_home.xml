@@ -30,14 +30,14 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_30">
 
-            <com.velora.portal.platform.design.component.StyledConstraintLayout
+            <com.velora.portal.platform.design.component.SurfacePanelLayout
                 android:layout_width="@dimen/dp_24"
                 android:layout_height="@dimen/dp_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:radius="@dimen/dp_4"
-                app:solidColor="@color/surface_muted" />
+                app:panelCornerRadius="@dimen/dp_4"
+                app:panelFillColor="@color/surface_muted" />
 
             <TextView
                 android:id="@+id/tvGreetingTitle"

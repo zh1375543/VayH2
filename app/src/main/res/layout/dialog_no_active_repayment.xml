@@ -7,13 +7,13 @@
     android:paddingTop="@dimen/dp_10"
     tools:background="@color/black">
 
-    <com.velora.portal.platform.design.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_24"
         android:layout_marginEnd="@dimen/dp_24"
-        app:solidColor="@color/text_inverse"
-        app:radius="@dimen/dp_12"
+        app:panelFillColor="@color/text_inverse"
+        app:panelCornerRadius="@dimen/dp_12"
         android:layout_gravity="center">
 
         <TextView
@@ -39,5 +39,5 @@
             android:text="@string/borrow_now"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEmpty" />
-    </com.velora.portal.platform.design.component.StyledConstraintLayout>
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 </FrameLayout>

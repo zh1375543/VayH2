@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.platform.design.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:id="@+id/helpContentCard"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -27,8 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleBar"
-        app:radius="@dimen/dp_24"
-        app:solidColor="@color/text_inverse">
+        app:panelCornerRadius="@dimen/dp_24"
+        app:panelFillColor="@color/text_inverse">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivAppLogo"
@@ -59,7 +59,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivAppLogo" />
 
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/tvContactUs"
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_54"
@@ -68,12 +68,12 @@
             android:layout_marginEnd="@dimen/dp_18"
             android:clickable="true"
             android:focusable="true"
-            app:autoFillPressedColor="true"
+            app:panelDerivePressedState="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAppName"
-            app:radius="@dimen/dp_16"
-            app:solidColor="@color/surface_secondary">
+            app:panelCornerRadius="@dimen/dp_16"
+            app:panelFillColor="@color/surface_secondary">
 
             <TextView
                 android:layout_width="0dp"
@@ -99,9 +99,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/tvFaq"
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_54"
@@ -110,12 +110,12 @@
             android:layout_marginEnd="@dimen/dp_18"
             android:clickable="true"
             android:focusable="true"
-            app:autoFillPressedColor="true"
+            app:panelDerivePressedState="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvContactUs"
-            app:radius="@dimen/dp_16"
-            app:solidColor="@color/surface_secondary">
+            app:panelCornerRadius="@dimen/dp_16"
+            app:panelFillColor="@color/surface_secondary">
 
             <TextView
                 android:layout_width="0dp"
@@ -141,9 +141,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_54"
             android:layout_marginStart="@dimen/dp_18"
@@ -152,8 +152,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFaq"
-            app:radius="@dimen/dp_16"
-            app:solidColor="@color/surface_secondary">
+            app:panelCornerRadius="@dimen/dp_16"
+            app:panelFillColor="@color/surface_secondary">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -179,7 +179,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-         </com.velora.portal.platform.design.component.StyledConstraintLayout>
+         </com.velora.portal.platform.design.component.SurfacePanelLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

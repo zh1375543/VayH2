@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/dp_24">
 
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/profileHeader"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -26,8 +26,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:radius="@dimen/dp_24"
-            app:solidColor="@color/brand_primary">
+            app:panelCornerRadius="@dimen/dp_24"
+            app:panelFillColor="@color/brand_primary">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
@@ -73,9 +73,9 @@
                 app:layout_constraintTop_toTopOf="@id/ivAvatar"
                 app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
                 tools:text="966****983" />
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-        <com.velora.portal.platform.design.component.StyledConstraintLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/tvQuick"
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_76"
@@ -85,10 +85,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/profileHeader"
-            app:radius="@dimen/dp_18"
-            app:solidColor="@color/surface_primary"
-            app:strokeColor="@color/brand_primary"
-            app:strokeWidth="@dimen/dp_2">
+            app:panelCornerRadius="@dimen/dp_18"
+            app:panelFillColor="@color/surface_primary"
+            app:panelBorderColor="@color/brand_primary"
+            app:panelBorderWidth="@dimen/dp_2">
 
             <TextView
                 android:id="@+id/tvQuickText"
@@ -117,7 +117,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:radius="@dimen/dp_12"
                 app:solidColor="@color/brand_primary" />
-        </com.velora.portal.platform.design.component.StyledConstraintLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
         <LinearLayout
             android:id="@+id/profileShortcutRow"

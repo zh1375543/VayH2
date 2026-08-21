@@ -40,7 +40,7 @@
                 tools:itemCount="3"
                 tools:listitem="@layout/item_bulk_repayment_loan" />
 
-            <com.velora.portal.platform.design.component.StyledConstraintLayout
+            <com.velora.portal.platform.design.component.SurfacePanelLayout
                 android:id="@+id/summaryPanel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:solidColor="@color/text_inverse">
+                app:panelFillColor="@color/text_inverse">
 
                 <TextView
                     android:id="@+id/tvTotalAmountLabel"
@@ -119,7 +119,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvSelectedCountLabel" />
-            </com.velora.portal.platform.design.component.StyledConstraintLayout>
+            </com.velora.portal.platform.design.component.SurfacePanelLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.velora.portal.platform.design.component.PageStateOverlayView

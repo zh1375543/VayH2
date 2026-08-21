@@ -69,6 +69,52 @@
         <attr name="disabledGradientStartColor" format="color"/>
         <attr name="disabledGradientEndColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="SurfacePanelLayout">
+        <attr name="panelCornerRadius" format="dimension" />
+        <attr name="panelTopLeftRadius" format="dimension" />
+        <attr name="panelTopRightRadius" format="dimension" />
+        <attr name="panelBottomRightRadius" format="dimension" />
+        <attr name="panelBottomLeftRadius" format="dimension" />
+
+        <attr name="panelFillColor" format="color" />
+        <attr name="panelBorderWidth" format="dimension" />
+        <attr name="panelBorderColor" format="color" />
+
+        <attr name="panelPressedFillColor" format="color" />
+        <attr name="panelSelectedFillColor" format="color" />
+        <attr name="panelDisabledFillColor" format="color" />
+
+        <attr name="panelPressedBorderColor" format="color" />
+        <attr name="panelFocusedBorderColor" format="color" />
+        <attr name="panelSelectedBorderColor" format="color" />
+        <attr name="panelDisabledBorderColor" format="color" />
+
+        <attr name="panelDerivePressedState" format="boolean" />
+
+        <attr name="panelGradientDirection" format="enum">
+            <enum name="leftToRight" value="0" />
+            <enum name="rightToLeft" value="1" />
+            <enum name="topToBottom" value="2" />
+            <enum name="bottomToTop" value="3" />
+            <enum name="topLeftToBottomRight" value="4" />
+            <enum name="topRightToBottomLeft" value="5" />
+            <enum name="bottomLeftToTopRight" value="6" />
+            <enum name="bottomRightToTopLeft" value="7" />
+        </attr>
+
+        <attr name="panelGradientStartColor" format="color" />
+        <attr name="panelGradientCenterColor" format="color" />
+        <attr name="panelGradientEndColor" format="color" />
+
+        <attr name="panelPressedGradientStartColor" format="color" />
+        <attr name="panelPressedGradientEndColor" format="color" />
+        <attr name="panelSelectedGradientStartColor" format="color" />
+        <attr name="panelSelectedGradientEndColor" format="color" />
+        <attr name="panelDisabledGradientStartColor" format="color" />
+        <attr name="panelDisabledGradientEndColor" format="color" />
+    </declare-styleable>
+
     <declare-styleable name="StyledEditTextView">
         <attr name="validationSuccessDrawable" format="reference" />
         <attr name="validationErrorDrawable" format="reference" />

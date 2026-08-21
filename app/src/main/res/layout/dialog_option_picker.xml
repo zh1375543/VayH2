@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.SurfacePanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/dp_20"
-    app:left_top_radius="@dimen/dp_20"
-    app:right_top_radius="@dimen/dp_20"
-    app:solidColor="@color/text_inverse">
+    app:panelTopLeftRadius="@dimen/dp_20"
+    app:panelTopRightRadius="@dimen/dp_20"
+    app:panelFillColor="@color/text_inverse">
 
     <!--    <com.tin.phat.ui.layout.PickerView-->
     <!--        android:id="@+id/pickView"-->
@@ -34,4 +34,4 @@
         style="@style/mainButton"
         android:text="@string/ok"
         app:layout_constraintTop_toBottomOf="@id/wheelView"/>
-</com.velora.portal.platform.design.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.SurfacePanelLayout>

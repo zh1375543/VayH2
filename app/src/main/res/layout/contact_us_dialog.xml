@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.velora.portal.platform.design.component.StyledConstraintLayout
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:id="@+id/cardLayout"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_0"
@@ -13,12 +13,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:gradientEndColor="@color/text_inverse"
-        app:gradientOrientation="TOP_BOTTOM"
-        app:gradientStartColor="@color/aide_color"
-        app:radius="@dimen/dp_12"
-        app:strokeColor="@color/brand_primary"
-        app:strokeWidth="@dimen/dp_2" />
+        app:panelGradientEndColor="@color/text_inverse"
+        app:panelGradientDirection="topToBottom"
+        app:panelGradientStartColor="@color/aide_color"
+        app:panelCornerRadius="@dimen/dp_12"
+        app:panelBorderColor="@color/brand_primary"
+        app:panelBorderWidth="@dimen/dp_2" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivCustomer"

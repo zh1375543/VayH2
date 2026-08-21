@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.SurfacePanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/dp_20"
-    app:left_top_radius="@dimen/dp_20"
-    app:right_top_radius="@dimen/dp_20"
-    app:solidColor="@color/page_bg_color1">
+    app:panelTopLeftRadius="@dimen/dp_20"
+    app:panelTopRightRadius="@dimen/dp_20"
+    app:panelFillColor="@color/page_bg_color1">
 
     <TextView
         android:id="@+id/tvTitle"
@@ -67,4 +67,4 @@
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/sp_12"
         app:layout_constraintTop_toBottomOf="@id/etSearch" />
-</com.velora.portal.platform.design.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.SurfacePanelLayout>

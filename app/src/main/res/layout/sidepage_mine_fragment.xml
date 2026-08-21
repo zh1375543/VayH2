@@ -102,15 +102,15 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.velora.portal.platform.design.component.StyledConstraintLayout
+            <com.velora.portal.platform.design.component.SurfacePanelLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_12"
                 android:paddingHorizontal="@dimen/dp_16"
-                app:radius="@dimen/dp_12"
-                app:solidColor="@color/surface_primary"
-                app:strokeColor="@color/border_default"
-                app:strokeWidth="@dimen/dp_1">
+                app:panelCornerRadius="@dimen/dp_12"
+                app:panelFillColor="@color/surface_primary"
+                app:panelBorderColor="@color/border_default"
+                app:panelBorderWidth="@dimen/dp_1">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -235,7 +235,7 @@
                             android:src="@mipmap/mine_right" />
                     </FrameLayout>
                 </LinearLayout>
-            </com.velora.portal.platform.design.component.StyledConstraintLayout>
+            </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
             <LinearLayout
                 android:id="@+id/ratingCard"

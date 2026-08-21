@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.velora.portal.platform.design.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.SurfacePanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/calm_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:solidColor="@color/transparent">
+    app:panelFillColor="@color/transparent">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivEmptyCalm"
@@ -85,4 +85,4 @@
         android:textSize="@dimen/sp_12"
         app:layout_constraintTop_toBottomOf="@id/tvCalmTips2" />
 
-</com.velora.portal.platform.design.component.StyledConstraintLayout>
+</com.velora.portal.platform.design.component.SurfacePanelLayout>
