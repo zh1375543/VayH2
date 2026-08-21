@@ -2,16 +2,16 @@ package com.velora.portal.journey.account.profile.presentation
 
 import androidx.activity.viewModels
 import com.velora.portal.platform.design.base.BaseActivity
-import com.velora.portal.databinding.ActivitySignOutConfirmationBinding
+import com.velora.portal.databinding.ScreenAccountClosureBinding
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.journey.access.presentation.login.AccessSessionViewModel
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.viewBinding
 
-class LogoutActivity : BaseActivity<ActivitySignOutConfirmationBinding>() {
+class AccountClosureActivity : BaseActivity<ScreenAccountClosureBinding>() {
 
-    override val binding by viewBinding(ActivitySignOutConfirmationBinding::inflate)
+    override val binding by viewBinding(ScreenAccountClosureBinding::inflate)
     private val vm by viewModels<AccessSessionViewModel>()
 
     private val selectTextList by lazy {
@@ -39,8 +39,8 @@ class LogoutActivity : BaseActivity<ActivitySignOutConfirmationBinding>() {
 
     override fun initObserve() =with(vm){
         super.initObserve()
-        logoutResult.observe(this@LogoutActivity) {
-            start<LogoutSuccessActivity>()
+        logoutResult.observe(this@AccountClosureActivity) {
+            start<AccountClosureCompleteActivity>()
             finish()
         }
     }

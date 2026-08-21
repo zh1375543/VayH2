@@ -2,28 +2,26 @@ package com.velora.portal.platform.common.util
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
+import com.velora.portal.platform.common.data.PreferenceSchema
 import com.velora.portal.application.MainApplication
 import androidx.core.content.edit
 
 object SPUtil {
 
-    private val defaultSP: SharedPreferences by lazy {
-        PreferenceManager.getDefaultSharedPreferences(MainApplication.appContext)
+    private val coreSP: SharedPreferences by lazy {
+        getSharedPreferences(PreferenceSchema.Files.CORE)
     }
 
     private fun getSharedPreferences(name: String): SharedPreferences {
         return MainApplication.appContext.getSharedPreferences(name, Context.MODE_PRIVATE)
     }
 
-    private const val KEY_APP = "KEY_APP"
-
-    fun newInstance(name: String = KEY_APP): SPWrapper {
+    fun newInstance(name: String = PreferenceSchema.Files.APP): SPWrapper {
         return SPWrapper(getSharedPreferences(name))
     }
 
     fun getInstance(): SPWrapper {
-        return SPWrapper(defaultSP)
+        return SPWrapper(coreSP)
     }
 
     class SPWrapper(private val sp: SharedPreferences) {

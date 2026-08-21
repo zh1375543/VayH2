@@ -5,7 +5,7 @@ import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.domain.credit.model.CatalogPlanBean
 import com.velora.portal.databinding.ItemRecordInstallmentBinding
-import com.velora.portal.journey.servicing.records.presentation.RecordDetailActivity
+import com.velora.portal.journey.servicing.records.presentation.LoanRecordDetailActivity
 import com.velora.portal.platform.common.util.context.resolveColorCompat
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
@@ -29,8 +29,8 @@ class BorrowingScheduleAdapter :
         ivArrow.setOnClickListener {
             detailLayout.isVisible = !detailLayout.isVisible
             ivArrow.rotation = if (detailLayout.isVisible) 180f else 0f
-            if (context is RecordDetailActivity?) {
-                (context as RecordDetailActivity?)?.scrollToRepaymentOptions()
+            if (context is LoanRecordDetailActivity?) {
+                (context as LoanRecordDetailActivity?)?.scrollToRepaymentOptions()
             }
             item.isExpend = detailLayout.isVisible
         }

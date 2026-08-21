@@ -4,7 +4,7 @@ import androidx.core.view.isVisible
 import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemInstallmentScheduleBinding
 import com.velora.portal.domain.credit.model.CatalogPlanBean
-import com.velora.portal.journey.lending.catalog.presentation.ProductOptionsActivity
+import com.velora.portal.journey.lending.catalog.presentation.LoanProductDetailActivity
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class InstallmentScheduleAdapter :
@@ -22,8 +22,8 @@ class InstallmentScheduleAdapter :
         val toggleDetails = {
             infoLayout.isVisible = !infoLayout.isVisible
             ivArrow.rotation = if (infoLayout.isVisible) 0f else 180f
-            if (context is ProductOptionsActivity) {
-                (context as ProductOptionsActivity?)?.scrollToOfferActions()
+            if (context is LoanProductDetailActivity) {
+                (context as LoanProductDetailActivity?)?.scrollToOfferActions()
             }
         }
         tvDueDate.setOnClickListener { toggleDetails() }

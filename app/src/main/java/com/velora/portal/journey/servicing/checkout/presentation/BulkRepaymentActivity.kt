@@ -4,8 +4,8 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseActivity
-import com.velora.portal.databinding.ActivityBatchCheckoutBinding
-import com.velora.portal.journey.servicing.records.presentation.RecordDetailActivity
+import com.velora.portal.databinding.ScreenBulkRepaymentBinding
+import com.velora.portal.journey.servicing.records.presentation.LoanRecordDetailActivity
 import com.velora.portal.journey.servicing.checkout.presentation.adapter.BulkRepaymentLoanAdapter
 import com.velora.portal.domain.credit.model.CatalogItemBean
 import com.velora.portal.platform.common.util.PageLoadState
@@ -15,10 +15,10 @@ import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.platform.browser.presentation.ContentBrowserActivity
 import com.velora.portal.platform.common.util.viewBinding
 
-class BatchCheckoutActivity :
-    BaseActivity<ActivityBatchCheckoutBinding>() {
+class BulkRepaymentActivity :
+    BaseActivity<ScreenBulkRepaymentBinding>() {
 
-    override val binding by viewBinding(ActivityBatchCheckoutBinding::inflate)
+    override val binding by viewBinding(ScreenBulkRepaymentBinding::inflate)
     private val vm by viewModels<CheckoutViewModel>()
 
     private val orderAdapter by lazy {
@@ -64,20 +64,20 @@ class BatchCheckoutActivity :
 
     override fun initObserve() = with(vm) {
         super.initObserve()
-        orderListState.observe(this@BatchCheckoutActivity) { state ->
+        orderListState.observe(this@BulkRepaymentActivity) { state ->
             render(state)
         }
-        selectedOrderAmount.observe(this@BatchCheckoutActivity) { amount ->
+        selectedOrderAmount.observe(this@BulkRepaymentActivity) { amount ->
             binding.tvTotalAmount.text = amount
         }
-        selectedOrderCount.observe(this@BatchCheckoutActivity) { count ->
+        selectedOrderCount.observe(this@BulkRepaymentActivity) { count ->
             binding.tvSelectedCount.text = count
         }
-        togetherRepayResult.observe(this@BatchCheckoutActivity) {
+        togetherRepayResult.observe(this@BulkRepaymentActivity) {
             val payUrl = it?.payUrl
             if (!payUrl.isNullOrBlank()) {
                 ContentBrowserActivity.launch(
-                    this@BatchCheckoutActivity,
+                    this@BulkRepaymentActivity,
                     getString(R.string.batch_repayment_orders),
                     payUrl
                 )
@@ -100,7 +100,7 @@ class BatchCheckoutActivity :
         }
         adapter.setOnChildClickListener { view, item, _ ->
             if (view.id == R.id.btnProductDetail) {
-                start<RecordDetailActivity> {
+                start<LoanRecordDetailActivity> {
                     putExtra("orderId", item.orderId)
                     putExtra("isFromBatch", true)
                 }

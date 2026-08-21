@@ -16,10 +16,10 @@ import com.velora.portal.platform.common.data.APPCODE
 import com.velora.portal.platform.common.data.location
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.platform.common.data.signBackHome
-import com.velora.portal.databinding.ActivityApplicationOutcomeBinding
+import com.velora.portal.databinding.ScreenLoanSubmissionResultBinding
 import com.velora.portal.domain.credit.model.MemberOverviewResponse
 import com.velora.portal.domain.credit.model.CatalogItemBean
-import com.velora.portal.application.MainActivity
+import com.velora.portal.application.PortalHostActivity
 import com.velora.portal.journey.lending.dashboard.presentation.adapter.LoanCatalogAdapter
 import com.velora.portal.journey.lending.dashboard.presentation.state.HomeProductUi
 import com.velora.portal.journey.lending.catalog.presentation.adapter.ApplicationResultAdapter
@@ -48,10 +48,10 @@ import java.io.File
 import kotlinx.coroutines.launch
 import kotlin.toString
 
-class RequestStatusActivity :
-    BaseActivity<ActivityApplicationOutcomeBinding>() {
+class LoanSubmissionResultActivity :
+    BaseActivity<ScreenLoanSubmissionResultBinding>() {
 
-    override val binding by viewBinding(ActivityApplicationOutcomeBinding::inflate)
+    override val binding by viewBinding(ScreenLoanSubmissionResultBinding::inflate)
     companion object {
         fun launch(
             context: Context,
@@ -64,7 +64,7 @@ class RequestStatusActivity :
             termIdMap: String? = null,
             payWay: String = "CARD",
         ) {
-            context.start<RequestStatusActivity> {
+            context.start<LoanSubmissionResultActivity> {
                 putExtra("productList", productList)
                 putExtra("bankId", bankId)
                 putExtra("signPath", signPath)
@@ -120,7 +120,7 @@ class RequestStatusActivity :
         pageState.showLoading()
         initRisk()
         if (location.first == 0.0) {
-            PermissionCoordinator.request(this@RequestStatusActivity, PermissionScenario.DEVICE_RISK) {
+            PermissionCoordinator.request(this@LoanSubmissionResultActivity, PermissionScenario.DEVICE_RISK) {
                 val locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
                 locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)?.let {
                     location = it.longitude to it.latitude
@@ -130,11 +130,11 @@ class RequestStatusActivity :
     }
 
     private fun returnToDashboard() {
-        AppStackUtil.finishActivity(PlanSelectionActivity::class.java)
-        AppStackUtil.finishActivity(ConfirmationActivity::class.java)
-        AppStackUtil.finishActivity(ProductOptionsActivity::class.java)
+        AppStackUtil.finishActivity(MultiLoanOfferActivity::class.java)
+        AppStackUtil.finishActivity(SignatureCaptureActivity::class.java)
+        AppStackUtil.finishActivity(LoanProductDetailActivity::class.java)
         finish()
-        MainActivity.Companion.launch(this)
+        PortalHostActivity.Companion.launch(this)
     }
 
     private fun handleRecommendedProductClick(item: HomeProductUi) {
@@ -212,21 +212,21 @@ class RequestStatusActivity :
     private fun handleProductDetail(data: CatalogItemBean?) {
         data ?: return
         finishPreviousLoanFlow()
-        start<ProductOptionsActivity> {
+        start<LoanProductDetailActivity> {
             putExtra("product", data)
         }
     }
 
     private fun openCombinedLoanOffer() {
         finishPreviousLoanFlow()
-        start<PlanSelectionActivity>()
+        start<MultiLoanOfferActivity>()
         finish()
     }
 
     private fun finishPreviousLoanFlow() {
-        AppStackUtil.finishActivity(PlanSelectionActivity::class.java)
-        AppStackUtil.finishActivity(ConfirmationActivity::class.java)
-        AppStackUtil.finishActivity(ProductOptionsActivity::class.java)
+        AppStackUtil.finishActivity(MultiLoanOfferActivity::class.java)
+        AppStackUtil.finishActivity(SignatureCaptureActivity::class.java)
+        AppStackUtil.finishActivity(LoanProductDetailActivity::class.java)
     }
     private fun startLoan(eventFile: File?) = with(binding) {
 //        LogUtil.e("signature image provided: $signPath")
@@ -367,14 +367,14 @@ class RequestStatusActivity :
 
     override fun initObserve() {
         super.initObserve()
-        vm.loanResult.observe(this@RequestStatusActivity) {
+        vm.loanResult.observe(this@LoanSubmissionResultActivity) {
             binding.rvProduct.isVisible = false
             loanSuccess()
         }
-        vm.loanFailResult.observe(this@RequestStatusActivity) {
+        vm.loanFailResult.observe(this@LoanSubmissionResultActivity) {
             loanFailed()
         }
-        vm.togetherLoanResult.observe(this@RequestStatusActivity) {
+        vm.togetherLoanResult.observe(this@LoanSubmissionResultActivity) {
             resultAdapter.submitItems(it?.onEach { it1 ->
                 it1.currency = productList?.get(0)?.currency
                 it1.currencySymbol = productList?.get(0)?.currencySymbol
@@ -382,10 +382,10 @@ class RequestStatusActivity :
             binding.rvProduct.isVisible = !it.isNullOrEmpty()
             loanSuccess()
         }
-        vm.togetherInfo.observe(this@RequestStatusActivity) {
+        vm.togetherInfo.observe(this@LoanSubmissionResultActivity) {
             updateRecommendedProducts(it)
         }
-        productVm.detailResult.observe(this@RequestStatusActivity) {
+        productVm.detailResult.observe(this@LoanSubmissionResultActivity) {
             handleProductDetail(it)
         }
     }

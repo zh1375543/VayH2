@@ -4,13 +4,13 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseActivity
-import com.velora.portal.databinding.ActivityProfileReviewBinding
+import com.velora.portal.databinding.ScreenVerificationOverviewBinding
 import com.velora.portal.platform.common.data.authConfigList
 import com.velora.portal.domain.customer.model.VerificationOptionResponse
 import com.velora.portal.domain.customer.model.VerificationProgressResponse
-import com.velora.portal.journey.access.presentation.contact.PaymentDetailsActivity
-import com.velora.portal.journey.access.presentation.kyc.DocumentReviewActivity
-import com.velora.portal.journey.access.presentation.profile.ApplicantDetailsActivity
+import com.velora.portal.journey.access.presentation.contact.ContactPayoutActivity
+import com.velora.portal.journey.access.presentation.kyc.IdentityCheckActivity
+import com.velora.portal.journey.access.presentation.profile.BorrowerProfileActivity
 import com.velora.portal.journey.account.profile.presentation.adapter.VerificationRequirementAdapter
 import com.velora.portal.journey.access.presentation.AuthStatusViewModel
 import com.velora.portal.platform.common.util.PROFILE_PAGE
@@ -19,9 +19,9 @@ import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.trackEvent
 import com.velora.portal.platform.common.util.viewBinding
 
-class ProfileReviewActivity : BaseActivity<ActivityProfileReviewBinding>() {
+class VerificationOverviewActivity : BaseActivity<ScreenVerificationOverviewBinding>() {
 
-    override val binding by viewBinding(ActivityProfileReviewBinding::inflate)
+    override val binding by viewBinding(ScreenVerificationOverviewBinding::inflate)
 
     private val vm by viewModels<AuthStatusViewModel>()
 
@@ -30,19 +30,19 @@ class ProfileReviewActivity : BaseActivity<ActivityProfileReviewBinding>() {
             setOnItemClickListener { item, _ ->
                 when (if (item.isCertified) item.title else items.first { !it.isCertified }.title) {
                     getString(R.string.kyc_certification) -> {
-                        context.start<DocumentReviewActivity> {
+                        context.start<IdentityCheckActivity> {
                             putExtra("isCert", item.isCertified)
                         }
                     }
 
                     getString(R.string.personal_info) -> {
-                        context.start<ApplicantDetailsActivity> {
+                        context.start<BorrowerProfileActivity> {
                             putExtra("isCert", item.isCertified)
                         }
                     }
 
                     else -> {
-                        context.start<PaymentDetailsActivity> {
+                        context.start<ContactPayoutActivity> {
                             putExtra("isCert", item.isCertified)
                         }
                     }
@@ -66,7 +66,7 @@ class ProfileReviewActivity : BaseActivity<ActivityProfileReviewBinding>() {
 
     override fun initObserve() = with(vm) {
         super.initObserve()
-        userAuthStatusState.observe(this@ProfileReviewActivity) { state ->
+        userAuthStatusState.observe(this@VerificationOverviewActivity) { state ->
             render(state)
         }
     }

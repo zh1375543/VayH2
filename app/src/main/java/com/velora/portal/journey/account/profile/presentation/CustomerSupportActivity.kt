@@ -2,15 +2,15 @@ package com.velora.portal.journey.account.profile.presentation
 
 import androidx.activity.viewModels
 import com.velora.portal.platform.design.base.BaseActivity
-import com.velora.portal.databinding.ActivityContactsBinding
+import com.velora.portal.databinding.ScreenCustomerSupportBinding
 import com.velora.portal.journey.lending.dashboard.model.CustomerContactConfig
 import com.velora.portal.journey.account.profile.presentation.adapter.ContactWayAdapter
 import com.velora.portal.journey.lending.dashboard.presentation.VisitorPortalViewModel
 import com.velora.portal.platform.common.util.viewBinding
 
-class ContactsActivity : BaseActivity<ActivityContactsBinding>() {
+class CustomerSupportActivity : BaseActivity<ScreenCustomerSupportBinding>() {
 
-    override val binding by viewBinding(ActivityContactsBinding::inflate)
+    override val binding by viewBinding(ScreenCustomerSupportBinding::inflate)
     private val vm by viewModels<VisitorPortalViewModel>()
 
     private val contactAdapter by lazy { ContactWayAdapter() }
@@ -22,7 +22,7 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>() {
 
     override fun initObserve() = with(vm) {
         super.initObserve()
-        result.observe(this@ContactsActivity) {
+        result.observe(this@CustomerSupportActivity) {
             val list = mutableListOf<CustomerContactConfig>()
             it?.customerPhone?.let { phone ->
                 list.add(

@@ -29,7 +29,7 @@ import com.velora.portal.platform.common.data.ACT_EnterApp
 import com.velora.portal.platform.common.data.ACT_EnterBackground
 import com.velora.portal.platform.common.data.PageEnter
 import com.velora.portal.platform.common.data.PageExit
-import com.velora.portal.platform.common.data.AF_KEY
+import com.velora.portal.platform.common.data.AF_DEV_KEY
 import com.velora.portal.platform.common.data.afSource
 import com.velora.portal.platform.common.data.appFlyer
 import com.velora.portal.platform.common.data.bean.TrackBean
@@ -141,7 +141,7 @@ class MainApplication : Application(), DFTransferResultInterface {
             }
         }
         AppsFlyerLib.getInstance().setDebugLog(BuildConfig.DEBUG)
-        AppsFlyerLib.getInstance().init(AF_KEY, listener, this)
+        AppsFlyerLib.getInstance().init(AF_DEV_KEY, listener, this)
         AppsFlyerLib.getInstance().setCollectAndroidID(false)
         AppsFlyerLib.getInstance().setCollectIMEI(false)
         AppsFlyerLib.getInstance().start(this)

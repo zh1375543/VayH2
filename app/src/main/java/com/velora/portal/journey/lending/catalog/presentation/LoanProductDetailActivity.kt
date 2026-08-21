@@ -16,7 +16,7 @@ import com.velora.portal.platform.common.data.PRODUCT_AGREEMENT
 import com.velora.portal.platform.common.data.bean.ClickablePart
 import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.platform.session.SessionStore
-import com.velora.portal.databinding.ActivityProductOptionsBinding
+import com.velora.portal.databinding.ScreenLoanProductDetailBinding
 import com.velora.portal.domain.credit.model.CatalogItemBean
 import com.velora.portal.domain.payout.model.LinkedAccountResponse
 import com.velora.portal.platform.browser.presentation.ContentBrowserActivity
@@ -41,15 +41,15 @@ import com.velora.portal.platform.common.util.text.toJsonString
 import com.velora.portal.platform.common.util.trackEvent
 import com.velora.portal.platform.common.util.getPayoutAccountTypeLabel
 import com.velora.portal.platform.common.util.viewBinding
-import com.velora.portal.journey.account.accounts.presentation.LinkedAccountListActivity
+import com.velora.portal.journey.account.accounts.presentation.PayoutAccountListActivity
 import com.velora.portal.journey.account.accounts.presentation.LinkedAccountViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds
 
-class ProductOptionsActivity : BaseActivity<ActivityProductOptionsBinding>() {
+class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>() {
 
-    override val binding by viewBinding(ActivityProductOptionsBinding::inflate)
+    override val binding by viewBinding(ScreenLoanProductDetailBinding::inflate)
     private val vm by viewModels<ProductOptionsViewModel>()
     private val accountVm by viewModels<LinkedAccountViewModel>()
 
@@ -98,7 +98,7 @@ class ProductOptionsActivity : BaseActivity<ActivityProductOptionsBinding>() {
                     getString(R.string.lease_contract), resolveColorCompat(R.color.brand_primary), onClick = {
                         LoanEventRecorder.record(LoanEvent.CLICK_OPEN_AGREEMENT)
                         ContentBrowserActivity.Companion.launch(
-                            this@ProductOptionsActivity, getString(R.string.lease_contract), leaseUrl
+                            this@LoanProductDetailActivity, getString(R.string.lease_contract), leaseUrl
                         )
                     }),
             )
@@ -115,7 +115,7 @@ class ProductOptionsActivity : BaseActivity<ActivityProductOptionsBinding>() {
         }
         tvLeaseInfo.singleClick {
             ContentBrowserActivity.Companion.launch(
-                this@ProductOptionsActivity, tvLeaseInfo.text.toString(), AGREEMENT_ABOUT
+                this@LoanProductDetailActivity, tvLeaseInfo.text.toString(), AGREEMENT_ABOUT
             )
         }
         productDetailsCard.isVisible = true
@@ -150,7 +150,7 @@ class ProductOptionsActivity : BaseActivity<ActivityProductOptionsBinding>() {
                 )
             )
             LoanEventRecorder.record(LoanEvent.CLICK_APPLY_LOAN)
-            PermissionCoordinator.request(this@ProductOptionsActivity, PermissionScenario.DEVICE_RISK) {
+            PermissionCoordinator.request(this@LoanProductDetailActivity, PermissionScenario.DEVICE_RISK) {
                 trackEvent(ORDER_COMMIT)
                 showLoanAgreementDialog(
                     productId = vm.detailResult.value?.id?.toString(),
@@ -164,8 +164,8 @@ class ProductOptionsActivity : BaseActivity<ActivityProductOptionsBinding>() {
                     )
                     LoanEventRecorder.record(LoanEvent.CLICK_SUBMIT_LOAN)
                     if (product?.isSign == 0) {
-                        ConfirmationActivity.Companion.launch(
-                            this@ProductOptionsActivity,
+                        SignatureCaptureActivity.Companion.launch(
+                            this@LoanProductDetailActivity,
                             cardInfo?.id,
                             null,
                             product?.id.toString(),
@@ -176,8 +176,8 @@ class ProductOptionsActivity : BaseActivity<ActivityProductOptionsBinding>() {
                             payWay = cardInfo?.payWay ?: "CARD",
                         )
                     } else {
-                        RequestStatusActivity.Companion.launch(
-                            this@ProductOptionsActivity,
+                        LoanSubmissionResultActivity.Companion.launch(
+                            this@LoanProductDetailActivity,
                             null,
                             product?.id.toString(),
                             cardInfo?.id,
@@ -234,10 +234,10 @@ class ProductOptionsActivity : BaseActivity<ActivityProductOptionsBinding>() {
     private val termIdMap: MutableMap<Long?, Long?> = HashMap()
     override fun initObserve() = with(vm) {
         super.initObserve()
-        productDetailState.observe(this@ProductOptionsActivity) { state ->
+        productDetailState.observe(this@LoanProductDetailActivity) { state ->
             render(state)
         }
-        accountVm.loanAccountList.observe(this@ProductOptionsActivity) {
+        accountVm.loanAccountList.observe(this@LoanProductDetailActivity) {
             it?.let {
                 chooseAccountsDialog(
                     cardNo = cardInfo?.bankNo,
@@ -309,7 +309,7 @@ class ProductOptionsActivity : BaseActivity<ActivityProductOptionsBinding>() {
                                 cancel = getString(R.string.already_edited),
                                 ok = getString(R.string.revise)
                             ) {
-                                start<LinkedAccountListActivity>()
+                                start<PayoutAccountListActivity>()
                                 isAddCard = true
                             }
                         }

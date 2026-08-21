@@ -1,36 +1,36 @@
 package com.velora.portal.platform.session
 
 import com.velora.portal.domain.customer.model.AccessSessionResponse
+import com.velora.portal.platform.common.data.PreferenceSchema
 import com.velora.portal.platform.common.util.SPUtil
 import com.velora.portal.platform.common.util.text.parseJson
 import com.velora.portal.platform.common.util.text.toJsonString
 
-/** Persists the authenticated user session in the default preferences store. */
+/** Persists the authenticated user session in the core preferences store. */
 object SessionStore {
 
-    private const val TOKEN_KEY = "TOKEN_KEY"
-    private const val LOGIN_KEY = "LOGIN_KEY"
-    private const val ACTIVITY_URL_KEY = "ACTIVITY_URL_KEY"
-
     var token: String
-        get() = preferences().get(TOKEN_KEY, "")
+        get() = preferences().get(PreferenceSchema.CoreKeys.SESSION_TOKEN, "")
         set(value) {
-            preferences().save(TOKEN_KEY, value)
+            preferences().save(PreferenceSchema.CoreKeys.SESSION_TOKEN, value)
         }
 
     var loginInfo: AccessSessionResponse?
         get() = preferences()
-            .get(LOGIN_KEY, "")
+            .get(PreferenceSchema.CoreKeys.LOGIN_PROFILE, "")
             .parseJson<AccessSessionResponse?>()
         set(value) {
-            preferences().save(LOGIN_KEY, value?.toJsonString() ?: "")
+            preferences().save(
+                PreferenceSchema.CoreKeys.LOGIN_PROFILE,
+                value?.toJsonString() ?: ""
+            )
         }
 
     /** Server-provided route flag used to select the destination after launch. */
     var activityUrl: String
-        get() = preferences().get(ACTIVITY_URL_KEY, "")
+        get() = preferences().get(PreferenceSchema.CoreKeys.ACTIVITY_ROUTE, "")
         set(value) {
-            preferences().save(ACTIVITY_URL_KEY, value)
+            preferences().save(PreferenceSchema.CoreKeys.ACTIVITY_ROUTE, value)
         }
 
     val isLoggedIn: Boolean

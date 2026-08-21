@@ -3,17 +3,17 @@ package com.velora.portal.journey.account.profile.presentation
 import androidx.lifecycle.lifecycleScope
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseActivity
-import com.velora.portal.databinding.ActivityLogoutCompleteBinding
+import com.velora.portal.databinding.ScreenAccountClosureCompleteBinding
 import com.velora.portal.platform.common.util.countdownTimer
 import com.velora.portal.platform.common.util.context.resolveColorCompat
 import com.velora.portal.platform.design.extension.setClickableTextWithScale
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.platform.common.util.viewBinding
 
-class LogoutSuccessActivity :
-    BaseActivity<ActivityLogoutCompleteBinding>() {
+class AccountClosureCompleteActivity :
+    BaseActivity<ScreenAccountClosureCompleteBinding>() {
 
-    override val binding by viewBinding(ActivityLogoutCompleteBinding::inflate)
+    override val binding by viewBinding(ScreenAccountClosureCompleteBinding::inflate)
     private val returnToPortal by lazy {
         intent.getBooleanExtra(EXTRA_RETURN_TO_PORTAL, false)
     }

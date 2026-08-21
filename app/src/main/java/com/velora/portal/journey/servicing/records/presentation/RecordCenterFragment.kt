@@ -14,7 +14,7 @@ import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.databinding.FragmentRecordCenterBinding
 import com.velora.portal.domain.credit.model.MemberOverviewResponse
 import com.velora.portal.journey.lending.catalog.presentation.LoanDashboardViewModel
-import com.velora.portal.journey.servicing.checkout.presentation.BatchCheckoutActivity
+import com.velora.portal.journey.servicing.checkout.presentation.BulkRepaymentActivity
 import com.velora.portal.journey.servicing.records.presentation.adapter.HomeOrderAdapter
 import com.velora.portal.platform.design.extension.setClickableTextWithScale
 import com.velora.portal.platform.design.extension.singleClick
@@ -30,7 +30,7 @@ class RecordCenterFragment : BaseFragment<FragmentRecordCenterBinding>(R.layout.
     private val orderAdapter by lazy {
         HomeOrderAdapter().apply {
             setOnItemClickListener { item, _ ->
-                context.start<RecordDetailActivity> {
+                context.start<LoanRecordDetailActivity> {
                     putExtra("orderId", item.orderId)
                     putExtra("isFromBatch", false)
                 }
@@ -54,7 +54,7 @@ class RecordCenterFragment : BaseFragment<FragmentRecordCenterBinding>(R.layout.
     /** Connects the repayment shortcut and the pull-to-refresh gesture. */
     private fun connectRefreshAndRepayment() = with(binding) {
         tvRepayment.singleClick {
-            it.context.start<BatchCheckoutActivity>()
+            it.context.start<BulkRepaymentActivity>()
         }
         swipeRefreshLayout.setOnRefreshListener {
             vm.getAuthData()

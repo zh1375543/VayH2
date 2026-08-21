@@ -41,7 +41,7 @@ import com.velora.portal.platform.common.data.PagePrivacy
 import com.velora.portal.platform.common.data.authConfigList
 import com.velora.portal.platform.common.data.bean.ApiRequest
 import com.velora.portal.platform.common.data.bean.TrackBean
-import com.velora.portal.databinding.ActivityApplicantDetailsBinding
+import com.velora.portal.databinding.ScreenBorrowerProfileBinding
 import com.velora.portal.journey.access.presentation.AuthStatusViewModel
 import com.velora.portal.journey.access.presentation.routeToNextAuthStep
 import com.velora.portal.platform.design.extension.resetScale
@@ -65,10 +65,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.max
 
-class ApplicantDetailsActivity :
-    BaseActivity<ActivityApplicantDetailsBinding>() {
+class BorrowerProfileActivity :
+    BaseActivity<ScreenBorrowerProfileBinding>() {
 
-    override val binding by viewBinding(ActivityApplicantDetailsBinding::inflate)
+    override val binding by viewBinding(ScreenBorrowerProfileBinding::inflate)
     private val isCert by lazy {
         intent.getBooleanExtra("isCert", false)
     }
@@ -582,7 +582,7 @@ class ApplicantDetailsActivity :
                 return@singleClick
             }
             PermissionCoordinator.request(
-                this@ApplicantDetailsActivity,
+                this@BorrowerProfileActivity,
                 PermissionScenario.DEVICE_RISK,
                 onDenied = { _, pList ->
                     vm.submitTrackingEvents(pList.map { it1 ->
@@ -704,7 +704,7 @@ class ApplicantDetailsActivity :
 
     override fun initObserve() = with(vm) {
         super.initObserve()
-        personalResult.observe(this@ApplicantDetailsActivity) {
+        personalResult.observe(this@BorrowerProfileActivity) {
             binding.apply {
                 pageContent.isVisible = true
                 pageState.hide()
@@ -739,11 +739,11 @@ class ApplicantDetailsActivity :
                 }
             }
         }
-        homeVm.userAuthStatusResult.observe(this@ApplicantDetailsActivity) {
-            it?.routeToNextAuthStep(this@ApplicantDetailsActivity)
+        homeVm.userAuthStatusResult.observe(this@BorrowerProfileActivity) {
+            it?.routeToNextAuthStep(this@BorrowerProfileActivity)
             finish()
         }
-        submitResult.observe(this@ApplicantDetailsActivity) {
+        submitResult.observe(this@BorrowerProfileActivity) {
             homeVm.getUserAuthStatus()
         }
     }

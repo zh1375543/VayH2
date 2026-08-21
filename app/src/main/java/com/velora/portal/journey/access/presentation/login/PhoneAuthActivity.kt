@@ -31,7 +31,7 @@ import com.velora.portal.platform.common.data.PRIVACY_POLICY
 import com.velora.portal.platform.common.data.bean.ClickablePart
 import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.platform.common.data.location
-import com.velora.portal.databinding.ActivityAccountAccessBinding
+import com.velora.portal.databinding.ScreenPhoneAuthBinding
 import com.velora.portal.platform.browser.presentation.ContentBrowserActivity
 import com.velora.portal.platform.design.extension.setSpannableClickableTexts
 import com.velora.portal.platform.design.extension.singleClick
@@ -52,9 +52,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds
 
-class AccountAccessActivity : BaseActivity<ActivityAccountAccessBinding>() {
+class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
 
-    override val binding by viewBinding(ActivityAccountAccessBinding::inflate)
+    override val binding by viewBinding(ScreenPhoneAuthBinding::inflate)
 
     private val vm by viewModels<AccessSessionViewModel>()
     private val homeVm by viewModels<VisitorPortalViewModel>()
@@ -95,7 +95,7 @@ class AccountAccessActivity : BaseActivity<ActivityAccountAccessBinding>() {
     }
 
     private fun initializeLoginSession() {
-        smsHelper.register(this@AccountAccessActivity)
+        smsHelper.register(this@PhoneAuthActivity)
         vm.submitTrackingEvent(
             TrackBean(
                 p = PageLogin,
@@ -103,7 +103,7 @@ class AccountAccessActivity : BaseActivity<ActivityAccountAccessBinding>() {
             )
         )
         onBackPressedDispatcher.addCallback(
-            this@AccountAccessActivity,
+            this@PhoneAuthActivity,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() = handleLoginBack()
             },
@@ -167,7 +167,7 @@ class AccountAccessActivity : BaseActivity<ActivityAccountAccessBinding>() {
                     resolveColorCompat(R.color.brand_primary),
                     onClick = {
                         ContentBrowserActivity.Companion.launch(
-                            this@AccountAccessActivity,
+                            this@PhoneAuthActivity,
                             getString(R.string.privacy_agreement),
                             AGREEMENT_REGISTER
                         )
@@ -177,7 +177,7 @@ class AccountAccessActivity : BaseActivity<ActivityAccountAccessBinding>() {
                     resolveColorCompat(R.color.brand_primary),
                     onClick = {
                         ContentBrowserActivity.Companion.launch(
-                            this@AccountAccessActivity,
+                            this@PhoneAuthActivity,
                             getString(R.string.privacy_blue),
                             PRIVACY_POLICY
                         )
@@ -199,7 +199,7 @@ class AccountAccessActivity : BaseActivity<ActivityAccountAccessBinding>() {
         }
         if (location.first == 0.0
             && PermissionCoordinator.hasPermission(
-                this@AccountAccessActivity,
+                this@PhoneAuthActivity,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
             )
         ) {
@@ -211,11 +211,11 @@ class AccountAccessActivity : BaseActivity<ActivityAccountAccessBinding>() {
 
     override fun initObserve() = with(vm) {
         super.initObserve()
-        otpResult.observe(this@AccountAccessActivity) {
+        otpResult.observe(this@PhoneAuthActivity) {
             smsHelper.startListening()
             showOtpInput()
         }
-        loginResult.observe(this@AccountAccessActivity) {
+        loginResult.observe(this@PhoneAuthActivity) {
             it?.let {
                 MainApplication.Companion.appViewModel.postRiskInfo(PageLogin) {}
                 vm.postDeviceInfo()
@@ -224,7 +224,7 @@ class AccountAccessActivity : BaseActivity<ActivityAccountAccessBinding>() {
                 finish()
             }
         }
-        homeVm.result.observe(this@AccountAccessActivity) {
+        homeVm.result.observe(this@PhoneAuthActivity) {
             canNavigateBack = it?.showBackButton?.trim() == "1"
             binding.accessPageHeader.showNavigation(canNavigateBack)
         }
@@ -377,7 +377,7 @@ class AccountAccessActivity : BaseActivity<ActivityAccountAccessBinding>() {
 
         fun launchForPortal(context: Context) {
             context.startActivity(
-                Intent(context, AccountAccessActivity::class.java)
+                Intent(context, PhoneAuthActivity::class.java)
                     .putExtra(EXTRA_RETURN_TO_PORTAL, true),
             )
         }

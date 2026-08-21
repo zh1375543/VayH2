@@ -3,18 +3,18 @@ package com.velora.portal.journey.access.presentation
 import androidx.lifecycle.lifecycleScope
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseActivity
-import com.velora.portal.databinding.ActivityVerificationCompleteBinding
-import com.velora.portal.application.MainActivity
+import com.velora.portal.databinding.ScreenOnboardingCompleteBinding
+import com.velora.portal.application.PortalHostActivity
 import com.velora.portal.platform.common.util.countdownTimer
 import com.velora.portal.platform.common.util.context.resolveColorCompat
 import com.velora.portal.platform.design.extension.setClickableTextWithScale
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.platform.common.util.viewBinding
 
-class ReviewSuccessActivity :
-    BaseActivity<ActivityVerificationCompleteBinding>() {
+class OnboardingCompleteActivity :
+    BaseActivity<ScreenOnboardingCompleteBinding>() {
 
-    override val binding by viewBinding(ActivityVerificationCompleteBinding::inflate)
+    override val binding by viewBinding(ScreenOnboardingCompleteBinding::inflate)
 
     override fun initView() {
         configureSystemBarAndBack()
@@ -26,7 +26,7 @@ class ReviewSuccessActivity :
         setLightSystemBarIcons(enabled = true)
         registerTrackedBackHandler(null) {
             finish()
-            MainActivity.launch(this@ReviewSuccessActivity, isFromAuth = true)
+            PortalHostActivity.launch(this@OnboardingCompleteActivity, isFromAuth = true)
         }
     }
 
@@ -48,7 +48,7 @@ class ReviewSuccessActivity :
         })
         tvOK.singleClick {
             finish()
-            MainActivity.launch(this@ReviewSuccessActivity, isFromAuth = true)
+            PortalHostActivity.launch(this@OnboardingCompleteActivity, isFromAuth = true)
         }
     }
 }

@@ -26,10 +26,10 @@ import com.velora.portal.platform.common.data.ACT_paste
 import com.velora.portal.platform.common.data.PageAll
 import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.platform.session.SessionStore
-import com.velora.portal.journey.access.presentation.login.AccountAccessActivity
+import com.velora.portal.journey.access.presentation.login.PhoneAuthActivity
 import com.velora.portal.platform.common.util.AppStackUtil
 import com.velora.portal.platform.common.util.showToastMessage
-import com.velora.portal.application.LaunchActivity
+import com.velora.portal.application.BootstrapActivity
 import com.velora.portal.platform.design.dialog.createLoadingDialog
 import com.velora.portal.platform.design.dialog.createVersionUpdateDialog
 import com.velora.portal.platform.design.component.StyledEditTextView
@@ -122,7 +122,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         lifecycleScope.launch {
             SessionStore.clear()
             if (isToLogin) {
-                start<AccountAccessActivity>()
+                start<PhoneAuthActivity>()
             }
         }
     }
@@ -151,7 +151,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     
 
     private fun observeGlobalViewModel() {
-        if (this is LaunchActivity) return
+        if (this is BootstrapActivity) return
         MainApplication.appViewModel.isShowLoading.observe(this) { isLoading ->
             if (isLoading) showLoading() else hideLoading()
         }

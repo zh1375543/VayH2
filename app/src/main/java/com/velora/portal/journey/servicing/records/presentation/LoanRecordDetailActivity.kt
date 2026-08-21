@@ -8,7 +8,7 @@ import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.platform.common.data.bean.ClickablePart
 import com.velora.portal.platform.common.data.bean.TrackBean
-import com.velora.portal.databinding.ActivityRecordDetailBinding
+import com.velora.portal.databinding.ScreenLoanRecordDetailBinding
 import com.velora.portal.platform.common.data.ACT_inOrdersDetail
 import com.velora.portal.platform.common.data.ACT_inRepaymentLink
 import com.velora.portal.platform.common.data.ORDER_STATUS_AUTO
@@ -55,10 +55,10 @@ import com.velora.portal.platform.common.util.viewBinding
 import java.math.BigDecimal
 import kotlin.toString
 
-class RecordDetailActivity :
-    BaseActivity<ActivityRecordDetailBinding>() {
+class LoanRecordDetailActivity :
+    BaseActivity<ScreenLoanRecordDetailBinding>() {
 
-    override val binding by viewBinding(ActivityRecordDetailBinding::inflate)
+    override val binding by viewBinding(ScreenLoanRecordDetailBinding::inflate)
     private val isFromBatch by lazy { intent.getBooleanExtra("isFromBatch", false) }
     private val vm by viewModels<RecordCenterViewModel>()
 
@@ -156,7 +156,7 @@ class RecordDetailActivity :
                     )
                 )
                 ContentBrowserActivity.launch(
-                    this@RecordDetailActivity, getString(R.string.repayment), payGoUrl
+                    this@LoanRecordDetailActivity, getString(R.string.repayment), payGoUrl
                 )
             }
         }
@@ -453,17 +453,17 @@ class RecordDetailActivity :
     override fun initObserve() = with(vm) {
         super.initObserve()
 
-        orderDetailState.observe(this@RecordDetailActivity) { state ->
+        orderDetailState.observe(this@LoanRecordDetailActivity) { state ->
             render(state)
         }
-        buttonResult.observe(this@RecordDetailActivity) { sign ->
+        buttonResult.observe(this@LoanRecordDetailActivity) { sign ->
             if (isAwaitingBottomActionState) {
                 renderRepaymentActionState("4")
                 binding.bottomActionLayout.visibility = View.VISIBLE
                 isAwaitingBottomActionState = false
             }
         }
-        installmentRepayResult.observe(this@RecordDetailActivity) {
+        installmentRepayResult.observe(this@LoanRecordDetailActivity) {
             openRepaymentPage(it?.payUrl)
         }
     }

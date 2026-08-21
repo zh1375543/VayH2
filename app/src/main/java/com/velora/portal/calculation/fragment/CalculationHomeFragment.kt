@@ -17,7 +17,7 @@ import com.velora.portal.platform.design.base.BaseFragment
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.databinding.FragmentCalculationHomeBinding
 import com.velora.portal.databinding.ItemCalculationStatCardBinding
-import com.velora.portal.journey.communication.inbox.presentation.InboxActivity
+import com.velora.portal.journey.communication.inbox.presentation.MessageCenterActivity
 import java.math.BigDecimal
 
 /** Dashboard shown before and after a member signs in to the calculation area. */
@@ -31,7 +31,7 @@ class CalculationHomeFragment : BaseFragment<FragmentCalculationHomeBinding>(
     override fun initView() = with(binding) {
         ivMessage.singleClick {
             requireContext().requireLogin {
-                requireContext().start<InboxActivity>()
+                requireContext().start<MessageCenterActivity>()
             }
         }
         tvHeroAction.singleClick {

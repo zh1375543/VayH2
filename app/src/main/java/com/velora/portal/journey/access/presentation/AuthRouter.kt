@@ -3,9 +3,9 @@ package com.velora.portal.journey.access.presentation
 import android.content.Context
 import com.velora.portal.platform.common.data.authConfigList
 import com.velora.portal.domain.customer.model.VerificationProgressResponse
-import com.velora.portal.journey.access.presentation.contact.PaymentDetailsActivity
-import com.velora.portal.journey.access.presentation.kyc.DocumentReviewActivity
-import com.velora.portal.journey.access.presentation.profile.ApplicantDetailsActivity
+import com.velora.portal.journey.access.presentation.contact.ContactPayoutActivity
+import com.velora.portal.journey.access.presentation.kyc.IdentityCheckActivity
+import com.velora.portal.journey.access.presentation.profile.BorrowerProfileActivity
 import com.velora.portal.platform.common.util.start
 
 fun VerificationProgressResponse.routeToNextAuthStep(
@@ -16,29 +16,29 @@ fun VerificationProgressResponse.routeToNextAuthStep(
     val hasPassedRequiredSteps = isPass(configList)
 
     if (userAuthState == "30" && hasPassedRequiredSteps) {
-        context.start<ReviewSuccessActivity>()
+        context.start<OnboardingCompleteActivity>()
         return
     }
     if (isFromAuthPage
         && hasPassedRequiredSteps
     ) {
-        context.start<ReviewSuccessActivity>()
+        context.start<OnboardingCompleteActivity>()
         return
     }
     configList.forEach {
         when {
             it.uppercase() == "KYC" && kycState != "30" -> {
-                context.start<DocumentReviewActivity>()
+                context.start<IdentityCheckActivity>()
                 return
             }
 
             it.uppercase() == "ID" && idState != "30" -> {
-                context.start<ApplicantDetailsActivity>()
+                context.start<BorrowerProfileActivity>()
                 return
             }
 
             it.uppercase() == "BANK" && bankCardState != "30" -> {
-                context.start<PaymentDetailsActivity>()
+                context.start<ContactPayoutActivity>()
                 return
             }
         }

@@ -15,7 +15,7 @@ import com.liveness.dflivenesslibrary.liveness.DFSilentLivenessActivity
 import com.velora.portal.R
 import com.velora.portal.application.MainApplication
 import com.velora.portal.platform.design.base.BaseActivity
-import com.velora.portal.databinding.ActivityDocumentReviewBinding
+import com.velora.portal.databinding.ScreenIdentityCheckBinding
 import com.velora.portal.platform.common.data.ACT_clickBack
 import com.velora.portal.platform.common.data.ACT_clickContinue
 import com.velora.portal.platform.common.data.ACT_clickNext
@@ -55,9 +55,9 @@ import kotlinx.coroutines.withContext
 import java.io.File
 import kotlin.math.max
 
-class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
+class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
 
-    override val binding by viewBinding(ActivityDocumentReviewBinding::inflate)
+    override val binding by viewBinding(ScreenIdentityCheckBinding::inflate)
     private val vm by viewModels<KycUploadViewModel>()
     private val homeVm by viewModels<AuthStatusViewModel>()
     private val personalVm by viewModels<ApplicantDetailsViewModel>()
@@ -69,7 +69,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
         if (result.resultCode == RESULT_OK) {
             lifecycleScope.launch {
                 frontUri = withContext(Dispatchers.IO) {
-                    ImageProcessor.compressToCache(this@DocumentReviewActivity, photoUri)
+                    ImageProcessor.compressToCache(this@IdentityCheckActivity, photoUri)
                 }
                 vm.submitTrackingEvent(
                     TrackBean(
@@ -89,7 +89,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
         if (result.resultCode == RESULT_OK) {
             lifecycleScope.launch {
                 backUri = withContext(Dispatchers.IO) {
-                    ImageProcessor.compressToCache(this@DocumentReviewActivity, photoUri)
+                    ImageProcessor.compressToCache(this@IdentityCheckActivity, photoUri)
                 }
                 vm.submitTrackingEvent(
                     TrackBean(
@@ -108,7 +108,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
         if (result.resultCode == RESULT_OK) {
             lifecycleScope.launch {
                 selfUri = withContext(Dispatchers.IO) {
-                    ImageProcessor.compressToCache(this@DocumentReviewActivity, photoUri)
+                    ImageProcessor.compressToCache(this@IdentityCheckActivity, photoUri)
                 }
                 vm.submitTrackingEvent(
                     TrackBean(
@@ -131,15 +131,15 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
                 lifecycleScope.launch {
                     val (compressedUri, encryptedFile) = withContext(Dispatchers.IO) {
                         val imageFile = ImageProcessor.saveJpegToCache(
-                            this@DocumentReviewActivity,
+                            this@IdentityCheckActivity,
                             it.livenessImageResults[0].detectImage,
                         )
                         val imageUri = ImageProcessor.compressToCache(
-                            this@DocumentReviewActivity,
+                            this@IdentityCheckActivity,
                             getUri(imageFile),
                         )
                         val liveFile = ImageProcessor.saveJpegToCache(
-                            this@DocumentReviewActivity,
+                            this@IdentityCheckActivity,
                             it.livenessEncryptResult,
                         )
                         imageUri to liveFile
@@ -255,7 +255,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
                 )
             )
             PermissionCoordinator.request(
-                this@DocumentReviewActivity,
+                this@IdentityCheckActivity,
                 arrayOf(Manifest.permission.CAMERA),
             ) {
                 trackEvent(KYC_AADHAAR_FRONT_CLICK)
@@ -276,7 +276,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
                 )
             )
             PermissionCoordinator.request(
-                this@DocumentReviewActivity,
+                this@IdentityCheckActivity,
                 arrayOf(Manifest.permission.CAMERA),
             ) {
                 when (kycType) {
@@ -292,7 +292,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
 
                     2 -> {
                         selfLauncher.launch(
-                            Intent(this@DocumentReviewActivity, DFSilentLivenessActivity::class.java)
+                            Intent(this@IdentityCheckActivity, DFSilentLivenessActivity::class.java)
                                 .putExtra(
                                     DFSilentLivenessActivity.KEY_DETECT_IMAGE_RESULT,
                                     true
@@ -304,7 +304,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
                         vm.fetchH5Live {
                             selfLauncher.launch(
                                 Intent(
-                                    this@DocumentReviewActivity,
+                                    this@IdentityCheckActivity,
                                     DFSilentLivenessActivity::class.java
                                 )
                                     .putExtra(
@@ -330,7 +330,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
                 )
             )
             PermissionCoordinator.request(
-                this@DocumentReviewActivity,
+                this@IdentityCheckActivity,
                 arrayOf(Manifest.permission.CAMERA),
             ) {
                 trackEvent(KYC_AADHAAR_BACK_CLICK)
@@ -394,7 +394,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
     private var kycType: Int = 1
     override fun initObserve() =with(vm){
         super.initObserve()
-        kycResult.observe(this@DocumentReviewActivity) {
+        kycResult.observe(this@IdentityCheckActivity) {
             it?.let {
                 binding.pageContent.isVisible = true
                 binding.pageState.hide()
@@ -405,14 +405,14 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
                 updateIdImageSections()
             }
         }
-        compareResult.observe(this@DocumentReviewActivity) {
+        compareResult.observe(this@IdentityCheckActivity) {
             homeVm.getUserAuthStatus()
         }
-        homeVm.userAuthStatusResult.observe(this@DocumentReviewActivity) {
-            it?.routeToNextAuthStep(this@DocumentReviewActivity)
+        homeVm.userAuthStatusResult.observe(this@IdentityCheckActivity) {
+            it?.routeToNextAuthStep(this@IdentityCheckActivity)
             finish()
         }
-        configResult.observe(this@DocumentReviewActivity) {
+        configResult.observe(this@IdentityCheckActivity) {
             binding.documentIdentitySection.isVisible =
                 it != null && (it.KYC_FRONT != 0 || it.KYC_BACK != 0)
             binding.selfieCaptureSection.isVisible = it != null && it.FACE != 0
@@ -424,62 +424,62 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
                 binding.pageState.showError()
             }
         }
-        frontImageSource.observe(this@DocumentReviewActivity) {
+        frontImageSource.observe(this@IdentityCheckActivity) {
             binding.ivDocumentFront.bindImageUrl(it)
         }
-        backImageSource.observe(this@DocumentReviewActivity) {
+        backImageSource.observe(this@IdentityCheckActivity) {
             binding.ivDocumentBack.bindImageUrl(it)
         }
-        selfImageSource.observe(this@DocumentReviewActivity) {
+        selfImageSource.observe(this@IdentityCheckActivity) {
             binding.ivSelfiePreview.bindImageUrl(it)
         }
-        frontUploadSuccess.observe(this@DocumentReviewActivity) {
+        frontUploadSuccess.observe(this@IdentityCheckActivity) {
             binding.frontUploadState.isVisible = it == true
             if (it == true) {
                 binding.ivFrontVerifyStatus.setImageResource(R.mipmap.ic_verify_ok)
                 binding.tvFrontVerifyAction.setText(R.string.re_up)
             }
         }
-        backUploadSuccess.observe(this@DocumentReviewActivity) {
+        backUploadSuccess.observe(this@IdentityCheckActivity) {
             binding.backUploadState.isVisible = it == true
             if (it == true) {
                 binding.ivBackVerifyStatus.setImageResource(R.mipmap.ic_verify_ok)
                 binding.tvBackVerifyAction.setText(R.string.re_up)
             }
         }
-        selfUploadSuccess.observe(this@DocumentReviewActivity) {
+        selfUploadSuccess.observe(this@IdentityCheckActivity) {
             binding.selfieUploadState.isVisible = it == true
             if (it == true) {
                 binding.ivSelfVerifyStatus.setImageResource(R.mipmap.ic_verify_ok)
                 binding.tvSelfVerifyAction.setText(R.string.re_up)
             }
         }
-        frontUploadFailed.observe(this@DocumentReviewActivity) {
+        frontUploadFailed.observe(this@IdentityCheckActivity) {
             if (it == true) {
                 binding.frontUploadState.isVisible = true
                 binding.ivFrontVerifyStatus.setImageResource(R.mipmap.ic_verify_fail)
                 binding.tvFrontVerifyAction.setText(R.string.retry)
             }
         }
-        backUploadFailed.observe(this@DocumentReviewActivity) {
+        backUploadFailed.observe(this@IdentityCheckActivity) {
             if (it == true) {
                 binding.backUploadState.isVisible = true
                 binding.ivBackVerifyStatus.setImageResource(R.mipmap.ic_verify_fail)
                 binding.tvBackVerifyAction.setText(R.string.retry)
             }
         }
-        selfUploadFailed.observe(this@DocumentReviewActivity) {
+        selfUploadFailed.observe(this@IdentityCheckActivity) {
             if (it == true) {
                 binding.selfieUploadState.isVisible = true
                 binding.ivSelfVerifyStatus.setImageResource(R.mipmap.ic_verify_fail)
                 binding.tvSelfVerifyAction.setText(R.string.retry)
             }
         }
-        h5Live.observe(this@DocumentReviewActivity) {
+        h5Live.observe(this@IdentityCheckActivity) {
             if (it.verifyUrl == null) {
                 selfLauncher.launch(
                     Intent(
-                        this@DocumentReviewActivity,
+                        this@IdentityCheckActivity,
                         DFSilentLivenessActivity::class.java
                     )
                         .putExtra(
@@ -490,7 +490,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
                 return@observe
             }
             h5Launcher.launch(
-                ContentBrowserActivity.getIntent(this@DocumentReviewActivity, it.verifyUrl)
+                ContentBrowserActivity.getIntent(this@IdentityCheckActivity, it.verifyUrl)
             )
         }
     }
@@ -515,7 +515,7 @@ class DocumentReviewActivity : BaseActivity<ActivityDocumentReviewBinding>() {
     private fun getUri(outputFile: File): Uri {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             FileProvider.getUriForFile(
-                this@DocumentReviewActivity,
+                this@IdentityCheckActivity,
                 "$packageName.fileprovider",
                 outputFile
             )

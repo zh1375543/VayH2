@@ -12,7 +12,7 @@ import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.platform.common.data.PageHome
 import com.velora.portal.platform.common.data.bean.TrackBean
-import com.velora.portal.databinding.ActivityDashboardHostBinding
+import com.velora.portal.databinding.ScreenPortalHostBinding
 import com.velora.portal.platform.common.data.ACT_clickActivity
 import com.velora.portal.platform.common.data.ACT_clickMy
 import com.velora.portal.platform.common.data.ACT_clickOrder
@@ -20,7 +20,7 @@ import com.velora.portal.platform.common.data.ACT_exit
 import com.velora.portal.platform.common.data.ACT_in
 import com.velora.portal.platform.common.data.PageExit
 import com.velora.portal.platform.common.data.authConfigList
-import com.velora.portal.journey.communication.inbox.presentation.InboxActivity
+import com.velora.portal.journey.communication.inbox.presentation.MessageCenterActivity
 import com.velora.portal.journey.lending.catalog.presentation.LoanDashboardViewModel
 import com.velora.portal.journey.access.presentation.AuthStatusViewModel
 import com.velora.portal.journey.lending.dashboard.presentation.VisitorPortalViewModel
@@ -36,9 +36,9 @@ import com.velora.portal.platform.common.util.start
 
 import com.velora.portal.platform.common.util.viewBinding
 
-class MainActivity : BaseActivity<ActivityDashboardHostBinding>() {
+class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
 
-    override val binding by viewBinding(ActivityDashboardHostBinding::inflate)
+    override val binding by viewBinding(ScreenPortalHostBinding::inflate)
 
     companion object {
         fun launch(
@@ -47,7 +47,7 @@ class MainActivity : BaseActivity<ActivityDashboardHostBinding>() {
             isFromAuth: Boolean = false,
             flags: Int = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
         ) {
-            context.start<MainActivity> {
+            context.start<PortalHostActivity> {
                 putExtra("page", page)
                 putExtra("isFromAuth", isFromAuth)
                 addFlags(flags)
@@ -94,7 +94,7 @@ class MainActivity : BaseActivity<ActivityDashboardHostBinding>() {
         vpMain.apply {
             offscreenPageLimit = 3
             isUserInputEnabled = false
-            adapter = object : FragmentStateAdapter(this@MainActivity) {
+            adapter = object : FragmentStateAdapter(this@PortalHostActivity) {
                 override fun getItemCount(): Int = 3
 
                 override fun createFragment(position: Int): Fragment {
@@ -135,7 +135,7 @@ class MainActivity : BaseActivity<ActivityDashboardHostBinding>() {
         }
         ivMsg.singleClick {
             requireLogin {
-                start<InboxActivity>()
+                start<MessageCenterActivity>()
             }
         }
         ivCustomer.singleClick {
@@ -186,7 +186,7 @@ class MainActivity : BaseActivity<ActivityDashboardHostBinding>() {
 
     override fun initObserve() = with(guestDashboardVm) {
         super.initObserve()
-        result.observe(this@MainActivity) {
+        result.observe(this@PortalHostActivity) {
             it?.let(::showContactUsDialog)
         }
     }

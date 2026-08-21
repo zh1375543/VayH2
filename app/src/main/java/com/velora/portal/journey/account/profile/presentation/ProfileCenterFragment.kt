@@ -10,14 +10,14 @@ import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.databinding.FragmentProfileCenterBinding
 import com.velora.portal.journey.lending.catalog.presentation.LoanDashboardViewModel
-import com.velora.portal.journey.servicing.records.presentation.RecordHistoryActivity
-import com.velora.portal.journey.servicing.checkout.presentation.BatchCheckoutActivity
+import com.velora.portal.journey.servicing.records.presentation.LoanHistoryActivity
+import com.velora.portal.journey.servicing.checkout.presentation.BulkRepaymentActivity
 import com.velora.portal.journey.servicing.checkout.presentation.dialog.createPaybackDialog
 import com.velora.portal.platform.browser.presentation.ContentBrowserActivity
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.viewBinding
-import com.velora.portal.journey.account.accounts.presentation.LinkedAccountListActivity
+import com.velora.portal.journey.account.accounts.presentation.PayoutAccountListActivity
 
 class ProfileCenterFragment : BaseFragment<FragmentProfileCenterBinding>(
     R.layout.fragment_profile_center
@@ -33,13 +33,13 @@ class ProfileCenterFragment : BaseFragment<FragmentProfileCenterBinding>(
     override fun initView() = with(binding) {
 
         tvContactUs.singleClick {
-            context?.start<ContactsActivity>()
+            context?.start<CustomerSupportActivity>()
         }
         tvAboutUs.singleClick {
-            context?.start<AboutActivity>()
+            context?.start<AppInfoActivity>()
         }
         tvSettings.singleClick {
-            context?.start<SetActivity>()
+            context?.start<AppSettingsActivity>()
         }
         tvPolicy.singleClick {
             ContentBrowserActivity.Companion.launch(
@@ -49,16 +49,16 @@ class ProfileCenterFragment : BaseFragment<FragmentProfileCenterBinding>(
             )
         }
         tvAccount.singleClick {
-            it.context.start<LinkedAccountListActivity>()
+            it.context.start<PayoutAccountListActivity>()
         }
         tvOrder.singleClick {
-            context?.start<RecordHistoryActivity>()
+            context?.start<LoanHistoryActivity>()
         }
         tvPayBack.singleClick {
             vm.getAuthData(true)
         }
         tvCert.singleClick {
-            it.context.start<ProfileReviewActivity>()
+            it.context.start<VerificationOverviewActivity>()
         }
     }
 
@@ -82,7 +82,7 @@ class ProfileCenterFragment : BaseFragment<FragmentProfileCenterBinding>(
     override fun initObserve() = with(vm) {
         authResult.observe(this@ProfileCenterFragment) {
             if (it?.showMultipleRepaySign == 1) {
-                context?.start<BatchCheckoutActivity>()
+                context?.start<BulkRepaymentActivity>()
             } else {
                 paybackDialog.show()
             }

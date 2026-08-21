@@ -28,12 +28,12 @@ import com.velora.portal.platform.common.util.text.toJsonString
 import com.velora.portal.platform.common.util.trackEvent
 import com.velora.portal.platform.common.util.getPayoutAccountTypeLabel
 import com.velora.portal.platform.common.util.viewBinding
-import com.velora.portal.databinding.ActivityOfferBundleBinding
+import com.velora.portal.databinding.ScreenMultiLoanOfferBinding
 import com.velora.portal.journey.account.accounts.presentation.LinkedAccountViewModel
 
-class PlanSelectionActivity : BaseActivity<ActivityOfferBundleBinding>() {
+class MultiLoanOfferActivity : BaseActivity<ScreenMultiLoanOfferBinding>() {
 
-    override val binding by viewBinding(ActivityOfferBundleBinding::inflate)
+    override val binding by viewBinding(ScreenMultiLoanOfferBinding::inflate)
 
     private val togetherAdapter by lazy { ComboAdapter() }
     private val vm by viewModels<ApplicationProcessViewModel>()
@@ -87,7 +87,7 @@ class PlanSelectionActivity : BaseActivity<ActivityOfferBundleBinding>() {
                 ),
             )
             LoanEventRecorder.record(LoanEvent.CLICK_APPLY_LOAN)
-            PermissionCoordinator.request(this@PlanSelectionActivity, PermissionScenario.DEVICE_RISK) {
+            PermissionCoordinator.request(this@MultiLoanOfferActivity, PermissionScenario.DEVICE_RISK) {
                 val (productInstallmentMap, termIdMap) = buildSubmissionMaps()
                 trackEvent(ORDER_COMMIT)
                 showLoanAgreementDialog(isTogether = true) {
@@ -98,8 +98,8 @@ class PlanSelectionActivity : BaseActivity<ActivityOfferBundleBinding>() {
                         ),
                     )
                     LoanEventRecorder.record(LoanEvent.CLICK_SUBMIT_LOAN)
-                    RequestStatusActivity.Companion.launch(
-                        this@PlanSelectionActivity,
+                    LoanSubmissionResultActivity.Companion.launch(
+                        this@MultiLoanOfferActivity,
                         ArrayList(togetherAdapter.items),
                         null,
                         cardInfo?.id ?: 0L,
@@ -132,7 +132,7 @@ class PlanSelectionActivity : BaseActivity<ActivityOfferBundleBinding>() {
 
     override fun initObserve() = with(vm) {
         super.initObserve()
-        togetherLoanState.observe(this@PlanSelectionActivity) { state ->
+        togetherLoanState.observe(this@MultiLoanOfferActivity) { state ->
             render(state)
         }
         observeAccounts()
@@ -181,7 +181,7 @@ class PlanSelectionActivity : BaseActivity<ActivityOfferBundleBinding>() {
     }
 
     private fun observeAccounts() {
-        accountVm.loanAccountList.observe(this@PlanSelectionActivity) { accounts ->
+        accountVm.loanAccountList.observe(this@MultiLoanOfferActivity) { accounts ->
             accounts ?: return@observe
             chooseAccountsDialog(
                 cardNo = cardInfo?.bankNo,

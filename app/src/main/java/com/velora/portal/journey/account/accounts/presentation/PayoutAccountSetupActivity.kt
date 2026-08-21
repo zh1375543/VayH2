@@ -10,7 +10,7 @@ import com.velora.portal.domain.payout.model.AccountMethodResponse
 import com.velora.portal.journey.account.accounts.presentation.dialog.chooseBankDialog
 import com.velora.portal.journey.account.accounts.presentation.dialog.chooseWalletDialog
 import com.velora.portal.journey.account.accounts.presentation.dialog.showWithdrawMethodDialog
-import com.velora.portal.databinding.ActivityLinkedAccountSetupBinding
+import com.velora.portal.databinding.ScreenPayoutAccountSetupBinding
 import com.velora.portal.platform.design.extension.observeKeyboardVisibility
 import com.velora.portal.platform.design.extension.resetScale
 import com.velora.portal.platform.design.extension.singleClick
@@ -18,14 +18,14 @@ import com.velora.portal.journey.access.presentation.profile.ApplicantDetailsVie
 import com.velora.portal.platform.common.util.showToastMessage
 import com.velora.portal.platform.common.util.viewBinding
 
-class LinkedAccountSetupActivity : BaseActivity<ActivityLinkedAccountSetupBinding>() {
+class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>() {
 
     private enum class WithdrawMethod {
         BANK,
         WALLET,
     }
 
-    override val binding by viewBinding(ActivityLinkedAccountSetupBinding::inflate)
+    override val binding by viewBinding(ScreenPayoutAccountSetupBinding::inflate)
 
     private val vm by viewModels<LinkedAccountViewModel>()
     private val personalVm by viewModels<ApplicantDetailsViewModel>()
@@ -201,7 +201,7 @@ class LinkedAccountSetupActivity : BaseActivity<ActivityLinkedAccountSetupBindin
 
     override fun initObserve() = with(vm) {
         super.initObserve()
-        payChannelList.observe(this@LinkedAccountSetupActivity) {
+        payChannelList.observe(this@PayoutAccountSetupActivity) {
             chooseBankDialog(it ?: emptyList()) { bean ->
                 selectWithdrawMethod(WithdrawMethod.BANK)
                 binding.withdrawAccountForm.bankSelectorField.setText(bean.bankName)
@@ -209,7 +209,7 @@ class LinkedAccountSetupActivity : BaseActivity<ActivityLinkedAccountSetupBindin
                 bankBean = bean
             }
         }
-        walletList.observe(this@LinkedAccountSetupActivity) {
+        walletList.observe(this@PayoutAccountSetupActivity) {
             val walletItems = it ?: emptyList()
             if (shouldShowWalletPicker) {
                 shouldShowWalletPicker = false
@@ -222,11 +222,11 @@ class LinkedAccountSetupActivity : BaseActivity<ActivityLinkedAccountSetupBindin
                 }
             }
         }
-        addResult.observe(this@LinkedAccountSetupActivity) {
+        addResult.observe(this@PayoutAccountSetupActivity) {
             getString(R.string.toast_add_account_receivable).showToastMessage()
             finish()
         }
-        personalVm.personalResult.observe(this@LinkedAccountSetupActivity) {
+        personalVm.personalResult.observe(this@PayoutAccountSetupActivity) {
             binding.withdrawAccountForm.accountHolderField.setText(it?.cardName)
         }
     }

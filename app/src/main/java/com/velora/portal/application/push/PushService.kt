@@ -12,7 +12,7 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.velora.portal.R
-import com.velora.portal.application.LaunchActivity
+import com.velora.portal.application.BootstrapActivity
 
 class PushService : FirebaseMessagingService() {
 
@@ -119,7 +119,7 @@ class PushService : FirebaseMessagingService() {
      */
     private fun sendNotification(title: String?, messageBody: String) {
         val requestCode = 0
-        val intent = Intent(this, LaunchActivity::class.java)
+        val intent = Intent(this, BootstrapActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(
             this,

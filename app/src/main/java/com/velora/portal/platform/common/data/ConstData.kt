@@ -9,85 +9,85 @@ const val APPCODE = "gaanpuhunan"
 var HomeLoanAmountRange: String? = null
 
 var appFlyer: String
-    get() = SPUtil.newInstance().get("AF_KEY", "")
+    get() = SPUtil.newInstance().get(PreferenceSchema.AppKeys.APPS_FLYER_DATA, "")
     set(value) {
-        SPUtil.newInstance().save("AF_KEY", value)
+        SPUtil.newInstance().save(PreferenceSchema.AppKeys.APPS_FLYER_DATA, value)
     }
 
 var language: String
     get() = "en"
     set(value) {
-        SPUtil.newInstance().save("LANGUAGE_KEY", "en")
+        SPUtil.newInstance().save(PreferenceSchema.AppKeys.LANGUAGE, "en")
     }
 
 var agreePhonePrivacy: Boolean
-    get() = SPUtil.newInstance().get("AGREE_PHONE_KEY", false)
+    get() = SPUtil.newInstance().get(PreferenceSchema.AppKeys.PHONE_PRIVACY, false)
     set(value) {
-        SPUtil.newInstance().save("AGREE_PHONE_KEY", value)
+        SPUtil.newInstance().save(PreferenceSchema.AppKeys.PHONE_PRIVACY, value)
     }
 
 var location: Pair<Double, Double>
     get() = SPUtil.getInstance()
-        .get("LOCATION_KEY", "")
+        .get(PreferenceSchema.CoreKeys.LOCATION, "")
         .parseJson<Pair<Double, Double>>() ?: (0.0 to 0.0)
     set(value) {
-        SPUtil.getInstance().save("LOCATION_KEY", value.toJsonString())
+        SPUtil.getInstance().save(PreferenceSchema.CoreKeys.LOCATION, value.toJsonString())
     }
 
 var signBackHome: Boolean
-    get() = SPUtil.getInstance().get("FIRST_SIGN_BACK_HOME_KEY", false)
+    get() = SPUtil.getInstance().get(PreferenceSchema.CoreKeys.SIGN_BACK_HOME, false)
     set(value) {
-        SPUtil.getInstance().save("FIRST_SIGN_BACK_HOME_KEY", value)
+        SPUtil.getInstance().save(PreferenceSchema.CoreKeys.SIGN_BACK_HOME, value)
     }
 
 var authConfigList: List<String>
     get() = SPUtil.getInstance()
-        .get("CONFIG_AUTH_LIST_KEY", "")
+        .get(PreferenceSchema.CoreKeys.AUTH_CONFIG, "")
         .parseJsonList<String>() ?: emptyList()
     set(value) {
-        SPUtil.getInstance().save("CONFIG_AUTH_LIST_KEY", value.toJsonString())
+        SPUtil.getInstance().save(PreferenceSchema.CoreKeys.AUTH_CONFIG, value.toJsonString())
     }
 
 var isPostDeviceInfo: Boolean
-    get() = SPUtil.getInstance().get("USER_DEVICE_KEY", false)
+    get() = SPUtil.getInstance().get(PreferenceSchema.CoreKeys.DEVICE_POSTED, false)
     set(value) {
-        SPUtil.getInstance().save("USER_DEVICE_KEY", value)
+        SPUtil.getInstance().save(PreferenceSchema.CoreKeys.DEVICE_POSTED, value)
     }
 
 var refer: String
-    get() = SPUtil.newInstance().get("GAREFER_KEY", "")
+    get() = SPUtil.newInstance().get(PreferenceSchema.AppKeys.GA_REFER, "")
     set(value) {
-        SPUtil.newInstance().save("GAREFER_KEY", value)
+        SPUtil.newInstance().save(PreferenceSchema.AppKeys.GA_REFER, value)
     }
 
 var afSource: String
-    get() = SPUtil.newInstance().get("AF_SOURCE_KEY", "")
+    get() = SPUtil.newInstance().get(PreferenceSchema.AppKeys.AF_SOURCE, "")
     set(value) {
-        SPUtil.newInstance().save("AF_SOURCE_KEY", value)
+        SPUtil.newInstance().save(PreferenceSchema.AppKeys.AF_SOURCE, value)
     }
 
 var gaId: String
-    get() = SPUtil.newInstance().get("GAID_KEY", "")
+    get() = SPUtil.newInstance().get(PreferenceSchema.AppKeys.GAID, "")
     set(value) {
-        SPUtil.newInstance().save("GAID_KEY", value)
+        SPUtil.newInstance().save(PreferenceSchema.AppKeys.GAID, value)
     }
 
 var rateApp: Boolean
-    get() = SPUtil.newInstance().get("RATE_APP_KEY", false)
+    get() = SPUtil.newInstance().get(PreferenceSchema.AppKeys.RATE_APP, false)
     set(value) {
-        SPUtil.newInstance().save("RATE_APP_KEY", value)
+        SPUtil.newInstance().save(PreferenceSchema.AppKeys.RATE_APP, value)
     }
 
 var firebaseToken: String
-    get() = SPUtil.newInstance().get("FIREBASE_TOKEN_KEY", "")
+    get() = SPUtil.newInstance().get(PreferenceSchema.AppKeys.FIREBASE_TOKEN, "")
     set(value) {
-        SPUtil.newInstance().save("FIREBASE_TOKEN_KEY", value)
+        SPUtil.newInstance().save(PreferenceSchema.AppKeys.FIREBASE_TOKEN, value)
     }
 
 var firebaseId: String
-    get() = SPUtil.newInstance().get("FIREBASE_ID_KEY", "")
+    get() = SPUtil.newInstance().get(PreferenceSchema.AppKeys.FIREBASE_ID, "")
     set(value) {
-        SPUtil.newInstance().save("FIREBASE_ID_KEY", value)
+        SPUtil.newInstance().save(PreferenceSchema.AppKeys.FIREBASE_ID, value)
     }
 
 const val ORDER_STATUS_NOT = -1
@@ -118,7 +118,7 @@ const val ORDER_STATUS_SETTLE_RENEWAL = 42
 const val ORDER_STATUS_SETTLE_REDUCE_OR_RENEWAL = 43
 
 
-const val AF_KEY = "XyR2FTp7tA3UDGzmzNqtui"
+const val AF_DEV_KEY = "XyR2FTp7tA3UDGzmzNqtui"
 
 private const val baseWebUrl = "https://www.papavay.com"
 const val PRIVACY_POLICY = "$baseWebUrl/agreement/protocol_privacy_index.html"
@@ -133,4 +133,3 @@ const val LEASE_AGREEMENT = "$baseWebUrl/agreement/leaseAgreement.html?"
 const val PAWN_AGREEMENT = "$baseWebUrl/agreement/pawnAgreement.html?"
 
 const val PRODUCT_AGREEMENT = "$baseWebUrl/agreement/borrow.html?"
-

@@ -5,7 +5,7 @@ import androidx.core.view.isVisible
 import com.velora.portal.R
 import com.velora.portal.journey.account.accounts.presentation.adapter.PayoutAccountAdapter
 import com.velora.portal.platform.design.base.BaseActivity
-import com.velora.portal.databinding.ActivityLinkedAccountListBinding
+import com.velora.portal.databinding.ScreenPayoutAccountListBinding
 import com.velora.portal.domain.payout.model.LinkedAccountResponse
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.platform.design.dialog.showConfirmDialog
@@ -15,10 +15,10 @@ import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.trackEvent
 import com.velora.portal.platform.common.util.viewBinding
 
-class LinkedAccountListActivity :
-    BaseActivity<ActivityLinkedAccountListBinding>() {
+class PayoutAccountListActivity :
+    BaseActivity<ScreenPayoutAccountListBinding>() {
 
-    override val binding by viewBinding(ActivityLinkedAccountListBinding::inflate)
+    override val binding by viewBinding(ScreenPayoutAccountListBinding::inflate)
     private val vm by viewModels<LinkedAccountViewModel>()
 
     private val bankAdapter by lazy {
@@ -90,7 +90,7 @@ class LinkedAccountListActivity :
     private fun bindAccountList() = with(binding) {
         rvAccounts.adapter = bankAdapter
         addLayout.singleClick {
-            start<LinkedAccountSetupActivity>()
+            start<PayoutAccountSetupActivity>()
         }
         pageState.setOnRetryClickListener {
             vm.getAccountList()
@@ -104,7 +104,7 @@ class LinkedAccountListActivity :
 
     override fun initObserve() = with(vm) {
         super.initObserve()
-        accountListState.observe(this@LinkedAccountListActivity) { state ->
+        accountListState.observe(this@PayoutAccountListActivity) { state ->
             render(state)
         }
     }

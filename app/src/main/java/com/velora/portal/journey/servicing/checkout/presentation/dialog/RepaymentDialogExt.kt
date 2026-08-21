@@ -14,7 +14,7 @@ import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseDialog
 import com.velora.portal.databinding.DialogNoActiveRepaymentBinding
 import com.velora.portal.databinding.DialogRepayAndReapplyBinding
-import com.velora.portal.application.MainActivity
+import com.velora.portal.application.PortalHostActivity
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.platform.design.component.StatefulActionButton
 import com.velora.portal.platform.common.util.showToastMessage
@@ -112,7 +112,7 @@ fun Context.createPaybackDialog(): Dialog {
             root.setOnClickListener { dismiss() }
             tvBorrow.singleClick {
                 dismiss()
-                MainActivity.launch(this@createPaybackDialog)
+                PortalHostActivity.launch(this@createPaybackDialog)
             }
         }
     }

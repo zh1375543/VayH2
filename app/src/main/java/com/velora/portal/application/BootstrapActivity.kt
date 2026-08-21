@@ -6,7 +6,7 @@ import android.os.Build
 import android.os.SystemClock
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.lifecycleScope
-import com.velora.portal.journey.access.presentation.login.AccountAccessActivity
+import com.velora.portal.journey.access.presentation.login.PhoneAuthActivity
 import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.platform.common.data.ACT_inApp
 import com.velora.portal.platform.telemetry.analytics.AnalyticsTracker
@@ -19,12 +19,12 @@ import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds
 
 import com.velora.portal.platform.common.util.viewBinding
-import com.velora.portal.databinding.ActivityStartupBinding
+import com.velora.portal.databinding.ScreenBootstrapBinding
 
-class LaunchActivity :
-    BaseActivity<ActivityStartupBinding>() {
+class BootstrapActivity :
+    BaseActivity<ScreenBootstrapBinding>() {
 
-    override val binding by viewBinding(ActivityStartupBinding::inflate)
+    override val binding by viewBinding(ScreenBootstrapBinding::inflate)
 
     private var hasJump = false
     private var timeoutJob: Job? = null
@@ -58,7 +58,7 @@ class LaunchActivity :
 
     override fun initObserve() = with(MainApplication.appViewModel) {
         super.initObserve()
-        secretRequestResult.observe(this@LaunchActivity) { completedRequestId ->
+        secretRequestResult.observe(this@BootstrapActivity) { completedRequestId ->
             if (completedRequestId != secretRequestId) return@observe
             if (successJumpJob?.isActive == true) return@observe
 
@@ -75,12 +75,12 @@ class LaunchActivity :
         if (hasJump) return
         hasJump = true
         if (SessionStore.isLoggedIn) {
-            MainNavigator.launch(this@LaunchActivity, clearTask = true)
+            MainNavigator.launch(this@BootstrapActivity, clearTask = true)
 //           CalculationActivity.launch(this)
         } else {
             startActivity(
-                Intent(this@LaunchActivity, AccountAccessActivity::class.java).apply {
-                    putExtra(AccountAccessActivity.EXTRA_RETURN_TO_PORTAL, true)
+                Intent(this@BootstrapActivity, PhoneAuthActivity::class.java).apply {
+                    putExtra(PhoneAuthActivity.EXTRA_RETURN_TO_PORTAL, true)
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
             )

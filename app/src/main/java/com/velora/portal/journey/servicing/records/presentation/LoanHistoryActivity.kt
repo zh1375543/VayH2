@@ -5,7 +5,7 @@ import androidx.core.view.isVisible
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.platform.common.data.bean.TrackBean
-import com.velora.portal.databinding.ActivityRecordHistoryBinding
+import com.velora.portal.databinding.ScreenLoanHistoryBinding
 import com.velora.portal.platform.common.data.ACT_inOrderHistory
 import com.velora.portal.platform.common.data.PageHistory
 import com.velora.portal.domain.credit.model.RecordItemBean
@@ -14,15 +14,15 @@ import com.velora.portal.platform.common.util.PageLoadState
 import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.viewBinding
 
-class RecordHistoryActivity : BaseActivity<ActivityRecordHistoryBinding>() {
+class LoanHistoryActivity : BaseActivity<ScreenLoanHistoryBinding>() {
 
-    override val binding by viewBinding(ActivityRecordHistoryBinding::inflate)
+    override val binding by viewBinding(ScreenLoanHistoryBinding::inflate)
     private val vm by viewModels<RecordCenterViewModel>()
 
     private val orderAdapter by lazy {
         BorrowingHistoryAdapter().apply {
             setOnItemClickListener { _, position ->
-                start<RecordDetailActivity> {
+                start<LoanRecordDetailActivity> {
                     putExtra("orderId", items[position].id)
                     putExtra("isFromBatch", false)
                 }
@@ -61,7 +61,7 @@ class RecordHistoryActivity : BaseActivity<ActivityRecordHistoryBinding>() {
 
     override fun initObserve() = with(vm) {
         super.initObserve()
-        borrowingHistoryUiState.observe(this@RecordHistoryActivity) {
+        borrowingHistoryUiState.observe(this@LoanHistoryActivity) {
             render(it)
         }
     }

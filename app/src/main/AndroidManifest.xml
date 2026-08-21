@@ -91,7 +91,7 @@
         </service>
 
         <activity
-            android:name=".application.LaunchActivity"
+            android:name=".application.BootstrapActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -102,7 +102,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".application.MainActivity"
+            android:name=".application.PortalHostActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
@@ -213,161 +213,161 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.access.presentation.login.AccountAccessActivity"
+            android:name="com.velora.portal.journey.access.presentation.login.PhoneAuthActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.account.profile.presentation.ContactsActivity"
+            android:name="com.velora.portal.journey.account.profile.presentation.CustomerSupportActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.account.profile.presentation.AboutActivity"
+            android:name="com.velora.portal.journey.account.profile.presentation.AppInfoActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.account.profile.presentation.SetActivity"
+            android:name="com.velora.portal.journey.account.profile.presentation.AppSettingsActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.account.profile.presentation.LogoutActivity"
+            android:name="com.velora.portal.journey.account.profile.presentation.AccountClosureActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.account.profile.presentation.LogoutSuccessActivity"
+            android:name="com.velora.portal.journey.account.profile.presentation.AccountClosureCompleteActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.communication.support.presentation.SupportFeedbackActivity"
+            android:name="com.velora.portal.journey.communication.support.presentation.ServiceFeedbackActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.communication.inbox.presentation.InboxActivity"
+            android:name="com.velora.portal.journey.communication.inbox.presentation.MessageCenterActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.communication.inbox.presentation.InboxDetailActivity"
+            android:name="com.velora.portal.journey.communication.inbox.presentation.MessageDetailActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.account.accounts.presentation.LinkedAccountListActivity"
+            android:name="com.velora.portal.journey.account.accounts.presentation.PayoutAccountListActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.servicing.records.presentation.RecordHistoryActivity"
+            android:name="com.velora.portal.journey.servicing.records.presentation.LoanHistoryActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.servicing.records.presentation.RecordDetailActivity"
+            android:name="com.velora.portal.journey.servicing.records.presentation.LoanRecordDetailActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.lending.catalog.presentation.PlanSelectionActivity"
+            android:name="com.velora.portal.journey.lending.catalog.presentation.MultiLoanOfferActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.lending.catalog.presentation.ConfirmationActivity"
+            android:name="com.velora.portal.journey.lending.catalog.presentation.SignatureCaptureActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.velora.portal.journey.lending.catalog.presentation.RequestStatusActivity"
+            android:name="com.velora.portal.journey.lending.catalog.presentation.LoanSubmissionResultActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.lending.catalog.presentation.ProductOptionsActivity"
+            android:name="com.velora.portal.journey.lending.catalog.presentation.LoanProductDetailActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.access.presentation.kyc.DocumentReviewActivity"
+            android:name="com.velora.portal.journey.access.presentation.kyc.IdentityCheckActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.access.presentation.profile.ApplicantDetailsActivity"
+            android:name="com.velora.portal.journey.access.presentation.profile.BorrowerProfileActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.velora.portal.journey.access.presentation.contact.PaymentDetailsActivity"
+            android:name="com.velora.portal.journey.access.presentation.contact.ContactPayoutActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.velora.portal.journey.access.presentation.ReviewSuccessActivity"
+            android:name="com.velora.portal.journey.access.presentation.OnboardingCompleteActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.velora.portal.journey.servicing.checkout.presentation.BatchCheckoutActivity"
+            android:name="com.velora.portal.journey.servicing.checkout.presentation.BulkRepaymentActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.velora.portal.journey.account.accounts.presentation.LinkedAccountSetupActivity"
+            android:name="com.velora.portal.journey.account.accounts.presentation.PayoutAccountSetupActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.velora.portal.journey.account.profile.presentation.ProfileReviewActivity"
+            android:name="com.velora.portal.journey.account.profile.presentation.VerificationOverviewActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"

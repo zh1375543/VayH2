@@ -19,7 +19,7 @@ object MainNavigator {
     ) {
         val target = when (resolveDestination()) {
             MainDestination.PORTAL -> CalculationActivity::class.java
-            MainDestination.MAIN -> MainActivity::class.java
+            MainDestination.MAIN -> PortalHostActivity::class.java
         }
         val intent = Intent(context, target).apply {
             putExtra(EXTRA_PAGE, page)

@@ -5,7 +5,7 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseActivity
-import com.velora.portal.databinding.ActivityInboxBinding
+import com.velora.portal.databinding.ScreenMessageCenterBinding
 import com.velora.portal.journey.communication.inbox.model.InboxMessageRecord
 import com.velora.portal.journey.communication.inbox.presentation.adapter.MessageInboxAdapter
 import com.velora.portal.platform.design.extension.singleClick
@@ -15,15 +15,15 @@ import com.velora.portal.platform.common.util.PermissionCoordinator
 import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.viewBinding
 
-class InboxActivity : BaseActivity<ActivityInboxBinding>() {
+class MessageCenterActivity : BaseActivity<ScreenMessageCenterBinding>() {
 
-    override val binding by viewBinding(ActivityInboxBinding::inflate)
+    override val binding by viewBinding(ScreenMessageCenterBinding::inflate)
     private val vm by viewModels<InboxCenterViewModel>()
 
     private val messageAdapter by lazy {
         MessageInboxAdapter().apply {
             setOnItemClickListener { item, _ ->
-                start<InboxDetailActivity> {
+                start<MessageDetailActivity> {
                     putExtra("msg", item)
                 }
                 vm.markAsRead(item)
@@ -51,12 +51,12 @@ class InboxActivity : BaseActivity<ActivityInboxBinding>() {
     private fun setupToolbarActions() = with(binding) {
         tvOpen.singleClick {
             PermissionCoordinator.request(
-                this@InboxActivity,
+                this@MessageCenterActivity,
                 arrayOf(Manifest.permission.POST_NOTIFICATIONS),
                 onDenied = { isPermanentlyDenied, deniedPermissions ->
                     if (isPermanentlyDenied) {
                         PermissionCoordinator.openSystemSettings(
-                            this@InboxActivity,
+                            this@MessageCenterActivity,
                             deniedPermissions,
                         )
                     }
@@ -81,7 +81,7 @@ class InboxActivity : BaseActivity<ActivityInboxBinding>() {
 
     override fun initObserve() = with(vm) {
         super.initObserve()
-        messageListState.observe(this@InboxActivity) { state ->
+        messageListState.observe(this@MessageCenterActivity) { state ->
             render(state)
         }
     }

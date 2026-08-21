@@ -17,15 +17,15 @@ import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.platform.common.data.signBackHome
 import com.velora.portal.databinding.FragmentDashboardHomeBinding
-import com.velora.portal.journey.lending.catalog.presentation.ConfirmationActivity
-import com.velora.portal.journey.lending.catalog.presentation.PlanSelectionActivity
+import com.velora.portal.journey.lending.catalog.presentation.SignatureCaptureActivity
+import com.velora.portal.journey.lending.catalog.presentation.MultiLoanOfferActivity
 import com.velora.portal.journey.lending.catalog.presentation.LoanDashboardViewModel
-import com.velora.portal.journey.lending.catalog.presentation.ProductOptionsActivity
+import com.velora.portal.journey.lending.catalog.presentation.LoanProductDetailActivity
 import com.velora.portal.journey.lending.catalog.presentation.ProductOptionsViewModel
 import com.velora.portal.domain.customer.model.VerificationProgressResponse
 import com.velora.portal.journey.lending.dashboard.model.VisitorPortalResponse
 import com.velora.portal.domain.credit.model.CatalogItemBean
-import com.velora.portal.application.MainActivity
+import com.velora.portal.application.PortalHostActivity
 import com.velora.portal.journey.communication.support.presentation.FeedbackViewModel
 import com.velora.portal.journey.lending.dashboard.presentation.adapter.LoanCatalogAdapter
 import com.velora.portal.journey.lending.dashboard.presentation.state.HomeEffect
@@ -53,7 +53,7 @@ import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.text.toJsonString
 import com.velora.portal.platform.common.util.trackEvent
 import com.velora.portal.platform.common.util.viewBinding
-import com.velora.portal.journey.account.accounts.presentation.LinkedAccountListActivity
+import com.velora.portal.journey.account.accounts.presentation.PayoutAccountListActivity
 import kotlinx.coroutines.Job
 
 class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragment_dashboard_home) {
@@ -91,7 +91,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
                                 requireContext(),
                                 product.downloadUrl,
                             )
-                            4 -> context.start<PlanSelectionActivity>()
+                            4 -> context.start<MultiLoanOfferActivity>()
                             else -> {
                                 productVm.getProductDetail(
                                     PageHome,
@@ -130,7 +130,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
                     act = ACT_userAppBankMyCard
                 )
             )
-            it.context.start<LinkedAccountListActivity>()
+            it.context.start<PayoutAccountListActivity>()
         }
     }
 
@@ -143,7 +143,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
         }
         btnOpenOffers.singleClick {
             it.context.requireLogin {
-                context?.start<PlanSelectionActivity>()
+                context?.start<MultiLoanOfferActivity>()
             }
         }
         btnDismissAccountAlert.singleClick {
@@ -366,7 +366,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
                 }
             }
 
-            HomeEffect.NavigateToOrders -> (activity as MainActivity?)?.selectPage(1)
+            HomeEffect.NavigateToOrders -> (activity as PortalHostActivity?)?.selectPage(1)
             is HomeEffect.ShowNewProducts -> showNewProductDialogIfNeeded(effect.products)
             is HomeEffect.ShowAvailableCredit -> showCreditDialogIfNeeded(effect)
         }
@@ -381,7 +381,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
             hasShownCreditDialog = true
             creditDialog = root.context.createAvailableCreditDialog(amount) {
                 if (!btnOpenOffers.isEnabled) return@createAvailableCreditDialog
-                root.context.start<PlanSelectionActivity>()
+                root.context.start<MultiLoanOfferActivity>()
             }
             creditDialog?.setOnDismissListener {
                 creditDialog = null
@@ -402,7 +402,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
         }) {
             if (!binding.contentLayout.btnOpenOffers.isEnabled) return@createNewProductDialog
             vm.submitTrackingEvent(TrackBean(p = PageHome, act = ACT_clickImmediate))
-            context?.start<PlanSelectionActivity>()
+            context?.start<MultiLoanOfferActivity>()
         }
         newProductDialog?.show()
     }
@@ -448,7 +448,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
                     termMap[data.id] = list[index].id
                 }
             }
-            ConfirmationActivity.Companion.launch(
+            SignatureCaptureActivity.Companion.launch(
                 binding.root.context,
                 data.bankInfoId,
                 null,
@@ -460,7 +460,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
                 true
             )
         } else {
-            context?.start<ProductOptionsActivity> {
+            context?.start<LoanProductDetailActivity> {
                 putExtra("product", data)
             }
         }

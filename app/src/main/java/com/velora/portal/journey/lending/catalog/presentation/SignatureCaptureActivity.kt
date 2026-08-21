@@ -15,9 +15,9 @@ import com.velora.portal.platform.common.data.PageSign
 import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.platform.common.data.signBackHome
-import com.velora.portal.databinding.ActivityAgreementSignatureBinding
+import com.velora.portal.databinding.ScreenSignatureCaptureBinding
 import com.velora.portal.domain.credit.model.CatalogItemBean
-import com.velora.portal.application.MainActivity
+import com.velora.portal.application.PortalHostActivity
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.platform.design.component.SignatureView
 import com.velora.portal.platform.common.util.loanevent.LoanEvent
@@ -33,9 +33,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
-class ConfirmationActivity : BaseActivity<ActivityAgreementSignatureBinding>() {
+class SignatureCaptureActivity : BaseActivity<ScreenSignatureCaptureBinding>() {
 
-    override val binding by viewBinding(ActivityAgreementSignatureBinding::inflate)
+    override val binding by viewBinding(ScreenSignatureCaptureBinding::inflate)
     companion object {
 
         fun launch(
@@ -50,7 +50,7 @@ class ConfirmationActivity : BaseActivity<ActivityAgreementSignatureBinding>() {
             isBackHome: Boolean = false,
             payWay: String = "CARD",
         ) {
-            context.start<ConfirmationActivity> {
+            context.start<SignatureCaptureActivity> {
                 putExtra("isBackHome", isBackHome)
                 putExtra("productList", productList)
                 putExtra("bankId", bankId)
@@ -112,7 +112,7 @@ class ConfirmationActivity : BaseActivity<ActivityAgreementSignatureBinding>() {
     private fun connectSigningCommands() = with(binding) {
         titleBar.setNavigationAction { exitSignatureFlow() }
         tvBack.singleClick {
-            MainActivity.Companion.launch(this@ConfirmationActivity)
+            PortalHostActivity.Companion.launch(this@SignatureCaptureActivity)
             exitSignatureFlow()
         }
         registerTrackedBackHandler(vm) {
@@ -136,7 +136,7 @@ class ConfirmationActivity : BaseActivity<ActivityAgreementSignatureBinding>() {
             vm.submitTrackingEvent(TrackBean(p = PageSign, act = ACT_clickSubmit))
             if (isShowBackHome) {
                 LoanEventRecorder.record(LoanEvent.CLICK_APPLY_LOAN)
-                PermissionCoordinator.request(this@ConfirmationActivity, PermissionScenario.DEVICE_RISK) {
+                PermissionCoordinator.request(this@SignatureCaptureActivity, PermissionScenario.DEVICE_RISK) {
                     MainApplication.Companion.appViewModel.postRiskInfo(PageSign) { isSuccess ->
                         if (isSuccess) {
                             LoanEventRecorder.record(LoanEvent.CLICK_SUBMIT_LOAN)
@@ -153,7 +153,7 @@ class ConfirmationActivity : BaseActivity<ActivityAgreementSignatureBinding>() {
     private fun exitSignatureFlow() {
         if (isShowBackHome) {
             signBackHome = true
-            MainActivity.Companion.launch(this)
+            PortalHostActivity.Companion.launch(this)
         }
         finish()
     }
@@ -166,8 +166,8 @@ class ConfirmationActivity : BaseActivity<ActivityAgreementSignatureBinding>() {
                     binding.signView.saveToFile(file)
                 }) {
                 finish()
-                RequestStatusActivity.Companion.launch(
-                    this@ConfirmationActivity,
+                LoanSubmissionResultActivity.Companion.launch(
+                    this@SignatureCaptureActivity,
                     productList,
                     productId,
                     bankId,

@@ -13,7 +13,7 @@ import androidx.core.widget.doAfterTextChanged
 import com.velora.portal.R
 import com.velora.portal.application.MainApplication
 import com.velora.portal.platform.design.base.BaseActivity
-import com.velora.portal.databinding.ActivityDisbursementContactBinding
+import com.velora.portal.databinding.ScreenContactPayoutBinding
 import com.velora.portal.platform.common.data.ACT_clickBack
 import com.velora.portal.platform.common.data.ACT_clickContinue
 import com.velora.portal.platform.common.data.ACT_clickNext
@@ -59,7 +59,7 @@ import com.velora.portal.platform.common.util.viewBinding
 import kotlin.math.max
 import kotlin.toString
 
-class PaymentDetailsActivity : BaseActivity<ActivityDisbursementContactBinding>() {
+class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
 
     private enum class WithdrawMethod {
         BANK,
@@ -72,7 +72,7 @@ class PaymentDetailsActivity : BaseActivity<ActivityDisbursementContactBinding>(
         ADDITIONAL,
     }
 
-    override val binding by viewBinding(ActivityDisbursementContactBinding::inflate)
+    override val binding by viewBinding(ScreenContactPayoutBinding::inflate)
 
     private val vm by viewModels<WorkContactViewModel>()
     private val personalVm by viewModels<ApplicantDetailsViewModel>()
@@ -282,7 +282,7 @@ class PaymentDetailsActivity : BaseActivity<ActivityDisbursementContactBinding>(
             if (!validateBankPage()) {
                 return@singleClick
             }
-            PermissionCoordinator.request(this@PaymentDetailsActivity, PermissionScenario.DEVICE_RISK) {
+            PermissionCoordinator.request(this@ContactPayoutActivity, PermissionScenario.DEVICE_RISK) {
                 MainApplication.appViewModel.hasDeviceInfo(PageInfoBank) { isPost ->
                     if (isPost) {
                         submit()
@@ -558,7 +558,7 @@ class PaymentDetailsActivity : BaseActivity<ActivityDisbursementContactBinding>(
     private var additionalContactStatus: Int? = null
     override fun initObserve() = with(vm) {
         super.initObserve()
-        accountVm.payChannelList.observe(this@PaymentDetailsActivity) {
+        accountVm.payChannelList.observe(this@ContactPayoutActivity) {
             val channelList = it ?: arrayListOf()
             chooseBankDialog(
                 channelList
@@ -569,7 +569,7 @@ class PaymentDetailsActivity : BaseActivity<ActivityDisbursementContactBinding>(
                 bankBean = bean
             }
         }
-        accountVm.walletList.observe(this@PaymentDetailsActivity) {
+        accountVm.walletList.observe(this@ContactPayoutActivity) {
             val walletItems = it ?: arrayListOf()
             if (shouldShowWalletPicker) {
                 shouldShowWalletPicker = false
@@ -582,7 +582,7 @@ class PaymentDetailsActivity : BaseActivity<ActivityDisbursementContactBinding>(
                 }
             }
         }
-        contractResult.observe(this@PaymentDetailsActivity) {
+        contractResult.observe(this@ContactPayoutActivity) {
             binding.apply {
                 pageContent.isVisible = true
                 pageState.hide()
@@ -612,14 +612,14 @@ class PaymentDetailsActivity : BaseActivity<ActivityDisbursementContactBinding>(
                 }
             }
         }
-        submitBankAndCtsResult.observe(this@PaymentDetailsActivity) {
+        submitBankAndCtsResult.observe(this@ContactPayoutActivity) {
             homeVm.getUserAuthStatus()
         }
-        personalVm.personalResult.observe(this@PaymentDetailsActivity) {
+        personalVm.personalResult.observe(this@ContactPayoutActivity) {
             binding.disbursementForm.accountHolderField.setText(it?.firstName)
         }
-        homeVm.userAuthStatusResult.observe(this@PaymentDetailsActivity) {
-            it?.routeToNextAuthStep(this@PaymentDetailsActivity)
+        homeVm.userAuthStatusResult.observe(this@ContactPayoutActivity) {
+            it?.routeToNextAuthStep(this@ContactPayoutActivity)
             finish()
         }
     }

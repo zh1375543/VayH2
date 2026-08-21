@@ -14,7 +14,7 @@ import com.velora.portal.databinding.ChooseAccountsDialogBinding
 import com.velora.portal.databinding.ChooseBankDialogBinding
 import com.velora.portal.databinding.ChooseWalletDialogBinding
 import com.velora.portal.databinding.DialogDisbursementMethodBinding
-import com.velora.portal.journey.account.accounts.presentation.LinkedAccountSetupActivity
+import com.velora.portal.journey.account.accounts.presentation.PayoutAccountSetupActivity
 import com.velora.portal.journey.account.accounts.presentation.adapter.PayoutAccountPickerAdapter
 import com.velora.portal.journey.account.accounts.presentation.adapter.ChooseBankDialogAdapter
 import com.velora.portal.journey.account.accounts.presentation.adapter.ChooseWalletDialogAdapter
@@ -106,7 +106,7 @@ fun Context.chooseAccountsDialog(
             }
             tvAdd.singleClick {
                 dismiss()
-                start<LinkedAccountSetupActivity>()
+                start<PayoutAccountSetupActivity>()
             }
             BtnApply.singleClick {
                 dismiss()
