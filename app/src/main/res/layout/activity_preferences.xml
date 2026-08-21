@@ -5,7 +5,7 @@
     android:background="@color/page_bg_color1"
     android:layout_height="match_parent">
 
-    <com.novexa.platform.core.ui.component.PageHeaderView
+    <com.velora.portal.core.ui.component.PageHeaderView
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             android:textSize="@dimen/sp_14"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-        <com.novexa.platform.core.ui.component.StyledTextView
+        <com.velora.portal.core.ui.component.StyledTextView
             android:id="@+id/tvCloseAccount"
             style="@style/SettingsMenuItem"
             android:layout_marginTop="@dimen/dp_52"
@@ -58,7 +58,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvVersion" />
 
-        <com.novexa.platform.core.ui.component.StyledTextView
+        <com.velora.portal.core.ui.component.StyledTextView
             android:id="@+id/tvFeedback"
             style="@style/SettingsMenuItem"
             android:layout_marginTop="@dimen/dp_10"
@@ -67,7 +67,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCloseAccount" />
 
-        <com.novexa.platform.core.ui.component.StatefulActionButton
+        <com.velora.portal.core.ui.component.StatefulActionButton
             android:id="@+id/tvLogout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_48"

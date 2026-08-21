@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/page_bg_color1">
 
-    <com.novexa.platform.core.ui.component.PageHeaderView
+    <com.velora.portal.core.ui.component.PageHeaderView
         android:id="@+id/payoutContactHeader"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_44"
@@ -60,7 +60,7 @@
                         layout="@layout/view_disbursement_account_form" />
                 </LinearLayout>
 
-                <com.novexa.platform.core.ui.component.StyledLinearLayout
+                <com.velora.portal.core.ui.component.StyledLinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_12"
@@ -68,7 +68,7 @@
                     app:radius="@dimen/dp_12"
                     app:solidColor="@color/text_inverse">
 
-                    <com.novexa.platform.core.ui.component.StyledTextView
+                    <com.velora.portal.core.ui.component.StyledTextView
                         style="@style/TypeTag"
                         android:text="@string/emergency_contact" />
                     <TextView
@@ -83,7 +83,7 @@
                         android:visibility="gone"
                         tools:visibility="visible" />
                 <!-- Relationship 1 -->
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/primaryRelationshipField"
                     android:layout_width="match_parent"
                     android:layout_marginTop="@dimen/dp_10"
@@ -94,7 +94,7 @@
                     app:titleText="@string/contact_people1" />
 
                 <!-- Contact name -->
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/primaryContactNameField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                     app:titleText="@string/contact_name" />
 
                 <!-- Contact phone -->
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/primaryContactPhoneField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                     app:inputType="phone"
                     app:titleText="@string/contact_phone_number" />
 
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/secondaryRelationshipField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                     app:hintText="@string/please_choose"
                     app:titleText="@string/contact_people2" />
 
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/secondaryContactNameField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                     app:inputType="text"
                     app:titleText="@string/contact_name" />
 
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/secondaryContactPhoneField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.novexa.platform.core.ui.component.FormItemView
+                    <com.velora.portal.core.ui.component.FormItemView
                         android:id="@+id/additionalRelationshipField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                         app:hintText="@string/please_choose"
                         app:titleText="@string/contact_people3" />
 
-                    <com.novexa.platform.core.ui.component.FormItemView
+                    <com.velora.portal.core.ui.component.FormItemView
                         android:id="@+id/additionalContactNameField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
                         app:inputType="text"
                         app:titleText="@string/contact_name" />
 
-                    <com.novexa.platform.core.ui.component.FormItemView
+                    <com.velora.portal.core.ui.component.FormItemView
                         android:id="@+id/additionalContactPhoneField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -186,13 +186,13 @@
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_18" />
-                </com.novexa.platform.core.ui.component.StyledLinearLayout>
+                </com.velora.portal.core.ui.component.StyledLinearLayout>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
             </LinearLayout>
         </FrameLayout>
 
-        <com.novexa.platform.core.ui.component.PageStateOverlayView
+        <com.velora.portal.core.ui.component.PageStateOverlayView
             android:id="@+id/pageState"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -210,13 +210,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:visibility="visible">
 
-        <com.novexa.platform.core.ui.component.StyledTextView
+        <com.velora.portal.core.ui.component.StyledTextView
             style="@style/AuthDataEncryptedTipText"
             android:layout_gravity="center_horizontal"
             android:layout_marginHorizontal="@dimen/dp_16"
             android:layout_marginBottom="@dimen/dp_10" />
 
-        <com.novexa.platform.core.ui.component.StatefulActionButton
+        <com.velora.portal.core.ui.component.StatefulActionButton
             android:id="@+id/btnContinue"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_48"

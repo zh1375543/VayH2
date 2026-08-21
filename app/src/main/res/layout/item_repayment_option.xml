@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/contentView"
     android:layout_width="@dimen/dp_91"
@@ -12,7 +12,7 @@
     app:strokeColor="@color/transparent"
     app:strokeWidth="@dimen/dp_1">
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvNum1"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_22"
@@ -31,7 +31,7 @@
         app:solidColor="@color/border_default"
         app:textColorSelected="@color/text_inverse" />
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvPeriod1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvNum1"
         app:textColorSelected="@color/text_body" />
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvPeriodDays1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvPeriod1"
         app:textColorSelected="@color/text_primary" />
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvFirst"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvPeriodDays1"
         app:textColorSelected="@color/text_body" />
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvAmount1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvFirst"
         app:textColorSelected="@color/text_primary" />
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvNoInstall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -119,4 +119,4 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="tvFirst,tvAmount1" />
 
-</com.novexa.platform.core.ui.component.StyledConstraintLayout>
+</com.velora.portal.core.ui.component.StyledConstraintLayout>

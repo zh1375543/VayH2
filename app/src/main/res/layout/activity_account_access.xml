@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.novexa.platform.core.ui.component.PageHeaderView
+    <com.velora.portal.core.ui.component.PageHeaderView
         android:id="@+id/accessPageHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@id/loginHeaderBottom">
 
-        <com.novexa.platform.core.ui.component.StyledLinearLayout
+        <com.velora.portal.core.ui.component.StyledLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -121,7 +121,7 @@
             app:radius="@dimen/dp_30"
             app:solidColor="@color/text_inverse">
 
-            <com.novexa.platform.core.ui.component.FormItemView
+            <com.velora.portal.core.ui.component.FormItemView
                 android:id="@+id/formPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                 app:prefixText="+63"
                 app:titleText="@string/phone_number" />
 
-            <com.novexa.platform.core.ui.component.FormItemView
+            <com.velora.portal.core.ui.component.FormItemView
                 android:id="@+id/formOtp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
                 android:textSize="@dimen/sp_14"
                 android:visibility="gone" />
 
-            <com.novexa.platform.core.ui.component.StatefulActionButton
+            <com.velora.portal.core.ui.component.StatefulActionButton
                 android:id="@+id/tvLogin"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_54"
@@ -181,7 +181,7 @@
                 android:gravity="top"
                 android:orientation="horizontal">
 
-                <com.novexa.platform.core.ui.component.SelectableImageView
+                <com.velora.portal.core.ui.component.SelectableImageView
                     android:id="@+id/cbAccept"
                     android:layout_width="@dimen/dp_20"
                     android:layout_height="@dimen/dp_20"
@@ -200,6 +200,6 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/sp_12" />
             </LinearLayout>
-        </com.novexa.platform.core.ui.component.StyledLinearLayout>
+        </com.velora.portal.core.ui.component.StyledLinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

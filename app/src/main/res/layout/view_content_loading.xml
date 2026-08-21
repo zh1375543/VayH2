@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:background="@color/text_inverse">
 
-    <com.novexa.platform.core.ui.component.ShapeBounceLoadingView
+    <com.velora.portal.core.ui.component.ShapeBounceLoadingView
         android:layout_width="@dimen/dp_72"
         android:layout_height="@dimen/dp_72" />
 

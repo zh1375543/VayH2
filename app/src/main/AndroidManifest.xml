@@ -109,98 +109,98 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.CalculationActivity"
+            android:name="com.velora.portal.calculation.CalculationActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.AccountSettingsActivity"
+            android:name="com.velora.portal.calculation.activitiy.AccountSettingsActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.SetSalaryActivity"
+            android:name="com.velora.portal.calculation.activitiy.SetSalaryActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.SalaryCalculatorActivity"
+            android:name="com.velora.portal.calculation.activitiy.SalaryCalculatorActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.OvertimeCalculatorActivity"
+            android:name="com.velora.portal.calculation.activitiy.OvertimeCalculatorActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.WorkHoursCalculatorActivity"
+            android:name="com.velora.portal.calculation.activitiy.WorkHoursCalculatorActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.TaxCalculatorActivity"
+            android:name="com.velora.portal.calculation.activitiy.TaxCalculatorActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.BonusCalculatorActivity"
+            android:name="com.velora.portal.calculation.activitiy.BonusCalculatorActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.SavingsCalculatorActivity"
+            android:name="com.velora.portal.calculation.activitiy.SavingsCalculatorActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.SavingsTipDetailActivity"
+            android:name="com.velora.portal.calculation.activitiy.SavingsTipDetailActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.BudgetTipDetailActivity"
+            android:name="com.velora.portal.calculation.activitiy.BudgetTipDetailActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.ExpenseTrackingTipDetailActivity"
+            android:name="com.velora.portal.calculation.activitiy.ExpenseTrackingTipDetailActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.SavingsGoalTipDetailActivity"
+            android:name="com.velora.portal.calculation.activitiy.SavingsGoalTipDetailActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.AccountDeletionActivity"
+            android:name="com.velora.portal.calculation.activitiy.AccountDeletionActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.HelpCenterActivity"
+            android:name="com.velora.portal.calculation.activitiy.HelpCenterActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.novexa.platform.calculation.activitiy.FaqActivity"
+            android:name="com.velora.portal.calculation.activitiy.FaqActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"

@@ -60,7 +60,7 @@
         app:layout_constraintStart_toEndOf="@id/vStats"
         app:layout_constraintTop_toTopOf="@id/vBottomNavigation" />
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toTopOf="@id/vHome"
         app:textColorSelected="@color/text_primary" />
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
         app:layout_constraintTop_toTopOf="@id/vOrder"
         app:textColorSelected="@color/text_primary" />
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvStats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
         app:layout_constraintTop_toTopOf="@id/vStats"
         app:textColorSelected="@color/text_primary" />
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvMine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

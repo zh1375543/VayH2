@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -18,14 +18,14 @@
     <!--        app:itemHeight="40dp"-->
     <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <com.novexa.platform.core.ui.component.WheelView
+    <com.velora.portal.core.ui.component.WheelView
         android:id="@+id/wheelView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_200"
         android:maxHeight="@dimen/dp_500"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvOk"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_44"
@@ -34,4 +34,4 @@
         style="@style/mainButton"
         android:text="@string/ok"
         app:layout_constraintTop_toBottomOf="@id/wheelView"/>
-</com.novexa.platform.core.ui.component.StyledConstraintLayout>
+</com.velora.portal.core.ui.component.StyledConstraintLayout>

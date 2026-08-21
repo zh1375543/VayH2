@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/CalculatorMenuCard">
 
@@ -19,4 +19,4 @@
         android:id="@+id/ivCalculatorArrow"
         style="@style/CalculatorMenuArrow"
         android:src="@mipmap/page_right" />
-</com.novexa.platform.core.ui.component.StyledConstraintLayout>
+</com.velora.portal.core.ui.component.StyledConstraintLayout>

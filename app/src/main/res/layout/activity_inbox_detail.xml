@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/page_bg_color1">
 
-    <com.novexa.platform.core.ui.component.PageHeaderView
+    <com.velora.portal.core.ui.component.PageHeaderView
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
                 android:textStyle="normal"
                 tools:text="12/12/2024 12:00" />
 
-            <com.novexa.platform.core.ui.component.StyledTextView
+            <com.velora.portal.core.ui.component.StyledTextView
                 android:id="@+id/tvContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

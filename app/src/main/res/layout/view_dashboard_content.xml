@@ -14,7 +14,7 @@
         android:clipToPadding="false"
         android:paddingBottom="@dimen/dp_24">
 
-        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        <com.velora.portal.core.ui.component.StyledConstraintLayout
             android:id="@+id/homeTicketCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/dp_20">
 
-                    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                    <com.velora.portal.core.ui.component.StyledConstraintLayout
                         android:id="@+id/notice_layout"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/dp_46"
@@ -61,7 +61,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:solidColor="@color/p40_FFFFFF">
 
-                        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                        <com.velora.portal.core.ui.component.StyledConstraintLayout
                             android:id="@+id/marqueeIconBackground"
                             android:layout_width="@dimen/dp_52"
                             android:layout_height="match_parent"
@@ -78,9 +78,9 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
-                        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                        </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
-                        <com.novexa.platform.core.ui.component.RollingNoticeView
+                        <com.velora.portal.core.ui.component.RollingNoticeView
                             android:id="@+id/marqueeView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/marqueeIconBackground"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                    </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/top_layout"
@@ -104,7 +104,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/notice_layout">
                 <!--no login laout-->
-                <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                <com.velora.portal.core.ui.component.StyledConstraintLayout
                     android:id="@+id/guestCreditPanel"
                     android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="20,000,000" />
 
-                    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                    <com.velora.portal.core.ui.component.StyledConstraintLayout
                         android:id="@+id/rate_layout"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="wrap_content"
@@ -218,12 +218,12 @@
                             android:visibility="gone" />
 
 
-                    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                    </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
-                </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
                 <!--login and verfy-->
-                <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                <com.velora.portal.core.ui.component.StyledConstraintLayout
                     android:id="@+id/memberCreditPanel"
                     android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
@@ -260,7 +260,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="20,000,000" />
 
-                    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                    <com.velora.portal.core.ui.component.StyledConstraintLayout
                         android:id="@+id/amount_layout"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="wrap_content"
@@ -329,9 +329,9 @@
                             app:layout_constraintStart_toEndOf="@id/authMoneyGuide"
                             app:layout_constraintTop_toBottomOf="@id/tvUsed"
                             tools:text="5,000,000" />
-                    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                    </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
-                </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -365,7 +365,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.novexa.platform.core.ui.component.StatefulActionButton
+                        <com.velora.portal.core.ui.component.StatefulActionButton
                             android:id="@+id/btnStartApplication"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dp_54"
@@ -429,7 +429,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.novexa.platform.core.ui.component.StatefulActionButton
+                        <com.velora.portal.core.ui.component.StatefulActionButton
                             android:id="@+id/btnOpenOffers"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dp_54"
@@ -474,7 +474,7 @@
                         app:layout_constraintTop_toBottomOf="@id/loanButtonFrame" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+        </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
         <!-- Credit rejected state. -->
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -572,7 +572,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPreTimes" />
 
-            <com.novexa.platform.core.ui.component.StatefulActionButton
+            <com.velora.portal.core.ui.component.StatefulActionButton
                 android:id="@+id/btnReloadDashboard"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/dp_42"
@@ -595,7 +595,7 @@
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="homeTicketCard,rejectionStatusPanel,reviewStatusPanel" />
 
-        <com.novexa.platform.feature.dashboard.presentation.component.BannerView
+        <com.velora.portal.feature.dashboard.presentation.component.BannerView
             android:id="@+id/campaignBanner"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -607,7 +607,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/homePrimaryContentBottom" />
 
-        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        <com.velora.portal.core.ui.component.StyledConstraintLayout
             android:id="@+id/question_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -623,7 +623,7 @@
             app:radius="@dimen/dp_24"
             app:solidColor="@color/aide_color">
 
-            <com.novexa.platform.core.ui.component.DecoratedTitleView
+            <com.velora.portal.core.ui.component.DecoratedTitleView
                 android:id="@+id/questionTitleLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -648,7 +648,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/questionTitleLayout" />
 
-            <com.novexa.platform.core.ui.component.StyledLinearLayout
+            <com.velora.portal.core.ui.component.StyledLinearLayout
                 android:id="@+id/questionItems"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -668,7 +668,7 @@
                     android:baselineAligned="false"
                     android:orientation="horizontal">
 
-                    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                    <com.velora.portal.core.ui.component.StyledConstraintLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1">
@@ -696,9 +696,9 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/premiumTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                    </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
-                    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                    <com.velora.portal.core.ui.component.StyledConstraintLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/dp_12"
@@ -727,7 +727,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/applyTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                    </com.velora.portal.core.ui.component.StyledConstraintLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -737,7 +737,7 @@
                     android:baselineAligned="false"
                     android:orientation="horizontal">
 
-                    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                    <com.velora.portal.core.ui.component.StyledConstraintLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1">
@@ -765,9 +765,9 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/informationTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                    </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
-                    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                    <com.velora.portal.core.ui.component.StyledConstraintLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/dp_12"
@@ -796,10 +796,10 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/clearTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                    </com.velora.portal.core.ui.component.StyledConstraintLayout>
                 </LinearLayout>
-            </com.novexa.platform.core.ui.component.StyledLinearLayout>
-        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+            </com.velora.portal.core.ui.component.StyledLinearLayout>
+        </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/homeSupplementaryContentBottom"
@@ -810,7 +810,7 @@
             app:constraint_referenced_ids="homePrimaryContentBottom,campaignBanner,question_layout" />
 
         <!-- Payout account alert. -->
-        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        <com.velora.portal.core.ui.component.StyledConstraintLayout
             android:id="@+id/payoutAccountAlert"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
@@ -853,7 +853,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvFailed" />
 
-            <com.novexa.platform.core.ui.component.StatefulActionButton
+            <com.velora.portal.core.ui.component.StatefulActionButton
                 android:id="@+id/btnManagePayoutAccount"
                 android:layout_width="@dimen/dp_0"
                 android:layout_height="@dimen/dp_36"
@@ -878,10 +878,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:tint="@color/text_secondary"
                 app:layout_constraintTop_toTopOf="parent" />
-        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+        </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
         <!--product list-->
-        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        <com.velora.portal.core.ui.component.StyledConstraintLayout
             android:id="@+id/offerSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -893,7 +893,7 @@
             app:layout_constraintTop_toBottomOf="@id/payoutAccountAlert"
             app:layout_goneMarginTop="@dimen/dp_25">
 
-            <com.novexa.platform.core.ui.component.DecoratedTitleView
+            <com.velora.portal.core.ui.component.DecoratedTitleView
                 android:id="@+id/tvHomeProducts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -918,9 +918,9 @@
                 app:layout_constraintTop_toBottomOf="@id/tvHomeProducts"
                 tools:itemCount="1"
                 tools:listitem="@layout/item_home_product" />
-        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+        </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
-        <com.novexa.platform.core.ui.component.StyledLinearLayout
+        <com.velora.portal.core.ui.component.StyledLinearLayout
             android:id="@+id/emptyProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -947,6 +947,6 @@
                 android:text="@string/empty_home"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/sp_13" />
-        </com.novexa.platform.core.ui.component.StyledLinearLayout>
+        </com.velora.portal.core.ui.component.StyledLinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

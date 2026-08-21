@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvTelegramTitle"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <com.novexa.platform.core.ui.component.StatefulActionButton
+    <com.velora.portal.core.ui.component.StatefulActionButton
         android:id="@+id/tvCopyTelegram"
         android:layout_width="@dimen/dp_73"
         android:layout_height="@dimen/dp_40"

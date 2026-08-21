@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/page_bg_color1">
 
-    <com.novexa.platform.core.ui.component.PageHeaderView
+    <com.velora.portal.core.ui.component.PageHeaderView
         android:id="@+id/titleBar"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_56"
@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleBar">
 
-        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+        <com.velora.portal.core.ui.component.StyledConstraintLayout
             android:id="@+id/salaryForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/monthlySalaryView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                     app:inputType="number"
                     app:titleText="@string/calculator_monthly_salary_input" />
 
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/workingDaysView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     app:inputStrokeColor="@color/border_default"
                     app:titleText="@string/calculator_working_days" />
 
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/hoursPerDayView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                     app:inputStrokeColor="@color/border_default"
                     app:titleText="@string/calculator_hours_per_day" />
 
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/paydayView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                     app:inputStrokeColor="@color/border_default"
                     app:titleText="@string/calculator_payday" />
 
-                <com.novexa.platform.core.ui.component.FormItemView
+                <com.velora.portal.core.ui.component.FormItemView
                     android:id="@+id/workLocationView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -105,10 +105,10 @@
                     app:inputType="text"
                     app:titleText="@string/calculator_work_location" />
             </LinearLayout>
-        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+        </com.velora.portal.core.ui.component.StyledConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.novexa.platform.core.ui.component.StatefulActionButton
+    <com.velora.portal.core.ui.component.StatefulActionButton
         android:id="@+id/tvSave"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_48"

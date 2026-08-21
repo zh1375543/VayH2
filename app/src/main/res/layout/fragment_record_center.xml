@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                <com.velora.portal.core.ui.component.StyledConstraintLayout
                     android:id="@+id/repayment_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.novexa.platform.core.ui.component.StyledTextView
+                        <com.velora.portal.core.ui.component.StyledTextView
                             android:id="@+id/tvRepaymentTip"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                             app:layout_constraintTop_toBottomOf="@id/ivRepayment" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <com.novexa.platform.core.ui.component.StatefulActionButton
+                    <com.velora.portal.core.ui.component.StatefulActionButton
                         android:id="@+id/tvRepayment"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/dp_48"
@@ -109,9 +109,9 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/repaymentContent" />
-                </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
-                <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                <com.velora.portal.core.ui.component.StyledConstraintLayout
                     android:id="@+id/order_layout"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -132,14 +132,14 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                        <com.velora.portal.core.ui.component.StyledConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingBottom="@dimen/dp_16"
                             app:radius="@dimen/dp_24"
                             app:solidColor="@color/aide_color">
 
-                            <com.novexa.platform.core.ui.component.DecoratedTitleView
+                            <com.velora.portal.core.ui.component.DecoratedTitleView
                                 android:id="@+id/tvOrders"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <com.novexa.platform.core.ui.component.StyledRecyclerView
+                            <com.velora.portal.core.ui.component.StyledRecyclerView
                                 android:id="@+id/rvOrder"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -172,9 +172,9 @@
                                 tools:itemCount="1"
                                 tools:listitem="@layout/item_home_borrowing"
                                 tools:visibility="visible" />
-                        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                        </com.velora.portal.core.ui.component.StyledConstraintLayout>
                     </androidx.core.widget.NestedScrollView>
-                </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
                 <LinearLayout
                     android:id="@+id/emptyOrder"
@@ -220,7 +220,7 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                    <com.velora.portal.core.ui.component.StyledConstraintLayout
                         android:id="@+id/benefitsLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                         app:radius="@dimen/dp_24"
                         app:solidColor="@color/aide_color">
 
-                        <com.novexa.platform.core.ui.component.DecoratedTitleView
+                        <com.velora.portal.core.ui.component.DecoratedTitleView
                             android:id="@+id/tvBenefits"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -241,7 +241,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.novexa.platform.core.ui.component.StyledConstraintLayout
+                        <com.velora.portal.core.ui.component.StyledConstraintLayout
                             android:id="@+id/benefitsContent"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -393,12 +393,12 @@
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@id/tvTitle3" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
-                        </com.novexa.platform.core.ui.component.StyledConstraintLayout>
-                    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+                        </com.velora.portal.core.ui.component.StyledConstraintLayout>
+                    </com.velora.portal.core.ui.component.StyledConstraintLayout>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.novexa.platform.core.ui.component.PageStateOverlayView
+            <com.velora.portal.core.ui.component.PageStateOverlayView
                 android:id="@+id/pageState"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

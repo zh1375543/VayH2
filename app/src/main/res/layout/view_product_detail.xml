@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,7 +9,7 @@
     app:radius="@dimen/dp_24"
     app:solidColor="@color/surface_primary">
 
-    <com.novexa.platform.feature.catalog.presentation.component.LoanProductDetailsView
+    <com.velora.portal.feature.catalog.presentation.component.LoanProductDetailsView
         android:id="@+id/productDetailsView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.novexa.platform.feature.catalog.presentation.component.RepaymentPlanView
+    <com.velora.portal.feature.catalog.presentation.component.RepaymentPlanView
         android:id="@+id/repaymentPlanView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -27,4 +27,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/productDetailsView" />
 
-</com.novexa.platform.core.ui.component.StyledConstraintLayout>
+</com.velora.portal.core.ui.component.StyledConstraintLayout>

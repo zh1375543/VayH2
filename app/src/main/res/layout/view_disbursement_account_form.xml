@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
 
-    <com.novexa.platform.core.ui.component.StyledLinearLayout
+    <com.velora.portal.core.ui.component.StyledLinearLayout
         android:id="@+id/disbursementMethodCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         app:radius="@dimen/dp_12"
         app:solidColor="@color/text_inverse">
 
-        <com.novexa.platform.core.ui.component.StyledTextView
+        <com.velora.portal.core.ui.component.StyledTextView
             style="@style/TypeTag"
             android:text="@string/bank_card" />
         <TextView
@@ -29,7 +29,7 @@
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/sp_12" />
 
-        <com.novexa.platform.core.ui.component.FormItemView
+        <com.velora.portal.core.ui.component.FormItemView
             android:id="@+id/disbursementMethodField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:visibility="gone"
             tools:visibility="visible">
 
-            <com.novexa.platform.core.ui.component.FormItemView
+            <com.velora.portal.core.ui.component.FormItemView
                 android:id="@+id/bankSelectorField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                 app:hintText="@string/please_choose"
                 app:titleText="@string/please_choose_bank" />
 
-            <com.novexa.platform.core.ui.component.FormItemView
+            <com.velora.portal.core.ui.component.FormItemView
                 android:id="@+id/accountHolderField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
                 app:inputType="text"
                 app:titleText="@string/cardholder_name" />
 
-            <com.novexa.platform.core.ui.component.FormItemView
+            <com.velora.portal.core.ui.component.FormItemView
                 android:id="@+id/bankAccountNumberField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                 app:inputType="number"
                 app:titleText="@string/bank_account" />
 
-            <com.novexa.platform.core.ui.component.FormItemView
+            <com.velora.portal.core.ui.component.FormItemView
                 android:id="@+id/bankAccountConfirmationField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
             android:visibility="gone"
             tools:visibility="visible">
 
-            <com.novexa.platform.core.ui.component.FormItemView
+            <com.velora.portal.core.ui.component.FormItemView
                 android:id="@+id/walletProviderField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                 app:hintText="@string/please_choose"
                 app:titleText="@string/e_wallet" />
 
-            <com.novexa.platform.core.ui.component.FormItemView
+            <com.velora.portal.core.ui.component.FormItemView
                 android:id="@+id/walletAccountNumberField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
                 app:inputType="number"
                 app:titleText="@string/account_number" />
 
-            <com.novexa.platform.core.ui.component.FormItemView
+            <com.velora.portal.core.ui.component.FormItemView
                 android:id="@+id/walletAccountConfirmationField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,5 +132,5 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_18" />
         </LinearLayout>
-    </com.novexa.platform.core.ui.component.StyledLinearLayout>
+    </com.velora.portal.core.ui.component.StyledLinearLayout>
 </LinearLayout>

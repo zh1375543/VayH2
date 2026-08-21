@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,7 @@
     app:radius="@dimen/dp_24"
     app:solidColor="@color/text_inverse">
 
-    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+    <com.velora.portal.core.ui.component.StyledConstraintLayout
         android:id="@+id/messageLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -68,9 +68,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDesc" />
 
-    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+    </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
-    <com.novexa.platform.core.ui.component.SelectableImageView
+    <com.velora.portal.core.ui.component.SelectableImageView
         android:id="@+id/cbUnderstand"
         android:layout_width="@dimen/dp_16"
         android:layout_height="@dimen/dp_16"
@@ -98,7 +98,7 @@
         app:layout_constraintStart_toEndOf="@id/cbUnderstand"
         app:layout_constraintTop_toTopOf="@id/cbUnderstand" />
 
-    <com.novexa.platform.core.ui.component.StatefulActionButton
+    <com.velora.portal.core.ui.component.StatefulActionButton
         android:id="@+id/btnApply"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_44"
@@ -117,4 +117,4 @@
         app:layout_constraintTop_toBottomOf="@id/cbUnderstand"
         tools:text="Repay &amp; Auto-Apply" />
 
-</com.novexa.platform.core.ui.component.StyledConstraintLayout>
+</com.velora.portal.core.ui.component.StyledConstraintLayout>

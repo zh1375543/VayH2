@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.novexa.platform.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.core.ui.component.StyledConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
 
     </androidx.appcompat.widget.AppCompatImageView>
 
-    <com.novexa.platform.core.ui.component.StyledTextView
+    <com.velora.portal.core.ui.component.StyledTextView
         android:id="@+id/tvOK"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
@@ -58,4 +58,4 @@
         android:text="@string/update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/update_img" />
-</com.novexa.platform.core.ui.component.StyledConstraintLayout>
+</com.velora.portal.core.ui.component.StyledConstraintLayout>

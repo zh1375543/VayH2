@@ -12,7 +12,7 @@ plugins {
 }
 
 android {
-    namespace = "com.novexa.platform"
+    namespace = "com.velora.portal"
     compileSdk{
         version = release(36) {
             minorApiLevel = 1

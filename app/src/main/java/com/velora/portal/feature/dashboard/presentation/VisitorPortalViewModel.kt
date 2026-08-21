@@ -1,0 +1,45 @@
+package com.velora.portal.feature.dashboard.presentation
+
+import androidx.lifecycle.MutableLiveData
+import com.velora.portal.core.ui.base.BaseViewModel
+import com.velora.portal.core.common.data.ACT_common
+import com.velora.portal.core.common.data.PageHome
+import com.velora.portal.core.common.data.bean.TrackBean
+import com.velora.portal.feature.dashboard.data.DefaultPortalRepository
+import com.velora.portal.feature.dashboard.data.PortalRepository
+import com.velora.portal.feature.dashboard.model.VisitorPortalResponse
+import com.velora.portal.core.common.util.text.toJsonString
+
+/** Loads guest configuration reused by login and customer-support entry points. */
+class VisitorPortalViewModel(
+    private val homeRepository: PortalRepository = DefaultPortalRepository(),
+) : BaseViewModel() {
+
+    val result = MutableLiveData<VisitorPortalResponse?>()
+    val loadFailedResult = MutableLiveData<Unit>()
+
+    fun getUnAuthData(showLoading: Boolean = false) {
+        createNetworkRequest {
+            homeRepository.loadGuestHome()
+        }.showLoading(showLoading).onSuccess {
+            result.value = it
+            submitTrackingEvent(
+                TrackBean(
+                    p = PageHome,
+                    act = ACT_common,
+                    result = it.toJsonString(),
+                ),
+            )
+        }.onFailed {
+            loadFailedResult.value = Unit
+            submitTrackingEvent(
+                TrackBean(
+                    p = PageHome,
+                    act = ACT_common,
+                    result = it.toJsonString(),
+                ),
+            )
+            true
+        }
+    }
+}

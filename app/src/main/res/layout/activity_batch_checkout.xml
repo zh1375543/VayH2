@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/page_bg_color1">
 
-    <com.novexa.platform.core.ui.component.PageHeaderView
+    <com.velora.portal.core.ui.component.PageHeaderView
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 tools:itemCount="3"
                 tools:listitem="@layout/item_bulk_repayment_loan" />
 
-            <com.novexa.platform.core.ui.component.StyledConstraintLayout
+            <com.velora.portal.core.ui.component.StyledConstraintLayout
                 android:id="@+id/summaryPanel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:text="3" />
 
-                <com.novexa.platform.core.ui.component.StatefulActionButton
+                <com.velora.portal.core.ui.component.StatefulActionButton
                     android:id="@+id/btnSubmitRepayment"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/dp_48"
@@ -119,10 +119,10 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvSelectedCountLabel" />
-            </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+            </com.velora.portal.core.ui.component.StyledConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.novexa.platform.core.ui.component.PageStateOverlayView
+        <com.velora.portal.core.ui.component.PageStateOverlayView
             android:id="@+id/pageState"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/dp_16">
 
-                <com.novexa.platform.core.ui.component.PageHeaderView
+                <com.velora.portal.core.ui.component.PageHeaderView
                     android:id="@+id/titleBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                     android:textStyle="bold" />
             </FrameLayout>
 
-            <com.novexa.platform.core.ui.component.StyledConstraintLayout
+            <com.velora.portal.core.ui.component.StyledConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/dp_16"
@@ -159,7 +159,7 @@
                         android:textColor="@color/text_secondary"
                         android:textSize="@dimen/sp_10" />
                 </LinearLayout>
-            </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+            </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

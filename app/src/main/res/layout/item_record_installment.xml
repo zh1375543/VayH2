@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.novexa.platform.core.ui.component.RepaymentTimelineConnectorView
+    <com.velora.portal.core.ui.component.RepaymentTimelineConnectorView
         android:id="@+id/repaymentTimelineConnector"
         android:layout_width="@dimen/dp_1"
         android:layout_height="0dp"
@@ -70,7 +70,7 @@
         app:layout_constraintStart_toStartOf="@id/ivCheck"
         app:layout_constraintTop_toBottomOf="@id/ivCheck" />
 
-    <com.novexa.platform.core.ui.component.StyledConstraintLayout
+    <com.velora.portal.core.ui.component.StyledConstraintLayout
         android:id="@+id/detail_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.novexa.platform.core.ui.component.StyledConstraintLayout>
+    </com.velora.portal.core.ui.component.StyledConstraintLayout>
 
     <View
         android:id="@+id/spaceView"
