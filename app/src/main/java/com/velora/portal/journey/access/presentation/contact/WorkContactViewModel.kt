@@ -7,18 +7,18 @@ import com.velora.portal.platform.common.data.PageInfoBank
 import com.velora.portal.platform.common.data.PageSupplementaryInformation
 import com.velora.portal.platform.common.data.bean.ApiRequest
 import com.velora.portal.platform.common.data.bean.TrackBean
-import com.velora.portal.journey.access.data.DocumentReviewRepository
+import com.velora.portal.journey.access.data.ApplicantVerificationRepository
 import com.velora.portal.domain.customer.model.EmploymentContactResponse
 import com.velora.portal.domain.customer.model.EmploymentOptionsResponse
 import com.velora.portal.platform.common.util.text.toJsonString
 
 class WorkContactViewModel(
-    private val verificationRepository: DocumentReviewRepository =
-        DocumentReviewRepository(),
+    private val verificationRepository: ApplicantVerificationRepository =
+        ApplicantVerificationRepository(),
 ) : BaseViewModel() {
 
     fun getContactEnum(action: (EmploymentOptionsResponse) -> Unit) {
-        createNetworkRequest { verificationRepository.fetchWorkInfoOptions() }
+        createNetworkRequest { verificationRepository.loadEmploymentOptions() }
             .showLoading()
             .onSuccess { it?.let(action) }
             .execute()
@@ -26,7 +26,7 @@ class WorkContactViewModel(
 
     val contractResult = MutableLiveData<EmploymentContactResponse?>()
     fun getContactsInfo(errorAction: () -> Unit = {}) {
-        createNetworkRequest { verificationRepository.fetchContactInfo() }
+        createNetworkRequest { verificationRepository.loadEmploymentContact() }
             .onSuccess { contractResult.value = it }
             .onFailed {
                 errorAction()
@@ -36,7 +36,7 @@ class WorkContactViewModel(
 
     val submitBankAndCtsResult = MutableLiveData<Any?>()
     fun submitBankAndCtsInfo(paramBean: ApiRequest) {
-        createNetworkRequest { verificationRepository.submitBankAndContactInfo(paramBean) }
+        createNetworkRequest { verificationRepository.savePayoutAndContact(paramBean) }
             .showLoading()
             .onSuccess {
                 submitTrackingEvent(TrackBean(p = PageInfoBank, act = ACT_next, result = it.toJsonString()))
@@ -50,7 +50,7 @@ class WorkContactViewModel(
 
     val submitSuppleInfoResult = MutableLiveData<Any?>()
     fun submitSuppleInfo(paramBean: ApiRequest) {
-        createNetworkRequest { verificationRepository.submitSupplementInfo(paramBean) }
+        createNetworkRequest { verificationRepository.saveSupplementaryInfo(paramBean) }
             .showLoading()
             .onSuccess {
                 submitTrackingEvent(

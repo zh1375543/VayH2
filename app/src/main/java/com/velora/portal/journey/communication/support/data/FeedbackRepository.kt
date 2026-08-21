@@ -9,7 +9,7 @@ class FeedbackRepository(
     private val api: Api = NetworkProvider.api,
 ) {
 
-    suspend fun submitFeedback(content: String): Any? {
+    suspend fun sendRatingFeedback(content: String): Any? {
         return api.sendRatingFeedback(ApiRequest(content = content)).dataOrThrow()
     }
 }

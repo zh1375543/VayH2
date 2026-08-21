@@ -7,7 +7,7 @@ import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.databinding.SidepageAccountDeletionActivityBinding
 import com.velora.portal.journey.account.profile.presentation.AccountClosureCompleteActivity
 import com.velora.portal.platform.design.extension.singleClick
-import com.velora.portal.journey.access.presentation.login.AccessSessionViewModel
+import com.velora.portal.journey.access.presentation.authenticate.AccessSessionViewModel
 import com.velora.portal.platform.common.util.maskPhoneNumber
 import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.viewBinding
@@ -25,7 +25,7 @@ class AccountDeletionActivity : BaseActivity<SidepageAccountDeletionActivityBind
         tvAccountNumber.text = SessionStore.loginInfo?.phone.orEmpty().maskPhoneNumber()
 
         tvConfirm.singleClick {
-            viewModel.logout()
+            viewModel.signOut()
         }
     }
 

@@ -3,26 +3,26 @@ package com.velora.portal.journey.servicing.records.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.velora.portal.platform.design.base.BaseViewModel
-import com.velora.portal.journey.servicing.records.data.RecordRepository
+import com.velora.portal.journey.servicing.records.data.OrderRepository
 import com.velora.portal.domain.credit.model.RecordDetailResponse
-import com.velora.portal.domain.credit.model.RecordItemBean
+import com.velora.portal.domain.credit.model.LoanRecordItem
 import com.velora.portal.domain.credit.model.CheckoutActionResponse
 import com.velora.portal.platform.common.util.PageLoadState
 
 class RecordCenterViewModel(
-    private val loanOrderRepository: RecordRepository = RecordRepository(),
+    private val loanOrderRepository: OrderRepository = OrderRepository(),
 ) : BaseViewModel() {
 
-    private val _borrowingHistoryUiState = MutableLiveData<PageLoadState<List<RecordItemBean>>>(
+    private val _borrowingHistoryUiState = MutableLiveData<PageLoadState<List<LoanRecordItem>>>(
         PageLoadState.Loading,
     )
-    val borrowingHistoryUiState: LiveData<PageLoadState<List<RecordItemBean>>> =
+    val borrowingHistoryUiState: LiveData<PageLoadState<List<LoanRecordItem>>> =
         _borrowingHistoryUiState
 
     fun getOrderList() {
         _borrowingHistoryUiState.value = PageLoadState.Loading
         createNetworkRequest {
-            loanOrderRepository.fetchOrderList()
+            loanOrderRepository.loadOrderHistory()
         }.onSuccess { result ->
             val orders = result.orEmpty()
             _borrowingHistoryUiState.value = if (orders.isEmpty()) {
@@ -44,7 +44,7 @@ class RecordCenterViewModel(
     fun getOrderDetail(orderId: Long?) {
         _orderDetailState.value = PageLoadState.Loading
         createNetworkRequest {
-            loanOrderRepository.fetchOrderDetail(orderId)
+            loanOrderRepository.loadOrderDetail(orderId)
         }.onSuccess { detail ->
             _orderDetailState.value = if (detail == null) {
                 PageLoadState.Error
@@ -60,7 +60,7 @@ class RecordCenterViewModel(
     val buttonResult = MutableLiveData<String?>()
     fun getButtonState() {
         createNetworkRequest {
-            loanOrderRepository.fetchRepaymentBorrowButtonState()
+            loanOrderRepository.loadReloanGate()
         }.onSuccess {
             buttonResult.value = it
         }.onFailed {
@@ -70,25 +70,25 @@ class RecordCenterViewModel(
     }
 
     val installmentRepayResult = MutableLiveData<CheckoutActionResponse?>()
-    fun installmentRepay(orderNo: String?, planNumberList: List<Int?>?) {
+    fun loadRepaymentUrl(orderNo: String?, planNumberList: List<Int?>?) {
         createNetworkRequest {
-            loanOrderRepository.installmentRepay(orderNo, planNumberList)
+            loanOrderRepository.loadRepaymentUrl(orderNo, planNumberList)
         }.showLoading().onSuccess {
             installmentRepayResult.value = it
         }.execute()
     }
 
-    fun repayAndBorrow(id: Long?, applyAgainSign: Int?, block: () -> Unit) {
+    fun applyForReloan(id: Long?, applyAgainSign: Int?, block: () -> Unit) {
         createNetworkRequest {
-            loanOrderRepository.repayAndBorrow(id, applyAgainSign)
+            loanOrderRepository.applyForReloan(id, applyAgainSign)
         }.showLoading().onSuccess {
             block()
         }.execute()
     }
 
-    fun cancelApply(id: Long?, block: () -> Unit) {
+    fun cancelReloanApplication(id: Long?, block: () -> Unit) {
         createNetworkRequest {
-            loanOrderRepository.cancelApply(id)
+            loanOrderRepository.cancelReloanApplication(id)
         }.showLoading().onSuccess {
             block()
         }.execute()

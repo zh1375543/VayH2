@@ -9,7 +9,7 @@ import com.velora.portal.platform.common.data.PageProductDetail
 import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.journey.lending.catalog.data.ApplicationRepository
 import com.velora.portal.domain.credit.model.MemberOverviewResponse
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.platform.common.util.text.toJsonString
 import com.velora.portal.platform.common.util.PageLoadState
 import okhttp3.MultipartBody
@@ -19,13 +19,13 @@ class ApplicationProcessViewModel(
     private val loanRepository: ApplicationRepository = ApplicationRepository(),
 ) : BaseViewModel() {
 
-    val togetherLoanResult = MutableLiveData<List<CatalogItemBean>?>()
+    val togetherLoanResult = MutableLiveData<List<CatalogEntry>?>()
     fun togetherLoan(
         files: List<MultipartBody.Part>,
         multipartBody: Map<String, RequestBody>,
     ) {
         createNetworkRequest {
-            loanRepository.submitTogetherLoan(files, multipartBody)
+            loanRepository.submitBundleOrder(files, multipartBody)
         }.onSuccess {
             togetherLoanResult.value = it
             submitTrackingEvent(
@@ -49,13 +49,13 @@ class ApplicationProcessViewModel(
     }
 
     val loanFailResult = MutableLiveData<Boolean>()
-    val loanResult = MutableLiveData<CatalogItemBean?>()
+    val loanResult = MutableLiveData<CatalogEntry?>()
     fun loan(
         files: List<MultipartBody.Part>,
         multipartBody: Map<String, RequestBody>,
     ) {
         createNetworkRequest {
-            loanRepository.submitLoan(files, multipartBody)
+            loanRepository.submitLoanOrder(files, multipartBody)
         }.onSuccess {
             submitTrackingEvent(
                 TrackBean(
@@ -90,7 +90,7 @@ class ApplicationProcessViewModel(
     ) {
         _togetherLoanState.value = PageLoadState.Loading
         createNetworkRequest {
-            loanRepository.fetchTogetherLoan()
+            loanRepository.loadBundleLoanPage()
         }.showLoading(showLoading).onSuccess { loan ->
             submitTrackingEvent(
                 TrackBean(

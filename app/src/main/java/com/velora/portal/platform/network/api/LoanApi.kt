@@ -1,9 +1,9 @@
 package com.velora.portal.platform.network.api
 
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.domain.credit.model.MemberOverviewResponse
 import com.velora.portal.domain.credit.model.RecordDetailResponse
-import com.velora.portal.domain.credit.model.RecordItemBean
+import com.velora.portal.domain.credit.model.LoanRecordItem
 import com.velora.portal.journey.lending.dashboard.model.VisitorPortalResponse
 import com.velora.portal.platform.common.data.bean.ApiRequest
 import com.velora.portal.platform.common.data.bean.ServiceResponse
@@ -27,20 +27,20 @@ interface LoanApi {
     suspend fun submitBundleOrder(
         @Part files: List<MultipartBody.Part>,
         @PartMap multipartBody: Map<String, @JvmSuppressWildcards RequestBody>,
-    ): ServiceResponse<MutableList<CatalogItemBean>?>
+    ): ServiceResponse<MutableList<CatalogEntry>?>
 
     @Multipart
     @POST("api/loan/app/order/commit/with/event")
     suspend fun submitLoanOrder(
         @Part files: List<MultipartBody.Part>,
         @PartMap multipartBody: Map<String, @JvmSuppressWildcards RequestBody>,
-    ): ServiceResponse<CatalogItemBean?>
+    ): ServiceResponse<CatalogEntry?>
 
     @POST("api/loan/app/productInfo/detail")
-    suspend fun loadProductDetail(@Body paramBean: ApiRequest): ServiceResponse<CatalogItemBean?>
+    suspend fun loadProductDetail(@Body paramBean: ApiRequest): ServiceResponse<CatalogEntry?>
 
     @POST("api/loan/app/order/oldList")
-    suspend fun loadOrderHistory(@Body paramBean: ApiRequest = ApiRequest()): ServiceResponse<MutableList<RecordItemBean>?>
+    suspend fun loadOrderHistory(@Body paramBean: ApiRequest = ApiRequest()): ServiceResponse<MutableList<LoanRecordItem>?>
 
     @POST("api/loan/app/order/detail")
     suspend fun loadOrderDetail(@Body paramBean: ApiRequest): ServiceResponse<RecordDetailResponse?>

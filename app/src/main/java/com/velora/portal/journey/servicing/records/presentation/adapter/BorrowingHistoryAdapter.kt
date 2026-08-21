@@ -26,16 +26,16 @@ import com.velora.portal.platform.common.data.ORDER_STATUS_SETTLE_REDUCE_OR_RENE
 import com.velora.portal.platform.common.data.ORDER_STATUS_SETTLE_RENEWAL
 import com.velora.portal.platform.common.data.ORDER_STATUS_SUCCESS
 import com.velora.portal.databinding.ItemRecordHistoryBinding
-import com.velora.portal.domain.credit.model.RecordItemBean
+import com.velora.portal.domain.credit.model.LoanRecordItem
 import com.velora.portal.platform.common.util.context.resolveColorCompat
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class BorrowingHistoryAdapter :
-    BaseAdapter<RecordItemBean, ItemRecordHistoryBinding>(ItemRecordHistoryBinding::inflate) {
+    BaseAdapter<LoanRecordItem, ItemRecordHistoryBinding>(ItemRecordHistoryBinding::inflate) {
 
     override fun bindItem(
         binding: ItemRecordHistoryBinding,
-        item: RecordItemBean,
+        item: LoanRecordItem,
         position: Int,
     ) = with(binding) {
         tvProductName.text = item.productName

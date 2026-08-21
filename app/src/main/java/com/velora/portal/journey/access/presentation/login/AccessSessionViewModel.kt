@@ -1,4 +1,4 @@
-package com.velora.portal.journey.access.presentation.login
+package com.velora.portal.journey.access.presentation.authenticate
 
 import androidx.lifecycle.MutableLiveData
 import com.velora.portal.platform.design.base.BaseViewModel
@@ -20,8 +20,8 @@ class AccessSessionViewModel(
 ) : BaseViewModel() {
 
     val otpResult = MutableLiveData<Any?>()
-    fun sendOTP(phone: String) {
-        createNetworkRequest { sessionRepository.sendOTP(phone) }
+    fun requestOtpCode(phone: String) {
+        createNetworkRequest { sessionRepository.requestOtpCode(phone) }
             .showLoading().onSuccess {
                 submitTrackingEvent(
                     TrackBean(
@@ -51,13 +51,13 @@ class AccessSessionViewModel(
     }
 
     val loginResult = MutableLiveData<AccessSessionResponse?>()
-    fun login(
+    fun authenticate(
         phone: String,
         code: String?,
         password: String?,
     ) {
         createNetworkRequest {
-            sessionRepository.login(phone, code, password)
+            sessionRepository.authenticate(phone, code, password)
         }.showLoading().onSuccess {
             it?.let {
                 submitTrackingEvent(
@@ -84,16 +84,16 @@ class AccessSessionViewModel(
         }
     }
 
-    fun postDeviceInfo() {
+    fun recordDeviceSnapshot() {
         createNetworkRequest {
-            sessionRepository.postDeviceInfo()
+            sessionRepository.recordDeviceSnapshot()
         }.onSuccess { }.execute()
     }
 
     val logoutResult = MutableLiveData<Any?>()
-    fun logout() {
+    fun signOut() {
         createNetworkRequest {
-            sessionRepository.logout()
+            sessionRepository.signOut()
         }.showLoading().onSuccess {
             logoutResult.value = it
         }.execute()
@@ -101,24 +101,24 @@ class AccessSessionViewModel(
 
     val sendChangePasswordOtpResult = MutableLiveData<Any?>()
     fun sendChangePasswordOTP(phone: String) {
-        createNetworkRequest { sessionRepository.sendOTP(phone) }.showLoading().onSuccess {
+        createNetworkRequest { sessionRepository.requestOtpCode(phone) }.showLoading().onSuccess {
             sendChangePasswordOtpResult.value = it
         }.execute()
     }
 
     val changeResult = MutableLiveData<AccessSessionResponse?>()
-    fun changePassword(phone: String, code: String, password: String) {
+    fun refreshPassword(phone: String, code: String, password: String) {
         createNetworkRequest {
-            sessionRepository.changePassword(phone, code, password)
+            sessionRepository.refreshPassword(phone, code, password)
         }.showLoading().onSuccess {
             changeResult.value = it
         }.execute()
     }
 
     val setPwdResult = MutableLiveData<AccessSessionResponse?>()
-    fun setPassword(phone: String, password: String) {
+    fun establishPin(phone: String, password: String) {
         createNetworkRequest {
-            sessionRepository.setPassword(phone, password)
+            sessionRepository.establishPin(phone, password)
         }.showLoading().onSuccess {
             submitTrackingEvent(
                 TrackBean(

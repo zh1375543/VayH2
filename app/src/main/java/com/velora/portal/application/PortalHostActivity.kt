@@ -69,7 +69,7 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
         if (isAuthToFillBank) {
             vm.getAuthData()
         }
-        postDeviceInfo()
+        recordDeviceSnapshot()
     }
 
     private var lastBackPressTime = 0L
@@ -79,7 +79,7 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
         setupPager()
         setupClickListeners()
         setupBackPressHandler()
-        postDeviceInfo()
+        recordDeviceSnapshot()
     }
 
     private fun setupPager() = with(binding) {
@@ -164,7 +164,7 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
             })
     }
 
-    private fun postDeviceInfo() {
+    private fun recordDeviceSnapshot() {
         MainApplication.appViewModel.postRiskInfo(PageHome) {}
 
     }

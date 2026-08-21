@@ -39,9 +39,9 @@ class PayoutAccountListActivity :
                                 notifyItemRangeChanged(0, itemCount, 0)
                             }
                             if (account.payWay == "WALLET") {
-                                vm.setDefaultWallet(account.id?.toInt(), updateDefaultState)
+                                vm.markDefaultWallet(account.id?.toInt(), updateDefaultState)
                             } else {
-                                vm.setDefaultCard(account.id.toString(), updateDefaultState)
+                                vm.markDefaultCard(account.id.toString(), updateDefaultState)
                             }
                         },
                         cancelButtonSurfaceSecondary=true,

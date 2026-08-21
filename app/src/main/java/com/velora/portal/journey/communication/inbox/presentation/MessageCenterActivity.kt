@@ -26,7 +26,7 @@ class MessageCenterActivity : BaseActivity<ScreenMessageCenterBinding>() {
                 start<MessageDetailActivity> {
                     putExtra("msg", item)
                 }
-                vm.markAsRead(item)
+                vm.markMessagesRead(item)
             }
         }
     }

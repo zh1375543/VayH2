@@ -19,7 +19,7 @@ class InboxCenterViewModel(
     fun getMessageList() {
         _messageListState.value = PageLoadState.Loading
         createNetworkRequest {
-            messageRepository.fetchMessages()
+            messageRepository.loadInboxMessages()
         }.onSuccess { result ->
             val messages = result.orEmpty()
             _messageListState.value = if (messages.isEmpty()) {
@@ -33,7 +33,7 @@ class InboxCenterViewModel(
         }
     }
 
-    fun markAsRead(message: InboxMessageRecord) {
+    fun markMessagesRead(message: InboxMessageRecord) {
         if (message.readStatus) return
         updateReadStatus(listOf(message.id ?: 0L))
     }
@@ -48,7 +48,7 @@ class InboxCenterViewModel(
 
     private fun updateReadStatus(idList: List<Long>) {
         createNetworkRequest {
-            messageRepository.markAsRead(idList)
+            messageRepository.markMessagesRead(idList)
         }.showLoading().onSuccess {
             val readIds = idList.toSet()
             val currentState = _messageListState.value

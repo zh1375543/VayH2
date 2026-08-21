@@ -10,7 +10,7 @@ class InboxRepository(
     private val api: Api = NetworkProvider.api,
 ) {
 
-    suspend fun fetchMessages(
+    suspend fun loadInboxMessages(
         pageNumber: Int = 1,
         pageSize: Int = 9999,
     ): List<InboxMessageRecord> {
@@ -22,7 +22,7 @@ class InboxRepository(
         ).dataOrThrow()?.list ?: emptyList()
     }
 
-    suspend fun markAsRead(idList: List<Long>): Any? {
+    suspend fun markMessagesRead(idList: List<Long>): Any? {
         val recordIds = idList
             .takeIf { it.isNotEmpty() }
             ?.joinToString(separator = ",")

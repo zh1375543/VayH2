@@ -24,7 +24,7 @@ import com.velora.portal.journey.lending.catalog.presentation.LoanProductDetailA
 import com.velora.portal.journey.lending.catalog.presentation.ProductOptionsViewModel
 import com.velora.portal.domain.customer.model.VerificationProgressResponse
 import com.velora.portal.journey.lending.dashboard.model.VisitorPortalResponse
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.application.PortalHostActivity
 import com.velora.portal.journey.communication.support.presentation.FeedbackViewModel
 import com.velora.portal.journey.lending.dashboard.presentation.adapter.LoanCatalogAdapter
@@ -431,7 +431,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
         )
     }
 
-    private fun handleProductDetail(data: CatalogItemBean?) {
+    private fun handleProductDetail(data: CatalogEntry?) {
         if (data == null) return
         if (signBackHome) {
             val map: MutableMap<Long?, Int?> = HashMap()

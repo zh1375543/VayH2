@@ -4,15 +4,15 @@ import androidx.core.view.isVisible
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemRepaymentOptionBinding
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class RepaymentPlanOptionAdapter(var selectPosition: Int = 0) :
-    BaseAdapter<CatalogItemBean, ItemRepaymentOptionBinding>(ItemRepaymentOptionBinding::inflate) {
+    BaseAdapter<CatalogEntry, ItemRepaymentOptionBinding>(ItemRepaymentOptionBinding::inflate) {
 
     override fun bindItem(
         binding: ItemRepaymentOptionBinding,
-        item: CatalogItemBean,
+        item: CatalogEntry,
         position: Int,
     ) = with(binding) {
         contentView.isSelected = selectPosition == position

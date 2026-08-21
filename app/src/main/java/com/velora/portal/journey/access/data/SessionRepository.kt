@@ -21,7 +21,7 @@ class SessionRepository(
     private val api: Api = NetworkProvider.api,
 ) {
 
-    suspend fun sendOTP(phone: String,coordinate: Pair<Double, Double> = location,): Any? {
+    suspend fun requestOtpCode(phone: String,coordinate: Pair<Double, Double> = location,): Any? {
         val param = ApiRequest(
             phone = phone,
             coordinate = "${coordinate.first},${coordinate.second}",
@@ -38,7 +38,7 @@ class SessionRepository(
         return api.requestOtpCode(param).dataOrThrow()
     }
 
-    suspend fun login(
+    suspend fun authenticate(
         phone: String,
         code: String?,
         password: String?,
@@ -62,23 +62,23 @@ class SessionRepository(
         return api.authenticate(param).dataOrThrow()
     }
 
-    suspend fun logout(): Any? {
+    suspend fun signOut(): Any? {
         return api.signOut(ApiRequest(rid = SessionStore.loginInfo?.id)).dataOrThrow()
     }
 
-    suspend fun setPassword(phone: String, password: String): AccessSessionResponse? {
+    suspend fun establishPin(phone: String, password: String): AccessSessionResponse? {
         return api.establishPin(
             ApiRequest(phone = phone, newPasswd = password.toMd5())
         ).dataOrThrow()
     }
 
-    suspend fun changePassword(phone: String, code: String, password: String): AccessSessionResponse? {
+    suspend fun refreshPassword(phone: String, code: String, password: String): AccessSessionResponse? {
         return api.refreshPassword(
             ApiRequest(phone = phone, smsCode = code, newPasswd = password.toMd5())
         ).dataOrThrow()
     }
 
-    suspend fun postDeviceInfo(): Any? {
+    suspend fun recordDeviceSnapshot(): Any? {
         if (!SessionStore.isLoggedIn) return null
         return api.persistDeviceSnapshot(
             ApiRequest(

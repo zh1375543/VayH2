@@ -130,7 +130,7 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
                 bankAccountConfirmationField.showError()
                 return
             }
-            vm.addCard(
+            vm.linkNewCard(
                 bankId = bankBean?.id?.toString(),
                 accountUser = accountHolderField.getText(),
                 bankNo = bankAccountNumberField.getText(),
@@ -152,7 +152,7 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
                 walletAccountConfirmationField.showError()
                 return
             }
-            vm.addCard(
+            vm.linkNewCard(
                 bankId = null,
                 accountUser = "",
                 bankNo = "",

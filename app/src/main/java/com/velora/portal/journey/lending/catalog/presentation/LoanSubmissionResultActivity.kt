@@ -18,7 +18,7 @@ import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.platform.common.data.signBackHome
 import com.velora.portal.databinding.ScreenLoanSubmissionResultBinding
 import com.velora.portal.domain.credit.model.MemberOverviewResponse
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.application.PortalHostActivity
 import com.velora.portal.journey.lending.dashboard.presentation.adapter.LoanCatalogAdapter
 import com.velora.portal.journey.lending.dashboard.presentation.state.HomeProductUi
@@ -55,7 +55,7 @@ class LoanSubmissionResultActivity :
     companion object {
         fun launch(
             context: Context,
-            productList: ArrayList<CatalogItemBean>?,
+            productList: ArrayList<CatalogEntry>?,
             productId: String?,
             bankId: Long?,
             signPath: String?,
@@ -81,7 +81,7 @@ class LoanSubmissionResultActivity :
     private val productVm by viewModels<ProductOptionsViewModel>()
 
     private val productList by lazy {
-        intent.getParcelableArrayListExtra<CatalogItemBean>("productList")
+        intent.getParcelableArrayListExtra<CatalogEntry>("productList")
     }
     private val termIdMap by lazy { intent.getStringExtra("termIdMap") }
     private val bankId by lazy { intent.getLongExtra("bankId", 0L) }
@@ -209,7 +209,7 @@ class LoanSubmissionResultActivity :
         resultsCard.isVisible = rvProduct.isVisible || cashableProductLayout.isVisible
     }
 
-    private fun handleProductDetail(data: CatalogItemBean?) {
+    private fun handleProductDetail(data: CatalogEntry?) {
         data ?: return
         finishPreviousLoanFlow()
         start<LoanProductDetailActivity> {

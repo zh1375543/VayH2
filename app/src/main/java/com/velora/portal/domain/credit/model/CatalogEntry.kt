@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 import java.math.BigDecimal
 
 @Parcelize
-data class CatalogItemBean(
+data class CatalogEntry(
     val productId: Long,
     val productName: String? = null,
     val minLoanAmount: BigDecimal? = null,
@@ -41,15 +41,15 @@ data class CatalogItemBean(
     val loanAmountRange: String? = null,
     val applyDateStr: String? = null,
     val actualRepayAmount: BigDecimal? = null,
-    var pDetail: CatalogItemBean? = null,
+    var pDetail: CatalogEntry? = null,
     val actualAmount: BigDecimal? = null,
     val interestAmount: BigDecimal? = null,
     var isCheck: Boolean = true,
-    val appProductHandleFeeConfigDtos: List<CatalogFeeBean>? = null,
-    val appRepaymentPlanDTOList: List<CatalogPlanBean>? = null,
-    val productInstallmentPlanDTOList: List<CatalogItemBean>? = null,
+    val appProductHandleFeeConfigDtos: List<FeeLineItem>? = null,
+    val appRepaymentPlanDTOList: List<RepaymentPlan>? = null,
+    val productInstallmentPlanDTOList: List<CatalogEntry>? = null,
     var isFillBank: Boolean = false,
-    val loanTermConfigDTOList: List<CatalogItemBean>? = null,
+    val loanTermConfigDTOList: List<CatalogEntry>? = null,
     var isExpand: Boolean = false,
     var selectedTermIndex: Int? = null,         // index of the selected plan
     var isPlanLayoutVisible: Boolean? = null,   // plan section collapse state
@@ -84,7 +84,7 @@ data class CatalogItemBean(
     val bankInfoId: Long? = null,
     val isSign: Int? = null,
     val isNew: Int? = null,
-    val loanTermList: List<DurationOptionBean>? = null,
+    val loanTermList: List<LoanTermOption>? = null,
     val bankInfoPayOutFailSign: Boolean = false,
     val repayInterestAmountRate: BigDecimal? = null,
     val repayActualAmount: BigDecimal? = null,

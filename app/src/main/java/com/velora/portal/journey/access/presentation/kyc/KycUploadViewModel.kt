@@ -9,7 +9,7 @@ import com.velora.portal.platform.common.data.ACT_uploadFace
 import com.velora.portal.platform.common.data.ACT_uploadFront
 import com.velora.portal.platform.common.data.PageInfoKyc
 import com.velora.portal.platform.common.data.bean.TrackBean
-import com.velora.portal.journey.access.data.DocumentReviewRepository
+import com.velora.portal.journey.access.data.ApplicantVerificationRepository
 import com.velora.portal.domain.customer.model.IdentityDocumentResponse
 import com.velora.portal.domain.customer.model.IdentityPolicyResponse
 import com.velora.portal.domain.customer.model.FaceVerificationSessionResponse
@@ -18,8 +18,8 @@ import com.velora.portal.platform.common.util.text.toJsonString
 import java.io.File
 
 class KycUploadViewModel(
-    private val verificationRepository: DocumentReviewRepository =
-        DocumentReviewRepository(),
+    private val verificationRepository: ApplicantVerificationRepository =
+        ApplicantVerificationRepository(),
 ) : BaseViewModel() {
 
     val kycResult = MutableLiveData<IdentityDocumentResponse?>()
@@ -34,7 +34,7 @@ class KycUploadViewModel(
     val selfUploadFailed = MutableLiveData(false)
 
     fun getKycInfo(errorAction: () -> Unit) {
-        createNetworkRequest { verificationRepository.fetchKycDocument() }
+        createNetworkRequest { verificationRepository.loadIdentityDocuments() }
             .onSuccess {
                 kycResult.value = it
                 frontImageSource.value = it?.frontImageUrl.toRemoteImageSource()
@@ -49,7 +49,7 @@ class KycUploadViewModel(
 
     val h5Live = MutableLiveData<FaceVerificationSessionResponse>()
     fun fetchH5Live(error: () -> Unit) {
-        createNetworkRequest { verificationRepository.createLivenessWebSession() }
+        createNetworkRequest { verificationRepository.createLivenessSession() }
             .showLoading()
             .onSuccess { h5Live.value = it }
             .onFailed {
@@ -60,7 +60,7 @@ class KycUploadViewModel(
 
     val h5Result = MutableLiveData<String?>()
     fun getH5LiveResult() {
-        createNetworkRequest { verificationRepository.fetchLivenessResult(h5Live.value?.bizNo) }
+        createNetworkRequest { verificationRepository.pollLivenessSession(h5Live.value?.bizNo) }
             .showLoading()
             .onSuccess {
                 h5Result.value = it?.faceUrl
@@ -74,7 +74,7 @@ class KycUploadViewModel(
     fun submitKycFront(frontUri: Uri, cardType: String) {
         frontUploadFailed.value = false
         createNetworkRequest {
-            verificationRepository.uploadKycImage(frontUri, "IDCARD_CARD_FRONT", cardType)
+            verificationRepository.uploadIdentityDocuments(frontUri, "IDCARD_CARD_FRONT", cardType)
         }
             .showLoading()
             .onSuccess {
@@ -108,7 +108,7 @@ class KycUploadViewModel(
     fun submitKycBack(backUri: Uri, cardType: String) {
         backUploadFailed.value = false
         createNetworkRequest {
-            verificationRepository.uploadKycImage(backUri, "IDCARD_CARD_BACK", cardType)
+            verificationRepository.uploadIdentityDocuments(backUri, "IDCARD_CARD_BACK", cardType)
         }
             .showLoading()
             .onSuccess {
@@ -140,14 +140,14 @@ class KycUploadViewModel(
 
     val configResult = MutableLiveData<IdentityPolicyResponse?>()
     fun getKycConfig() {
-        createNetworkRequest { verificationRepository.fetchKycConfig() }
+        createNetworkRequest { verificationRepository.loadIdentityPolicy() }
             .onSuccess { configResult.value = it }
             .execute()
     }
 
     val compareResult = MutableLiveData<Any?>()
-    fun compareFace() {
-        createNetworkRequest { verificationRepository.compareFace() }
+    fun performFaceMatch() {
+        createNetworkRequest { verificationRepository.performFaceMatch() }
             .showLoading()
             .onSuccess {
                 submitTrackingEvent(TrackBean(p = PageInfoKyc, act = ACT_next, result = it.toJsonString()))
@@ -162,7 +162,7 @@ class KycUploadViewModel(
     val submitSelfResult = MutableLiveData<Uri?>()
     fun submitKycSelf(uri: Uri, liveFile: File?) {
         selfUploadFailed.value = false
-        createNetworkRequest { verificationRepository.uploadLiveness(uri, liveFile) }
+        createNetworkRequest { verificationRepository.uploadLivenessProof(uri, liveFile) }
             .showLoading()
             .onSuccess {
                 submitTrackingEvent(

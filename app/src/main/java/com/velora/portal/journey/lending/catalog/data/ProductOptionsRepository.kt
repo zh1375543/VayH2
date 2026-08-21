@@ -4,16 +4,16 @@ import com.velora.portal.platform.common.data.bean.ApiRequest
 import com.velora.portal.platform.network.Api
 import com.velora.portal.platform.network.NetworkProvider
 import com.velora.portal.platform.common.data.repository.dataOrThrow
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 
 class ProductOptionsRepository(
     private val api: Api = NetworkProvider.api,
 ) {
 
-    suspend fun fetchProductDetail(
+    suspend fun loadProductDetail(
         productId: String?,
         amount: String?,
-    ): CatalogItemBean? {
+    ): CatalogEntry? {
         return api.loadProductDetail(
             ApiRequest(
                 productId = productId,

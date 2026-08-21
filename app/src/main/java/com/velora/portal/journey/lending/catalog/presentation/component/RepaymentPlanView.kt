@@ -7,7 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.velora.portal.platform.common.util.LogUtil
 import com.velora.portal.databinding.RepaymentPlanViewBinding
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.journey.lending.catalog.presentation.adapter.InstallmentScheduleAdapter
 import com.velora.portal.journey.lending.catalog.presentation.adapter.RepaymentPlanOptionAdapter
 
@@ -22,12 +22,12 @@ class RepaymentPlanView @JvmOverloads constructor(
     private val repaymentMenuAdapter by lazy { RepaymentPlanOptionAdapter() }
     private val installAdapter by lazy { InstallmentScheduleAdapter() }
 
-    private var currentProduct: CatalogItemBean? = null
+    private var currentProduct: CatalogEntry? = null
     private var hasInstallmentDetails = false
 
     var onTermChanged: ((productId: Long?, termId: Long?) -> Unit)? = null
     var onInstallmentChanged: ((productId: Long?, planNum: Int?) -> Unit)? = null
-    var onPlanSelected: ((CatalogItemBean) -> Unit)? = null
+    var onPlanSelected: ((CatalogEntry) -> Unit)? = null
 
     init {
         binding.rvTermOptions.adapter = repaymentMenuAdapter
@@ -63,7 +63,7 @@ class RepaymentPlanView @JvmOverloads constructor(
         }
     }
 
-    fun setData(product: CatalogItemBean) {
+    fun setData(product: CatalogEntry) {
         currentProduct = product
 
         val hasPlans = !product.loanTermConfigDTOList.isNullOrEmpty()
@@ -83,7 +83,7 @@ class RepaymentPlanView @JvmOverloads constructor(
         }
     }
 
-    private fun handlePlan(product: CatalogItemBean) {
+    private fun handlePlan(product: CatalogEntry) {
         val list = product.loanTermConfigDTOList ?: return
         LogUtil.e("singleSelectIndex:${product.selectedTermIndex}")
 
@@ -116,12 +116,12 @@ class RepaymentPlanView @JvmOverloads constructor(
         updateUIByPlan(list[index])
     }
 
-    private fun updateUIByPlan(item: CatalogItemBean) {
+    private fun updateUIByPlan(item: CatalogEntry) {
         onPlanSelected?.invoke(item)
         updateInstallment(item)
     }
 
-    private fun updateInstallment(item: CatalogItemBean) = with(binding) {
+    private fun updateInstallment(item: CatalogEntry) = with(binding) {
         val productId = currentProduct?.id ?: currentProduct?.productId
         tvPlanSectionTitle.isVisible = true
         ivExpandPlans.isVisible = true

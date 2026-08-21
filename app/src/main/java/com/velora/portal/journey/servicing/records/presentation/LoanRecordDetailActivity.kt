@@ -169,7 +169,7 @@ class LoanRecordDetailActivity :
                 return@singleClick
             }
             if (currentButtonSign == "2" || currentButtonSign == "3"|| currentButtonSign == "4") {
-                vm.cancelApply(orderId) {
+                vm.cancelReloanApplication(orderId) {
                     proceedWithSelectedRepayment()
                 }
             } else {
@@ -186,7 +186,7 @@ class LoanRecordDetailActivity :
                 return@singleClick
             }
             if (currentButtonSign == "1") {
-                vm.repayAndBorrow(orderId, 1) {
+                vm.applyForReloan(orderId, 1) {
                     proceedWithSelectedRepayment()
                 }
             } else if (tvBorrow.text.toString() == getString(R.string.repay)) {
@@ -195,7 +195,7 @@ class LoanRecordDetailActivity :
                 showRepayAndReapplyDialog(
                     isDue = tvBorrow.isSelected,
                     confirmAction = {
-                        vm.repayAndBorrow(orderId, 1) {
+                        vm.applyForReloan(orderId, 1) {
                             proceedWithSelectedRepayment()
                         }
                     }
@@ -211,7 +211,7 @@ class LoanRecordDetailActivity :
                 isDue = tvBorrow.isSelected,
                 isApplyAll = true,
                 confirmAction = {
-                    vm.repayAndBorrow(orderId, 2) {
+                    vm.applyForReloan(orderId, 2) {
                         proceedWithSelectedRepayment()
                     }
                 },
@@ -229,7 +229,7 @@ class LoanRecordDetailActivity :
 
     private fun proceedWithSelectedRepayment() = with(binding) {
         if (detailLayout.isVisible) {
-            vm.installmentRepay(
+            vm.loadRepaymentUrl(
                 orderNo = orderDetail?.appOrderInfoDto?.orderNo,
                 planNumberList = installAdapter.items
                     .filter { item -> !item.isSettle() && item.isSelect }

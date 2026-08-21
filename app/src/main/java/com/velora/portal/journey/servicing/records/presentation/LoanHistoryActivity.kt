@@ -8,7 +8,7 @@ import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.databinding.ScreenLoanHistoryBinding
 import com.velora.portal.platform.common.data.ACT_inOrderHistory
 import com.velora.portal.platform.common.data.PageHistory
-import com.velora.portal.domain.credit.model.RecordItemBean
+import com.velora.portal.domain.credit.model.LoanRecordItem
 import com.velora.portal.journey.servicing.records.presentation.adapter.BorrowingHistoryAdapter
 import com.velora.portal.platform.common.util.PageLoadState
 import com.velora.portal.platform.common.util.start
@@ -66,7 +66,7 @@ class LoanHistoryActivity : BaseActivity<ScreenLoanHistoryBinding>() {
         }
     }
 
-    private fun render(state: PageLoadState<List<RecordItemBean>>) = with(binding) {
+    private fun render(state: PageLoadState<List<LoanRecordItem>>) = with(binding) {
         rvOrder.isVisible = state is PageLoadState.Content
         when (state) {
             PageLoadState.Loading -> pageState.showLoading()

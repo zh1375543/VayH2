@@ -375,7 +375,7 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
                 )
             )
             trackEvent(KYC_INFO_COMMIT)
-            vm.compareFace()
+            vm.performFaceMatch()
         }
         if (!isCert) {
             btnSubmitReview.resetScale()

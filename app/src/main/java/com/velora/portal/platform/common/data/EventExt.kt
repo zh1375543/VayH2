@@ -96,7 +96,7 @@ const val ACT_loginPassword = "loginPassword"
 
 
 const val PagePrivacy = "/privacyPolicy 隐私政策"
-const val PageLogin = "/login 登录页"
+const val PageLogin = "/authenticate 登录页"
 const val PageCreatePassword = "/createPassword 创建密码页"
 const val PageHome = "/home 首页"
 const val PageInfoPersonal = "/infoPersonal 个人信息页"

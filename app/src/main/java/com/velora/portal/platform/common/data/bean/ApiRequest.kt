@@ -2,7 +2,7 @@ package com.velora.portal.platform.common.data.bean
 
 import com.velora.portal.BuildConfig
 import com.velora.portal.platform.common.data.APPCODE
-import com.velora.portal.domain.customer.model.RelativesBean
+import com.velora.portal.domain.customer.model.RelativeContact
 
 data class ApiRequest(
     val version: String? = BuildConfig.VERSION_NAME,
@@ -80,7 +80,7 @@ data class ApiRequest(
     val pageNum: Int? = null,
     val pageSize: Int? = null,
     val userCommunicationRecordStr: String? = null,
-    val relativesInfoVOList: List<RelativesBean>? = null,
+    val relativesInfoVOList: List<RelativeContact>? = null,
     val orderNoList: List<String>? = null,
     val orderNo: String? = null,
     val planNumList: List<Int?>? = null,

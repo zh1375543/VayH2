@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.velora.portal.databinding.ViewProductDetailBinding
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 
 class SingleProductDetailView @JvmOverloads constructor(
     context: Context,
@@ -27,18 +27,18 @@ class SingleProductDetailView @JvmOverloads constructor(
             binding.repaymentPlanView.onInstallmentChanged = value
         }
 
-    var onPlanSelected: ((CatalogItemBean) -> Unit)? = null
+    var onPlanSelected: ((CatalogEntry) -> Unit)? = null
 
     init {
         binding.productDetailsView.setHeaderVisible(false)
         binding.repaymentPlanView.onPlanSelected = { plan -> onPlanSelected?.invoke(plan) }
     }
 
-    fun setData(product: CatalogItemBean) {
+    fun setData(product: CatalogEntry) {
         binding.repaymentPlanView.setData(product)
     }
 
-    fun bindHeaderDetail(plan: CatalogItemBean, currencySymbol: String?) {
+    fun bindHeaderDetail(plan: CatalogEntry, currencySymbol: String?) {
         binding.productDetailsView.bind(plan, currencySymbol)
     }
 }

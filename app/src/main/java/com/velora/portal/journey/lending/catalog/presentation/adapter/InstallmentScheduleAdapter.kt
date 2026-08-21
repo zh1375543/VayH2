@@ -3,16 +3,16 @@ package com.velora.portal.journey.lending.catalog.presentation.adapter
 import androidx.core.view.isVisible
 import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemInstallmentScheduleBinding
-import com.velora.portal.domain.credit.model.CatalogPlanBean
+import com.velora.portal.domain.credit.model.RepaymentPlan
 import com.velora.portal.journey.lending.catalog.presentation.LoanProductDetailActivity
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class InstallmentScheduleAdapter :
-    BaseAdapter<CatalogPlanBean, ItemInstallmentScheduleBinding>(ItemInstallmentScheduleBinding::inflate) {
+    BaseAdapter<RepaymentPlan, ItemInstallmentScheduleBinding>(ItemInstallmentScheduleBinding::inflate) {
 
     override fun bindItem(
         binding: ItemInstallmentScheduleBinding,
-        item: CatalogPlanBean,
+        item: RepaymentPlan,
         position: Int,
     ) = with(binding) {
         tvDueDate.text = item.repayTime?.substringBefore(" ")

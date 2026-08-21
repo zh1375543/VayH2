@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 import java.math.BigDecimal
 
 @Parcelize
-data class RecordItemBean(
+data class LoanRecordItem(
     val id: Long? = null,
     val userId: Long? = null,
     val orderNo: String? = null,
@@ -25,7 +25,7 @@ data class RecordItemBean(
     val cardNo: String? = null,
     val createTime: String? = null,
     val bankNo: String? = null,
-    val orderHandleFees: List<CatalogFeeBean>? = null,
+    val orderHandleFees: List<FeeLineItem>? = null,
     val actualNeedRepayAmount: BigDecimal? = null,
     val penaltyAmount: BigDecimal? = null,
     val payGoUrl: String? = null,

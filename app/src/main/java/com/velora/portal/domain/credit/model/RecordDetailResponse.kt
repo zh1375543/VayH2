@@ -6,8 +6,8 @@ import java.math.BigDecimal
 
 @Parcelize
 data class RecordDetailResponse(
-    val appOrderInfoDto: RecordItemBean? = null,
-    val appOrderRepayDto: RecordItemBean? = null,
+    val appOrderInfoDto: LoanRecordItem? = null,
+    val appOrderRepayDto: LoanRecordItem? = null,
     val bankNo: String? = null,
     val interestAmount: BigDecimal? = null,
     val dailyAmount: BigDecimal? = null,
@@ -26,5 +26,5 @@ data class RecordDetailResponse(
     val reliefAmount: BigDecimal? = null,
     val deductionFee: BigDecimal? = null,
     val userCouponName: String? = null,
-    val installmentRepaymentPlanDTOList: List<CatalogPlanBean>? = null,
+    val installmentRepaymentPlanDTOList: List<RepaymentPlan>? = null,
 ) : Parcelable

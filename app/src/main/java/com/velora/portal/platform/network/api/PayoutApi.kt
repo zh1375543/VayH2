@@ -34,5 +34,5 @@ interface PayoutApi {
     suspend fun detachBankCard(@Body paramBean: ApiRequest): ServiceResponse<Any?>
 
     @POST("api/user/app/bank/setDefault")
-    suspend fun setDefaultCard(@Body paramBean: ApiRequest): ServiceResponse<Any?>
+    suspend fun markDefaultCard(@Body paramBean: ApiRequest): ServiceResponse<Any?>
 }

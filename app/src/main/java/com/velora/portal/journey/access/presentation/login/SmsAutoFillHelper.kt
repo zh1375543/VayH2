@@ -1,4 +1,4 @@
-package com.velora.portal.journey.access.presentation.login
+package com.velora.portal.journey.access.presentation.authenticate
 
 import android.app.Activity
 import android.content.BroadcastReceiver

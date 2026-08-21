@@ -7,10 +7,10 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface AuthApi {
-    @POST("api/user/app/login/sms")
+    @POST("api/user/app/authenticate/sms")
     suspend fun requestOtpCode(@Body param: ApiRequest): ServiceResponse<Any?>
 
-    @POST("api/user/app/login")
+    @POST("api/user/app/authenticate")
     suspend fun authenticate(@Body param: ApiRequest): ServiceResponse<AccessSessionResponse?>
 
     @POST("api/user/app/delete/user")

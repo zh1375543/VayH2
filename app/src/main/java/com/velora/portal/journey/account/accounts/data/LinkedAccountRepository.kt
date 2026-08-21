@@ -12,19 +12,19 @@ class LinkedAccountRepository(
     private val api: Api = NetworkProvider.api,
 ) {
 
-    suspend fun fetchPayChannelList(): List<AccountChannelResponse>? {
+    suspend fun loadPayoutChannels(): List<AccountChannelResponse>? {
         return api.loadPayoutChannels(ApiRequest()).dataOrThrow()
     }
 
-    suspend fun fetchWalletList(): List<AccountMethodResponse>? {
+    suspend fun loadWalletMethods(): List<AccountMethodResponse>? {
         return api.loadWalletAccounts(ApiRequest()).dataOrThrow()
     }
 
-    suspend fun fetchMyWalletList(): List<AccountMethodResponse>? {
+    suspend fun loadLinkedWallets(): List<AccountMethodResponse>? {
         return api.loadMyWallets(ApiRequest()).dataOrThrow()
     }
 
-    suspend fun addCard(
+    suspend fun linkNewCard(
         bankId: String?,
         accountUser: String,
         bankNo: String,
@@ -44,11 +44,11 @@ class LinkedAccountRepository(
         ).dataOrThrow()
     }
 
-    suspend fun fetchBankcardList(): List<LinkedAccountResponse>? {
+    suspend fun loadLinkedCards(): List<LinkedAccountResponse>? {
         return api.loadLinkedCards(ApiRequest()).dataOrThrow()
     }
 
-    suspend fun unbindCard(bankInfoId: String, payWay: String = "CARD"): Any? {
+    suspend fun unlinkBankCard(bankInfoId: String, payWay: String = "CARD"): Any? {
         return api.detachBankCard(
             ApiRequest(
                 bankInfoId = bankInfoId,
@@ -57,11 +57,11 @@ class LinkedAccountRepository(
         ).dataOrThrow()
     }
 
-    suspend fun setDefaultCard(bankInfoId: String): Any? {
-        return api.setDefaultCard(ApiRequest(bankInfoId = bankInfoId)).dataOrThrow()
+    suspend fun markDefaultCard(bankInfoId: String): Any? {
+        return api.markDefaultCard(ApiRequest(bankInfoId = bankInfoId)).dataOrThrow()
     }
 
-    suspend fun setDefaultWallet(id: Int?): Any? {
+    suspend fun markDefaultWallet(id: Int?): Any? {
         return api.markDefaultWallet(ApiRequest(id = id)).dataOrThrow()
     }
 }

@@ -3,18 +3,18 @@ package com.velora.portal.journey.servicing.records.presentation.adapter
 import androidx.core.view.isVisible
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseAdapter
-import com.velora.portal.domain.credit.model.CatalogPlanBean
+import com.velora.portal.domain.credit.model.RepaymentPlan
 import com.velora.portal.databinding.ItemRecordInstallmentBinding
 import com.velora.portal.journey.servicing.records.presentation.LoanRecordDetailActivity
 import com.velora.portal.platform.common.util.context.resolveColorCompat
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class BorrowingScheduleAdapter :
-    BaseAdapter<CatalogPlanBean, ItemRecordInstallmentBinding>(ItemRecordInstallmentBinding::inflate) {
+    BaseAdapter<RepaymentPlan, ItemRecordInstallmentBinding>(ItemRecordInstallmentBinding::inflate) {
 
     override fun bindItem(
         binding: ItemRecordInstallmentBinding,
-        item: CatalogPlanBean,
+        item: RepaymentPlan,
         position: Int,
     ) = with(binding) {
         tvDate.text = item.repayTime?.substringBefore(" ")

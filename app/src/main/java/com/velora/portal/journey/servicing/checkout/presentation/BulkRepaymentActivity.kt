@@ -7,7 +7,7 @@ import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.databinding.ScreenBulkRepaymentBinding
 import com.velora.portal.journey.servicing.records.presentation.LoanRecordDetailActivity
 import com.velora.portal.journey.servicing.checkout.presentation.adapter.BulkRepaymentLoanAdapter
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.platform.common.util.PageLoadState
 import com.velora.portal.platform.common.util.showToastMessage
 import com.velora.portal.platform.common.util.start
@@ -108,7 +108,7 @@ class BulkRepaymentActivity :
         }
     }
 
-    private fun render(state: PageLoadState<List<CatalogItemBean>>) = with(binding) {
+    private fun render(state: PageLoadState<List<CatalogEntry>>) = with(binding) {
         contentLayout.isVisible = state is PageLoadState.Content
         when (state) {
             PageLoadState.Loading -> pageState.showLoading()

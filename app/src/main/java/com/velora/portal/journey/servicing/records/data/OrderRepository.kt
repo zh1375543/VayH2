@@ -5,26 +5,26 @@ import com.velora.portal.platform.network.Api
 import com.velora.portal.platform.network.NetworkProvider
 import com.velora.portal.platform.common.data.repository.dataOrThrow
 import com.velora.portal.domain.credit.model.RecordDetailResponse
-import com.velora.portal.domain.credit.model.RecordItemBean
+import com.velora.portal.domain.credit.model.LoanRecordItem
 import com.velora.portal.domain.credit.model.CheckoutActionResponse
 
-class RecordRepository(
+class OrderRepository(
     private val api: Api = NetworkProvider.api,
 ) {
 
-    suspend fun fetchOrderList(): List<RecordItemBean> {
+    suspend fun loadOrderHistory(): List<LoanRecordItem> {
         return api.loadOrderHistory().dataOrThrow() ?: emptyList()
     }
 
-    suspend fun fetchOrderDetail(orderId: Long?): RecordDetailResponse? {
+    suspend fun loadOrderDetail(orderId: Long?): RecordDetailResponse? {
         return api.loadOrderDetail(ApiRequest(orderId = orderId)).dataOrThrow()
     }
 
-    suspend fun fetchRepaymentBorrowButtonState(): String? {
+    suspend fun loadReloanGate(): String? {
         return api.loadReloanGate().dataOrThrow()?.reloanButtonSign
     }
 
-    suspend fun installmentRepay(
+    suspend fun loadRepaymentUrl(
         orderNo: String?,
         planNumberList: List<Int?>?,
     ): CheckoutActionResponse? {
@@ -36,13 +36,13 @@ class RecordRepository(
         ).dataOrThrow()
     }
 
-    suspend fun repayAndBorrow(orderId: Long?, applyAgainSign: Int?): Any? {
+    suspend fun applyForReloan(orderId: Long?, applyAgainSign: Int?): Any? {
         return api.applyForReloan(
             ApiRequest(orderId = orderId, applyAgainSign = applyAgainSign)
         ).dataOrThrow()
     }
 
-    suspend fun cancelApply(orderId: Long?): Any? {
+    suspend fun cancelReloanApplication(orderId: Long?): Any? {
         return api.cancelReloanApplication(ApiRequest(orderId = orderId)).dataOrThrow()
     }
 }

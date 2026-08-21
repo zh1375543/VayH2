@@ -17,15 +17,15 @@ import com.velora.portal.platform.common.data.ORDER_STATUS_PAYMENT_PROCESS
 import com.velora.portal.platform.common.data.ORDER_STATUS_REVIEW
 import com.velora.portal.platform.common.data.ORDER_STATUS_SUCCESS
 import com.velora.portal.databinding.ItemHomeBorrowingBinding
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class HomeOrderAdapter :
-    BaseAdapter<CatalogItemBean, ItemHomeBorrowingBinding>(ItemHomeBorrowingBinding::inflate) {
+    BaseAdapter<CatalogEntry, ItemHomeBorrowingBinding>(ItemHomeBorrowingBinding::inflate) {
 
     override fun bindItem(
         binding: ItemHomeBorrowingBinding,
-        item: CatalogItemBean,
+        item: CatalogEntry,
         position: Int,
     ) = with(binding) {
         tvRepay.isSelected = false

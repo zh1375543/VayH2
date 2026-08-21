@@ -34,7 +34,7 @@
     <string name="privacy_agreement">Privacy Agreement</string>
     <string name="privacy_blue">Privacy Policy</string>
     <string name="retry">Retry</string>
-    <string name="login">Login</string>
+    <string name="authenticate">Login</string>
 
     <string name="sure_logout">Are you sure you want to log out of the app?</string>
     <string name="new_version">New version</string>
@@ -91,7 +91,7 @@
 
     <string name="close_account">Close Account</string>
     <string name="feedback">Feedback</string>
-    <string name="logout">Logout</string>
+    <string name="signOut">Logout</string>
     <string name="data_has_deleted">Data has been deleted!</string>
     <string name="submit">Submit</string>
     <string name="enter_feedback">Please enter your feedback</string>
@@ -426,7 +426,7 @@ No personal SMS messages will be accessed, read, or collected.</string>
 
     <string name="view_sample">View Sample</string>
     <string name="phone_collect_title">Notice Regarding Phone Number Collection</string>
-    <string name="phone_collect_desc">%s collects, transmits, synchronizes, processes, and stores your phone number information to support SMS verification code login during user authentication.</string>
+    <string name="phone_collect_desc">%s collects, transmits, synchronizes, processes, and stores your phone number information to support SMS verification code authenticate during user authentication.</string>
     <string name="otp">OTP</string>
 
 

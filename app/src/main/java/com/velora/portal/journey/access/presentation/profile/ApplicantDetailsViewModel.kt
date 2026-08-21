@@ -7,20 +7,20 @@ import com.velora.portal.platform.common.data.PageInfoPersonal
 import com.velora.portal.platform.common.data.bean.ApiRequest
 import com.velora.portal.platform.common.data.bean.SelectionOption
 import com.velora.portal.platform.common.data.bean.TrackBean
-import com.velora.portal.journey.access.data.DocumentReviewRepository
+import com.velora.portal.journey.access.data.ApplicantVerificationRepository
 import com.velora.portal.domain.customer.model.ApplicantFormOptionsResponse
 import com.velora.portal.domain.customer.model.ApplicantProfileResponse
 import com.velora.portal.domain.customer.model.EmploymentOptionsResponse
 import com.velora.portal.platform.common.util.text.toJsonString
 
 class ApplicantDetailsViewModel(
-    private val verificationRepository: DocumentReviewRepository =
-        DocumentReviewRepository(),
+    private val verificationRepository: ApplicantVerificationRepository =
+        ApplicantVerificationRepository(),
 ) : BaseViewModel() {
 
     val submitResult = MutableLiveData<Any?>()
-    fun submitPersonalInfo(paramBean: ApiRequest) {
-        createNetworkRequest { verificationRepository.submitPersonalInfo(paramBean) }
+    fun saveApplicantProfile(paramBean: ApiRequest) {
+        createNetworkRequest { verificationRepository.saveApplicantProfile(paramBean) }
             .showLoading()
             .onSuccess {
                 submitTrackingEvent(
@@ -50,7 +50,7 @@ class ApplicantDetailsViewModel(
             action(it)
             return
         }
-        createNetworkRequest { verificationRepository.fetchPersonalInfoOptions() }
+        createNetworkRequest { verificationRepository.loadApplicantOptions() }
             .onSuccess {
                 enumBean.value = it
                 it?.let(action)
@@ -59,21 +59,21 @@ class ApplicantDetailsViewModel(
     }
 
     fun getAddressList(id: String? = null, action: (List<SelectionOption>) -> Unit) {
-        createNetworkRequest { verificationRepository.fetchAddressOptions(id) }
+        createNetworkRequest { verificationRepository.loadRegionalDirectories(id) }
             .showLoading()
             .onSuccess { action(it ?: emptyList()) }
             .execute()
     }
 
     fun getWorkInfoOptions(action: (EmploymentOptionsResponse) -> Unit) {
-        createNetworkRequest { verificationRepository.fetchWorkInfoOptions() }
+        createNetworkRequest { verificationRepository.loadEmploymentOptions() }
             .onSuccess { it?.let(action) }
             .execute()
     }
 
     val personalResult = MutableLiveData<ApplicantProfileResponse?>()
     fun getPersonalInfo(errorAction: () -> Unit) {
-        createNetworkRequest { verificationRepository.fetchPersonalInfo() }
+        createNetworkRequest { verificationRepository.loadApplicantProfile() }
             .onSuccess { personalResult.value = it }
             .onFailed {
                 errorAction()

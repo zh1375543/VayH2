@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.velora.portal.R
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.databinding.ViewOfferSummaryBinding
 
 /** Product and amount summary used on the multiple-loan page. */
@@ -24,7 +24,7 @@ class LoanProductSummaryView @JvmOverloads constructor(
         binding.ivExpandArrow.setOnClickListener { detailsClickAction?.invoke() }
     }
 
-    fun bind(product: CatalogItemBean, displayAmount: CharSequence) = with(binding) {
+    fun bind(product: CatalogEntry, displayAmount: CharSequence) = with(binding) {
         tvOfferName.text = product.productName
         tvLoanLabel.text = context.getString(R.string.loan_amount, product.currency)
         tvOfferAmount.text = displayAmount

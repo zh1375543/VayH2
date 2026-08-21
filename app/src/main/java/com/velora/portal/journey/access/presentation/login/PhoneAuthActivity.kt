@@ -1,4 +1,4 @@
-package com.velora.portal.journey.access.presentation.login
+package com.velora.portal.journey.access.presentation.authenticate
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -218,7 +218,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
         loginResult.observe(this@PhoneAuthActivity) {
             it?.let {
                 MainApplication.Companion.appViewModel.postRiskInfo(PageLogin) {}
-                vm.postDeviceInfo()
+                vm.recordDeviceSnapshot()
                 launchPostLoginDestination()
 //                CalculationActivity.launch(this@LoginActivity)
                 finish()
@@ -289,7 +289,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
                 act = ACT_clickVerifyCode
             )
         )
-        vm.sendOTP(phoneNumber)
+        vm.requestOtpCode(phoneNumber)
     }
 
     private fun showOtpInput() = with(binding) {
@@ -298,7 +298,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
         tvAccessHeadline.isVisible = false
         loginPhoneHint.isVisible = false
         showOtpDescription()
-        tvLogin.text = getString(R.string.login)
+        tvLogin.text = getString(R.string.authenticate)
         startResendCountdown()
         formOtp.getEditText().requestFocus()
     }
@@ -364,7 +364,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
                 act = ACT_clickLoginOTP,
             ),
         )
-        vm.login(binding.formPhone.getText(), otp, null)
+        vm.authenticate(binding.formPhone.getText(), otp, null)
     }
 
     override fun onDestroy() {

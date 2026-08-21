@@ -7,7 +7,7 @@ import com.velora.portal.platform.design.base.BaseViewModel
 import com.velora.portal.platform.common.data.ACT_LoanAppProductInfoDetail
 import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.journey.lending.catalog.data.ProductOptionsRepository
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.platform.common.util.text.toJsonString
 import com.velora.portal.platform.common.util.PageLoadState
 
@@ -15,11 +15,11 @@ class ProductOptionsViewModel(
     private val loanProductRepository: ProductOptionsRepository = ProductOptionsRepository(),
 ) : BaseViewModel() {
 
-    private val _productDetailState = MutableLiveData<PageLoadState<CatalogItemBean>>(
+    private val _productDetailState = MutableLiveData<PageLoadState<CatalogEntry>>(
         PageLoadState.Loading,
     )
-    val productDetailState: LiveData<PageLoadState<CatalogItemBean>> = _productDetailState
-    val detailResult: LiveData<CatalogItemBean?> = MediatorLiveData<CatalogItemBean?>().apply {
+    val productDetailState: LiveData<PageLoadState<CatalogEntry>> = _productDetailState
+    val detailResult: LiveData<CatalogEntry?> = MediatorLiveData<CatalogEntry?>().apply {
         addSource(_productDetailState) { state ->
             if (state is PageLoadState.Content) {
                 value = state.data
@@ -27,7 +27,7 @@ class ProductOptionsViewModel(
         }
     }
 
-    fun showProductDetail(product: CatalogItemBean) {
+    fun showProductDetail(product: CatalogEntry) {
         _productDetailState.value = PageLoadState.Content(product)
     }
 
@@ -40,7 +40,7 @@ class ProductOptionsViewModel(
     ) {
         _productDetailState.value = PageLoadState.Loading
         createNetworkRequest {
-            loanProductRepository.fetchProductDetail(
+            loanProductRepository.loadProductDetail(
                 productId = id,
                 amount = amount,
             )

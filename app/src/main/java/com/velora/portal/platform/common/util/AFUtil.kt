@@ -6,7 +6,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.velora.portal.BuildConfig
 import com.velora.portal.application.MainApplication
 
-const val LOGIN_VIA_OTP = "Login_Via_OTP" // on login button click
+const val LOGIN_VIA_OTP = "Login_Via_OTP" // on authenticate button click
 const val APP_UPGRADE = "App_Upgrade" // on version update button click
 const val PERSON_INFO_COMMIT = "Person_Info_Commit" // on personal info submit
 const val SUPPLEMENTARY_INFO_COMMIT = "Supplementary_Info_Commit" // on contact info submit

@@ -3,21 +3,21 @@ package com.velora.portal.journey.servicing.checkout.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.velora.portal.platform.design.base.BaseViewModel
-import com.velora.portal.domain.credit.model.CatalogItemBean
-import com.velora.portal.journey.servicing.checkout.data.CheckoutRepository
+import com.velora.portal.domain.credit.model.CatalogEntry
+import com.velora.portal.journey.servicing.checkout.data.RepaymentRepository
 import com.velora.portal.domain.credit.model.CheckoutActionResponse
 import com.velora.portal.platform.common.util.PageLoadState
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 import java.math.BigDecimal
 
 class CheckoutViewModel(
-    private val repaymentRepository: CheckoutRepository = CheckoutRepository(),
+    private val repaymentRepository: RepaymentRepository = RepaymentRepository(),
 ) : BaseViewModel() {
 
-    private val _orderListState = MutableLiveData<PageLoadState<List<CatalogItemBean>>>(
+    private val _orderListState = MutableLiveData<PageLoadState<List<CatalogEntry>>>(
         PageLoadState.Loading,
     )
-    val orderListState: LiveData<PageLoadState<List<CatalogItemBean>>> = _orderListState
+    val orderListState: LiveData<PageLoadState<List<CatalogEntry>>> = _orderListState
     private val selectedOrderKeys = mutableSetOf<String>()
     private var hasLoadedBatchOrders = false
     private val _selectedOrderCount = MutableLiveData("0")
@@ -28,7 +28,7 @@ class CheckoutViewModel(
     fun getOrderList() {
         _orderListState.value = PageLoadState.Loading
         createNetworkRequest {
-            repaymentRepository.fetchBatchRepaymentOrders()
+            repaymentRepository.loadBatchRepaymentOrders()
         }.onSuccess { result ->
             val orders = result.orEmpty().map { order ->
                 order.copy(
@@ -48,8 +48,8 @@ class CheckoutViewModel(
         }
     }
 
-    fun updateBatchSelection(orders: List<CatalogItemBean>) {
-        val selectedOrders = orders.filter(CatalogItemBean::isCheck)
+    fun updateBatchSelection(orders: List<CatalogEntry>) {
+        val selectedOrders = orders.filter(CatalogEntry::isCheck)
         selectedOrderKeys.clear()
         selectedOrderKeys += selectedOrders.map { it.selectionKey() }
         _selectedOrderCount.value = selectedOrders.size.toString()
@@ -62,7 +62,7 @@ class CheckoutViewModel(
         }
     }
 
-    private fun CatalogItemBean.selectionKey(): String {
+    private fun CatalogEntry.selectionKey(): String {
         return when {
             !orderNo.isNullOrBlank() -> "orderNo:$orderNo"
             orderId != null -> "orderId:$orderId"
@@ -73,7 +73,7 @@ class CheckoutViewModel(
     val togetherRepayResult = MutableLiveData<CheckoutActionResponse?>()
     fun togetherRepayment(orderList: List<String>) {
         createNetworkRequest {
-            repaymentRepository.submitBatchRepayment(orderList)
+            repaymentRepository.settleBatchRepayment(orderList)
         }.onSuccess {
             togetherRepayResult.value = it
         }.execute()

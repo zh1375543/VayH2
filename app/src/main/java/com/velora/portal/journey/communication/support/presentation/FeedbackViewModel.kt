@@ -10,7 +10,7 @@ class FeedbackViewModel(
 
     fun submitFeed(content: String, action: () -> Unit) {
         createNetworkRequest {
-            feedbackRepository.submitFeedback(content)
+            feedbackRepository.sendRatingFeedback(content)
         }.showLoading().onSuccess {
             action()
         }.execute()

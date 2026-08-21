@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 import java.math.BigDecimal
 
 @Parcelize
-data class DurationOptionBean(
+data class LoanTermOption(
     val id: Long? = null,
     val name: String? = null,
     val status: Int? = null,

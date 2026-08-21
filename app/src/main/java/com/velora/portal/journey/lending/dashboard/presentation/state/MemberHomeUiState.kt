@@ -1,7 +1,7 @@
 package com.velora.portal.journey.lending.dashboard.presentation.state
 
 import com.velora.portal.domain.credit.model.MemberOverviewResponse
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.platform.common.util.isPositive
 import java.math.BigDecimal
 
@@ -14,7 +14,7 @@ enum class CreditStage {
 
 /** A product as displayed by the member home screen, without mutating the API model. */
 data class HomeProductUi(
-    val product: CatalogItemBean,
+    val product: CatalogEntry,
     val canApply: Boolean,
 )
 

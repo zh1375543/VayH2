@@ -20,7 +20,7 @@ class LinkedAccountViewModel(
             return
         }
         createNetworkRequest {
-            walletRepository.fetchPayChannelList()
+            walletRepository.loadPayoutChannels()
         }.showLoading().onSuccess {
             payChannelList.value = it
         }.execute()
@@ -33,14 +33,14 @@ class LinkedAccountViewModel(
             return
         }
         createNetworkRequest {
-            walletRepository.fetchWalletList()
+            walletRepository.loadWalletMethods()
         }.showLoading().onSuccess {
             walletList.value = it
         }.execute()
     }
 
     val addResult = MutableLiveData<Any?>()
-    fun addCard(
+    fun linkNewCard(
         bankId: String?,
         accountUser: String,
         bankNo: String,
@@ -49,7 +49,7 @@ class LinkedAccountViewModel(
         accountCode: String? = null,
     ) {
         createNetworkRequest {
-            walletRepository.addCard(
+            walletRepository.linkNewCard(
                 bankId = bankId,
                 accountUser = accountUser,
                 bankNo = bankNo,
@@ -65,7 +65,7 @@ class LinkedAccountViewModel(
     val bankCardListResult = MutableLiveData<List<LinkedAccountResponse>>()
     fun getBankcardList(errorAction: () -> Unit) {
         createNetworkRequest {
-            walletRepository.fetchBankcardList()
+            walletRepository.loadLinkedCards()
         }.onSuccess {
             bankCardListResult.value = it
         }.onFailed {
@@ -82,7 +82,7 @@ class LinkedAccountViewModel(
     fun getAccountList() {
         _accountListState.value = PageLoadState.Loading
         createNetworkRequest {
-            walletRepository.fetchBankcardList()
+            walletRepository.loadLinkedCards()
         }.onSuccess { cards ->
             loadWalletAccounts(cards.orEmpty())
         }.onFailed {
@@ -95,7 +95,7 @@ class LinkedAccountViewModel(
         cards: List<LinkedAccountResponse>,
     ) {
         createNetworkRequest {
-            walletRepository.fetchMyWalletList()
+            walletRepository.loadLinkedWallets()
         }.onSuccess { wallets ->
             val bankAccounts = cards.map { card ->
                 card.copy(payWay = "CARD")
@@ -118,7 +118,7 @@ class LinkedAccountViewModel(
     val loanAccountList = MutableLiveData<List<LinkedAccountResponse>>()
     fun getLoanAccountList(errorAction: () -> Unit) {
         createNetworkRequest {
-            walletRepository.fetchMyWalletList()
+            walletRepository.loadLinkedWallets()
         }.onSuccess { wallets ->
             loadLoanBankAccounts(wallets.orEmpty(), errorAction)
         }.onFailed {
@@ -132,7 +132,7 @@ class LinkedAccountViewModel(
         errorAction: () -> Unit,
     ) {
         createNetworkRequest {
-            walletRepository.fetchBankcardList()
+            walletRepository.loadLinkedCards()
         }.onSuccess { cards ->
             val walletAccounts = wallets.map { wallet -> wallet.toBankAccountResponse() }
             val bankAccounts = cards.orEmpty().map { card ->
@@ -147,23 +147,23 @@ class LinkedAccountViewModel(
 
     fun unBindCard(id: String, payWay: String = "CARD", action: () -> Unit) {
         createNetworkRequest {
-            walletRepository.unbindCard(id, payWay)
+            walletRepository.unlinkBankCard(id, payWay)
         }.showLoading().onSuccess {
             action.invoke()
         }.execute()
     }
 
-    fun setDefaultCard(id: String, action: () -> Unit) {
+    fun markDefaultCard(id: String, action: () -> Unit) {
         createNetworkRequest {
-            walletRepository.setDefaultCard(id)
+            walletRepository.markDefaultCard(id)
         }.showLoading().onSuccess {
             action.invoke()
         }.execute()
     }
 
-    fun setDefaultWallet(id: Int?, action: () -> Unit) {
+    fun markDefaultWallet(id: Int?, action: () -> Unit) {
         createNetworkRequest {
-            walletRepository.setDefaultWallet(id)
+            walletRepository.markDefaultWallet(id)
         }.showLoading().onSuccess {
             action.invoke()
         }.execute()

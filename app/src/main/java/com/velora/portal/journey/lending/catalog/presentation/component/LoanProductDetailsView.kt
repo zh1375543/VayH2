@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import com.velora.portal.R
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 import com.velora.portal.databinding.LoanProductDetailsViewBinding
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.journey.lending.catalog.presentation.adapter.OfferFeeSummaryAdapter
 
 /** Displays the selected offer's product information and related fees. */
@@ -37,7 +37,7 @@ class LoanProductDetailsView @JvmOverloads constructor(
         binding.tvDetailsTitle.setOnClickListener { toggleDetails() }
     }
 
-    fun bind(plan: CatalogItemBean, currencySymbol: String?) = with(binding) {
+    fun bind(plan: CatalogEntry, currencySymbol: String?) = with(binding) {
         tvDuration.text = context.getString(R.string.num_days, plan.timeLimit.toString())
         tvDisbursedLabel.text =
             String.format(context.getString(R.string.actually_amount), currencySymbol ?: "").replace("()", "")

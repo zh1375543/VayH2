@@ -12,7 +12,7 @@ import com.velora.portal.platform.design.base.BaseDialog
 import com.velora.portal.platform.design.base.BaseSheetDialog
 import com.velora.portal.platform.common.data.PRODUCT_AGREEMENT
 import com.velora.portal.platform.common.util.context.resolveColorCompat
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.databinding.DialogAvailableCreditBinding
 import com.velora.portal.databinding.DialogLoanAgreementBinding
@@ -57,7 +57,7 @@ fun Context.showLoanAgreementDialog(
 
 
 fun Context.createNewProductDialog(
-    list: List<CatalogItemBean>,
+    list: List<CatalogEntry>,
     closeAction: () -> Unit = {},
     action: () -> Unit,
 ): Dialog {

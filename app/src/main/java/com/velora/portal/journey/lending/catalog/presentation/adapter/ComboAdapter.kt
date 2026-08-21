@@ -3,14 +3,14 @@ package com.velora.portal.journey.lending.catalog.presentation.adapter
 import androidx.core.view.isVisible
 import com.velora.portal.platform.design.base.BaseAdapter
 import com.velora.portal.databinding.ItemComboBinding
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
-class ComboAdapter : BaseAdapter<CatalogItemBean, ItemComboBinding>(ItemComboBinding::inflate) {
+class ComboAdapter : BaseAdapter<CatalogEntry, ItemComboBinding>(ItemComboBinding::inflate) {
 
     override fun bindItem(
         binding: ItemComboBinding,
-        item: CatalogItemBean,
+        item: CatalogEntry,
         position: Int,
     ) = with(binding) {
         offerSummaryCard.bind(
@@ -46,7 +46,7 @@ class ComboAdapter : BaseAdapter<CatalogItemBean, ItemComboBinding>(ItemComboBin
         Unit
     }
 
-    fun submitItemsWithState(newItems: List<CatalogItemBean>?) {
+    fun submitItemsWithState(newItems: List<CatalogEntry>?) {
         val oldItems = items  // previous list
 
         newItems?.forEach { newItem ->

@@ -35,7 +35,7 @@ import com.velora.portal.platform.common.data.authConfigList
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.platform.common.data.bean.ApiRequest
 import com.velora.portal.domain.payout.model.AccountChannelResponse
-import com.velora.portal.domain.customer.model.RelativesBean
+import com.velora.portal.domain.customer.model.RelativeContact
 import com.velora.portal.domain.customer.model.EmploymentContactResponse
 import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.journey.access.presentation.AuthStatusViewModel
@@ -513,12 +513,12 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
         trackEvent(SUPPLEMENTARY_INFO_COMMIT)
         val isWallet = selectedWithdrawMethod == WithdrawMethod.WALLET
         val contactEntries = arrayListOf(
-            RelativesBean(
+            RelativeContact(
                 relativesStatus,
                 binding.primaryContactNameField.getText(),
                 binding.primaryContactPhoneField.getText(),
             ),
-            RelativesBean(
+            RelativeContact(
                 friendStatus,
                 binding.secondaryContactNameField.getText(),
                 binding.secondaryContactPhoneField.getText(),
@@ -529,7 +529,7 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
             binding.additionalContactNameField.getText().isNotBlank() &&
             binding.additionalContactPhoneField.getText().isNotBlank()
         ) {
-            contactEntries += RelativesBean(
+            contactEntries += RelativeContact(
                 additionalContactStatus,
                 binding.additionalContactNameField.getText(),
                 binding.additionalContactPhoneField.getText(),

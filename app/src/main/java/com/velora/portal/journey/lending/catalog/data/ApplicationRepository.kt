@@ -4,7 +4,7 @@ import com.velora.portal.platform.network.Api
 import com.velora.portal.platform.network.NetworkProvider
 import com.velora.portal.platform.common.data.repository.dataOrThrow
 import com.velora.portal.domain.credit.model.MemberOverviewResponse
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 
@@ -12,21 +12,21 @@ class ApplicationRepository(
     private val api: Api = NetworkProvider.api,
 ) {
 
-    suspend fun submitTogetherLoan(
+    suspend fun submitBundleOrder(
         files: List<MultipartBody.Part>,
         multipartBody: Map<String, RequestBody>,
-    ): List<CatalogItemBean>? {
+    ): List<CatalogEntry>? {
         return api.submitBundleOrder(files, multipartBody).dataOrThrow()
     }
 
-    suspend fun submitLoan(
+    suspend fun submitLoanOrder(
         files: List<MultipartBody.Part>,
         multipartBody: Map<String, RequestBody>,
-    ): CatalogItemBean? {
+    ): CatalogEntry? {
         return api.submitLoanOrder(files, multipartBody).dataOrThrow()
     }
 
-    suspend fun fetchTogetherLoan(): MemberOverviewResponse? {
+    suspend fun loadBundleLoanPage(): MemberOverviewResponse? {
         return api.loadBundleLoanPage().dataOrThrow()
     }
 }

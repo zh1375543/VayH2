@@ -213,7 +213,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.access.presentation.login.PhoneAuthActivity"
+            android:name="com.velora.portal.journey.access.presentation.authenticate.PhoneAuthActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"

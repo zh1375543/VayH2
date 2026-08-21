@@ -74,7 +74,7 @@
             android:layout_marginHorizontal="@dimen/dp_40"
             android:layout_marginBottom="@dimen/dp_24"
             android:gravity="center"
-            android:text="@string/logout"
+            android:text="@string/signOut"
             app:buttonStrokeWidth="@dimen/dp_1"
             app:buttonStrokeColor="@color/brand_primary"
             app:buttonSolidColor="@color/text_inverse"

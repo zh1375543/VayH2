@@ -17,7 +17,7 @@ import com.velora.portal.platform.common.data.bean.ClickablePart
 import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.databinding.ScreenLoanProductDetailBinding
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.domain.payout.model.LinkedAccountResponse
 import com.velora.portal.platform.browser.presentation.ContentBrowserActivity
 import com.velora.portal.journey.account.accounts.presentation.dialog.chooseAccountsDialog
@@ -53,7 +53,7 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
     private val vm by viewModels<ProductOptionsViewModel>()
     private val accountVm by viewModels<LinkedAccountViewModel>()
 
-    private val product by lazy { intent.getParcelableExtra<CatalogItemBean>("product") }
+    private val product by lazy { intent.getParcelableExtra<CatalogEntry>("product") }
     private var cardInfo: LinkedAccountResponse? = null
 
     private lateinit var leaseUrl: String
@@ -251,7 +251,7 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
         }
     }
 
-    private fun render(state: PageLoadState<CatalogItemBean>) = with(binding) {
+    private fun render(state: PageLoadState<CatalogEntry>) = with(binding) {
         contentScroll.isVisible = state is PageLoadState.Content
         bottomUiGroup.isVisible = state is PageLoadState.Content
         when (state) {
@@ -264,7 +264,7 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
         }
     }
 
-    private fun renderProductDetail(productDetail: CatalogItemBean) = with(binding) {
+    private fun renderProductDetail(productDetail: CatalogEntry) = with(binding) {
                     leaseUrl =
                         PRODUCT_AGREEMENT + "userId=${SessionStore.loginInfo?.id}&productId=${productDetail.id}&amount=${productDetail.loanAmount}"
                     pawnUrl =
@@ -330,14 +330,14 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
         }, 200)
     }
 
-    private fun restoreOfferSelection(newProduct: CatalogItemBean) {
+    private fun restoreOfferSelection(newProduct: CatalogEntry) {
         // savedTermIndex == -1 means first load, no merge needed
         if (savedTermIndex < 0) return
 
         newProduct.selectedTermIndex = savedTermIndex
     }
 
-    private fun renderOfferSummary(plan: CatalogItemBean) = with(binding) {
+    private fun renderOfferSummary(plan: CatalogEntry) = with(binding) {
         val currencySymbol = plan.currencySymbol ?: product?.currencySymbol
         productDetailsView.bind(plan, currencySymbol)
     }

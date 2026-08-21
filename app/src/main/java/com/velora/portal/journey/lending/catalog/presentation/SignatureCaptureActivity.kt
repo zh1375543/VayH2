@@ -7,7 +7,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.velora.portal.application.MainApplication
 import com.velora.portal.R
-import com.velora.portal.journey.access.presentation.login.AccessSessionViewModel
+import com.velora.portal.journey.access.presentation.authenticate.AccessSessionViewModel
 import com.velora.portal.platform.design.base.BaseActivity
 import com.velora.portal.platform.common.data.ACT_clickSubmit
 import com.velora.portal.platform.common.data.ACT_in
@@ -16,7 +16,7 @@ import com.velora.portal.platform.common.data.bean.TrackBean
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.platform.common.data.signBackHome
 import com.velora.portal.databinding.ScreenSignatureCaptureBinding
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.application.PortalHostActivity
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.platform.design.component.SignatureView
@@ -41,7 +41,7 @@ class SignatureCaptureActivity : BaseActivity<ScreenSignatureCaptureBinding>() {
         fun launch(
             context: Context,
             cardId: Long?,
-            productList: ArrayList<CatalogItemBean>?,
+            productList: ArrayList<CatalogEntry>?,
             productId: String?,
             bankId: Long?,
             amount: String?,
@@ -70,7 +70,7 @@ class SignatureCaptureActivity : BaseActivity<ScreenSignatureCaptureBinding>() {
         intent.getBooleanExtra("isBackHome", false)
     }
     private val productList by lazy {
-        intent.getParcelableArrayListExtra<CatalogItemBean>("productList")
+        intent.getParcelableArrayListExtra<CatalogEntry>("productList")
     }
     private val bankId by lazy { intent.getLongExtra("bankId", 0L) }
     private val amount by lazy { intent.getStringExtra("amount") }

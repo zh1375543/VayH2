@@ -668,7 +668,7 @@ class BorrowerProfileActivity :
 
     private fun submit() {
         trackEvent(PERSON_INFO_COMMIT)
-        vm.submitPersonalInfo(
+        vm.saveApplicantProfile(
             ApiRequest(
                 education = eduStatus.toString(),
                 sex = genderStatus.toString(),

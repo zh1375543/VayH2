@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 import java.math.BigDecimal
 
 @Parcelize
-data class CatalogFeeBean(
+data class FeeLineItem(
     val productId: Long,
     val name: String? = null,
     val nameConfig: String? = null,

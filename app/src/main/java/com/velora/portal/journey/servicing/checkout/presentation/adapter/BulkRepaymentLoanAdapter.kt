@@ -15,16 +15,16 @@ import com.velora.portal.platform.common.data.ORDER_STATUS_PAYMENT_PENDING
 import com.velora.portal.platform.common.data.ORDER_STATUS_PAYMENT_PROCESS
 import com.velora.portal.platform.common.data.ORDER_STATUS_REVIEW
 import com.velora.portal.platform.common.data.ORDER_STATUS_SUCCESS
-import com.velora.portal.domain.credit.model.CatalogItemBean
+import com.velora.portal.domain.credit.model.CatalogEntry
 import com.velora.portal.databinding.ItemBulkRepaymentLoanBinding
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 
 class BulkRepaymentLoanAdapter :
-    BaseAdapter<CatalogItemBean, ItemBulkRepaymentLoanBinding>(ItemBulkRepaymentLoanBinding::inflate) {
+    BaseAdapter<CatalogEntry, ItemBulkRepaymentLoanBinding>(ItemBulkRepaymentLoanBinding::inflate) {
 
     override fun bindItem(
         binding: ItemBulkRepaymentLoanBinding,
-        item: CatalogItemBean,
+        item: CatalogEntry,
         position: Int,
     ) = with(binding) {
         tvProductName.text = item.productName
@@ -58,7 +58,7 @@ class BulkRepaymentLoanAdapter :
 
     override fun bindChildClickListeners(
         binding: ItemBulkRepaymentLoanBinding,
-        item: CatalogItemBean,
+        item: CatalogEntry,
         position: Int,
     ) {
         super.bindChildClickListeners(binding, item, position)
