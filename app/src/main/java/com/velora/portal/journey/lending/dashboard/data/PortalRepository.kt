@@ -21,14 +21,14 @@ class DefaultPortalRepository(
 ) : PortalRepository {
 
     override suspend fun loadGuestHome(): VisitorPortalResponse {
-        return requireNotNull(api.fetchHomeData(ApiRequest()).dataOrThrow())
+        return requireNotNull(api.loadPortalOverview(ApiRequest()).dataOrThrow())
     }
 
     override suspend fun loadMemberHome(): MemberOverviewResponse {
-        return requireNotNull(api.fetchHomeLoan(ApiRequest()).dataOrThrow())
+        return requireNotNull(api.loadMemberOverview(ApiRequest()).dataOrThrow())
     }
 
     override suspend fun loadBanners(): List<PromotionBannerResponse> {
-        return api.fetchBannerList().dataOrThrow().orEmpty()
+        return api.loadPromotionBanners().dataOrThrow().orEmpty()
     }
 }

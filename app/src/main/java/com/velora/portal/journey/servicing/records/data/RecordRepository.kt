@@ -13,22 +13,22 @@ class RecordRepository(
 ) {
 
     suspend fun fetchOrderList(): List<RecordItemBean> {
-        return api.fetchOrderList().dataOrThrow() ?: emptyList()
+        return api.loadOrderHistory().dataOrThrow() ?: emptyList()
     }
 
     suspend fun fetchOrderDetail(orderId: Long?): RecordDetailResponse? {
-        return api.fetchOrderDetail(ApiRequest(orderId = orderId)).dataOrThrow()
+        return api.loadOrderDetail(ApiRequest(orderId = orderId)).dataOrThrow()
     }
 
     suspend fun fetchRepaymentBorrowButtonState(): String? {
-        return api.showRepaymentBorrow().dataOrThrow()?.reloanButtonSign
+        return api.loadReloanGate().dataOrThrow()?.reloanButtonSign
     }
 
     suspend fun installmentRepay(
         orderNo: String?,
         planNumberList: List<Int?>?,
     ): CheckoutActionResponse? {
-        return api.installmentRepay(
+        return api.fetchRepaymentUrl(
             ApiRequest(
                 orderNo = orderNo,
                 planNumList = planNumberList,
@@ -37,12 +37,12 @@ class RecordRepository(
     }
 
     suspend fun repayAndBorrow(orderId: Long?, applyAgainSign: Int?): Any? {
-        return api.repayAndBorrow(
+        return api.applyForReloan(
             ApiRequest(orderId = orderId, applyAgainSign = applyAgainSign)
         ).dataOrThrow()
     }
 
     suspend fun cancelApply(orderId: Long?): Any? {
-        return api.cancelApply(ApiRequest(orderId = orderId)).dataOrThrow()
+        return api.cancelReloanApplication(ApiRequest(orderId = orderId)).dataOrThrow()
     }
 }

@@ -13,11 +13,11 @@ class AppConfigRepository(
 ) {
 
     suspend fun fetchAppSecret(): SignatureSecretResponse? {
-        return api.fetchSecret().dataOrThrow()
+        return api.requestSessionSalt().dataOrThrow()
     }
 
     suspend fun hasUploadedDevice(): Boolean? {
-        return api.hasUserDevice(ApiRequest()).dataOrThrow()
+        return api.hasDeviceFingerprint(ApiRequest()).dataOrThrow()
     }
 
     suspend fun uploadRiskInfo(riskJson: String): Any? {
@@ -25,6 +25,6 @@ class AppConfigRepository(
         val body = riskJson.toRequestBody(
             "application/json; charset=utf-8".toMediaTypeOrNull()
         )
-        return api.saveUserDevice(body).dataOrThrow()
+        return api.recordDeviceFingerprint(body).dataOrThrow()
     }
 }

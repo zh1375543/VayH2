@@ -16,17 +16,17 @@ class ApplicationRepository(
         files: List<MultipartBody.Part>,
         multipartBody: Map<String, RequestBody>,
     ): List<CatalogItemBean>? {
-        return api.oneLoanApply(files, multipartBody).dataOrThrow()
+        return api.submitBundleOrder(files, multipartBody).dataOrThrow()
     }
 
     suspend fun submitLoan(
         files: List<MultipartBody.Part>,
         multipartBody: Map<String, RequestBody>,
     ): CatalogItemBean? {
-        return api.loanApply(files, multipartBody).dataOrThrow()
+        return api.submitLoanOrder(files, multipartBody).dataOrThrow()
     }
 
     suspend fun fetchTogetherLoan(): MemberOverviewResponse? {
-        return api.togetherLoan().dataOrThrow()
+        return api.loadBundleLoanPage().dataOrThrow()
     }
 }

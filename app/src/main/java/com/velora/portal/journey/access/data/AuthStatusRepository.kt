@@ -11,11 +11,11 @@ class AuthStatusRepository(
 ) {
 
     suspend fun loadUserAuthStatus(): VerificationProgressResponse? {
-        return api.fetchUserAuth(ApiRequest()).dataOrThrow()
+        return api.loadVerificationProgress(ApiRequest()).dataOrThrow()
     }
 
     suspend fun loadAuthConfigList(): List<String> {
-        return api.fetchAuthentication()
+        return api.loadAuthConfig()
             .dataOrThrow()
             ?.authConfig
             ?.split(",")

@@ -14,7 +14,7 @@ class ProductOptionsRepository(
         productId: String?,
         amount: String?,
     ): CatalogItemBean? {
-        return api.fetchProductDetail(
+        return api.loadProductDetail(
             ApiRequest(
                 productId = productId,
                 amount = amount,

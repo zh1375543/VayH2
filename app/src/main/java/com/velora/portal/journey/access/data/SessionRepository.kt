@@ -35,7 +35,7 @@ class SessionRepository(
             firebaseToken = firebaseToken,
         )
 
-        return api.sendSMS(param).dataOrThrow()
+        return api.requestOtpCode(param).dataOrThrow()
     }
 
     suspend fun login(
@@ -59,28 +59,28 @@ class SessionRepository(
             firebaseClientId = firebaseId,
             firebaseToken = firebaseToken,
         )
-        return api.login(param).dataOrThrow()
+        return api.authenticate(param).dataOrThrow()
     }
 
     suspend fun logout(): Any? {
-        return api.logout(ApiRequest(rid = SessionStore.loginInfo?.id)).dataOrThrow()
+        return api.signOut(ApiRequest(rid = SessionStore.loginInfo?.id)).dataOrThrow()
     }
 
     suspend fun setPassword(phone: String, password: String): AccessSessionResponse? {
-        return api.fetchPassword(
+        return api.establishPin(
             ApiRequest(phone = phone, newPasswd = password.toMd5())
         ).dataOrThrow()
     }
 
     suspend fun changePassword(phone: String, code: String, password: String): AccessSessionResponse? {
-        return api.updatePassword(
+        return api.refreshPassword(
             ApiRequest(phone = phone, smsCode = code, newPasswd = password.toMd5())
         ).dataOrThrow()
     }
 
     suspend fun postDeviceInfo(): Any? {
         if (!SessionStore.isLoggedIn) return null
-        return api.postDeviceInfo(
+        return api.persistDeviceSnapshot(
             ApiRequest(
                 phoneModel = Build.MODEL,
                 phoneBrand = Build.BRAND,

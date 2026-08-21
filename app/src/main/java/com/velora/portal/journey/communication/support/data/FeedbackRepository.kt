@@ -10,6 +10,6 @@ class FeedbackRepository(
 ) {
 
     suspend fun submitFeedback(content: String): Any? {
-        return api.submitFeedback(ApiRequest(content = content)).dataOrThrow()
+        return api.sendRatingFeedback(ApiRequest(content = content)).dataOrThrow()
     }
 }

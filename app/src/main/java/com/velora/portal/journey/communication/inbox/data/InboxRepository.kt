@@ -14,7 +14,7 @@ class InboxRepository(
         pageNumber: Int = 1,
         pageSize: Int = 9999,
     ): List<InboxMessageRecord> {
-        return api.fetchMessageList(
+        return api.loadInboxMessages(
             ApiRequest(
                 pageNum = pageNumber,
                 pageSize = pageSize,
@@ -26,6 +26,6 @@ class InboxRepository(
         val recordIds = idList
             .takeIf { it.isNotEmpty() }
             ?.joinToString(separator = ",")
-        return api.updateMessageStatus(ApiRequest(recordIdStr = recordIds)).dataOrThrow()
+        return api.markMessageRead(ApiRequest(recordIdStr = recordIds)).dataOrThrow()
     }
 }

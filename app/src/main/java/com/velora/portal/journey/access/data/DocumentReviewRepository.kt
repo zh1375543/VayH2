@@ -28,15 +28,15 @@ class DocumentReviewRepository(
 ) {
 
     suspend fun fetchKycDocument(): IdentityDocumentResponse? {
-        return api.fetchKycInfo(ApiRequest()).dataOrThrow()
+        return api.loadIdentityDocuments(ApiRequest()).dataOrThrow()
     }
 
     suspend fun createLivenessWebSession(): FaceVerificationSessionResponse? {
-        return api.fetchH5Live(ApiRequest()).dataOrThrow()
+        return api.createLivenessSession(ApiRequest()).dataOrThrow()
     }
 
     suspend fun fetchLivenessResult(bizNo: String?): FaceVerificationSessionResponse? {
-        return api.getH5Result(ApiRequest(bizNo = bizNo)).dataOrThrow()
+        return api.pollLivenessSession(ApiRequest(bizNo = bizNo)).dataOrThrow()
     }
 
     suspend fun uploadKycImage(imageUri: Uri, imageType: String, cardType: String): Any? {
@@ -46,18 +46,18 @@ class DocumentReviewRepository(
         formMedia["version"] = BuildConfig.VERSION_NAME
         formMedia["imgType"] = imageType
         formMedia["cardType"] = cardType
-        return api.submitKycImage(
+        return api.uploadKycDocuments(
             imageUri.uriToPart("image"),
             formMedia.generateRequestBody()
         ).dataOrThrow()
     }
 
     suspend fun fetchKycConfig(): IdentityPolicyResponse? {
-        return api.fetchKycConfig(ApiRequest()).dataOrThrow()
+        return api.loadKycPolicy(ApiRequest()).dataOrThrow()
     }
 
     suspend fun compareFace(): Any? {
-        return api.faceCompare(ApiRequest()).dataOrThrow()
+        return api.performFaceMatch(ApiRequest()).dataOrThrow()
     }
 
     suspend fun uploadLiveness(faceUri: Uri, liveFile: File?): Any? {
@@ -75,7 +75,7 @@ class DocumentReviewRepository(
                 requestBody
             )
         }
-        return api.submitLiveness(
+        return api.uploadLivenessProof(
             livePart,
             faceUri.uriToPart("faceFile"),
             formMedia.generateRequestBody()
@@ -83,38 +83,38 @@ class DocumentReviewRepository(
     }
 
     suspend fun submitPersonalInfo(param: ApiRequest): Any? {
-        return api.postPersonalInfo(param).dataOrThrow()
+        return api.saveApplicantProfile(param).dataOrThrow()
     }
 
     suspend fun fetchPersonalInfoOptions(): ApplicantFormOptionsResponse? {
-        return api.fetchPersonalInfoEnum(ApiRequest()).dataOrThrow()
+        return api.loadApplicantOptions(ApiRequest()).dataOrThrow()
     }
 
     suspend fun fetchAddressOptions(parentId: String?): List<SelectionOption> {
-        return api.fetchAddressList(ApiRequest(parentId = parentId))
+        return api.loadRegionalDirectories(ApiRequest(parentId = parentId))
             .dataOrThrow()
             ?.map { SelectionOption(it.name.orEmpty(), id = it.id) }
             ?: emptyList()
     }
 
     suspend fun fetchWorkInfoOptions(): EmploymentOptionsResponse? {
-        return api.fetchWorkInfoEnum(ApiRequest()).dataOrThrow()
+        return api.loadEmploymentOptions(ApiRequest()).dataOrThrow()
     }
 
     suspend fun fetchContactInfo(): EmploymentContactResponse? {
-        return api.fetchContactInfo(ApiRequest()).dataOrThrow()
+        return api.loadEmploymentContact(ApiRequest()).dataOrThrow()
     }
 
     suspend fun submitBankAndContactInfo(param: ApiRequest): Any? {
-        return api.submitBankAndContactInfo(param).dataOrThrow()
+        return api.savePayoutAndContact(param).dataOrThrow()
     }
 
     suspend fun requestCarrierOtp(phone: String, company: String): Any? {
-        return api.fetchTeleOtpOne(ApiRequest(phone = phone, company = company)).dataOrThrow()
+        return api.startTelecomOtpStep(ApiRequest(phone = phone, company = company)).dataOrThrow()
     }
 
     suspend fun submitCarrierOtp(phone: String, company: String, otp: String): Any? {
-        return api.submitTeleOtp(
+        return api.finishTelecomOtpStep(
             ApiRequest(phone = phone, company = company, otp = otp)
         ).dataOrThrow()
     }
@@ -124,16 +124,16 @@ class DocumentReviewRepository(
         company: String,
         otp: String,
     ): Any? {
-        return api.fetchTeleOtpTwo(
+        return api.continueTelecomOtpStep(
             ApiRequest(phone = phone, company = company, otp = otp)
         ).dataOrThrow()
     }
 
     suspend fun submitSupplementInfo(param: ApiRequest): Any? {
-        return api.submitSuppleInfo(param).dataOrThrow()
+        return api.saveSupplementaryInfo(param).dataOrThrow()
     }
 
     suspend fun fetchPersonalInfo(): ApplicantProfileResponse? {
-        return api.fetchPersonalInfo(ApiRequest()).dataOrThrow()
+        return api.loadApplicantProfile(ApiRequest()).dataOrThrow()
     }
 }

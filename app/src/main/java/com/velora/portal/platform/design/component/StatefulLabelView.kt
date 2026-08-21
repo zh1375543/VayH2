@@ -36,7 +36,9 @@ class StatefulLabelView @JvmOverloads constructor(
 
     private fun readAppearance(attrs: AttributeSet?): LabelAppearance {
         val normalTextColor = currentTextColor
-        return context.obtainStyledAttributes(attrs, R.styleable.StatefulLabelView).use { a ->
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.StatefulLabelView)
+        try {
+            return attributes.let { a ->
             val radius = a.getDimensionPixelOffset(R.styleable.StatefulLabelView_labelCornerRadius, 0)
             val corners = LabelCorners(
                 topLeft = a.dimensionOr(R.styleable.StatefulLabelView_labelTopLeftRadius, radius),
@@ -92,6 +94,10 @@ class StatefulLabelView @JvmOverloads constructor(
                     a.getDimensionPixelSize(R.styleable.StatefulLabelView_labelDrawableHeight, 0),
                 ),
             )
+            }
+        } finally {
+            // OEM TypedArray implementations, such as MIUI's, may not implement AutoCloseable.
+            attributes.recycle()
         }
     }
 
@@ -137,7 +143,14 @@ class StatefulLabelView @JvmOverloads constructor(
                 addState(intArrayOf(), normal)
             }
         }
-        setCompoundDrawablesRelative(drawables[0], drawables[1], drawables[2], drawables[3])
+        // StateListDrawable starts without bounds when passed to the raw setter.
+        // The intrinsic-bounds overload preserves normal and selected compound icons.
+        setCompoundDrawablesRelativeWithIntrinsicBounds(
+            drawables[0],
+            drawables[1],
+            drawables[2],
+            drawables[3],
+        )
         updateCompoundDrawableBounds()
     }
 

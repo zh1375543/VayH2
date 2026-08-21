@@ -12,10 +12,10 @@ class CheckoutRepository(
 ) {
 
     suspend fun fetchBatchRepaymentOrders(): List<CatalogItemBean>? {
-        return api.togetherRepaymentList(ApiRequest()).dataOrThrow()
+        return api.loadBundleRepayments(ApiRequest()).dataOrThrow()
     }
 
     suspend fun submitBatchRepayment(orderList: List<String>): CheckoutActionResponse? {
-        return api.togetherRepayment(ApiRequest(orderNoList = orderList)).dataOrThrow()
+        return api.settleBundleRepayment(ApiRequest(orderNoList = orderList)).dataOrThrow()
     }
 }
