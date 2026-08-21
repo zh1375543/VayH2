@@ -9,51 +9,60 @@ import org.json.JSONObject
 import java.util.SortedMap
 import java.util.TreeMap
 
-/** Generates request-signing headers from the protocol payload. */
+private val EMOJI_CODE_UNITS = Regex("[\\uD83C-\\uDBFF\\uDC00-\\uDFFF]+")
+private const val SIGNATURE_PART_SEPARATOR = "*|*"
+
+/** Creates the signature headers expected by the API. */
 class SignatureGenerator(
     private val timestampProvider: () -> String = { System.currentTimeMillis().toString() },
-    private val signingSecretProvider: () -> String = { NetworkCredentialStore.signingSecret }
+    private val signingSecretProvider: () -> String = { NetworkCredentialStore.signingSecret },
 ) {
 
     fun generate(payload: String): SignatureHeaders {
-        val timestamp = timestampProvider()
-        val payloadToSign = if (payload.isBlank() || payload == "{}") {
-            ApiRequest().toJsonString()
-        } else {
-            payload
-        }
-        val sortedPayload = sortJson(JSONObject(payloadToSign)).toJsonString()
-        val rawSignature = (
-            APPCODE.toMd5() + "*|*" +
-                signingSecretProvider() + "*|*" +
-                sortedPayload + "*|*" +
-                timestamp
-            ).replace(Regex("[\\uD83C-\\uDBFF\\uDC00-\\uDFFF]+"), "")
+        val requestTimestamp = timestampProvider()
+        val canonicalPayload = sortJson(JSONObject(resolvePayload(payload))).toJsonString()
+        val input = buildRawSignature(canonicalPayload, requestTimestamp)
 
-        return SignatureHeaders(sign = rawSignature.toMd5(), timestamp = timestamp)
+        return SignatureHeaders(
+            sign = digest(stripEmoji(input)),
+            timestamp = requestTimestamp,
+        )
     }
 
-    /** Deep-sorts JSON objects while preserving array order. */
-    private fun sortJson(json: JSONObject): SortedMap<String, Any?> {
-        val sortedMap = TreeMap<String, Any?>()
-        val keys = json.keys()
+    private fun resolvePayload(payload: String): String {
+        return if (payload.isBlank() || payload == "{}") ApiRequest().toJsonString() else payload
+    }
+
+    private fun buildRawSignature(payload: String, timestamp: String): String {
+        return listOf(APPCODE.toMd5(), signingSecretProvider(), payload, timestamp)
+            .joinToString(SIGNATURE_PART_SEPARATOR)
+    }
+
+    private fun stripEmoji(value: String): String = value.replace(EMOJI_CODE_UNITS, "")
+
+    private fun digest(value: String): String = value.toMd5()
+
+    /** Deep-sorts object keys while retaining the original array order. */
+    private fun sortJson(source: JSONObject): SortedMap<String, Any?> {
+        val orderedValues = TreeMap<String, Any?>()
+        val keys = source.keys()
         while (keys.hasNext()) {
             val key = keys.next()
-            sortedMap[key] = when (val value = json.get(key)) {
-                is JSONObject -> sortJson(value)
-                is JSONArray -> (0 until value.length()).map { index ->
-                    value.get(index).let { item ->
-                        if (item is JSONObject) sortJson(item) else item
+            orderedValues[key] = when (val item = source.get(key)) {
+                is JSONObject -> sortJson(item)
+                is JSONArray -> (0 until item.length()).map { position ->
+                    item.get(position).let { element ->
+                        if (element is JSONObject) sortJson(element) else element
                     }
                 }
-                else -> value
+                else -> item
             }
         }
-        return sortedMap
+        return orderedValues
     }
 }
 
 data class SignatureHeaders(
     val sign: String,
-    val timestamp: String
+    val timestamp: String,
 )

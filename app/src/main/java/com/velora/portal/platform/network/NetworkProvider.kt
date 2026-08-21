@@ -6,23 +6,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-/** Provides the shared HTTP client and Retrofit services used by the application. */
+private const val CONNECT_TIMEOUT_SECONDS = 30L
+private const val READ_TIMEOUT_SECONDS = 60L
+private const val WRITE_TIMEOUT_SECONDS = 60L
+
+/** Owns the Retrofit services and their shared HTTP configuration. */
 object NetworkProvider {
 
-    private val client: OkHttpClient by lazy {
-        OkHttpClient.Builder()
-            .addInterceptor(NetworkInterceptor())
-            .addInterceptor(LogInterceptor())
-            // Parameter completion must run before signing so the final payload is signed.
-            .addInterceptor(ParamsInterceptor())
-            .addInterceptor(HeaderInterceptor())
-            .addInterceptor(SignInterceptor())
-            .addInterceptor(TrackInterceptor())
-            .connectTimeout(30L, TimeUnit.SECONDS)
-            .readTimeout(60L, TimeUnit.SECONDS)
-            .writeTimeout(60L, TimeUnit.SECONDS)
-            .build()
-    }
+    private val sharedClient: OkHttpClient by lazy(::buildOkHttpClient)
 
     val api: Api by lazy {
         createService(Api::class.java, BuildConfig.HTTP_HOST)
@@ -36,15 +27,37 @@ object NetworkProvider {
         createService(ApiTrack::class.java, BuildConfig.TRACK_HOST)
     }
 
-    private fun <T> createService(
-        serviceClass: Class<T>,
-        baseUrl: String,
-    ): T {
-        return Retrofit.Builder()
-            .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(baseUrl)
-            .build()
-            .create(serviceClass)
+    private fun buildOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder().apply {
+            installInterceptors(this)
+            connectTimeout(CONNECT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+            readTimeout(READ_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+            writeTimeout(WRITE_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+        }.build()
+    }
+
+    private fun installInterceptors(clientBuilder: OkHttpClient.Builder) {
+        clientBuilder.addInterceptor(NetworkInterceptor())
+        clientBuilder.addInterceptor(LogInterceptor())
+        clientBuilder.addInterceptor(ParamsInterceptor())
+        clientBuilder.addInterceptor(HeaderInterceptor())
+        clientBuilder.addInterceptor(SignInterceptor())
+        clientBuilder.addInterceptor(TrackInterceptor())
+    }
+
+    private fun <T> createService(serviceType: Class<T>, endpoint: String): T {
+        return createRetrofit(endpoint).create(serviceType)
+    }
+
+    private fun createRetrofit(endpoint: String): Retrofit {
+        return Retrofit.Builder().apply {
+            client(sharedClient)
+            installJsonConverter()
+            baseUrl(endpoint)
+        }.build()
+    }
+
+    private fun Retrofit.Builder.installJsonConverter() {
+        addConverterFactory(GsonConverterFactory.create())
     }
 }

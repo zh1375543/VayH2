@@ -7,18 +7,21 @@ import okhttp3.Response
 class HeaderInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val originalRequest = chain.request().newBuilder()
+        val requestBuilder = chain.request().newBuilder()
             .header("Content-Type", "application/json")
             .header("Content-Encoding", "gzip")
             .header("User-Agent", "Android")
             .header("lang", "en_US")
+
         if (SessionStore.token.isNotBlank()) {
-            originalRequest.addHeader("Authorization", SessionStore.token)
+            requestBuilder.addHeader("Authorization", SessionStore.token)
         }
+
         val appCheckToken = NetworkCredentialStore.appCheckToken
         if (appCheckToken.isNotBlank()) {
-            originalRequest.header("X-Firebase-AppCheck", appCheckToken)
+            requestBuilder.header("X-Firebase-AppCheck", appCheckToken)
         }
-        return chain.proceed(originalRequest.build())
+
+        return chain.proceed(requestBuilder.build())
     }
 }

@@ -8,5 +8,5 @@ import retrofit2.http.POST
 interface ApiTrack {
 
     @POST("track")
-    suspend fun submitTrack(@Body paramBean: TrackParamBean): ServiceResponse<Any?>
+    suspend fun submitTrack(@Body payload: TrackParamBean): ServiceResponse<Any?>
 }

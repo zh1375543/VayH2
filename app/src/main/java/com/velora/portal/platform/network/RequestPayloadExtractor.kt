@@ -12,45 +12,47 @@ import okio.Buffer
 class RequestPayloadExtractor {
 
     fun extract(request: Request): String {
-        val body = request.body
+        val requestBody = request.body
         return when {
-            body?.contentType()?.subtype == "json" -> readBody(body)
-            body is FormBody -> extractFormPayload(request, body)
-            body is MultipartBody -> extractMultipartPayload(request, body)
+            requestBody?.contentType()?.subtype == "json" -> extractJsonPayload(requestBody)
+            requestBody is FormBody -> extractFormPayload(request, requestBody)
+            requestBody is MultipartBody -> extractMultipartPayload(request, requestBody)
             else -> ""
         }
     }
 
+    private fun extractJsonPayload(body: RequestBody): String = readBody(body)
+
     private fun extractFormPayload(request: Request, formBody: FormBody): String {
-        val params = mutableMapOf<String, Any?>()
-        for (index in 0 until formBody.size) {
-            params[formBody.name(index)] = formBody.value(index)
+        val fields = mutableMapOf<String, Any?>()
+        for (position in 0 until formBody.size) {
+            fields[formBody.name(position)] = formBody.value(position)
         }
-        appendQueryParameters(request, params)
-        return params.toJsonString()
+        appendQueryParameters(request, fields)
+        return fields.toJsonString()
     }
 
     private fun extractMultipartPayload(request: Request, multipartBody: MultipartBody): String {
-        val params = mutableMapOf<String, Any?>()
+        val fields = mutableMapOf<String, Any?>()
         multipartBody.parts.forEach { part ->
             val contentDisposition = part.headers?.get("Content-Disposition") ?: return@forEach
             if (!contentDisposition.contains("form-data; name=")) return@forEach
 
-            val name = contentDisposition.substringAfter("name=\"").substringBefore("\"")
+            val fieldName = contentDisposition.substringAfter("name=\"").substringBefore("\"")
             if (contentDisposition.contains("filename=\"")) return@forEach
 
-            val value = readBody(part.body)
-            if (value.isNotBlank() && name != "eventFile") {
-                params[name] = value
+            val fieldValue = readBody(part.body)
+            if (fieldValue.isNotBlank() && fieldName != "eventFile") {
+                fields[fieldName] = fieldValue
             }
         }
-        appendQueryParameters(request, params)
-        return params.toJsonString()
+        appendQueryParameters(request, fields)
+        return fields.toJsonString()
     }
 
-    private fun appendQueryParameters(request: Request, params: MutableMap<String, Any?>) {
-        request.url.queryParameterNames.forEach { name ->
-            params[name] = request.url.queryParameter(name)
+    private fun appendQueryParameters(request: Request, target: MutableMap<String, Any?>) {
+        request.url.queryParameterNames.forEach { parameterName ->
+            target[parameterName] = request.url.queryParameter(parameterName)
         }
     }
 
@@ -64,8 +66,8 @@ class RequestPayloadExtractor {
                 body.writeTo(buffer)
                 buffer.readUtf8()
             }
-        } catch (exception: Exception) {
-            LogUtil.e("Read request body for signing failed: ${exception.message}")
+        } catch (error: Exception) {
+            LogUtil.e("Read request body for signing failed: ${error.message}")
             ""
         }
     }

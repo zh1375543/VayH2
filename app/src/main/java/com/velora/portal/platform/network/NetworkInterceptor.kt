@@ -8,11 +8,12 @@ import java.io.IOException
 class NetworkInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        if (!isNetworkAvailable()) {
-            throw NoNetworkException("No internet connection")
-        }
-
+        requireNetworkConnection()
         return chain.proceed(chain.request())
+    }
+
+    private fun requireNetworkConnection() {
+        if (!isNetworkAvailable()) throw NoNetworkException("No internet connection")
     }
 }
 

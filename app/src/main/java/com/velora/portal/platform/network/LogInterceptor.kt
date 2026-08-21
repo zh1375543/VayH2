@@ -7,22 +7,26 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 
 class LogInterceptor : Interceptor {
-    private val loggingInterceptor = HttpLoggingInterceptor {
-        LogUtil.e("HttpIt -> $it")
-    }.apply {
-        level = if (BuildConfig.DEBUG)
-            HttpLoggingInterceptor.Level.BODY
-        else
-            HttpLoggingInterceptor.Level.NONE
-    }
+    private val httpLogger = createHttpLogger()
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val request = chain.request()
-
-        return if (request.url.toString().contains("/track")) {
-            chain.proceed(request)
+        val incomingRequest = chain.request()
+        return if (incomingRequest.url.toString().contains("/track")) {
+            chain.proceed(incomingRequest)
         } else {
-            loggingInterceptor.intercept(chain)
+            httpLogger.intercept(chain)
+        }
+    }
+
+    private fun createHttpLogger(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor { message ->
+            LogUtil.e("HttpIt -> $message")
+        }.apply {
+            level = if (BuildConfig.DEBUG) {
+                HttpLoggingInterceptor.Level.BODY
+            } else {
+                HttpLoggingInterceptor.Level.NONE
+            }
         }
     }
 }
