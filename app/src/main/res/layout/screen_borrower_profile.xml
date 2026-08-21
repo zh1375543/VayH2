@@ -49,7 +49,7 @@
                 android:orientation="vertical"
                 app:radius="@dimen/dp_12"
                 app:solidColor="@color/text_inverse">
-                <com.velora.portal.platform.design.component.StyledTextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                    style="@style/TypeTag"
                     android:text="@string/personal_info" />
                 <com.velora.portal.platform.design.component.FormItemView
@@ -217,7 +217,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:visibility="visible">
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             style="@style/AuthDataEncryptedTipText"
             android:layout_gravity="center_horizontal"
             android:layout_marginHorizontal="@dimen/dp_16"

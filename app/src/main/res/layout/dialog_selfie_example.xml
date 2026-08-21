@@ -109,7 +109,7 @@
         app:layout_constraintStart_toStartOf="@id/iv4"
         app:layout_constraintTop_toBottomOf="@id/iv4" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvOk"
         style="@style/mainButton"
         android:layout_width="match_parent"

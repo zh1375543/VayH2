@@ -30,7 +30,7 @@
         android:paddingVertical="@dimen/dp_6"
         android:src="@mipmap/ic_title_left_back" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvBarRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         android:textSize="@dimen/sp_12"
         android:paddingVertical="@dimen/dp_5"
         android:paddingHorizontal="@dimen/dp_12"
-        app:radius="@dimen/dp_24"
+        app:labelCornerRadius="@dimen/dp_24"
         android:textStyle="bold"
         android:visibility="gone"/>
 

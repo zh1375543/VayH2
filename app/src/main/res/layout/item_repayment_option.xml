@@ -12,7 +12,7 @@
     app:panelBorderColor="@color/transparent"
     app:panelBorderWidth="@dimen/dp_1">
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvNum1"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_22"
@@ -25,13 +25,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:left_top_radius="@dimen/dp_8"
-        app:right_top_radius="@dimen/dp_8"
-        app:selectedColor="@color/brand_primary"
-        app:solidColor="@color/border_default"
-        app:textColorSelected="@color/text_inverse" />
+        app:labelTopLeftRadius="@dimen/dp_8"
+        app:labelTopRightRadius="@dimen/dp_8"
+        app:labelSelectedFillColor="@color/brand_primary"
+        app:labelFillColor="@color/border_default"
+        app:labelSelectedTextColor="@color/text_inverse" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvPeriod1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -44,9 +44,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvNum1"
-        app:textColorSelected="@color/text_body" />
+        app:labelSelectedTextColor="@color/text_body" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvPeriodDays1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -60,9 +60,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPeriod1"
-        app:textColorSelected="@color/text_primary" />
+        app:labelSelectedTextColor="@color/text_primary" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvFirst"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -75,9 +75,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPeriodDays1"
-        app:textColorSelected="@color/text_body" />
+        app:labelSelectedTextColor="@color/text_body" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvAmount1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -95,9 +95,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvFirst"
-        app:textColorSelected="@color/text_primary" />
+        app:labelSelectedTextColor="@color/text_primary" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvNoInstall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPeriodDays1"
-        app:textColorSelected="@color/text_body" />
+        app:labelSelectedTextColor="@color/text_body" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/firstRepaymentContainer"

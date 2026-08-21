@@ -76,13 +76,13 @@
     
 
     <style name="mainButton">
-        <item name="solidColor">@color/brand_primary</item>
-        <item name="radius">@dimen/dp_16</item>
+        <item name="labelFillColor">@color/brand_primary</item>
+        <item name="labelCornerRadius">@dimen/dp_16</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/sp_18</item>
         <item name="android:textStyle">bold</item>
-        <item name="disabledColor">@color/surface_disabled</item>
-        <item name="textColorDisabled">@color/text_inverse</item>
+        <item name="labelDisabledFillColor">@color/surface_disabled</item>
+        <item name="labelDisabledTextColor">@color/text_inverse</item>
         <item name="android:textColor">@color/text_inverse</item>
     </style>
 

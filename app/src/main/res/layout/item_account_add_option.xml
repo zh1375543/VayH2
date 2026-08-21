@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/ivBankState"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_20"
@@ -35,8 +35,8 @@
         app:layout_constraintEnd_toStartOf="@id/ivAccountSelectState"
         app:layout_constraintStart_toEndOf="@id/tvCard"
         app:layout_constraintTop_toTopOf="@id/tvCard"
-        app:radius="@dimen/dp_10"
-        app:solidColor="@color/badge_promotion" />
+        app:labelCornerRadius="@dimen/dp_10"
+        app:labelFillColor="@color/badge_promotion" />
 
     <TextView
         android:id="@+id/tvCard"

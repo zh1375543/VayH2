@@ -32,7 +32,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvNext"
         style="@style/mainButton"
         android:layout_width="match_parent"

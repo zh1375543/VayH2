@@ -17,7 +17,7 @@
         app:radius="@dimen/dp_12"
         app:solidColor="@color/text_inverse">
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             style="@style/TypeTag"
             android:text="@string/bank_card" />
         <TextView

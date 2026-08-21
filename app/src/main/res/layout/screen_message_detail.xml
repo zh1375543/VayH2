@@ -46,7 +46,7 @@
                 android:textStyle="normal"
                 tools:text="12/12/2024 12:00" />
 
-            <com.velora.portal.platform.design.component.StyledTextView
+            <com.velora.portal.platform.design.component.StatefulLabelView
                 android:id="@+id/tvContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,8 +56,8 @@
                 android:padding="@dimen/dp_16"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/sp_13"
-                app:radius="@dimen/dp_24"
-                app:solidColor="@color/text_inverse" />
+                app:labelCornerRadius="@dimen/dp_24"
+                app:labelFillColor="@color/text_inverse" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

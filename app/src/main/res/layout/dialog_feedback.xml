@@ -41,7 +41,7 @@
             app:radius="@dimen/dp_16"
             app:solidColor="@color/surface_secondary" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/btnSubmitFeedback"
             style="@style/mainButton"
             android:layout_width="match_parent"

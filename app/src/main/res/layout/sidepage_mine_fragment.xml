@@ -86,7 +86,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.velora.portal.platform.design.component.StyledTextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:id="@+id/tvShareArrow"
                     android:layout_width="@dimen/dp_96"
                     android:layout_height="@dimen/dp_40"
@@ -95,8 +95,8 @@
                     android:text="@string/mine_share_arrow"
                     android:textColor="@color/brand_primary"
                     android:textSize="@dimen/sp_28"
-                    app:radius="@dimen/dp_8"
-                    app:solidColor="@color/text_inverse"
+                    app:labelCornerRadius="@dimen/dp_8"
+                    app:labelFillColor="@color/text_inverse"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

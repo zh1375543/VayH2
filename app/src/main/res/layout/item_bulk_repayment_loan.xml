@@ -81,7 +81,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvRepayAmountLabel" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvStatusValue"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
         app:layout_constraintBaseline_toBaselineOf="@id/tvStatusLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvStatusLabel"
-        app:textColorSelected="@color/status_error" />
+        app:labelSelectedTextColor="@color/status_error" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnProductDetail"

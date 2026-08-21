@@ -14,7 +14,7 @@
         android:layout_height="@dimen/dp_250"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvOk"
         style="@style/mainButton"
         android:layout_width="match_parent"

@@ -119,6 +119,53 @@
         <attr name="validationSuccessDrawable" format="reference" />
         <attr name="validationErrorDrawable" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="StatefulLabelView">
+        <attr name="labelCornerRadius" format="dimension" />
+        <attr name="labelTopLeftRadius" format="dimension" />
+        <attr name="labelTopRightRadius" format="dimension" />
+        <attr name="labelBottomRightRadius" format="dimension" />
+        <attr name="labelBottomLeftRadius" format="dimension" />
+        <attr name="labelFillColor" format="color" />
+        <attr name="labelBorderWidth" format="dimension" />
+        <attr name="labelBorderColor" format="color" />
+        <attr name="labelPressedFillColor" format="color" />
+        <attr name="labelSelectedFillColor" format="color" />
+        <attr name="labelDisabledFillColor" format="color" />
+        <attr name="labelPressedBorderColor" format="color" />
+        <attr name="labelFocusedBorderColor" format="color" />
+        <attr name="labelSelectedBorderColor" format="color" />
+        <attr name="labelDisabledBorderColor" format="color" />
+        <attr name="labelDerivePressedState" format="boolean" />
+        <attr name="labelPressedTextColor" format="color" />
+        <attr name="labelSelectedTextColor" format="color" />
+        <attr name="labelDisabledTextColor" format="color" />
+        <attr name="labelSelectedDrawableStart" format="reference" />
+        <attr name="labelSelectedDrawableTop" format="reference" />
+        <attr name="labelSelectedDrawableEnd" format="reference" />
+        <attr name="labelSelectedDrawableBottom" format="reference" />
+        <attr name="labelDrawableWidth" format="dimension" />
+        <attr name="labelDrawableHeight" format="dimension" />
+        <attr name="labelGradientDirection" format="enum">
+            <enum name="leftToRight" value="0" />
+            <enum name="rightToLeft" value="1" />
+            <enum name="topToBottom" value="2" />
+            <enum name="bottomToTop" value="3" />
+            <enum name="topLeftToBottomRight" value="4" />
+            <enum name="topRightToBottomLeft" value="5" />
+            <enum name="bottomLeftToTopRight" value="6" />
+            <enum name="bottomRightToTopLeft" value="7" />
+        </attr>
+        <attr name="labelGradientStartColor" format="color" />
+        <attr name="labelGradientCenterColor" format="color" />
+        <attr name="labelGradientEndColor" format="color" />
+        <attr name="labelPressedGradientStartColor" format="color" />
+        <attr name="labelPressedGradientEndColor" format="color" />
+        <attr name="labelSelectedGradientStartColor" format="color" />
+        <attr name="labelSelectedGradientEndColor" format="color" />
+        <attr name="labelDisabledGradientStartColor" format="color" />
+        <attr name="labelDisabledGradientEndColor" format="color" />
+    </declare-styleable>
     <declare-styleable name="SelectableImageView">
         <attr name="srcSelected" format="reference" />
         <attr name="android:src" />

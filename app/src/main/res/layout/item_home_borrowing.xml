@@ -34,7 +34,7 @@
         app:panelCornerRadius="@dimen/dp_16"
         app:panelFillColor="@color/aide_color">
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvState"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -47,9 +47,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:textColorSelected="@color/status_error" />
+            app:labelSelectedTextColor="@color/status_error" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvDesc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvState"
-            app:textColorSelected="@color/status_error" />
+            app:labelSelectedTextColor="@color/status_error" />
     </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
     <TextView
@@ -117,7 +117,7 @@
         app:layout_constraintEnd_toStartOf="@id/tvRepay"
         app:layout_constraintStart_toEndOf="@id/tvDateTitle" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvRepay"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_38"
@@ -130,14 +130,14 @@
         android:textSize="@dimen/sp_16"
         android:textStyle="bold"
         android:visibility="visible"
-        app:autoFillPressedColor="true"
+        app:labelDerivePressedState="true"
         app:layout_constraintBottom_toBottomOf="@id/tvDateTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvAmountTitle"
-        app:radius="@dimen/dp_16"
-        app:selectedColor="@color/status_error"
-        app:solidColor="@color/brand_primary"
-        app:textColorSelected="@color/text_inverse" />
+        app:labelCornerRadius="@dimen/dp_16"
+        app:labelSelectedFillColor="@color/status_error"
+        app:labelFillColor="@color/brand_primary"
+        app:labelSelectedTextColor="@color/text_inverse" />
 
     <View
         android:id="@+id/itemDivider"

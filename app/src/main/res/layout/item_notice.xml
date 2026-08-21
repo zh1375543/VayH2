@@ -19,14 +19,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvDot"
         android:layout_width="@dimen/dp_12"
         android:layout_height="@dimen/dp_12"
         app:layout_constraintEnd_toEndOf="@id/ivIcon"
         app:layout_constraintTop_toTopOf="@id/ivIcon"
-        app:radius="@dimen/dp_6"
-        app:solidColor="@color/status_error" />
+        app:labelCornerRadius="@dimen/dp_6"
+        app:labelFillColor="@color/status_error" />
 
     <TextView
         android:id="@+id/tvDate"

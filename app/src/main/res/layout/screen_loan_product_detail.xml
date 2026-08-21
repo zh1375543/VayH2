@@ -74,7 +74,7 @@
                         app:layout_constraintTop_toBottomOf="@id/tvLoanAmount"
                         tools:text="200,000,000đ" />
 
-                    <com.velora.portal.platform.design.component.StyledTextView
+                    <com.velora.portal.platform.design.component.StatefulLabelView
                         android:id="@+id/tvLeaseInfo"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/dp_48"
@@ -92,8 +92,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvAmount"
-                        app:radius="@dimen/dp_12"
-                        app:solidColor="@color/p40_FFFFFF" />
+                        app:labelCornerRadius="@dimen/dp_12"
+                        app:labelFillColor="@color/p40_FFFFFF" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -227,7 +227,7 @@
                 tools:text="111111" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/btnSwitchAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -240,8 +240,8 @@
             app:layout_constraintBottom_toBottomOf="@id/tvAccountTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvAccountTitle"
-            app:radius="@dimen/dp_15"
-            app:solidColor="@color/brand_primary" />
+            app:labelCornerRadius="@dimen/dp_15"
+            app:labelFillColor="@color/brand_primary" />
 
         <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/walletTipPanel"

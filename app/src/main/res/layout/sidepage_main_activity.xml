@@ -60,7 +60,7 @@
         app:layout_constraintStart_toEndOf="@id/vStats"
         app:layout_constraintTop_toTopOf="@id/vBottomNavigation" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,14 +69,14 @@
         android:text="@string/home"
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/sp_12"
-        app:drawableTopSelected="@mipmap/tab_home_selected"
+        app:labelSelectedDrawableTop="@mipmap/tab_home_selected"
         app:layout_constraintBottom_toBottomOf="@id/vHome"
         app:layout_constraintEnd_toEndOf="@id/vHome"
         app:layout_constraintStart_toStartOf="@id/vHome"
         app:layout_constraintTop_toTopOf="@id/vHome"
-        app:textColorSelected="@color/text_primary" />
+        app:labelSelectedTextColor="@color/text_primary" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,14 +85,14 @@
         android:text="@string/order"
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/sp_12"
-        app:drawableTopSelected="@mipmap/tab_calculator_selected"
+        app:labelSelectedDrawableTop="@mipmap/tab_calculator_selected"
         app:layout_constraintBottom_toBottomOf="@id/vOrder"
         app:layout_constraintEnd_toEndOf="@id/vOrder"
         app:layout_constraintStart_toStartOf="@id/vOrder"
         app:layout_constraintTop_toTopOf="@id/vOrder"
-        app:textColorSelected="@color/text_primary" />
+        app:labelSelectedTextColor="@color/text_primary" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvStats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,14 +101,14 @@
         android:text="@string/stats"
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/sp_12"
-        app:drawableTopSelected="@mipmap/tab_tips_selected"
+        app:labelSelectedDrawableTop="@mipmap/tab_tips_selected"
         app:layout_constraintBottom_toBottomOf="@id/vStats"
         app:layout_constraintEnd_toEndOf="@id/vStats"
         app:layout_constraintStart_toStartOf="@id/vStats"
         app:layout_constraintTop_toTopOf="@id/vStats"
-        app:textColorSelected="@color/text_primary" />
+        app:labelSelectedTextColor="@color/text_primary" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvMine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,11 +117,11 @@
         android:text="@string/mine"
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/sp_12"
-        app:drawableTopSelected="@mipmap/tab_profile_selected"
+        app:labelSelectedDrawableTop="@mipmap/tab_profile_selected"
         app:layout_constraintBottom_toBottomOf="@id/vMine"
         app:layout_constraintEnd_toEndOf="@id/vMine"
         app:layout_constraintStart_toStartOf="@id/vMine"
         app:layout_constraintTop_toTopOf="@id/vMine"
-        app:textColorSelected="@color/text_primary" />
+        app:labelSelectedTextColor="@color/text_primary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

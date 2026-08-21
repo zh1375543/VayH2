@@ -59,7 +59,7 @@
                 android:layout_marginTop="@dimen/dp_8"
                 android:orientation="horizontal">
 
-                <com.velora.portal.platform.design.component.StyledTextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingVertical="@dimen/dp_3"
@@ -68,10 +68,10 @@
                     android:text="@string/gcash"
                     android:textColor="@color/text_inverse"
                     android:textSize="@dimen/sp_12"
-                    app:radius="@dimen/dp_8"
-                    app:solidColor="@color/brand_primary_light" />
+                    app:labelCornerRadius="@dimen/dp_8"
+                    app:labelFillColor="@color/brand_primary_light" />
 
-                <com.velora.portal.platform.design.component.StyledTextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp_5"
@@ -81,10 +81,10 @@
                     android:text="@string/payso"
                     android:textColor="@color/status_success"
                     android:textSize="@dimen/sp_12"
-                    app:radius="@dimen/dp_8"
-                    app:solidColor="@color/text_primary" />
+                    app:labelCornerRadius="@dimen/dp_8"
+                    app:labelFillColor="@color/text_primary" />
 
-                <com.velora.portal.platform.design.component.StyledTextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp_5"
@@ -94,8 +94,8 @@
                     android:text="@string/more"
                     android:textColor="@color/text_inverse"
                     android:textSize="@dimen/sp_12"
-                    app:radius="@dimen/dp_8"
-                    app:solidColor="@color/surface_disabled" />
+                    app:labelCornerRadius="@dimen/dp_8"
+                    app:labelFillColor="@color/surface_disabled" />
 
             </LinearLayout>
         </LinearLayout>
@@ -155,7 +155,7 @@
                     android:textSize="@dimen/sp_12" />
             </LinearLayout>
 
-            <com.velora.portal.platform.design.component.StyledTextView
+            <com.velora.portal.platform.design.component.StatefulLabelView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|start"
@@ -166,8 +166,8 @@
                 android:text="@string/higher_credit_limit"
                 android:textColor="@color/text_inverse"
                 android:textSize="@dimen/sp_12"
-                app:radius="@dimen/dp_24"
-                app:solidColor="@color/brand_secondary" />
+                app:labelCornerRadius="@dimen/dp_24"
+                app:labelFillColor="@color/brand_secondary" />
         </FrameLayout>
 
         <ImageView

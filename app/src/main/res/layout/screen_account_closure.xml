@@ -64,7 +64,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAccount" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvTips"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -100,24 +100,24 @@
         app:radius="@dimen/dp_12"
         app:solidColor="@color/transparent">
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvReason1"
             style="@style/LogoutReasonItem"
             android:text="@string/close_account_reason1" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvReason2"
             style="@style/LogoutReasonItem"
             android:layout_marginTop="@dimen/dp_8"
             android:text="@string/close_account_reason2" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvReason3"
             style="@style/LogoutReasonItem"
             android:layout_marginTop="@dimen/dp_8"
             android:text="@string/close_account_reason3" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvReason4"
             style="@style/LogoutReasonItem"
             android:layout_marginTop="@dimen/dp_8"

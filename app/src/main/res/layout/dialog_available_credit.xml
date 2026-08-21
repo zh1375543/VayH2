@@ -114,7 +114,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvStepOne"
             android:layout_width="@dimen/dp_24"
             android:layout_height="@dimen/dp_24"
@@ -128,8 +128,8 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBenefitsTitle"
-            app:radius="@dimen/dp_12"
-            app:solidColor="@color/credit_dialog_badge" />
+            app:labelCornerRadius="@dimen/dp_12"
+            app:labelFillColor="@color/credit_dialog_badge" />
 
         <TextView
             android:layout_width="0dp"
@@ -146,7 +146,7 @@
             app:layout_constraintStart_toEndOf="@id/tvStepOne"
             app:layout_constraintTop_toTopOf="@id/tvStepOne" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvStepTwo"
             android:layout_width="@dimen/dp_24"
             android:layout_height="@dimen/dp_24"
@@ -159,8 +159,8 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/tvStepOne"
             app:layout_constraintTop_toBottomOf="@id/tvStepOne"
-            app:radius="@dimen/dp_12"
-            app:solidColor="@color/credit_dialog_badge" />
+            app:labelCornerRadius="@dimen/dp_12"
+            app:labelFillColor="@color/credit_dialog_badge" />
 
         <TextView
             android:layout_width="0dp"
@@ -177,7 +177,7 @@
             app:layout_constraintStart_toEndOf="@id/tvStepTwo"
             app:layout_constraintTop_toTopOf="@id/tvStepTwo" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvStepThree"
             android:layout_width="@dimen/dp_24"
             android:layout_height="@dimen/dp_24"
@@ -190,8 +190,8 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/tvStepOne"
             app:layout_constraintTop_toBottomOf="@id/tvStepTwo"
-            app:radius="@dimen/dp_12"
-            app:solidColor="@color/credit_dialog_badge" />
+            app:labelCornerRadius="@dimen/dp_12"
+            app:labelFillColor="@color/credit_dialog_badge" />
 
         <TextView
             android:layout_width="0dp"
@@ -209,7 +209,7 @@
             app:layout_constraintStart_toEndOf="@id/tvStepThree"
             app:layout_constraintTop_toTopOf="@id/tvStepThree" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/btnWithdraw"
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_48"
@@ -224,13 +224,13 @@
             android:textColor="@color/text_inverse"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
-            app:gradientEndColor="@color/credit_dialog_button_end"
-            app:gradientOrientation="LEFT_RIGHT"
-            app:gradientStartColor="@color/brand_primary"
+            app:labelGradientEndColor="@color/credit_dialog_button_end"
+            app:labelGradientDirection="leftToRight"
+            app:labelGradientStartColor="@color/brand_primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvStepThree"
-            app:radius="@dimen/dp_16" />
+            app:labelCornerRadius="@dimen/dp_16" />
 
         <TextView
             android:id="@+id/tvLater"

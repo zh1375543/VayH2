@@ -27,7 +27,7 @@
         android:paddingHorizontal="@dimen/dp_20"
         app:layout_constraintTop_toBottomOf="@id/titleBar">
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvOpen"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_24"
@@ -37,8 +37,8 @@
             android:textColor="@color/text_inverse"
             android:textSize="@dimen/sp_12"
             android:textStyle="bold"
-            app:radius="@dimen/dp_24"
-            app:solidColor="@color/brand_primary" />
+            app:labelCornerRadius="@dimen/dp_24"
+            app:labelFillColor="@color/brand_primary" />
 
         <TextView
             android:layout_width="0dp"

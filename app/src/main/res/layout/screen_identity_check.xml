@@ -46,14 +46,14 @@
                             app:panelCornerRadius="@dimen/dp_12"
                             app:panelFillColor="@color/text_inverse">
 
-                            <com.velora.portal.platform.design.component.StyledTextView
+                            <com.velora.portal.platform.design.component.StatefulLabelView
                                 android:id="@+id/tvCard"
                                 style="@style/TypeTag"
                                 android:text="@string/nic_card"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <com.velora.portal.platform.design.component.StyledTextView
+                            <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/tv_document_example_action"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -357,14 +357,14 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent">
 
-                                <com.velora.portal.platform.design.component.StyledTextView
+                                <com.velora.portal.platform.design.component.StatefulLabelView
                                     android:id="@+id/tvSelf"
                                     style="@style/TypeTag"
                                     android:text="@string/self_photo"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
-                                <com.velora.portal.platform.design.component.StyledTextView
+                                <androidx.appcompat.widget.AppCompatTextView
                                     android:id="@+id/tv_selfie_example_action"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -503,7 +503,7 @@
                     android:visibility="gone"
                     tools:visibility="visible">
 
-                    <com.velora.portal.platform.design.component.StyledTextView
+                    <com.velora.portal.platform.design.component.StatefulLabelView
                         style="@style/AuthDataEncryptedTipText"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginHorizontal="@dimen/dp_16"

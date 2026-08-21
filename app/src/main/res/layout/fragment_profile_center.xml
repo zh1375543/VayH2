@@ -103,7 +103,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
-            <com.velora.portal.platform.design.component.StyledTextView
+            <com.velora.portal.platform.design.component.StatefulLabelView
                 android:id="@+id/tvPayBack"
                 android:layout_width="@dimen/dp_120"
                 android:layout_height="@dimen/dp_48"
@@ -115,8 +115,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:radius="@dimen/dp_12"
-                app:solidColor="@color/brand_primary" />
+                app:labelCornerRadius="@dimen/dp_12"
+                app:labelFillColor="@color/brand_primary" />
         </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
         <LinearLayout

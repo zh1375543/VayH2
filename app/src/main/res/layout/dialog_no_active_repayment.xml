@@ -28,7 +28,7 @@
             android:textSize="@dimen/sp_14"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.velora.portal.platform.design.component.StyledTextView
+        <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvBorrow"
             style="@style/mainButton"
             android:layout_width="match_parent"

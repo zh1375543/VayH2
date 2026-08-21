@@ -28,8 +28,8 @@
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">@dimen/sp_11</item>
         <item name="android:padding">@dimen/sp_5</item>
-        <item name="solidColor">@color/color_verify_tip</item>
-        <item name="radius">@dimen/dp_8</item>
+        <item name="labelFillColor">@color/color_verify_tip</item>
+        <item name="labelCornerRadius">@dimen/dp_8</item>
     </style>
 
     <!-- Reusable compact label for section/category types; callers provide only the text and constraints. -->
@@ -45,8 +45,8 @@
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/sp_12</item>
         <item name="android:textStyle">bold</item>
-        <item name="radius">@dimen/dp_8</item>
-        <item name="solidColor">@color/aide_color</item>
+        <item name="labelCornerRadius">@dimen/dp_8</item>
+        <item name="labelFillColor">@color/aide_color</item>
     </style>
 
     <style name="KycExampleImage">
@@ -94,14 +94,14 @@
         <item name="android:paddingEnd">@dimen/dp_15</item>
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">@dimen/sp_14</item>
-        <item name="drawableStartSelected">@mipmap/icon_account_select</item>
-        <item name="radius">@dimen/dp_24</item>
-        <item name="solidColor">@color/surface_primary</item>
-        <item name="strokeColor">@color/border_default</item>
-        <item name="strokeWidth">@dimen/dp_1</item>
-        <item name="selectedColor">@color/aide_color</item>
-        <item name="selectedStrokeColor">@color/brand_primary</item>
-        <item name="textColorSelected">@color/text_primary</item>
+        <item name="labelSelectedDrawableStart">@mipmap/icon_account_select</item>
+        <item name="labelCornerRadius">@dimen/dp_24</item>
+        <item name="labelFillColor">@color/surface_primary</item>
+        <item name="labelBorderColor">@color/border_default</item>
+        <item name="labelBorderWidth">@dimen/dp_1</item>
+        <item name="labelSelectedFillColor">@color/aide_color</item>
+        <item name="labelSelectedBorderColor">@color/brand_primary</item>
+        <item name="labelSelectedTextColor">@color/text_primary</item>
     </style>
 
     <style name="SettingsMenuItem">
@@ -116,9 +116,9 @@
         <item name="android:textColor">@color/text_body</item>
         <item name="android:textSize">@dimen/sp_14</item>
         <item name="android:textStyle">bold</item>
-        <item name="autoFillPressedColor">false</item>
-        <item name="radius">@dimen/dp_12</item>
-        <item name="solidColor">@color/surface_primary</item>
+        <item name="labelDerivePressedState">false</item>
+        <item name="labelCornerRadius">@dimen/dp_12</item>
+        <item name="labelFillColor">@color/surface_primary</item>
     </style>
 
     <style name="SuccessPageCountdownText">

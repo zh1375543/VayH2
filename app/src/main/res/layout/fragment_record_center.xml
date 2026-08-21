@@ -48,7 +48,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.velora.portal.platform.design.component.StyledTextView
+                        <com.velora.portal.platform.design.component.StatefulLabelView
                             android:id="@+id/tvRepaymentTip"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -63,8 +63,8 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:radius="@dimen/dp_20"
-                            app:solidColor="@color/p40_FFFFFF" />
+                            app:labelCornerRadius="@dimen/dp_20"
+                            app:labelFillColor="@color/p40_FFFFFF" />
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/ivRepayment"

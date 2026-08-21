@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvEmptyCalm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -35,14 +35,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivEmptyCalm" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="@dimen/dp_16"
         app:layout_constraintBottom_toBottomOf="@id/tvCalmTips3"
         app:layout_constraintTop_toTopOf="@id/tvCalmTips1"
-        app:radius="@dimen/dp_24"
-        app:solidColor="@color/surface_primary" />
+        app:labelCornerRadius="@dimen/dp_24"
+        app:labelFillColor="@color/surface_primary" />
 
     <TextView
         android:id="@+id/tvCalmTips1"

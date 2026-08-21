@@ -5,7 +5,7 @@
     android:layout_height="@dimen/dp_64"
     android:paddingVertical="@dimen/dp_5">
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvProductName"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_24"
@@ -14,7 +14,7 @@
         android:textColor="@color/status_error"
         android:textSize="@dimen/sp_14"
         android:textStyle="bold"
-        app:textColorSelected="@color/text_primary"
+        app:labelSelectedTextColor="@color/text_primary"
         app:layout_constraintBottom_toBottomOf="@id/ivVerifyState"
         app:layout_constraintStart_toEndOf="@id/ivVerifyState"
         app:layout_constraintTop_toTopOf="parent" />

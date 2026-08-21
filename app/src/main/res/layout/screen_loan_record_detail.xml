@@ -119,7 +119,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@id/tvAmount" />
 
-                            <com.velora.portal.platform.design.component.StyledTextView
+                            <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/tvTotalRepay"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                                 app:layout_constraintStart_toEndOf="@id/tvTotalRepayTitle"
                                 tools:text="₫500,000,000" />
 
-                            <com.velora.portal.platform.design.component.StyledTextView
+                            <com.velora.portal.platform.design.component.StatefulLabelView
                                 android:id="@+id/tvOrderStatusTop"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -150,13 +150,13 @@
                                 android:textStyle="bold"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:left_bottom_radius="@dimen/dp_20"
-                                app:left_top_radius="@dimen/dp_0"
-                                app:right_bottom_radius="@dimen/dp_0"
-                                app:right_top_radius="@dimen/dp_16"
-                                app:selectedColor="@color/color_order_over"
-                                app:solidColor="@color/aide_color"
-                                app:textColorSelected="@color/status_error"
+                                app:labelBottomLeftRadius="@dimen/dp_20"
+                                app:labelTopLeftRadius="@dimen/dp_0"
+                                app:labelBottomRightRadius="@dimen/dp_0"
+                                app:labelTopRightRadius="@dimen/dp_16"
+                                app:labelSelectedFillColor="@color/color_order_over"
+                                app:labelFillColor="@color/aide_color"
+                                app:labelSelectedTextColor="@color/status_error"
                                 tools:text="Closed" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -423,7 +423,7 @@
                             android:layout_height="@dimen/dp_0"
                             android:visibility="gone" />
 
-                        <com.velora.portal.platform.design.component.StyledTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvAmountLegacy"
                             android:layout_width="@dimen/dp_0"
                             android:layout_height="@dimen/dp_0"
@@ -851,7 +851,7 @@
             </androidx.core.widget.NestedScrollView>
 
             <!-- Hidden trigger button used by repayment flow. Visible controls live in bottomActionLayout. -->
-            <com.velora.portal.platform.design.component.StyledTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvApply"
                 android:layout_width="@dimen/dp_1"
                 android:layout_height="@dimen/dp_1"
@@ -949,7 +949,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.velora.portal.platform.design.component.StyledTextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:id="@+id/state1BorrowTip"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_28"
@@ -963,8 +963,8 @@
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="@id/state1ActionLayout"
                     app:layout_constraintTop_toTopOf="@id/state1ActionLayout"
-                    app:radius="@dimen/dp_14"
-                    app:solidColor="@color/badge_promotion"
+                    app:labelCornerRadius="@dimen/dp_14"
+                    app:labelFillColor="@color/badge_promotion"
                     tools:visibility="visible" />
 
                 <com.velora.portal.platform.design.component.StatefulActionButton
@@ -1042,7 +1042,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvBorrow" />
 
-                <com.velora.portal.platform.design.component.StyledTextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:id="@+id/tvBorrowTip"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_28"
@@ -1056,10 +1056,10 @@
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="@id/tvBorrow"
                     app:layout_constraintTop_toTopOf="@id/tvBorrow"
-                    app:radius="@dimen/dp_14"
-                    app:solidColor="@color/badge_promotion" />
+                    app:labelCornerRadius="@dimen/dp_14"
+                    app:labelFillColor="@color/badge_promotion" />
 
-                <com.velora.portal.platform.design.component.StyledTextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:id="@+id/tvBorrowAllTip"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_28"
@@ -1073,8 +1073,8 @@
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="@id/tvBorrowAll"
                     app:layout_constraintTop_toTopOf="@id/tvBorrowAll"
-                    app:radius="@dimen/dp_14"
-                    app:solidColor="@color/status_error" />
+                    app:labelCornerRadius="@dimen/dp_14"
+                    app:labelFillColor="@color/status_error" />
 
                 <androidx.constraintlayout.widget.Barrier
                     android:id="@+id/bottomActionBarrier"

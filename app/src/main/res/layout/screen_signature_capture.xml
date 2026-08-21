@@ -12,7 +12,7 @@
         app:centerText="@string/sign"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvBack"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_48"
@@ -27,10 +27,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tvSign"
         app:layout_constraintStart_toStartOf="parent"
-        app:radius="@dimen/dp_50"
-        app:solidColor="@color/brand_primary" />
+        app:labelCornerRadius="@dimen/dp_50"
+        app:labelFillColor="@color/brand_primary" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvSign"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp_48"
@@ -49,8 +49,8 @@
         app:layout_goneMarginBottom="@dimen/dp_20"
         app:layout_goneMarginEnd="@dimen/dp_190"
         app:layout_goneMarginStart="@dimen/dp_190"
-        app:radius="@dimen/dp_50"
-        app:solidColor="@color/brand_primary" />
+        app:labelCornerRadius="@dimen/dp_50"
+        app:labelFillColor="@color/brand_primary" />
 
     <com.velora.portal.platform.design.component.SignatureView
         android:id="@+id/signView"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleBar" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvSign2"
         android:layout_width="@dimen/dp_265"
         android:layout_height="@dimen/dp_48"
@@ -88,5 +88,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:radius="@dimen/dp_50" />
+        app:labelCornerRadius="@dimen/dp_50" />
 </androidx.constraintlayout.widget.ConstraintLayout>

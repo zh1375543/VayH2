@@ -68,15 +68,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvScheduleSectionTitle" />
 
-    <com.velora.portal.platform.design.component.StyledTextView
+    <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/scheduleBg"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/dp_m_8"
         app:layout_constraintBottom_toBottomOf="@id/rvInstallmentSchedule"
         app:layout_constraintTop_toTopOf="@id/tvDueDateTitle"
-        app:radius="@dimen/dp_16"
-        app:solidColor="@color/surface_secondary" />
+        app:labelCornerRadius="@dimen/dp_16"
+        app:labelFillColor="@color/surface_secondary" />
 
     <TextView
         android:id="@+id/tvDueDateTitle"
