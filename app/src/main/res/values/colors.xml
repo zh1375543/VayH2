@@ -18,9 +18,9 @@
     <color name="surface_tint">#F8F7F3</color>
     <color name="badge_promotion">#FFDD00</color>
 
-    <color name="brand_primary">#396401</color>
+    <color name="brand_primary">#FB7B42</color>
     <color name="brand_primary_light">#A3B2FF</color>
-    <color name="brand_secondary">#FF8000</color>
+    <color name="brand_secondary">#3955F9</color>
     <color name="action_withdraw">#FA560D</color>
     <color name="credit_dialog_badge">#3E7D32</color>
     <color name="credit_dialog_button_end">#4BD329</color>
@@ -35,4 +35,7 @@
     <color name="color_goal">#6717D7</color>
     <color name="color_order_over">#FFD4BB</color>
     <color name="installment_tip_bg">#FFF4E5</color>
+
+    <color name="color_page_bg">#F5F5F5</color>
+    <color name="color_page_color_bg">#F9F9F1</color>
 </resources>

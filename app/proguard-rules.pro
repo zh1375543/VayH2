@@ -167,7 +167,7 @@
 -keep,allowoptimization class com.velora.portal.domain.**.model.** { <fields>; }
 -keep,allowoptimization class com.velora.portal.journey.**.model.** { <fields>; }
 -keep,allowoptimization class com.velora.portal.platform.browser.model.** { <fields>; }
--keep,allowoptimization class com.velora.portal.calculation.model.** { <fields>; }
+-keep,allowoptimization class com.velora.portal.moneyflow.model.** { <fields>; }
 
 # AlertDialog (accessed through reflection)
 -keepclassmembers class androidx.appcompat.app.AlertDialog$Builder {

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg_color1">
+
+    <com.velora.portal.platform.design.component.PageHeaderView
+        android:id="@+id/titleBar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_56"
+        app:centerText="@string/calculator_overtime_title"
+        app:fitStatusBar="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/overtimeInputScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_4"
+        android:paddingEnd="@dimen/dp_16"
+        android:paddingBottom="@dimen/dp_16"
+        app:layout_constraintBottom_toTopOf="@id/tvCalculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar">
+
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dp_8"
+            app:panelCornerRadius="@dimen/dp_12"
+            app:panelFillColor="@color/surface_primary"
+            app:panelBorderColor="@color/brand_primary"
+            app:panelBorderWidth="@dimen/dp_1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.velora.portal.platform.design.component.FormItemView
+                    android:id="@+id/overtimeTypeView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="select"
+                    app:hintText="@string/please_select"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:titleText="@string/calculator_overtime_type" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_6"
+                    android:includeFontPadding="false"
+                    android:text="@string/calculator_overtime_hours"
+                    android:textColor="@color/text_body"
+                    android:textSize="@dimen/sp_14"
+                    android:textStyle="bold" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_54"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_4">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivDecrease"
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="@dimen/dp_24"
+                        android:contentDescription="@null"
+                        android:src="@mipmap/page_number_ss"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvOvertimeHours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/text_body"
+                        android:textSize="@dimen/sp_24"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivIncrease"
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="@dimen/dp_24"
+                        android:contentDescription="@null"
+                        android:src="@mipmap/page_number_add"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.velora.portal.platform.design.component.FormItemView
+                        android:id="@+id/monthlySalaryView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:formType="input"
+                        app:hintText="@string/please_enter"
+                        app:inputBackgroundColor="@color/surface_primary"
+                        app:inputFocusedStrokeColor="@color/brand_primary"
+                        app:inputStrokeColor="@color/border_default"
+                        app:inputType="number"
+                        app:titleText="@string/calculator_monthly_salary_input" />
+
+                    <LinearLayout
+                        android:id="@+id/basedOnSalaryToggle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/dp_6"
+                        android:layout_marginEnd="@dimen/dp_16"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.velora.portal.platform.design.component.SelectableImageView
+                            android:id="@+id/ivBasedOnSalary"
+                            android:layout_width="@dimen/dp_16"
+                            android:layout_height="@dimen/dp_16"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/image_check_unselect"
+                            app:srcSelected="@mipmap/ic_check_select" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp_4"
+                            android:includeFontPadding="false"
+                            android:text="@string/calculator_based_on_my_salary"
+                            android:textColor="@color/text_tertiary"
+                            android:textSize="@dimen/sp_10" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <com.velora.portal.platform.design.component.FormItemView
+                    android:id="@+id/workingDaysView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="select"
+                    app:hintText="@string/please_select"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:titleText="@string/calculator_working_days" />
+
+                <com.velora.portal.platform.design.component.FormItemView
+                    android:id="@+id/hoursPerDayView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:formType="select"
+                    app:hintText="@string/please_select"
+                    app:inputBackgroundColor="@color/surface_primary"
+                    app:inputFocusedStrokeColor="@color/brand_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:titleText="@string/calculator_hours_per_day" />
+            </LinearLayout>
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
+        android:id="@+id/analysisCard"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_200"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar"
+        app:panelCornerRadius="@dimen/dp_12"
+        app:panelFillColor="@color/surface_primary"
+        app:panelBorderColor="@color/brand_primary"
+        app:panelBorderWidth="@dimen/dp_1">
+
+        <TextView
+            android:id="@+id/tvAnalysisTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:text="@string/calculator_analysis"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAnalysisOvertimeTypeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_20"
+            android:includeFontPadding="false"
+            android:text="@string/calculator_overtime_type"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAnalysisTitle" />
+
+        <TextView
+            android:id="@+id/tvAnalysisOvertimeTypeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvAnalysisOvertimeTypeLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAnalysisOvertimeHoursLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_18"
+            android:includeFontPadding="false"
+            android:text="@string/calculator_overtime_hours"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAnalysisOvertimeTypeLabel" />
+
+        <TextView
+            android:id="@+id/tvAnalysisOvertimeHoursValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvAnalysisOvertimeHoursLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAnalysisOvertimePayLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_18"
+            android:includeFontPadding="false"
+            android:text="@string/calculator_overtime_pay"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAnalysisOvertimeHoursLabel" />
+
+        <TextView
+            android:id="@+id/tvAnalysisOvertimePayValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvAnalysisOvertimePayLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
+    <com.velora.portal.platform.design.component.StatefulActionButton
+        android:id="@+id/tvCalculate"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:text="@string/calculator_calculate"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:buttonRadius="@dimen/dp_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,18 @@
-package com.velora.portal.journey.access.presentation.authenticate
+package com.velora.portal.journey.access.presentation.login
 
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.text.Spanned
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
+import android.graphics.Typeface
 import android.location.LocationManager
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
-import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.velora.portal.application.MainApplication
@@ -37,7 +39,9 @@ import com.velora.portal.platform.design.extension.setSpannableClickableTexts
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.application.MainNavigator
 import com.velora.portal.platform.design.dialog.showConfirmDialog
-import com.velora.portal.calculation.CalculationActivity
+import com.velora.portal.moneyflow.PayPilotActivity
+import com.velora.portal.journey.access.presentation.authenticate.AccessSessionViewModel
+import com.velora.portal.journey.access.presentation.authenticate.SmsAutoFillHelper
 import com.velora.portal.journey.lending.dashboard.presentation.VisitorPortalViewModel
 import com.velora.portal.platform.common.util.LOGIN_VIA_OTP
 import com.velora.portal.platform.common.util.PermissionCoordinator
@@ -78,6 +82,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
     }
 
     override fun initView() {
+        setLightSystemBarIcons(enabled = true)
         configureLoginHeader()
         initializeLoginSession()
         observePhoneNumberInput()
@@ -91,6 +96,32 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
             R.string.welcome_to_app,
             getString(R.string.app_name)
         )
+        loginPhoneHint.text = SpannableString(
+            getString(R.string.login_invalid_phone_hint),
+        ).apply {
+            val suffix = "modify it."
+            val start = lastIndexOf(suffix)
+            if (start >= 0) {
+                setSpan(
+                    ForegroundColorSpan(resolveColorCompat(R.color.brand_secondary)),
+                    start,
+                    start + suffix.length,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+                )
+                setSpan(
+                    RelativeSizeSpan(1.17f),
+                    start,
+                    start + suffix.length,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+                )
+                setSpan(
+                    StyleSpan(Typeface.BOLD),
+                    start,
+                    start + suffix.length,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+                )
+            }
+        }
         cbAccept.isSelected = true
     }
 
@@ -166,7 +197,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
                     getString(R.string.privacy_agreement),
                     resolveColorCompat(R.color.brand_primary),
                     onClick = {
-                        ContentBrowserActivity.Companion.launch(
+                        ContentBrowserActivity.launch(
                             this@PhoneAuthActivity,
                             getString(R.string.privacy_agreement),
                             AGREEMENT_REGISTER
@@ -176,7 +207,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
                     getString(R.string.privacy_blue),
                     resolveColorCompat(R.color.brand_primary),
                     onClick = {
-                        ContentBrowserActivity.Companion.launch(
+                        ContentBrowserActivity.launch(
                             this@PhoneAuthActivity,
                             getString(R.string.privacy_blue),
                             PRIVACY_POLICY
@@ -187,15 +218,15 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
         cbAccept.singleClick {
             cbAccept.isSelected = !cbAccept.isSelected
         }
-        tvResendOtp.singleClick {
-            if (tvResendOtp.isEnabled) requestVerificationCode()
+        tvGetOtp.singleClick {
+            if (tvGetOtp.isEnabled) requestVerificationCode()
         }
         tvLogin.singleClick {
             if (!cbAccept.isSelected) {
                 getString(R.string.privacy_toast_agree2).showToastMessage()
                 return@singleClick
             }
-            if (formPhone.isVisible) requestVerificationCode() else submitLogin()
+            submitLogin()
         }
         if (location.first == 0.0
             && PermissionCoordinator.hasPermission(
@@ -217,7 +248,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
         }
         loginResult.observe(this@PhoneAuthActivity) {
             it?.let {
-                MainApplication.Companion.appViewModel.postRiskInfo(PageLogin) {}
+                MainApplication.appViewModel.postRiskInfo(PageLogin) {}
                 vm.recordDeviceSnapshot()
                 launchPostLoginDestination()
 //                CalculationActivity.launch(this@LoginActivity)
@@ -238,7 +269,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
                 cancel = getString(R.string.credit_dialog_later),
                 ok = getString(R.string.login_now),
                 cancelAction = {
-                    CalculationActivity.launch(this)
+                    PayPilotActivity.launch(this)
                     finish()
                 },
                 okAction = {},
@@ -271,6 +302,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
         when {
             phoneNumber.isBlank() -> {
                 binding.formPhone.showError(getString(R.string.phone_number_required))
+                getString(R.string.phone_number_required).showToastMessage()
                 return
             }
 
@@ -293,43 +325,19 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
     }
 
     private fun showOtpInput() = with(binding) {
-        formPhone.isVisible = false
-        formOtp.isVisible = true
-        tvAccessHeadline.isVisible = false
-        loginPhoneHint.isVisible = false
-        showOtpDescription()
-        tvLogin.text = getString(R.string.authenticate)
         startResendCountdown()
         formOtp.getEditText().requestFocus()
     }
 
-    private fun showOtpDescription() = with(binding) {
-        val phoneNumber = "+63 ${formPhone.getText()}"
-        val message = getString(R.string.verification_code_sent, phoneNumber)
-        tvOtpDescription.isVisible = true
-        tvOtpDescription.text = SpannableString(message).apply {
-            val start = message.indexOf(phoneNumber)
-            setSpan(
-                ForegroundColorSpan(resolveColorCompat(R.color.badge_promotion)),
-                start,
-                start + phoneNumber.length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-            )
-        }
-    }
-
     private fun startResendCountdown() = with(binding) {
-        tvResendOtp.isVisible = true
-        tvResendOtp.isEnabled = false
-        tvResendOtp.setTextColor(resolveColorCompat(R.color.text_secondary))
+        tvGetOtp.isEnabled = false
         updateResendCountdown(59)
         lifecycleScope.countdownTimer(
             58,
             {},
             end = {
-                tvResendOtp.text = getString(R.string.resend_verification_code)
-                tvResendOtp.setTextColor(resolveColorCompat(R.color.brand_secondary))
-                tvResendOtp.isEnabled = true
+                tvGetOtp.text = getString(R.string.get_otp)
+                tvGetOtp.isEnabled = true
             },
         ) { seconds ->
             updateResendCountdown(seconds)
@@ -337,20 +345,23 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
     }
 
     private fun updateResendCountdown(seconds: Long) = with(binding) {
-        val secondsText = seconds.toString()
-        val message = getString(R.string.resend_after, secondsText)
-        tvResendOtp.text = SpannableString(message).apply {
-            val start = message.indexOf(secondsText)
-            setSpan(
-                ForegroundColorSpan(resolveColorCompat(R.color.brand_secondary)),
-                start,
-                start + secondsText.length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-            )
-        }
+        tvGetOtp.text = getString(R.string.resend_after_short, seconds)
     }
 
     private fun submitLogin() {
+        val phoneNumber = binding.formPhone.getText()
+        when {
+            phoneNumber.isBlank() -> {
+                binding.formPhone.showError(getString(R.string.phone_number_required))
+                return
+            }
+
+            !phoneNumber.isPhoneNumberValid() -> {
+                binding.formPhone.showError(getString(R.string.invalid_phone_number_format))
+                return
+            }
+        }
+
         val otp = binding.formOtp.getText()
         if (otp.isBlank()) {
             binding.formOtp.showError(getString(R.string.verification_code_required))
@@ -364,7 +375,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
                 act = ACT_clickLoginOTP,
             ),
         )
-        vm.authenticate(binding.formPhone.getText(), otp, null)
+        vm.authenticate(phoneNumber, otp, null)
     }
 
     override fun onDestroy() {

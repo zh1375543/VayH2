@@ -28,7 +28,7 @@
         android:layout_marginStart="@dimen/dp_16"
         android:contentDescription="@null"
         android:paddingVertical="@dimen/dp_6"
-        android:src="@mipmap/ic_title_left_back" />
+        android:src="@mipmap/image_left_back" />
 
     <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvBarRight"

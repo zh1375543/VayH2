@@ -109,98 +109,98 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.CalculationActivity"
+            android:name="com.velora.portal.moneyflow.PayPilotActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.AccountSettingsActivity"
+            android:name="com.velora.portal.moneyflow.ac.AccountSettingsActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.SetSalaryActivity"
+            android:name="com.velora.portal.moneyflow.ac.IncomeProfileActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.SalaryCalculatorActivity"
+            android:name="com.velora.portal.moneyflow.ac.IncomeBreakdownActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.OvertimeCalculatorActivity"
+            android:name="com.velora.portal.moneyflow.ac.ExtraPayEstimatorActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.WorkHoursCalculatorActivity"
+            android:name="com.velora.portal.moneyflow.ac.ShiftDurationActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.TaxCalculatorActivity"
+            android:name="com.velora.portal.moneyflow.ac.WithholdingEstimatorActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.BonusCalculatorActivity"
+            android:name="com.velora.portal.moneyflow.ac.RewardPayoutActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.SavingsCalculatorActivity"
+            android:name="com.velora.portal.moneyflow.ac.GoalPlannerActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.SavingsTipDetailActivity"
+            android:name="com.velora.portal.moneyflow.ac.SavingsPlaybookActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.BudgetTipDetailActivity"
+            android:name="com.velora.portal.moneyflow.ac.SpendingPlanGuideActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.ExpenseTrackingTipDetailActivity"
+            android:name="com.velora.portal.moneyflow.ac.ExpenseHabitsGuideActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.SavingsGoalTipDetailActivity"
+            android:name="com.velora.portal.moneyflow.ac.GoalSettingGuideActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.AccountDeletionActivity"
+            android:name="com.velora.portal.moneyflow.ac.AccountDeletionActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.HelpCenterActivity"
+            android:name="com.velora.portal.moneyflow.ac.HelpCenterActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.calculation.activitiy.FaqActivity"
+            android:name="com.velora.portal.moneyflow.ac.FaqActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="portrait"
@@ -213,7 +213,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.velora.portal.journey.access.presentation.authenticate.PhoneAuthActivity"
+            android:name="com.velora.portal.journey.access.presentation.login.PhoneAuthActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:launchMode="singleTask"

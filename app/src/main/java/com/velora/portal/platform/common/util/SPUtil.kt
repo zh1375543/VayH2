@@ -50,7 +50,6 @@ object SPUtil {
             }
             return this
         }
-
         @Suppress("UNCHECKED_CAST")
         fun <T> get(key: String, defValue: T): T {
             return when (defValue) {

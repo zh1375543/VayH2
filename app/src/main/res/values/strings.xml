@@ -4,14 +4,15 @@
     <string name="net_error">Please check if your network status is good</string>
 
     <string name="welcome_to_app">Welcome to %1$s</string>
-    <string name="login_invalid_phone_hint">If your phone number is invalid, click here to</string>
-    <string name="login_modify_phone">modify it.</string>
+    <string name="login_invalid_phone_hint">If your phone number is invalid, click here to modify it.</string>
     <string name="lets_go">Let\'s go</string>
     <string name="phone_number_required">Please enter your phone number.</string>
     <string name="invalid_phone_number_format">Error: Invalid phone number format.</string>
     <string name="verification_code_required">Please enter the verification code.</string>
     <string name="resend_after">Resend after %1$ss</string>
+    <string name="resend_after_short">%1$ss</string>
     <string name="resend_verification_code">Resend verification code</string>
+    <string name="get_otp">Get</string>
     <string name="verification_code_sent">We have sent a verification code to %1$s.\nPlease enter the code to verify your account.</string>
     <string name="login_prompt_title">Login to use more features</string>
     <string name="login_prompt_description">Continue without login?</string>

@@ -4,100 +4,66 @@
     android:id="@+id/accountAccessRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
-
-    <ImageView
-        android:id="@+id/ivLoginTopBackground"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:contentDescription="@null"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_login_top_bg"
-        app:layout_constraintBottom_toTopOf="@id/loginHeaderBottom"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Space
-        android:id="@+id/loginHeaderMinHeight"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dp_192"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:background="@color/color_page_bg">
 
     <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/accessPageHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIconColor="@color/text_inverse" />
+        app:navigationIconColor="@color/text_primary" />
 
-    <TextView
-        android:id="@+id/tvAccessHeadline"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_30"
-        android:layout_marginEnd="@dimen/dp_10"
-        android:gravity="start"
-        android:textColor="@color/text_inverse"
-        android:textSize="@dimen/sp_28"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/ivLoginTop"
+        android:layout_width="@dimen/dp_128"
+        android:layout_height="@dimen/dp_128"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@mipmap/image_login_top"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/accessPageHeader" />
 
     <LinearLayout
-        android:id="@+id/loginPhoneHint"
+        android:id="@+id/loginIntroContent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_8"
-        android:layout_marginEnd="@dimen/dp_10"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:layout_marginEnd="@dimen/dp_8"
+        app:layout_constraintBottom_toBottomOf="@id/ivLoginTop"
+        app:layout_constraintEnd_toStartOf="@id/ivLoginTop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAccessHeadline">
+        app:layout_constraintTop_toTopOf="@id/ivLoginTop">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tvAccessHeadline"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_invalid_phone_hint"
-            android:textColor="@color/text_inverse"
-            android:textSize="@dimen/sp_12" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_4"
-            android:text="@string/login_modify_phone"
-            android:textColor="@color/badge_promotion"
-            android:textSize="@dimen/sp_12"
+            android:layout_marginStart="@dimen/dp_16"
+            android:gravity="start"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_28"
             android:textStyle="bold" />
-    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvOtpDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_24"
-        android:layout_marginTop="@dimen/dp_20"
-        android:layout_marginEnd="@dimen/dp_24"
-        android:gravity="center"
-        android:textColor="@color/text_inverse"
-        android:textSize="@dimen/sp_16"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/accessPageHeader" />
+        <TextView
+            android:id="@+id/loginPhoneHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@string/login_invalid_phone_hint"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_12" />
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/loginHeaderBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierAllowsGoneWidgets="false"
         app:barrierDirection="bottom"
-        app:barrierMargin="@dimen/dp_8"
-        app:constraint_referenced_ids="loginHeaderMinHeight,loginPhoneHint,tvOtpDescription" />
+        app:barrierMargin="@dimen/dp_16"
+        app:constraint_referenced_ids="loginIntroContent,ivLoginTop" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/accessFormScroll"
@@ -105,9 +71,9 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:fillViewport="false"
-        android:paddingStart="@dimen/dp_20"
-        android:paddingTop="@dimen/dp_16"
-        android:paddingEnd="@dimen/dp_20"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingEnd="@dimen/dp_16"
         android:paddingBottom="@dimen/dp_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@id/loginHeaderBottom">
@@ -116,10 +82,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_10"
             android:paddingBottom="@dimen/dp_18"
-            app:radius="@dimen/dp_30"
-            app:solidColor="@color/text_inverse">
+            app:radius="@dimen/dp_16"
+            app:solidColor="@color/brand_primary_light">
 
             <com.velora.portal.platform.design.component.FormItemView
                 android:id="@+id/formPhone"
@@ -132,32 +98,39 @@
                 app:inputFocusedStrokeColor="@color/text_primary"
                 app:inputStrokeColor="@color/border_default"
                 app:inputType="phone"
-                app:prefixText="+63"
+                app:prefixText="🇵🇭 +63"
                 app:titleText="@string/phone_number" />
 
-            <com.velora.portal.platform.design.component.FormItemView
-                android:id="@+id/formOtp"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:editMaxLength="10"
-                app:errorText="@string/verification_code_required"
-                app:hintText="@string/otp_enter"
-                app:inputBackgroundColor="@color/text_inverse"
-                app:inputFocusedStrokeColor="@color/text_primary"
-                app:inputStrokeColor="@color/border_default"
-                app:inputType="number"
-                app:titleText="@string/otp" />
+                android:gravity="bottom"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvResendOtp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_16"
-                android:gravity="center"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/sp_14"
-                android:visibility="gone" />
+                <com.velora.portal.platform.design.component.FormItemView
+                    android:id="@+id/formOtp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:editMaxLength="10"
+                    app:errorText="@string/verification_code_required"
+                    app:hintText="@string/otp_enter"
+                    app:inputBackgroundColor="@color/text_inverse"
+                    app:inputFocusedStrokeColor="@color/text_primary"
+                    app:inputStrokeColor="@color/border_default"
+                    app:inputType="number"
+                    app:titleText="@string/otp" />
+
+                <com.velora.portal.platform.design.component.StatefulActionButton
+                    android:id="@+id/tvGetOtp"
+                    android:layout_width="@dimen/dp_76"
+                    android:layout_height="@dimen/dp_54"
+                    android:layout_marginEnd="@dimen/dp_16"
+                    android:text="@string/get_otp"
+                    android:textSize="@dimen/sp_14"
+                    app:buttonDisabledColor="@color/surface_disabled"
+                    app:buttonSolidColor="@color/brand_primary" />
+            </LinearLayout>
 
             <com.velora.portal.platform.design.component.StatefulActionButton
                 android:id="@+id/tvLogin"
@@ -169,7 +142,6 @@
                 android:text="@string/lets_go"
                 android:textSize="@dimen/sp_18"
                 android:textStyle="bold"
-                app:buttonRadius="@dimen/dp_16"
                 app:buttonSolidColor="@color/brand_primary" />
 
             <LinearLayout
@@ -187,8 +159,8 @@
                     android:layout_height="@dimen/dp_20"
                     android:contentDescription="@null"
                     android:padding="@dimen/dp_2"
-                    android:src="@mipmap/ic_check_normal"
-                    app:srcSelected="@mipmap/ic_check_select" />
+                    android:src="@mipmap/image_check_unselect"
+                    app:srcSelected="@mipmap/image_check_select" />
 
                 <TextView
                     android:id="@+id/tvAccept"
@@ -197,7 +169,7 @@
                     android:layout_marginStart="@dimen/dp_8"
                     android:layout_weight="1"
                     android:text="@string/accept_policy"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/sp_12" />
             </LinearLayout>
         </com.velora.portal.platform.design.component.StyledLinearLayout>

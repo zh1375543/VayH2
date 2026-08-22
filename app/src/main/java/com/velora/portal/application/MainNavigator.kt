@@ -3,7 +3,7 @@ package com.velora.portal.application
 import android.content.Context
 import android.content.Intent
 import com.velora.portal.platform.session.SessionStore
-import com.velora.portal.calculation.CalculationActivity
+import com.velora.portal.moneyflow.PayPilotActivity
 
 /** Resolves and opens the correct home experience for the current session. */
 object MainNavigator {
@@ -18,7 +18,7 @@ object MainNavigator {
         clearTask: Boolean = false,
     ) {
         val target = when (resolveDestination()) {
-            MainDestination.PORTAL -> CalculationActivity::class.java
+            MainDestination.PORTAL -> PayPilotActivity::class.java
             MainDestination.MAIN -> PortalHostActivity::class.java
         }
         val intent = Intent(context, target).apply {

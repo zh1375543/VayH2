@@ -27,24 +27,31 @@ class FormItemView @JvmOverloads constructor(
     private val modeController: FormItemModeController
     private val validationController: FormItemValidationController
     private val defaultInputPaddingStart: Int
+    private val defaultInputPaddingEnd: Int
+    private var hasExternalEndIcon = false
 
     init {
         orientation = VERTICAL
         binding = ViewFormEntryBinding.inflate(LayoutInflater.from(context), this)
         defaultInputPaddingStart = binding.etInput.paddingStart
+        defaultInputPaddingEnd = binding.etInput.paddingEnd
         attributes = FormItemAttributeReader(context).read(attrs)
         modeController = FormItemModeController(binding.etInput)
         validationController = FormItemValidationController(
             input = binding.etInput,
             errorView = binding.tvError,
-            onErrorStateChanged = modeController::onValidationStateChanged,
+            onErrorStateChanged = { hasError ->
+                modeController.onValidationStateChanged(hasError)
+                updateValidationIcon(hasError)
+            },
         )
 
         binding.tvTitle.text = attributes.title
         binding.etInput.hint = attributes.hint
         binding.tvError.text = attributes.errorText
         setPrefixText(attributes.prefixText)
-        binding.ivEndIcon.isVisible = attributes.showContactIcon || attributes.endIconRes != null
+        hasExternalEndIcon = attributes.showContactIcon || attributes.endIconRes != null
+        binding.ivEndIcon.isVisible = hasExternalEndIcon
         attributes.endIconRes?.let(binding.ivEndIcon::setImageResource)
         attributes.inputBackgroundColor?.let(binding.etInput::setSolidColor)
         attributes.inputStrokeColor?.let(binding.etInput::setStrokeColor)
@@ -110,12 +117,14 @@ class FormItemView @JvmOverloads constructor(
     }
 
     fun setContactVisible(isVisible: Boolean) {
-        binding.ivEndIcon.isVisible = isVisible
+        hasExternalEndIcon = isVisible
+        binding.ivEndIcon.isVisible = isVisible && !binding.ivErrorIcon.isVisible
         modeController.setUsesExternalEndIcon(isVisible)
     }
 
     fun setEndIcon(@DrawableRes imageRes: Int?) {
-        binding.ivEndIcon.isVisible = imageRes != null
+        hasExternalEndIcon = imageRes != null
+        binding.ivEndIcon.isVisible = imageRes != null && !binding.ivErrorIcon.isVisible
         imageRes?.let(binding.ivEndIcon::setImageResource)
         modeController.setUsesExternalEndIcon(imageRes != null)
     }
@@ -146,10 +155,23 @@ class FormItemView @JvmOverloads constructor(
         modeController.setDrawableTint(color)
     }
 
+    private fun updateValidationIcon(hasError: Boolean) = with(binding) {
+        ivErrorIcon.isVisible = hasError
+        ivEndIcon.isVisible = hasExternalEndIcon && !hasError
+        etInput.updatePaddingRelative(
+            end = if (hasError) {
+                defaultInputPaddingEnd + ERROR_ICON_RESERVED_WIDTH_DP.dp
+            } else {
+                defaultInputPaddingEnd
+            },
+        )
+    }
+
     private val Int.dp: Int
         get() = (this * resources.displayMetrics.density).toInt()
 
     private companion object {
         const val PREFIX_INPUT_SPACING_DP = 12
+        const val ERROR_ICON_RESERVED_WIDTH_DP = 44
     }
 }
