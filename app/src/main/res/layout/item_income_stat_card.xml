@@ -3,21 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingStart="@dimen/dp_10"
-    android:paddingTop="@dimen/dp_6"
-    android:paddingEnd="@dimen/dp_8"
+    android:paddingStart="@dimen/dp_8"
+    android:paddingTop="@dimen/dp_10"
+    android:paddingEnd="@dimen/dp_12"
     android:paddingBottom="@dimen/dp_10"
     app:panelCornerRadius="@dimen/dp_10"
     app:panelFillColor="@color/surface_primary"
     app:panelBorderColor="@color/brand_primary"
-    app:panelBorderWidth="@dimen/dp_0_5">
+    app:panelBorderWidth="@dimen/dp_1">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivStatIcon"
-        android:layout_width="@dimen/dp_65"
-        android:layout_height="@dimen/dp_48"
+        android:layout_width="@dimen/dp_56"
+        android:layout_height="@dimen/dp_46"
         android:contentDescription="@null"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,13 +26,14 @@
         android:id="@+id/tvStatTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_6"
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/sp_12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivStatIcon" />
+        app:layout_constraintStart_toEndOf="@id/ivStatIcon"
+        app:layout_constraintTop_toTopOf="@id/ivStatIcon" />
 
     <TextView
         android:id="@+id/tvStatValue"
@@ -39,11 +41,11 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textColor="@color/brand_primary"
+        android:textColor="@color/brand_secondary"
         android:textSize="@dimen/sp_18"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvStatTitle"
         app:layout_constraintTop_toBottomOf="@id/tvStatTitle" />
 
     <TextView
@@ -56,6 +58,6 @@
         android:textSize="@dimen/sp_9"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvStatTitle"
         app:layout_constraintTop_toBottomOf="@id/tvStatValue" />
 </com.velora.portal.platform.design.component.SurfacePanelLayout>

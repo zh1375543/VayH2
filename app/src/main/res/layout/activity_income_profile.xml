@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
 
     <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
@@ -35,9 +35,9 @@
             android:layout_height="wrap_content"
             android:paddingVertical="@dimen/dp_8"
             app:panelCornerRadius="@dimen/dp_12"
-            app:panelFillColor="@color/surface_primary"
-            app:panelBorderColor="@color/brand_primary"
-            app:panelBorderWidth="@dimen/dp_1">
+            app:panelGradientStartColor="@color/brand_secondary"
+            app:panelGradientEndColor="@color/brand_primary_light"
+            app:panelGradientDirection="topToBottom">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -57,7 +57,8 @@
                     app:inputFocusedStrokeColor="@color/brand_primary"
                     app:inputStrokeColor="@color/border_default"
                     app:inputType="number"
-                    app:titleText="@string/calculator_monthly_salary_input" />
+                    app:titleText="@string/calculator_monthly_salary_input"
+                    app:titleTextColor="@color/text_inverse" />
 
                 <com.velora.portal.platform.design.component.FormItemView
                     android:id="@+id/workingDaysView"
@@ -68,7 +69,8 @@
                     app:inputBackgroundColor="@color/surface_primary"
                     app:inputFocusedStrokeColor="@color/brand_primary"
                     app:inputStrokeColor="@color/border_default"
-                    app:titleText="@string/calculator_working_days" />
+                    app:titleText="@string/calculator_working_days"
+                    app:titleTextColor="@color/text_inverse" />
 
                 <com.velora.portal.platform.design.component.FormItemView
                     android:id="@+id/hoursPerDayView"
@@ -79,7 +81,8 @@
                     app:inputBackgroundColor="@color/surface_primary"
                     app:inputFocusedStrokeColor="@color/brand_primary"
                     app:inputStrokeColor="@color/border_default"
-                    app:titleText="@string/calculator_hours_per_day" />
+                    app:titleText="@string/calculator_hours_per_day"
+                    app:titleTextColor="@color/text_inverse" />
 
                 <com.velora.portal.platform.design.component.FormItemView
                     android:id="@+id/paydayView"
@@ -90,7 +93,8 @@
                     app:inputBackgroundColor="@color/surface_primary"
                     app:inputFocusedStrokeColor="@color/brand_primary"
                     app:inputStrokeColor="@color/border_default"
-                    app:titleText="@string/calculator_payday" />
+                    app:titleText="@string/calculator_payday"
+                    app:titleTextColor="@color/text_inverse" />
 
                 <com.velora.portal.platform.design.component.FormItemView
                     android:id="@+id/workLocationView"
@@ -103,7 +107,8 @@
                     app:inputFocusedStrokeColor="@color/brand_primary"
                     app:inputStrokeColor="@color/border_default"
                     app:inputType="text"
-                    app:titleText="@string/calculator_work_location" />
+                    app:titleText="@string/calculator_work_location"
+                    app:titleTextColor="@color/text_inverse" />
             </LinearLayout>
         </com.velora.portal.platform.design.component.SurfacePanelLayout>
     </androidx.core.widget.NestedScrollView>

@@ -1,50 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_28"
+        app:panelCornerRadius="@dimen/dp_4"
+        app:panelGradientDirection="leftToRight"
+        app:panelGradientEndColor="@color/surface_primary"
+        app:panelGradientStartColor="@color/color_order_over">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_10"
+            android:text="@string/calculator_quick_tools"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/calculator_quick_tools"
-        android:textColor="@color/brand_primary"
-        android:textSize="@dimen/sp_16"
-        android:textStyle="bold" />
+        android:layout_marginTop="@dimen/dp_8"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        app:panelBorderColor="@color/brand_primary"
+        app:panelBorderWidth="@dimen/dp_1"
+        app:panelCornerRadius="@dimen/dp_12"
+        app:panelFillColor="@color/surface_primary">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <include
-            android:id="@+id/toolSalary"
-            layout="@layout/item_moneyflow_quick_tool"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <include
-            android:id="@+id/toolOvertime"
-            layout="@layout/item_moneyflow_quick_tool"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <include
+                android:id="@+id/toolSalary"
+                layout="@layout/item_moneyflow_quick_tool"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-        <include
-            android:id="@+id/toolWorkHours"
-            layout="@layout/item_moneyflow_quick_tool"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <include
+                android:id="@+id/toolOvertime"
+                layout="@layout/item_moneyflow_quick_tool"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-        <include
-            android:id="@+id/toolTax"
-            layout="@layout/item_moneyflow_quick_tool"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
+            <include
+                android:id="@+id/toolWorkHours"
+                layout="@layout/item_moneyflow_quick_tool"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <include
+                android:id="@+id/toolTax"
+                layout="@layout/item_moneyflow_quick_tool"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 </LinearLayout>

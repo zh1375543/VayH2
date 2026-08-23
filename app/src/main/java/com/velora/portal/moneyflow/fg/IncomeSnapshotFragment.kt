@@ -71,9 +71,6 @@ class IncomeSnapshotFragment : BaseFragment<FragmentIncomeSnapshotBinding>(
             if (showMemberContent) R.string.calculator_greeting_member
             else R.string.calculator_greeting_guest,
         )
-        ivEarningsBackground.setImageResource(
-            if (showMemberContent) R.mipmap.page_earnings_bg else R.mipmap.ic_main_card_bg,
-        )
         layoutGuestEarnings.isVisible = !showMemberContent
         layoutMemberEarnings.isVisible = showMemberContent
         tvMemberEarningsValue.setText(R.string.calculator_empty_currency)

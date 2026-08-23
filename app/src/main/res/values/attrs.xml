@@ -115,6 +115,12 @@
         <attr name="panelDisabledGradientEndColor" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="CurvedHeaderLayout">
+        <attr name="curvedHeaderFillColor" format="color" />
+        <attr name="curvedHeaderArcDepth" format="dimension" />
+        <attr name="curvedHeaderContentSpacing" format="dimension" />
+    </declare-styleable>
+
     <declare-styleable name="StyledEditTextView">
         <attr name="validationSuccessDrawable" format="reference" />
         <attr name="validationErrorDrawable" format="reference" />
@@ -209,6 +215,7 @@
         <attr name="inputBackgroundColor" format="color" />
         <attr name="inputStrokeColor" format="color" />
         <attr name="inputFocusedStrokeColor" format="color" />
+        <attr name="titleTextColor" format="color" />
     </declare-styleable>
     <declare-styleable name="PageHeaderView">
         <attr name="centerText" format="string" />

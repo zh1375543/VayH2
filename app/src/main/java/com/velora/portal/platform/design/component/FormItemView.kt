@@ -47,6 +47,7 @@ class FormItemView @JvmOverloads constructor(
         )
 
         binding.tvTitle.text = attributes.title
+        attributes.titleTextColor?.let { binding.tvTitle.setTextColor(it) }
         binding.etInput.hint = attributes.hint
         binding.tvError.text = attributes.errorText
         setPrefixText(attributes.prefixText)

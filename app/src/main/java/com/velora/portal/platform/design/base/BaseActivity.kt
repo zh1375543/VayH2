@@ -3,6 +3,7 @@ package com.velora.portal.platform.design.base
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.Color
 import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.annotation.ColorRes
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
+import com.velora.portal.R
 import com.velora.portal.application.MainApplication
 import com.velora.portal.platform.common.data.ACT_back
 import com.velora.portal.platform.common.data.ACT_copy
@@ -34,6 +37,7 @@ import com.velora.portal.platform.design.dialog.createLoadingDialog
 import com.velora.portal.platform.design.dialog.createVersionUpdateDialog
 import com.velora.portal.platform.design.component.StyledEditTextView
 import com.velora.portal.platform.common.util.platform.configureSystemBars
+import com.velora.portal.platform.common.util.context.resolveColorCompat
 import com.velora.portal.platform.common.util.start
 import kotlinx.coroutines.launch
 import java.util.Locale
@@ -53,12 +57,63 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
     private val updateDialog by lazy { createVersionUpdateDialog() }
 
+    private var statusBarOverlay: View? = null
+
     protected abstract val binding: VB
     protected open val adjustForImeInsets: Boolean = true
 
     /** Updates system-bar icon contrast for screens with a dark or light top background. */
     protected fun setLightSystemBarIcons(enabled: Boolean) {
-        configureSystemBars(darkMode = !enabled, adjustForIme = adjustForImeInsets)
+        setStatusBarAppearance(
+            statusBarColor = R.color.transparent,
+            useDarkStatusBarIcons = !enabled,
+        )
+    }
+
+    /** Applies a status-bar color and its matching icon contrast for any activity. */
+    protected fun setStatusBarAppearance(
+        @ColorRes statusBarColor: Int,
+        useDarkStatusBarIcons: Boolean,
+    ) {
+        val resolvedStatusBarColor = resolveColorCompat(statusBarColor)
+        configureSystemBars(
+            statusBarColor = resolvedStatusBarColor,
+            darkMode = useDarkStatusBarIcons,
+            adjustForIme = adjustForImeInsets,
+        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.isStatusBarContrastEnforced = false
+        }
+        window.decorView.post { updateStatusBarOverlay(resolvedStatusBarColor) }
+    }
+
+    /** Supplies a solid status-bar color on edge-to-edge Android versions. */
+    private fun updateStatusBarOverlay(color: Int) {
+        val contentRoot = findViewById<ViewGroup>(android.R.id.content) ?: return
+        val statusBarHeight = ViewCompat.getRootWindowInsets(window.decorView)
+            ?.getInsets(WindowInsetsCompat.Type.statusBars())
+            ?.top
+            ?: 0
+        if (Color.alpha(color) == 0 || statusBarHeight == 0) {
+            statusBarOverlay?.visibility = View.GONE
+            return
+        }
+
+        val overlay = statusBarOverlay ?: View(this).also { view ->
+            view.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+            contentRoot.addView(
+                view,
+                ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    statusBarHeight,
+                ),
+            )
+            statusBarOverlay = view
+        }
+        overlay.setBackgroundColor(color)
+        overlay.layoutParams = overlay.layoutParams.apply { height = statusBarHeight }
+        overlay.visibility = View.VISIBLE
+        overlay.bringToFront()
     }
 
     /** Launches the platform runtime-permission dialog for PermissionCoordinator. */

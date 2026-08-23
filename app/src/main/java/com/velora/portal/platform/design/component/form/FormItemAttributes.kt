@@ -13,6 +13,7 @@ internal data class FormItemAttributes(
     val inputBackgroundColor: Int?,
     val inputStrokeColor: Int?,
     val inputFocusedStrokeColor: Int?,
+    val titleTextColor: Int?,
 )
 
 internal enum class FormMode {

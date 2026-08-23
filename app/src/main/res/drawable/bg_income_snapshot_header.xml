@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="190dp"
+    android:viewportWidth="360"
+    android:viewportHeight="200">
+
+    <!-- The lower Bezier curve lets the stat cards sit within the hero panel. -->
+    <path
+        android:fillColor="@color/brand_primary"
+        android:pathData="M0,0H360V164C282,194 78,194 0,164Z" />
+</vector>

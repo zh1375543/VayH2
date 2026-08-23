@@ -87,8 +87,17 @@ class PayPilotActivity : BaseActivity<ActivityPayPilotBinding>() {
         tvOrder.isSelected = page == CALCULATOR_PAGE
         tvStats.isSelected = page == TIPS_PAGE
         tvMine.isSelected = page == ACCOUNT_PAGE
+        applyPageSystemBars()
         applyPageTopInset()
 
+    }
+
+    private fun applyPageSystemBars() {
+        val isHomePage = selectedPage == HOME_PAGE
+        setStatusBarAppearance(
+            statusBarColor = if (isHomePage) R.color.brand_primary else R.color.transparent,
+            useDarkStatusBarIcons = !isHomePage,
+        )
     }
 
     private fun configurePageInsets() {

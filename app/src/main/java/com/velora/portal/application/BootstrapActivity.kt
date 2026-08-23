@@ -20,6 +20,7 @@ import kotlin.time.Duration.Companion.milliseconds
 
 import com.velora.portal.platform.common.util.viewBinding
 import com.velora.portal.databinding.ScreenBootstrapBinding
+import com.velora.portal.moneyflow.PayPilotActivity
 
 class BootstrapActivity :
     BaseActivity<ScreenBootstrapBinding>() {
@@ -75,8 +76,8 @@ class BootstrapActivity :
         if (hasJump) return
         hasJump = true
         if (SessionStore.isLoggedIn) {
-            MainNavigator.launch(this@BootstrapActivity, clearTask = true)
-//           CalculationActivity.launch(this)
+//            MainNavigator.launch(this@BootstrapActivity, clearTask = true)
+            PayPilotActivity.launch(this)
         } else {
             startActivity(
                 Intent(this@BootstrapActivity, PhoneAuthActivity::class.java).apply {

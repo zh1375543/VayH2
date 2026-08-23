@@ -39,6 +39,11 @@ internal class FormItemAttributeReader(
                 } else {
                     null
                 },
+                titleTextColor = if (hasValue(R.styleable.FormItemView_titleTextColor)) {
+                    getColor(R.styleable.FormItemView_titleTextColor, Color.TRANSPARENT)
+                } else {
+                    null
+                },
             )
         }
         return result
