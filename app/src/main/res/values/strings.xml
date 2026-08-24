@@ -546,7 +546,7 @@ No personal SMS messages will be accessed, read, or collected.</string>
     <string name="calculator_tips_budget_title">50/30/20 Budget Rule</string>
     <string name="calculator_tips_budget_description">Divide your income into needs, wants, and savings.</string>
     <string name="calculator_tips_expenses_title">Track Your Monthly Expenses</string>
-    <string name="calculator_tips_expenses_description">Understanding your spending helps you manage\nmoney better.</string>
+    <string name="calculator_tips_expenses_description">Understanding your spending helps you manage nmoney better.</string>
     <string name="calculator_tips_goal_title">Set a Savings Goal</string>
     <string name="calculator_tips_goal_description">A clear goal makes saving easier.</string>
     <string name="calculator_tips_read_more">Read More</string>

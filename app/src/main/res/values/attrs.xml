@@ -210,6 +210,7 @@
 
         <!-- Additional attributes -->
         <attr name="editMaxLength" format="integer" />
+        <attr name="showErrorIcon" format="boolean" />
         <attr name="showContactIcon" format="boolean" />
         <attr name="formEndIcon" format="reference" />
         <attr name="inputBackgroundColor" format="color" />

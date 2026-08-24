@@ -25,7 +25,7 @@ class PayToolsFragment : BaseFragment<FragmentPayToolsBinding>(
     override fun initView() = with(binding) {
         bindMenu(
             menuSalary,
-            R.mipmap.page_cal_salary,
+            R.mipmap.image_salary,
             R.string.calculator_salary_title,
             R.string.calculator_salary_description,
         )
@@ -34,7 +34,7 @@ class PayToolsFragment : BaseFragment<FragmentPayToolsBinding>(
         }
         bindMenu(
             menuOvertime,
-            R.mipmap.page_cal_overtime,
+            R.mipmap.image_overtime,
             R.string.calculator_overtime_title,
             R.string.calculator_overtime_description,
         )
@@ -43,7 +43,7 @@ class PayToolsFragment : BaseFragment<FragmentPayToolsBinding>(
         }
         bindMenu(
             menuWorkHour,
-            R.mipmap.page_cal_work_hour,
+            R.mipmap.image_work,
             R.string.calculator_work_hour_title,
             R.string.calculator_work_hour_description,
         )
@@ -52,7 +52,7 @@ class PayToolsFragment : BaseFragment<FragmentPayToolsBinding>(
         }
         bindMenu(
             menuTax,
-            R.mipmap.page_cal_tax,
+            R.mipmap.image_tax,
             R.string.calculator_tax_title,
             R.string.calculator_tax_description,
         )
@@ -61,7 +61,7 @@ class PayToolsFragment : BaseFragment<FragmentPayToolsBinding>(
         }
         bindMenu(
             menuBonus,
-            R.mipmap.page_cal_bonus,
+            R.mipmap.image_bonus,
             R.string.calculator_bonus_title,
             R.string.calculator_bonus_description,
         )
@@ -70,7 +70,7 @@ class PayToolsFragment : BaseFragment<FragmentPayToolsBinding>(
         }
         bindMenu(
             menuSavings,
-            R.mipmap.page_cal_savings,
+            R.mipmap.image_saving,
             R.string.calculator_savings_title,
             R.string.calculator_savings_description,
         )

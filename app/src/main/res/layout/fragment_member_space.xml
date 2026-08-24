@@ -3,17 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dp_224"
-        android:contentDescription="@null"
-        android:scaleType="fitXY"
-        android:src="@mipmap/page_mine_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/accountScroll"
@@ -48,7 +39,7 @@
                     android:layout_height="@dimen/dp_64"
                     android:contentDescription="@null"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/page_mine_header" />
+                    android:src="@mipmap/ic_header_default" />
 
                 <TextView
                     android:id="@+id/tvPhone"
@@ -67,36 +58,55 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_84"
                 android:layout_marginTop="@dimen/dp_20"
-                android:background="@drawable/bg_mine_share_gradient"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground">
 
-                <TextView
+                <View
                     android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_64"
+                    android:background="@drawable/bg_member_share_app"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvShareTitle"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp_20"
+                    android:layout_marginStart="@dimen/dp_32"
+                    android:layout_marginEnd="@dimen/dp_24"
+                    android:ellipsize="end"
                     android:includeFontPadding="false"
+                    android:maxLines="1"
                     android:text="@string/share_app"
                     android:textColor="@color/text_inverse"
                     android:textSize="@dimen/sp_24"
                     android:textStyle="bold|italic"
+                    app:layout_constrainedWidth="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/tvShareArrow"
+                    app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.velora.portal.platform.design.component.StatefulLabelView
+                <View
+                    android:layout_width="@dimen/dp_8"
+                    android:layout_height="@dimen/dp_8"
+                    android:layout_marginStart="@dimen/dp_4"
+                    android:layout_marginTop="@dimen/dp_1"
+                    android:background="@drawable/bg_member_share_badge"
+                    app:layout_constraintStart_toEndOf="@id/tvShareTitle"
+                    app:layout_constraintTop_toTopOf="@id/tvShareTitle" />
+
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/tvShareArrow"
-                    android:layout_width="@dimen/dp_96"
-                    android:layout_height="@dimen/dp_40"
-                    android:layout_marginEnd="@dimen/dp_20"
-                    android:gravity="center"
-                    android:text="@string/mine_share_arrow"
-                    android:textColor="@color/brand_primary"
-                    android:textSize="@dimen/sp_28"
-                    app:labelCornerRadius="@dimen/dp_8"
-                    app:labelFillColor="@color/text_inverse"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="@dimen/dp_80"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/ic_share_img"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -109,8 +119,7 @@
                 android:paddingHorizontal="@dimen/dp_16"
                 app:panelCornerRadius="@dimen/dp_12"
                 app:panelFillColor="@color/surface_primary"
-                app:panelBorderColor="@color/border_default"
-                app:panelBorderWidth="@dimen/dp_1">
+                app:panelBorderColor="@color/border_default">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -133,7 +142,7 @@
                             android:layout_height="@dimen/dp_32"
                             android:layout_gravity="start|center_vertical"
                             android:contentDescription="@null"
-                            android:src="@mipmap/page_mine_contact" />
+                            android:src="@mipmap/ic_contact_img" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -173,7 +182,7 @@
                             android:layout_height="@dimen/dp_32"
                             android:layout_gravity="start|center_vertical"
                             android:contentDescription="@null"
-                            android:src="@mipmap/page_mine_privacy" />
+                            android:src="@mipmap/ic_privacy_img" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -213,7 +222,7 @@
                             android:layout_height="@dimen/dp_32"
                             android:layout_gravity="start|center_vertical"
                             android:contentDescription="@null"
-                            android:src="@mipmap/page_mine_set" />
+                            android:src="@mipmap/ic_setting_img" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -240,16 +249,13 @@
             <LinearLayout
                 android:id="@+id/ratingCard"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dp_100"
                 android:layout_marginTop="@dimen/dp_12"
-                android:minHeight="@dimen/dp_130"
-                android:background="@drawable/bg_mine_share_gradient"
+                android:background="@mipmap/ic_enjoying_bg"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/dp_20"
-                android:paddingTop="@dimen/dp_10"
-                android:paddingEnd="@dimen/dp_20"
-                android:paddingBottom="@dimen/dp_10">
+                android:paddingEnd="@dimen/dp_20">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -296,6 +302,7 @@
                         android:layout_gravity="top"
                         android:contentDescription="@null"
                         android:scaleType="fitXY"
+                        android:tint="@color/text_inverse"
                         android:src="@mipmap/page_enjoy_bg" />
 
                     <LinearLayout

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
 
     <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
@@ -94,37 +94,50 @@
             app:layout_constraintStart_toEndOf="@id/tvAccountNumberLabel" />
     </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-    <TextView
-        android:id="@+id/tvDescription"
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
+        android:id="@+id/deletionMessageCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_15"
         android:layout_marginEnd="@dimen/dp_16"
-        android:includeFontPadding="false"
-        android:lineSpacingExtra="@dimen/dp_2"
-        android:text="@string/delete_account_description"
-        android:textColor="@color/text_body"
-        android:textSize="@dimen/sp_12"
+        android:padding="@dimen/dp_15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/accountInfoCard" />
+        app:layout_constraintTop_toBottomOf="@id/accountInfoCard"
+        app:panelCornerRadius="@dimen/dp_12"
+        app:panelGradientDirection="leftToRight"
+        app:panelGradientEndColor="@color/brand_primary_light"
+        app:panelGradientStartColor="@color/brand_secondary">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_24"
-        android:layout_marginEnd="@dimen/dp_16"
-        android:includeFontPadding="false"
-        android:text="@string/delete_account_title"
-        android:textColor="@color/text_body"
-        android:textSize="@dimen/sp_12"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:text="@string/delete_account_description"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:includeFontPadding="false"
+            android:text="@string/delete_account_title"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_12"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
     <com.velora.portal.platform.design.component.StatefulActionButton
         android:id="@+id/tvConfirm"

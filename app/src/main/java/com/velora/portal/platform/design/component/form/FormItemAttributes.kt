@@ -8,6 +8,7 @@ internal data class FormItemAttributes(
     val mode: FormMode,
     val inputType: FormInputType,
     val maxLength: Int,
+    val showErrorIcon: Boolean,
     val showContactIcon: Boolean,
     val endIconRes: Int?,
     val inputBackgroundColor: Int?,

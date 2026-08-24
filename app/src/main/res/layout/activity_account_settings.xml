@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
 
     <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
@@ -37,7 +37,7 @@
             android:layout_height="@dimen/dp_24"
             android:layout_marginStart="@dimen/dp_24"
             android:contentDescription="@null"
-            android:src="@mipmap/page_delete_account"
+            android:src="@mipmap/ic_account_delect"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

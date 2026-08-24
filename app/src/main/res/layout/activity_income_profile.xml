@@ -100,7 +100,7 @@
                     android:id="@+id/workLocationView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:formEndIcon="@mipmap/page_address"
+                    app:formEndIcon="@mipmap/image_address"
                     app:formType="input"
                     app:hintText="@string/please_enter"
                     app:inputBackgroundColor="@color/surface_primary"

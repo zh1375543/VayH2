@@ -19,6 +19,10 @@ class AccountClosureCompleteActivity :
     }
 
     override fun initView() = with(binding) {
+        setStatusBarAppearance(
+            statusBarColor = R.color.action_withdraw,
+            useDarkStatusBarIcons = false,
+        )
         applyTopInset(root)
         tvOK.singleClick {
             handleBackPressed()

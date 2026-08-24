@@ -250,8 +250,8 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
             it?.let {
                 MainApplication.appViewModel.postRiskInfo(PageLogin) {}
                 vm.recordDeviceSnapshot()
-              //  launchPostLoginDestination()
-                PayPilotActivity.launch(this@PhoneAuthActivity)
+               launchPostLoginDestination()
+               // PayPilotActivity.launch(this@PhoneAuthActivity)
                 finish()
             }
         }

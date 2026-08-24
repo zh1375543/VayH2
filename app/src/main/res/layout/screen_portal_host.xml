@@ -43,49 +43,49 @@
         android:id="@+id/tvHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableTop="@mipmap/tab_home_unselected"
+        android:drawableTop="@mipmap/ic_tab_home_unselect"
         android:text="@string/home"
         android:gravity="center"
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/sp_12"
-        app:labelSelectedDrawableTop="@mipmap/tab_home_selected"
+        app:labelSelectedDrawableTop="@mipmap/ic_tab_home_select"
         app:layout_constraintBottom_toBottomOf="@id/vHome"
         app:layout_constraintEnd_toEndOf="@id/vHome"
         app:layout_constraintStart_toStartOf="@id/vHome"
         app:layout_constraintTop_toTopOf="@id/vHome"
-        app:labelSelectedTextColor="@color/text_primary" />
+        app:labelSelectedTextColor="@color/brand_primary" />
 
     <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableTop="@mipmap/tab_order_unselected"
+        android:drawableTop="@mipmap/ic_tab_order_unselect"
         android:text="@string/Taborder"
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/sp_12"
         android:gravity="center"
-        app:labelSelectedDrawableTop="@mipmap/tab_order_selected"
+        app:labelSelectedDrawableTop="@mipmap/ic_tab_order_select"
         app:layout_constraintBottom_toBottomOf="@id/vOrder"
         app:layout_constraintEnd_toEndOf="@id/vOrder"
         app:layout_constraintStart_toStartOf="@id/vOrder"
         app:layout_constraintTop_toTopOf="@id/vOrder"
-        app:labelSelectedTextColor="@color/text_primary" />
+        app:labelSelectedTextColor="@color/brand_primary" />
 
     <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvMine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableTop="@mipmap/tab_profile_unselected"
+        android:drawableTop="@mipmap/ic_tab_profile_unselect"
         android:text="@string/mine"
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/sp_12"
         android:gravity="center"
-        app:labelSelectedDrawableTop="@mipmap/tab_profile_selected"
+        app:labelSelectedDrawableTop="@mipmap/ic_tab_profile_select"
         app:layout_constraintBottom_toBottomOf="@id/vMine"
         app:layout_constraintEnd_toEndOf="@id/vMine"
         app:layout_constraintStart_toStartOf="@id/vMine"
         app:layout_constraintTop_toTopOf="@id/vMine"
-        app:labelSelectedTextColor="@color/text_primary" />
+        app:labelSelectedTextColor="@color/brand_primary" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivCustomer"

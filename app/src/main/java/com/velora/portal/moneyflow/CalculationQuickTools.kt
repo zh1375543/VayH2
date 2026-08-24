@@ -15,16 +15,16 @@ fun ViewMoneyflowQuickToolsBinding.bindCalculationQuickTools(
     onWorkHoursClick: (() -> Unit)? = null,
     onTaxClick: (() -> Unit)? = null,
 ) = with(this) {
-    bindTool(toolSalary, R.mipmap.page_salary_ic, R.string.calculator_salary_calculator) {
+    bindTool(toolSalary, R.mipmap.img_salary_cal, R.string.calculator_salary_calculator) {
         onSalaryClick?.invoke() ?: IncomeBreakdownActivity.launch(root.context)
     }
-    bindTool(toolOvertime, R.mipmap.page_overtime_ic, R.string.calculator_overtime_calculator) {
+    bindTool(toolOvertime, R.mipmap.img_overtime_cal, R.string.calculator_overtime_calculator) {
         onOvertimeClick?.invoke() ?: ExtraPayEstimatorActivity.launch(root.context)
     }
-    bindTool(toolWorkHours, R.mipmap.page_work_hors_ic, R.string.calculator_work_hours_calculator) {
+    bindTool(toolWorkHours, R.mipmap.img_workhour_cal, R.string.calculator_work_hours_calculator) {
         onWorkHoursClick?.invoke() ?: ShiftDurationActivity.launch(root.context)
     }
-    bindTool(toolTax, R.mipmap.page_tax_ic, R.string.calculator_tax_calculator) {
+    bindTool(toolTax, R.mipmap.img_tax_cal, R.string.calculator_tax_calculator) {
         onTaxClick?.invoke() ?: WithholdingEstimatorActivity.launch(root.context)
     }
 }

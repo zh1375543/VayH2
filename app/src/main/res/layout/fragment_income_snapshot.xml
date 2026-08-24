@@ -77,7 +77,7 @@
                     android:layout_marginEnd="@dimen/dp_14"
                     android:contentDescription="@null"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/page_message_ic"
+                    android:src="@mipmap/image_message"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

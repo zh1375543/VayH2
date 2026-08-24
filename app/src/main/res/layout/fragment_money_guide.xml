@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_page_color_bg"
     android:clipToPadding="false"
     android:fillViewport="true"
     android:overScrollMode="never">
@@ -41,7 +42,7 @@
                     android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/calculator_tips_title"
-                    android:textColor="@color/brand_primary"
+                    android:textColor="@color/text_primary"
                     android:textSize="@dimen/sp_14"
                     android:textStyle="bold" />
 
@@ -57,250 +58,312 @@
             </LinearLayout>
         </LinearLayout>
 
-        <FrameLayout
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/cardSalaryTip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_14">
+            android:layout_marginTop="@dimen/dp_14"
+            android:minHeight="@dimen/dp_148"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingEnd="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_16"
+            app:panelCornerRadius="@dimen/dp_10"
+            app:panelDerivePressedState="true"
+            app:panelFillColor="@color/brand_primary">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@null"
-                android:scaleType="fitXY"
-                android:src="@mipmap/page_sava_bg" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/salaryTextContent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/dp_118"
-                android:paddingStart="@dimen/dp_12"
-                android:paddingTop="@dimen/dp_17"
-                android:paddingEnd="@dimen/dp_12"
-                android:paddingBottom="@dimen/dp_10">
+                android:layout_marginEnd="@dimen/dp_20"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivSalaryTip"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/tvSalaryTipTitle"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
                     android:text="@string/calculator_tips_salary_title"
                     android:textColor="@color/text_inverse"
-                    android:textSize="@dimen/sp_15"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvSalaryTipDescription"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:includeFontPadding="false"
                     android:lineSpacingExtra="@dimen/dp_2"
                     android:text="@string/calculator_tips_salary_description"
                     android:textColor="@color/p40_FFFFFF"
-                    android:textSize="@dimen/sp_13"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSalaryTipTitle" />
+                    android:textSize="@dimen/sp_13" />
 
-                <TextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:id="@+id/tvSalaryTipReadMore"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dp_36"
+                    android:layout_marginTop="@dimen/dp_12"
+                    android:gravity="center"
+                    android:minWidth="@dimen/dp_100"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingEnd="@dimen/dp_12"
                     android:text="@string/calculator_tips_read_more"
-                    android:textColor="@color/text_inverse"
-                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_15"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSalaryTipDescription"
-                    app:layout_constraintVertical_bias="1" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </FrameLayout>
+                    app:labelCornerRadius="@dimen/dp_8"
+                    app:labelDerivePressedState="true"
+                    app:labelFillColor="@color/surface_primary" />
+            </LinearLayout>
 
-        <FrameLayout
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivSalaryTip"
+                android:layout_width="@dimen/dp_110"
+                android:layout_height="@dimen/dp_90"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/image_salary_ic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/cardBudgetTip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10">
+            android:layout_marginTop="@dimen/dp_10"
+            android:minHeight="@dimen/dp_148"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingEnd="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_16"
+            app:panelCornerRadius="@dimen/dp_10"
+            app:panelDerivePressedState="true"
+            app:panelFillColor="@color/brand_secondary">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@null"
-                android:scaleType="fitXY"
-                android:src="@mipmap/page_rule_bg" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/budgetTextContent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/dp_118"
-                android:paddingStart="@dimen/dp_12"
-                android:paddingTop="@dimen/dp_17"
-                android:paddingEnd="@dimen/dp_12"
-                android:paddingBottom="@dimen/dp_10">
+                android:layout_marginEnd="@dimen/dp_20"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivBudgetTip"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/tvBudgetTipTitle"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
                     android:text="@string/calculator_tips_budget_title"
                     android:textColor="@color/text_inverse"
-                    android:textSize="@dimen/sp_15"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvBudgetTipDescription"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="@dimen/dp_2"
                     android:text="@string/calculator_tips_budget_description"
                     android:textColor="@color/p40_FFFFFF"
-                    android:textSize="@dimen/sp_13"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvBudgetTipTitle" />
+                    android:textSize="@dimen/sp_13" />
 
-                <TextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:id="@+id/tvBudgetTipReadMore"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dp_36"
+                    android:layout_marginTop="@dimen/dp_12"
+                    android:gravity="center"
+                    android:minWidth="@dimen/dp_100"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingEnd="@dimen/dp_12"
                     android:text="@string/calculator_tips_read_more"
-                    android:textColor="@color/text_inverse"
-                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_15"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvBudgetTipDescription"
-                    app:layout_constraintVertical_bias="1" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </FrameLayout>
+                    app:labelCornerRadius="@dimen/dp_8"
+                    app:labelDerivePressedState="true"
+                    app:labelFillColor="@color/surface_primary" />
+            </LinearLayout>
 
-        <FrameLayout
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBudgetTip"
+                android:layout_width="@dimen/dp_110"
+                android:layout_height="@dimen/dp_90"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/image_rule_ic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/cardExpensesTip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10">
+            android:layout_marginTop="@dimen/dp_10"
+            android:minHeight="@dimen/dp_148"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingEnd="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_16"
+            app:panelCornerRadius="@dimen/dp_10"
+            app:panelDerivePressedState="true"
+            app:panelFillColor="@color/color_goal">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@null"
-                android:scaleType="fitXY"
-                android:src="@mipmap/page_track_bg" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/expensesTextContent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/dp_118"
-                android:paddingStart="@dimen/dp_12"
-                android:paddingTop="@dimen/dp_17"
-                android:paddingEnd="@dimen/dp_12"
-                android:paddingBottom="@dimen/dp_10">
+                android:layout_marginEnd="@dimen/dp_20"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivExpensesTip"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/tvExpensesTipTitle"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
                     android:text="@string/calculator_tips_expenses_title"
                     android:textColor="@color/text_inverse"
-                    android:textSize="@dimen/sp_15"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvExpensesTipDescription"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:includeFontPadding="false"
                     android:lineSpacingExtra="@dimen/dp_2"
                     android:text="@string/calculator_tips_expenses_description"
                     android:textColor="@color/p40_FFFFFF"
-                    android:textSize="@dimen/sp_13"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvExpensesTipTitle" />
+                    android:textSize="@dimen/sp_13" />
 
-                <TextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:id="@+id/tvExpensesTipReadMore"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dp_36"
+                    android:layout_marginTop="@dimen/dp_12"
+                    android:gravity="center"
+                    android:minWidth="@dimen/dp_100"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingEnd="@dimen/dp_12"
                     android:text="@string/calculator_tips_read_more"
-                    android:textColor="@color/text_inverse"
-                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_15"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvExpensesTipDescription"
-                    app:layout_constraintVertical_bias="1" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </FrameLayout>
+                    app:labelCornerRadius="@dimen/dp_8"
+                    app:labelDerivePressedState="true"
+                    app:labelFillColor="@color/surface_primary" />
+            </LinearLayout>
 
-        <FrameLayout
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivExpensesTip"
+                android:layout_width="@dimen/dp_110"
+                android:layout_height="@dimen/dp_90"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/image_expenses_ic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
+        <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/cardGoalTip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10">
+            android:layout_marginTop="@dimen/dp_10"
+            android:minHeight="@dimen/dp_148"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingEnd="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_16"
+            app:panelCornerRadius="@dimen/dp_10"
+            app:panelDerivePressedState="true"
+            app:panelFillColor="@color/status_success">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@null"
-                android:scaleType="fitXY"
-                android:src="@mipmap/page_goal_bg" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/goalTextContent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/dp_118"
-                android:paddingStart="@dimen/dp_12"
-                android:paddingTop="@dimen/dp_17"
-                android:paddingEnd="@dimen/dp_12"
-                android:paddingBottom="@dimen/dp_10">
+                android:layout_marginEnd="@dimen/dp_20"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivGoalTip"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/tvGoalTipTitle"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
                     android:text="@string/calculator_tips_goal_title"
                     android:textColor="@color/text_inverse"
-                    android:textSize="@dimen/sp_15"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvGoalTipDescription"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="@dimen/dp_2"
                     android:text="@string/calculator_tips_goal_description"
                     android:textColor="@color/p40_FFFFFF"
-                    android:textSize="@dimen/sp_13"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvGoalTipTitle" />
+                    android:textSize="@dimen/sp_13" />
 
-                <TextView
+                <com.velora.portal.platform.design.component.StatefulLabelView
                     android:id="@+id/tvGoalTipReadMore"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dp_36"
+                    android:layout_marginTop="@dimen/dp_12"
+                    android:gravity="center"
+                    android:minWidth="@dimen/dp_100"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingEnd="@dimen/dp_12"
                     android:text="@string/calculator_tips_read_more"
-                    android:textColor="@color/text_inverse"
-                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/sp_15"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvGoalTipDescription"
-                    app:layout_constraintVertical_bias="1" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </FrameLayout>
+                    app:labelCornerRadius="@dimen/dp_8"
+                    app:labelDerivePressedState="true"
+                    app:labelFillColor="@color/surface_primary" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivGoalTip"
+                android:layout_width="@dimen/dp_110"
+                android:layout_height="@dimen/dp_90"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/image_savings_goal_ic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.velora.portal.platform.design.component.SurfacePanelLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

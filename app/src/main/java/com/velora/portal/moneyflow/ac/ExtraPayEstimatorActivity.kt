@@ -40,8 +40,8 @@ class ExtraPayEstimatorActivity : BaseActivity<ActivityExtraPayEstimatorBinding>
         overtimeTypeView.setOnClick(::showOvertimeTypePicker)
         workingDaysView.setOnClick { showPicker(workingDaysView, SalaryFormOptions.workingDays) }
         hoursPerDayView.setOnClick { showPicker(hoursPerDayView, SalaryFormOptions.workHours) }
-        ivDecrease.singleClick { updateOvertimeHours(overtimeHours - OVERTIME_HOURS_STEP) }
-        ivIncrease.singleClick { updateOvertimeHours(overtimeHours + OVERTIME_HOURS_STEP) }
+        btnDecrease.singleClick { updateOvertimeHours(overtimeHours - OVERTIME_HOURS_STEP) }
+        btnIncrease.singleClick { updateOvertimeHours(overtimeHours + OVERTIME_HOURS_STEP) }
         basedOnSalaryToggle.singleClick {
             ivBasedOnSalary.isSelected = !ivBasedOnSalary.isSelected
             if (ivBasedOnSalary.isSelected) viewModel.getSalaryData()
@@ -120,10 +120,10 @@ class ExtraPayEstimatorActivity : BaseActivity<ActivityExtraPayEstimatorBinding>
     private fun updateOvertimeHours(value: BigDecimal) = with(binding) {
         overtimeHours = value.coerceIn(MIN_OVERTIME_HOURS, MAX_OVERTIME_HOURS)
         tvOvertimeHours.text = overtimeHours.stripTrailingZeros().toPlainString()
-        ivDecrease.isEnabled = overtimeHours > MIN_OVERTIME_HOURS
-        ivDecrease.alpha = if (ivDecrease.isEnabled) ENABLED_ALPHA else DISABLED_ALPHA
-        ivIncrease.isEnabled = overtimeHours < MAX_OVERTIME_HOURS
-        ivIncrease.alpha = if (ivIncrease.isEnabled) ENABLED_ALPHA else DISABLED_ALPHA
+        btnDecrease.isEnabled = overtimeHours > MIN_OVERTIME_HOURS
+        btnDecrease.alpha = if (btnDecrease.isEnabled) ENABLED_ALPHA else DISABLED_ALPHA
+        btnIncrease.isEnabled = overtimeHours < MAX_OVERTIME_HOURS
+        btnIncrease.alpha = if (btnIncrease.isEnabled) ENABLED_ALPHA else DISABLED_ALPHA
     }
 
     private fun validateForm(): Boolean = with(binding) {

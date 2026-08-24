@@ -34,7 +34,7 @@
                 android:layout_marginStart="@dimen/dp_10"
                 android:includeFontPadding="false"
                 android:text="@string/calculator_title"
-                android:textColor="@color/brand_primary"
+                android:textColor="@color/text_primary"
                 android:textSize="@dimen/sp_14"
                 android:textStyle="bold" />
         </LinearLayout>

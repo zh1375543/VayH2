@@ -157,10 +157,11 @@ class FormItemView @JvmOverloads constructor(
     }
 
     private fun updateValidationIcon(hasError: Boolean) = with(binding) {
-        ivErrorIcon.isVisible = hasError
-        ivEndIcon.isVisible = hasExternalEndIcon && !hasError
+        val showErrorIcon = hasError && attributes.showErrorIcon
+        ivErrorIcon.isVisible = showErrorIcon
+        ivEndIcon.isVisible = hasExternalEndIcon && !showErrorIcon
         etInput.updatePaddingRelative(
-            end = if (hasError) {
+            end = if (showErrorIcon) {
                 defaultInputPaddingEnd + ERROR_ICON_RESERVED_WIDTH_DP.dp
             } else {
                 defaultInputPaddingEnd

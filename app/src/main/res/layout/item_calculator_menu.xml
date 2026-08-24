@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.velora.portal.platform.design.component.SurfacePanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/CalculatorMenuCard">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivCalculatorIcon"
-        style="@style/CalculatorMenuIcon" />
+        style="@style/CalculatorMenuIcon"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvCalculatorTitle"
-        style="@style/CalculatorMenuTitle" />
+        style="@style/CalculatorMenuTitle"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvCalculatorDescription"
-        style="@style/CalculatorMenuDescription" />
+        style="@style/CalculatorMenuDescription"
+        tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivCalculatorArrow"
         style="@style/CalculatorMenuArrow"
-        android:src="@mipmap/page_right" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:src="@mipmap/page_right"
+        tools:ignore="MissingConstraints" />
+</com.velora.portal.platform.design.component.SurfacePanelLayout>

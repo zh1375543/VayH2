@@ -50,17 +50,26 @@ class IncomeSnapshotFragment : BaseFragment<FragmentIncomeSnapshotBinding>(
 
     override fun onResume() {
         super.onResume()
-        if (!SessionStore.isLoggedIn) {
-            profileConfigured = null
-        }
         refreshCalculationHome()
     }
 
     private fun refreshCalculationHome() = with(binding) {
+        if (!SessionStore.isLoggedIn) {
+            renderGuestState()
+            return@with
+        }
         contentLayout.isVisible = false
         pageState.showLoading()
         swipeRefreshLayout.isRefreshing = false
         vm.getCalculationHomeData()
+    }
+
+    private fun renderGuestState() = with(binding) {
+        profileConfigured = null
+        swipeRefreshLayout.isRefreshing = false
+        contentLayout.isVisible = true
+        pageState.hide()
+        renderSessionState(showMemberContent = false)
     }
 
     private fun renderSessionState(
@@ -77,25 +86,25 @@ class IncomeSnapshotFragment : BaseFragment<FragmentIncomeSnapshotBinding>(
 
         bindStatCard(
             cardMonthlySalary,
-            R.mipmap.page_monthly_ic,
+            R.mipmap.image_monthly_ic,
             getString(R.string.calculator_monthly_salary),
             getString(R.string.calculator_empty_currency),
         )
         bindStatCard(
             cardNextPayday,
-            R.mipmap.page_payday_ic,
+            R.mipmap.image_next_ic,
             getString(R.string.calculator_next_payday),
             getString(R.string.calculator_none),
         )
         bindStatCard(
             cardDailySalary,
-            R.mipmap.page_daily_ic,
+            R.mipmap.image_daily_ic,
             getString(R.string.calculator_daily_salary),
             getString(R.string.calculator_empty_currency),
         )
         bindStatCard(
             cardMonthlyGoal,
-            R.mipmap.page_goal_ic,
+            R.mipmap.image_goal_ic,
             getString(R.string.calculator_monthly_goal),
             getString(R.string.calculator_none),
         )
@@ -117,7 +126,7 @@ class IncomeSnapshotFragment : BaseFragment<FragmentIncomeSnapshotBinding>(
         homeData.monthlySalary?.let {
             bindStatCard(
                 cardMonthlySalary,
-                R.mipmap.page_monthly_ic,
+                R.mipmap.image_monthly_ic,
                 getString(R.string.calculator_monthly_salary),
                 it.formatAmountWithPrefix(),
             )
@@ -125,7 +134,7 @@ class IncomeSnapshotFragment : BaseFragment<FragmentIncomeSnapshotBinding>(
         homeData.dailySalary?.let {
             bindStatCard(
                 cardDailySalary,
-                R.mipmap.page_daily_ic,
+                R.mipmap.image_daily_ic,
                 getString(R.string.calculator_daily_salary),
                 it.formatAmountWithPrefix(),
             )
@@ -133,7 +142,7 @@ class IncomeSnapshotFragment : BaseFragment<FragmentIncomeSnapshotBinding>(
         homeData.nextPayday?.let { payday ->
             bindStatCard(
                 cardNextPayday,
-                R.mipmap.page_payday_ic,
+                R.mipmap.image_next_ic,
                 getString(R.string.calculator_next_payday),
                 getString(R.string.calculator_days_left, payday.daysLeft),
                 payday.date,
@@ -142,7 +151,7 @@ class IncomeSnapshotFragment : BaseFragment<FragmentIncomeSnapshotBinding>(
         homeData.monthlyGoal?.takeIf { it.configured }?.let { goal ->
             bindStatCard(
                 cardMonthlyGoal,
-                R.mipmap.page_goal_ic,
+                R.mipmap.image_goal_ic,
                 getString(R.string.calculator_monthly_goal),
                 goal.progress.formatPercentage(),
                 goal.currentSavings?.let { current ->
@@ -176,6 +185,10 @@ class IncomeSnapshotFragment : BaseFragment<FragmentIncomeSnapshotBinding>(
 
     override fun initObserve() = with(vm) {
         calculationHomeState.observe(this@IncomeSnapshotFragment) { state ->
+            if (!SessionStore.isLoggedIn) {
+                renderGuestState()
+                return@observe
+            }
             when (state) {
                 PageLoadState.Loading -> {
                     binding.contentLayout.isVisible = false

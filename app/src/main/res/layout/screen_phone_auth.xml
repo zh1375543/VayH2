@@ -99,6 +99,7 @@
                 app:inputStrokeColor="@color/border_default"
                 app:inputType="phone"
                 app:prefixText="🇵🇭 +63"
+                app:showErrorIcon="true"
                 app:titleText="@string/phone_number" />
 
             <LinearLayout
@@ -119,6 +120,7 @@
                     app:inputFocusedStrokeColor="@color/text_primary"
                     app:inputStrokeColor="@color/border_default"
                     app:inputType="number"
+                    app:showErrorIcon="true"
                     app:titleText="@string/otp" />
 
                 <com.velora.portal.platform.design.component.StatefulActionButton

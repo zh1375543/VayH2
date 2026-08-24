@@ -21,6 +21,7 @@ internal class FormItemAttributeReader(
                 mode = getInt(R.styleable.FormItemView_formType, 0).toFormMode(),
                 inputType = getInt(R.styleable.FormItemView_inputType, 0).toFormInputType(),
                 maxLength = getInt(R.styleable.FormItemView_editMaxLength, -1),
+                showErrorIcon = getBoolean(R.styleable.FormItemView_showErrorIcon, false),
                 showContactIcon = getBoolean(R.styleable.FormItemView_showContactIcon, false),
                 endIconRes = getResourceId(R.styleable.FormItemView_formEndIcon, 0)
                     .takeIf { it != 0 },

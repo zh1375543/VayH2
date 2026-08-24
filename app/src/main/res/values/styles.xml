@@ -152,10 +152,8 @@
         <item name="android:layout_height">@dimen/dp_72</item>
         <item name="android:paddingStart">@dimen/dp_10</item>
         <item name="android:paddingEnd">@dimen/dp_10</item>
-        <item name="radius">@dimen/dp_10</item>
-        <item name="solidColor">@color/surface_primary</item>
-        <item name="strokeColor">@color/brand_primary</item>
-        <item name="strokeWidth">@dimen/dp_1</item>
+        <item name="panelCornerRadius">@dimen/dp_10</item>
+        <item name="panelFillColor">@color/color_order_over</item>
     </style>
 
     <style name="CalculatorMenuIcon">
@@ -175,7 +173,7 @@
         <item name="android:ellipsize">end</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:maxLines">1</item>
-        <item name="android:textColor">@color/brand_primary</item>
+        <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/sp_18</item>
         <item name="android:textStyle">bold</item>
         <item name="layout_constraintBottom_toTopOf">@id/tvCalculatorDescription</item>
@@ -193,7 +191,7 @@
         <item name="android:ellipsize">end</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:maxLines">1</item>
-        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/sp_12</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="layout_constraintEnd_toStartOf">@id/ivCalculatorArrow</item>

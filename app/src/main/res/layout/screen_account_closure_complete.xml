@@ -1,55 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivSuccessBackground"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:contentDescription="@null"
-        android:scaleType="fitXY"
-        android:src="@mipmap/image_verify_success_bg"
-        app:layout_constraintBottom_toBottomOf="@id/viewSuccessContentSpacer"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivSuccess"
-        android:layout_width="@dimen/dp_112"
-        android:layout_height="@dimen/dp_112"
-        android:layout_marginTop="@dimen/dp_64"
-        android:contentDescription="@null"
-        android:scaleType="fitCenter"
-        android:src="@mipmap/icon_delete_ok"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_12"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:lineSpacingExtra="@dimen/dp_2"
-        android:text="@string/data_has_deleted"
-        android:textColor="@color/text_inverse"
-        android:textSize="@dimen/sp_24"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivSuccess" />
-
-    <View
-        android:id="@+id/viewSuccessContentSpacer"
+    <com.velora.portal.platform.design.component.CurvedHeaderLayout
+        android:id="@+id/successHeader"
         android:layout_width="0dp"
-        android:layout_height="@dimen/dp_38"
+        android:layout_height="wrap_content"
+        app:curvedHeaderArcDepth="@dimen/dp_36"
+        app:curvedHeaderContentSpacing="@dimen/dp_20"
+        app:curvedHeaderFillColor="@color/action_withdraw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSuccess"
+            android:layout_width="@dimen/dp_112"
+            android:layout_height="@dimen/dp_112"
+            android:layout_marginTop="@dimen/dp_64"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_delect_success"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:text="@string/data_has_deleted"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_24"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSuccess" />
+
+        <View
+            android:id="@+id/viewSuccessContentSpacer"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_38"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+    </com.velora.portal.platform.design.component.CurvedHeaderLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomActionPanel"
@@ -57,7 +62,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/dp_20"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewSuccessContentSpacer"
+        app:layout_constraintTop_toBottomOf="@id/successHeader"
         app:layout_constraintVertical_bias="1">
 
         <TextView
