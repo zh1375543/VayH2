@@ -29,6 +29,7 @@ class HomeOrderAdapter :
         position: Int,
     ) = with(binding) {
         tvRepay.isSelected = false
+        statusIndicator.isSelected = false
         tvState.isSelected = false
         tvDesc.isSelected = false
         tvName.text = item.productName
@@ -76,6 +77,7 @@ class HomeOrderAdapter :
             ORDER_STATUS_OVERDUE,
             ORDER_STATUS_BAD_DEBTS,
                 -> {
+                statusIndicator.isSelected = true
                 tvState.isSelected = true
                 tvDesc.isSelected = true
                 tvRepay.isSelected = true

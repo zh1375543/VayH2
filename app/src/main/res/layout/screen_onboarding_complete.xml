@@ -1,68 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivSuccessBackground"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:contentDescription="@null"
-        android:scaleType="fitXY"
-        android:src="@mipmap/image_verify_success_bg"
-        app:layout_constraintBottom_toBottomOf="@id/viewSuccessContentSpacer"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivSuccess"
-        android:layout_width="@dimen/dp_112"
-        android:layout_height="@dimen/dp_112"
-        android:layout_marginTop="@dimen/dp_64"
-        android:contentDescription="@null"
-        android:scaleType="fitCenter"
-        android:src="@mipmap/image_verify_success"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_12"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:lineSpacingExtra="@dimen/dp_2"
-        android:text="@string/submit_success"
-        android:textColor="@color/text_inverse"
-        android:textSize="@dimen/sp_24"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivSuccess" />
-
-    <TextView
-        android:id="@+id/tvSubtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_8"
-        android:gravity="center"
-        android:text="@string/you_can_borrow"
-        android:textColor="@color/brand_primary"
-        android:textSize="@dimen/sp_12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
-
-    <View
-        android:id="@+id/viewSuccessContentSpacer"
+    <com.velora.portal.platform.design.component.CurvedHeaderLayout
+        android:id="@+id/successHeader"
         android:layout_width="0dp"
-        android:layout_height="@dimen/dp_38"
+        android:layout_height="wrap_content"
+        app:curvedHeaderArcDepth="@dimen/dp_36"
+        app:curvedHeaderContentSpacing="@dimen/dp_20"
+        app:curvedHeaderFillColor="@color/brand_primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSuccess"
+            android:layout_width="@dimen/dp_112"
+            android:layout_height="@dimen/dp_112"
+            android:layout_marginTop="@dimen/dp_64"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_identity_success"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:text="@string/submit_success"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_24"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSuccess" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:gravity="center"
+            android:text="@string/you_can_borrow"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    </com.velora.portal.platform.design.component.CurvedHeaderLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomActionPanel"
@@ -70,18 +66,20 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/dp_20"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewSuccessContentSpacer"
+        app:layout_constraintTop_toBottomOf="@id/successHeader"
         app:layout_constraintVertical_bias="1">
 
         <TextView
             android:id="@+id/tvTips"
             style="@style/SuccessPageCountdownText"
-            android:text="@string/back_to_home_tips" />
+            android:text="@string/back_to_home_tips"
+            tools:ignore="MissingConstraints" />
 
         <com.velora.portal.platform.design.component.StatefulActionButton
             android:id="@+id/tvOK"
             style="@style/SuccessPageActionButton"
-            android:text="@string/back_to_home" />
+            android:text="@string/back_to_home"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

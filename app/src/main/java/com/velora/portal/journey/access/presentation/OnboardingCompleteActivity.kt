@@ -21,9 +21,13 @@ class OnboardingCompleteActivity :
         configureCountdownAndConfirm()
     }
 
-    /** Sets the light system bar and routes the hardware back action back home. */
+    /** Sets the immersive success header system bar and routes the hardware back action home. */
     private fun configureSystemBarAndBack() = with(binding) {
-        setLightSystemBarIcons(enabled = true)
+        setStatusBarAppearance(
+            statusBarColor = R.color.brand_primary,
+            useDarkStatusBarIcons = false,
+        )
+        applyTopInset(root)
         registerTrackedBackHandler(null) {
             finish()
             PortalHostActivity.launch(this@OnboardingCompleteActivity, isFromAuth = true)

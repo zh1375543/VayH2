@@ -4,14 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
+
+    <com.velora.portal.platform.design.component.CurvedHeaderLayout
+        android:id="@+id/documentReviewBackground"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_230"
+        android:importantForAccessibility="no"
+        app:curvedHeaderArcDepth="@dimen/dp_36"
+        app:curvedHeaderContentSpacing="@dimen/dp_0"
+        app:curvedHeaderFillColor="@color/brand_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/document_review_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:centerText="KYC"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIconColor="@color/text_inverse"
+        app:tintColor="@color/text_inverse" />
 
     <FrameLayout
         android:id="@+id/page_container"
@@ -48,8 +62,9 @@
 
                             <com.velora.portal.platform.design.component.StatefulLabelView
                                 android:id="@+id/tvCard"
-                                style="@style/TypeTag"
+                                style="@style/PayoutFormSectionTitle"
                                 android:text="@string/nic_card"
+                                app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,16 +72,15 @@
                                 android:id="@+id/tv_document_example_action"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/dp_10"
                                 android:layout_marginEnd="@dimen/dp_12"
-                                android:drawableEnd="@mipmap/ic_eyes_statu"
+                                android:drawableEnd="@mipmap/ic_kyc_eye"
                                 android:drawablePadding="@dimen/dp_6"
                                 android:gravity="center_vertical"
                                 android:text="@string/view_sample"
                                 android:textColor="@color/brand_primary"
                                 android:textSize="@dimen/sp_14"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintTop_toTopOf="@id/document_type_field" />
 
                             <com.velora.portal.platform.design.component.FormItemView
                                 android:id="@+id/document_type_field"
@@ -359,8 +373,9 @@
 
                                 <com.velora.portal.platform.design.component.StatefulLabelView
                                     android:id="@+id/tvSelf"
-                                    style="@style/TypeTag"
+                                    style="@style/PayoutFormSectionTitle"
                                     android:text="@string/self_photo"
+                                    app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -370,14 +385,14 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/dp_10"
                                     android:layout_marginEnd="@dimen/dp_12"
-                                    android:drawableEnd="@mipmap/ic_eyes_statu"
+                                    android:drawableEnd="@mipmap/ic_kyc_eye"
                                     android:drawablePadding="@dimen/dp_6"
                                     android:gravity="center_vertical"
                                     android:text="@string/view_sample"
                                     android:textColor="@color/brand_primary"
                                     android:textSize="@dimen/sp_14"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toBottomOf="@id/tvSelf" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
 

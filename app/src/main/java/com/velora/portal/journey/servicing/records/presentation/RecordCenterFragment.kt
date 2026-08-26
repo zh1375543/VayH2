@@ -1,7 +1,10 @@
 package com.velora.portal.journey.servicing.records.presentation
 
+import android.graphics.Rect
+import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseFragment
 import com.velora.portal.platform.common.data.ACT_inOrdersPage
@@ -46,6 +49,9 @@ class RecordCenterFragment : BaseFragment<FragmentRecordCenterBinding>(R.layout.
     /** Binds the order adapter and wires up the retry action of the page state view. */
     private fun bindOrderList() = with(binding) {
         rvOrder.adapter = orderAdapter
+        rvOrder.addItemDecoration(
+            VerticalItemSpacingDecoration(resources.getDimensionPixelSize(R.dimen.dp_10)),
+        )
         pageState.setOnRetryClickListener {
             vm.getAuthData()
         }
@@ -58,6 +64,22 @@ class RecordCenterFragment : BaseFragment<FragmentRecordCenterBinding>(R.layout.
         }
         swipeRefreshLayout.setOnRefreshListener {
             vm.getAuthData()
+        }
+    }
+
+    /** Adds spacing between order cards without adding space above the first card. */
+    private class VerticalItemSpacingDecoration(
+        private val spacing: Int,
+    ) : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State,
+        ) {
+            if (parent.getChildAdapterPosition(view) > 0) {
+                outRect.top = spacing
+            }
         }
     }
 
@@ -113,7 +135,7 @@ class RecordCenterFragment : BaseFragment<FragmentRecordCenterBinding>(R.layout.
                     tvOrderNum.setClickableTextWithScale(
                         String.format(getString(R.string.home_order_num), size.toString()),
                         size.toString(),
-                        root.context.resolveColorCompat(R.color.action_withdraw),
+                        root.context.resolveColorCompat(R.color.badge_promotion),
                     )
                     repaymentLayout.isVisible = response.showMultipleRepaySign == 1 && size > 0
                 }

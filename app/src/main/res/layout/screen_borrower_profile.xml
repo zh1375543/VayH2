@@ -4,14 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
+
+    <com.velora.portal.platform.design.component.CurvedHeaderLayout
+        android:id="@+id/applicantDetailsBackground"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_230"
+        android:importantForAccessibility="no"
+        app:curvedHeaderArcDepth="@dimen/dp_36"
+        app:curvedHeaderContentSpacing="@dimen/dp_0"
+        app:curvedHeaderFillColor="@color/brand_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/applicant_details_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:centerText="@string/personal_info"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIconColor="@color/text_inverse"
+        app:tintColor="@color/text_inverse" />
 
     <FrameLayout
         android:id="@+id/page_container"
@@ -50,7 +64,7 @@
                 app:radius="@dimen/dp_12"
                 app:solidColor="@color/text_inverse">
                 <com.velora.portal.platform.design.component.StatefulLabelView
-                   style="@style/TypeTag"
+                   style="@style/PayoutFormSectionTitle"
                     android:text="@string/personal_info" />
                 <com.velora.portal.platform.design.component.FormItemView
                     android:id="@+id/field_family_name"

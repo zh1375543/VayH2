@@ -120,16 +120,16 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
     }
 
     private fun updateStatusBarAppearance(page: Int) {
-        val isHomePage = page == 0
+        val usesBrandHeader = page != 2
         setStatusBarAppearance(
-            statusBarColor = if (isHomePage) R.color.brand_primary else R.color.transparent,
-            useDarkStatusBarIcons = !isHomePage,
+            statusBarColor = if (usesBrandHeader) R.color.brand_primary else R.color.transparent,
+            useDarkStatusBarIcons = !usesBrandHeader,
         )
         binding.topHeaderBackground.setBackgroundColor(
-            getColor(if (isHomePage) R.color.brand_primary else R.color.page_bg_color1)
+            getColor(if (usesBrandHeader) R.color.brand_primary else R.color.page_bg_color1)
         )
         binding.tvAppName.setTextColor(
-            getColor(if (isHomePage) R.color.text_inverse else R.color.text_primary)
+            getColor(if (usesBrandHeader) R.color.text_inverse else R.color.text_primary)
         )
     }
 
