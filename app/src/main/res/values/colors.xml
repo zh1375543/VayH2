@@ -38,4 +38,5 @@
 
     <color name="color_page_bg">#F5F5F5</color>
     <color name="color_page_color_bg">#F9F9F1</color>
+    <color name="color_card_tab_bg">#D3E9FF</color>
 </resources>

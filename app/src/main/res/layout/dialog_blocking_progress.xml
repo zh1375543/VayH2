@@ -13,7 +13,7 @@
         app:radius="@dimen/dp_8"
         app:solidColor="@color/p50_000000">
 
-        <com.velora.portal.platform.design.component.ShapeBounceLoadingView
+        <com.velora.portal.platform.design.component.CubeGridLoadingView
             android:layout_width="@dimen/dp_60"
             android:layout_height="@dimen/dp_60" />
 

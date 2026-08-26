@@ -4,21 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
+
+    <com.velora.portal.platform.design.component.CurvedHeaderLayout
+        android:id="@+id/payoutContactBackground"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_230"
+        android:importantForAccessibility="no"
+        app:curvedHeaderArcDepth="@dimen/dp_36"
+        app:curvedHeaderContentSpacing="@dimen/dp_0"
+        app:curvedHeaderFillColor="@color/brand_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/payoutContactHeader"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_44"
         app:centerText="@string/bank_and_contact"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIconColor="@color/text_inverse"
+        app:tintColor="@color/text_inverse" />
 
     <FrameLayout
         android:id="@+id/page_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/dp_15"
-        android:paddingTop="@dimen/dp_10"
         app:layout_constraintBottom_toTopOf="@id/submissionActionBar"
         app:layout_constraintTop_toBottomOf="@id/payoutContactHeader">
 
@@ -69,7 +82,7 @@
                     app:solidColor="@color/text_inverse">
 
                     <com.velora.portal.platform.design.component.StatefulLabelView
-                        style="@style/TypeTag"
+                        style="@style/PayoutFormSectionTitle"
                         android:text="@string/emergency_contact" />
                     <TextView
                         android:id="@+id/tvContactGuidance"

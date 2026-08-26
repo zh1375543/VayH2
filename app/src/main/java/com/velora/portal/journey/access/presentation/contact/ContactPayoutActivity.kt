@@ -458,6 +458,13 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
         disbursementMethodField.setText(getString(
             if (method == WithdrawMethod.BANK) R.string.bank else R.string.e_wallet,
         ))
+        disbursementMethodField.setStartIcon(
+            if (method == WithdrawMethod.BANK) {
+                R.mipmap.ic_bank_default
+            } else {
+                R.mipmap.ic_wallet_header
+            },
+        )
         disbursementMethodField.hideError()
         bankDetailsSection.isVisible = method == WithdrawMethod.BANK
         walletDetailsSection.isVisible = method == WithdrawMethod.WALLET
@@ -468,6 +475,7 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
         shouldShowWalletPicker = false
         walletBean = null
         disbursementMethodField.setText(null)
+        disbursementMethodField.setStartIcon(null)
         disbursementMethodField.hideError()
         bankDetailsSection.isVisible = false
         walletDetailsSection.isVisible = false

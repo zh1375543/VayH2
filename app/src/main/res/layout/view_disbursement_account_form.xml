@@ -18,8 +18,8 @@
         app:solidColor="@color/text_inverse">
 
         <com.velora.portal.platform.design.component.StatefulLabelView
-            style="@style/TypeTag"
-            android:text="@string/bank_card" />
+            style="@style/PayoutFormSectionTitle"
+            android:text="@string/withdraw_method" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -29,6 +29,7 @@ class FormItemView @JvmOverloads constructor(
     private val defaultInputPaddingStart: Int
     private val defaultInputPaddingEnd: Int
     private var hasExternalEndIcon = false
+    private var hasStartIcon = false
 
     init {
         orientation = VERTICAL
@@ -50,6 +51,9 @@ class FormItemView @JvmOverloads constructor(
         attributes.titleTextColor?.let { binding.tvTitle.setTextColor(it) }
         binding.etInput.hint = attributes.hint
         binding.tvError.text = attributes.errorText
+        hasStartIcon = attributes.startIconRes != null
+        binding.ivStartIcon.isVisible = hasStartIcon
+        attributes.startIconRes?.let(binding.ivStartIcon::setImageResource)
         setPrefixText(attributes.prefixText)
         hasExternalEndIcon = attributes.showContactIcon || attributes.endIconRes != null
         binding.ivEndIcon.isVisible = hasExternalEndIcon
@@ -80,17 +84,13 @@ class FormItemView @JvmOverloads constructor(
         val hasPrefix = !text.isNullOrBlank()
         binding.prefixContainer.isVisible = hasPrefix
         binding.tvPrefix.text = text ?: ""
-
-        if (!hasPrefix) {
-            binding.etInput.updatePaddingRelative(start = defaultInputPaddingStart)
-            return
+        binding.prefixContainer.translationX = if (hasStartIcon) {
+            START_ICON_RESERVED_WIDTH_DP.dp.toFloat()
+        } else {
+            0f
         }
-
-        binding.prefixContainer.doOnLayout {
-            binding.etInput.updatePaddingRelative(
-                start = defaultInputPaddingStart + it.width + PREFIX_INPUT_SPACING_DP.dp,
-            )
-        }
+        binding.prefixContainer.doOnLayout { updateInputStartPadding() }
+        updateInputStartPadding()
     }
 
     fun showError() {
@@ -128,6 +128,19 @@ class FormItemView @JvmOverloads constructor(
         binding.ivEndIcon.isVisible = imageRes != null && !binding.ivErrorIcon.isVisible
         imageRes?.let(binding.ivEndIcon::setImageResource)
         modeController.setUsesExternalEndIcon(imageRes != null)
+    }
+
+    /** Shows an optional icon before the input text without changing existing form fields. */
+    fun setStartIcon(@DrawableRes imageRes: Int?) {
+        hasStartIcon = imageRes != null
+        binding.ivStartIcon.isVisible = hasStartIcon
+        imageRes?.let(binding.ivStartIcon::setImageResource)
+        binding.prefixContainer.translationX = if (hasStartIcon) {
+            START_ICON_RESERVED_WIDTH_DP.dp.toFloat()
+        } else {
+            0f
+        }
+        updateInputStartPadding()
     }
 
     fun setEndIconClick(block: () -> Unit) {
@@ -169,11 +182,31 @@ class FormItemView @JvmOverloads constructor(
         )
     }
 
+    private fun updateInputStartPadding() {
+        val hasPrefix = binding.prefixContainer.isVisible
+        val prefixWidth = if (hasPrefix) {
+            binding.prefixContainer.width + PREFIX_INPUT_SPACING_DP.dp
+        } else {
+            0
+        }
+        val inputStart = when {
+            hasStartIcon && hasPrefix -> {
+                START_ICON_RESERVED_WIDTH_DP.dp + defaultInputPaddingStart
+            }
+            hasStartIcon -> START_ICON_RESERVED_WIDTH_DP.dp
+            else -> defaultInputPaddingStart
+        }
+        binding.etInput.updatePaddingRelative(
+            start = inputStart + prefixWidth,
+        )
+    }
+
     private val Int.dp: Int
         get() = (this * resources.displayMetrics.density).toInt()
 
     private companion object {
         const val PREFIX_INPUT_SPACING_DP = 12
+        const val START_ICON_RESERVED_WIDTH_DP = 44
         const val ERROR_ICON_RESERVED_WIDTH_DP = 44
     }
 }

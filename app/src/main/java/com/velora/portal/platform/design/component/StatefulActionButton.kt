@@ -41,7 +41,7 @@ class StatefulActionButton @JvmOverloads constructor(
     /** Visual variant: [VARIANT_FILLED] (solid bg) or [VARIANT_OUTLINE] (transparent bg + stroke). */
     private var variant = VARIANT_FILLED
     /** Corner radius of the background drawable. */
-    private var radius = resources.getDimension(R.dimen.dp_16)
+    private var radius = resources.getDimension(R.dimen.dp_12)
     /** Normal-state fill color. null → use variant default. */
     private var solidColor: Int? = null
     /** Pressed-state fill color. null → auto-lightened from solidColor. */

@@ -21,7 +21,7 @@
     <string name="reject">Reject</string>
     <string name="agree">Agree</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="privacy_toast_agree2">Please consent to the Privacy Policy and Terms and Conditions.</string>
+    <string name="privacy_toast_agree2">Please consent to the Privacy Policy and Service Agreement</string>
 
     <string name="home">Home</string>
     <string name="order">Calculator</string>
@@ -32,8 +32,8 @@
 
     <string name="otp_enter">Enter OTP</string>
     <string name="accept_policy">I have read and accepted the %s and %s</string>
-    <string name="privacy_agreement">Privacy Agreement</string>
-    <string name="privacy_blue">Privacy Policy</string>
+    <string name="privacy_agreement">Privacy Policy</string>
+    <string name="privacy_blue">Service Agreement</string>
     <string name="retry">Retry</string>
     <string name="authenticate">Login</string>
 
@@ -64,10 +64,8 @@
     <string name="settings">Settings</string>
     <string name="contact_us">Contact Us</string>
     <string name="share_app">Share App</string>
-    <string name="help_center">Help Center</string>
     <string name="contact_support">Contact Support</string>
     <string name="mine_share_arrow">→</string>
-    <string name="faq">FAQ</string>
     <string name="current_version">Current Version</string>
     <string name="version_value">V%1$s</string>
     <string name="delete_account">Delete Account</string>
@@ -462,6 +460,7 @@ No personal SMS messages will be accessed, read, or collected.</string>
     <string name="calculator_working_days_error">Select a number from 1 to 30.</string>
     <string name="calculator_work_hours_error">Select a value from 0.5 to 24 in 0.5-hour steps.</string>
     <string name="calculator_payday_error">Select a day from 1 to 30.</string>
+    <string name="calculator_work_location_error">Work location cannot be empty.</string>
     <string name="calculator_title">Calculator</string>
     <string name="calculator_salary_title">Salary Calculator</string>
     <string name="calculator_calculate">Calculate</string>

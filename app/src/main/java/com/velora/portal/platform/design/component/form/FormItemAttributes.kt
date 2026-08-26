@@ -10,6 +10,7 @@ internal data class FormItemAttributes(
     val maxLength: Int,
     val showErrorIcon: Boolean,
     val showContactIcon: Boolean,
+    val startIconRes: Int?,
     val endIconRes: Int?,
     val inputBackgroundColor: Int?,
     val inputStrokeColor: Int?,

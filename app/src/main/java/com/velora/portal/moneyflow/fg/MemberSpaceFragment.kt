@@ -1,27 +1,30 @@
 package com.velora.portal.moneyflow.fg
 
 import android.content.Intent
+import androidx.fragment.app.viewModels
 import com.velora.portal.R
 import com.velora.portal.platform.common.data.PRIVACY_POLICY
 import com.velora.portal.platform.design.base.BaseFragment
 import com.velora.portal.platform.session.SessionStore
 import com.velora.portal.databinding.FragmentMemberSpaceBinding
+import com.velora.portal.journey.lending.dashboard.presentation.VisitorPortalViewModel
+import com.velora.portal.journey.lending.dashboard.presentation.dialog.showContactUsDialog
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.moneyflow.ac.AccountSettingsActivity
-import com.velora.portal.moneyflow.ac.HelpCenterActivity
 import com.velora.portal.platform.common.util.ExternalActionLauncher
 import com.velora.portal.platform.common.util.maskPhoneNumber
 import com.velora.portal.platform.common.util.showToastMessage
 import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.viewBinding
 import com.velora.portal.platform.browser.presentation.ContentBrowserActivity
+import kotlin.getValue
 
 /** Account page for the calculation experience. */
 class MemberSpaceFragment : BaseFragment<FragmentMemberSpaceBinding>(
     R.layout.fragment_member_space
 ) {
     override val binding by viewBinding(FragmentMemberSpaceBinding::bind)
-
+    private val vm by viewModels<VisitorPortalViewModel>()
     override fun initView() = with(binding) {
         applyTopInset(accountScroll)
         tvRatingPrompt.text = getString(
@@ -43,7 +46,7 @@ class MemberSpaceFragment : BaseFragment<FragmentMemberSpaceBinding>(
             context?.start<AccountSettingsActivity>()
         }
         tvHelpCenter.singleClick {
-            context?.start<HelpCenterActivity>()
+            vm.getUnAuthData(true)
         }
         tvPrivacy.singleClick {
             ContentBrowserActivity.launch(
@@ -70,5 +73,9 @@ class MemberSpaceFragment : BaseFragment<FragmentMemberSpaceBinding>(
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share_app)))
     }
 
-    override fun initObserve() = Unit
+    override fun initObserve() = with(vm) {
+        result.observe(this@MemberSpaceFragment) {
+            it?.let { requireContext().showContactUsDialog(it) }
+        }
+    }
 }

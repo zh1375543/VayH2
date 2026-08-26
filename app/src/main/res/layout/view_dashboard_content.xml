@@ -14,20 +14,26 @@
         android:clipToPadding="false"
         android:paddingBottom="@dimen/dp_24">
 
-        <com.velora.portal.platform.design.component.SurfacePanelLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/homeTicketCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_12"
-            android:paddingBottom="@dimen/dp_20"
-            android:clipToOutline="true"
-            android:outlineProvider="background"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:panelCornerRadius="@dimen/dp_24"
-            app:panelFillColor="@color/aide_color">
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.velora.portal.platform.design.component.CurvedHeaderLayout
+                android:id="@+id/homeCurvedHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:curvedHeaderArcDepth="@dimen/dp_36"
+                app:curvedHeaderContentSpacing="@dimen/dp_28"
+                app:curvedHeaderFillColor="@color/brand_primary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
                 android:id="@+id/homeTicketMainContainer"
@@ -36,14 +42,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivTicketContentBackground"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@null"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/ic_main_card_bg" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -54,31 +52,15 @@
                         android:id="@+id/notice_layout"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/dp_46"
+                        android:layout_marginHorizontal="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_15"
                         android:gravity="center"
                         android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:panelCornerRadius="@dimen/dp_12"
                         app:panelFillColor="@color/p40_FFFFFF">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/marqueeIconBackground"
-                            android:layout_width="@dimen/dp_52"
-                            android:layout_height="match_parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:layout_width="@dimen/dp_32"
-                                android:layout_height="@dimen/dp_32"
-                                android:contentDescription="@null"
-                                android:src="@mipmap/ic_marquee_img"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <com.velora.portal.platform.design.component.RollingNoticeView
                             android:id="@+id/marqueeView"
@@ -88,7 +70,7 @@
                             android:layout_marginEnd="@dimen/dp_12"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/marqueeIconBackground"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
@@ -99,7 +81,6 @@
                         android:layout_marginHorizontal="@dimen/dp_18"
                         android:layout_marginTop="@dimen/dp_10"
                         android:visibility="visible"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/notice_layout">
@@ -117,7 +98,7 @@
                         android:id="@+id/tvLoanAmount"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="wrap_content"
-                        android:gravity="start"
+                        android:gravity="center"
                         android:text="@string/loan_amount"
                         android:textColor="@color/text_inverse"
                         android:textSize="@dimen/sp_14"
@@ -131,7 +112,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
-                        android:gravity="start"
+                        android:gravity="center"
                         android:maxLines="1"
                         android:textColor="@color/text_inverse"
                         android:textSize="@dimen/sp_32"
@@ -140,85 +121,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="20,000,000" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/rate_layout"
-                        android:layout_width="@dimen/dp_0"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_20"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvLoanAmount">
-
-                        <androidx.constraintlayout.widget.Guideline
-                            android:id="@+id/unAuthMoneyGuide"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            app:layout_constraintGuide_percent="0.5" />
-
-                        <TextView
-                            android:id="@+id/tvRate"
-                            android:layout_width="@dimen/dp_0"
-                            android:layout_height="wrap_content"
-                            android:gravity="start"
-                            android:text="@string/annual_rate"
-                            android:textColor="@color/text_inverse"
-                            android:textSize="@dimen/sp_14"
-                            app:layout_constraintEnd_toStartOf="@id/unAuthMoneyGuide"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/tvLoanPeriod"
-                            android:layout_width="@dimen/dp_0"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/loan_period"
-                            android:textColor="@color/text_inverse"
-                            android:textSize="@dimen/sp_14"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/unAuthMoneyGuide"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/tvPercent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dp_4"
-                            android:gravity="start"
-                            android:textColor="@color/text_inverse"
-                            android:textSize="@dimen/sp_16"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tvRate"
-                            tools:text="7-34%" />
-
-                        <TextView
-                            android:id="@+id/tvPeriod"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dp_4"
-                            android:ellipsize="end"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:textColor="@color/text_inverse"
-                            android:textSize="@dimen/sp_16"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/unAuthMoneyGuide"
-                            app:layout_constraintTop_toBottomOf="@id/tvLoanPeriod"
-                            tools:text="91-180" />
-
-                        <View
-                            android:id="@+id/rateDivider"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:visibility="gone" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -236,7 +138,7 @@
                         android:id="@+id/tvLoanAmount2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="start"
+                        android:gravity="center"
                         android:text="@string/current_available_credit_str"
                         android:textColor="@color/text_inverse"
                         android:textSize="@dimen/sp_14"
@@ -250,7 +152,7 @@
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
-                        android:gravity="start"
+                        android:gravity="center"
                         android:maxLines="1"
                         android:textColor="@color/text_inverse"
                         android:textSize="@dimen/sp_32"
@@ -260,91 +162,117 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="20,000,000" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/amount_layout"
-                        android:layout_width="@dimen/dp_0"
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Credit rejected state. -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/rejectionStatusPanel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/dp_14"
+                    android:paddingVertical="@dimen/dp_18"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvRefuseTitle"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_20"
+                        android:text="@string/home_pre"
+                        android:textColor="@color/status_error"
+                        android:textSize="@dimen/sp_16"
+                        android:gravity="center"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvLoanAmount2">
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <androidx.constraintlayout.widget.Guideline
-                            android:id="@+id/authMoneyGuide"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            app:layout_constraintGuide_percent="0.5" />
+                    <TextView
+                        android:id="@+id/tvPreTips"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:gravity="center"
+                        android:lineSpacingExtra="@dimen/dp_3"
+                        android:text="@string/home_pre_tips"
+                        android:textColor="@color/text_inverse"
+                        android:textSize="@dimen/sp_12"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvRefuseTitle" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:id="@+id/tvMax"
-                            android:layout_width="@dimen/dp_0"
-                            android:layout_height="wrap_content"
-                            android:gravity="start"
-                            android:text="@string/maximum_mortgage_amount"
-                            android:textColor="@color/text_inverse"
-                            android:textSize="@dimen/sp_14"
-                            app:layout_constraintEnd_toStartOf="@id/authMoneyGuide"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                <!-- Credit review state. -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/reviewStatusPanel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_16"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:id="@+id/tvUsed"
-                            android:layout_width="@dimen/dp_0"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/used_credit_str"
-                            android:textColor="@color/text_inverse"
-                            android:textSize="@dimen/sp_14"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/authMoneyGuide"
-                            app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/tvPreTitle"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_refuse"
+                        android:textColor="@color/text_inverse"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/tvMaxAmount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dp_4"
-                            android:gravity="start"
-                            android:textColor="@color/text_inverse"
-                            android:textSize="@dimen/sp_16"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tvMax"
-                            tools:text="5,000,000" />
+                    <TextView
+                        android:id="@+id/tvPreTimes"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:text="@string/home_refuse_times"
+                        android:textColor="@color/text_inverse"
+                        android:textSize="@dimen/sp_12"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPreTitle" />
 
-                        <TextView
-                            android:id="@+id/tvUsedAmount"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dp_4"
-                            android:ellipsize="end"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:textColor="@color/text_inverse"
-                            android:textSize="@dimen/sp_16"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/authMoneyGuide"
-                            app:layout_constraintTop_toBottomOf="@id/tvUsed"
-                            tools:text="5,000,000" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/tvPreDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_6"
+                        android:gravity="center"
+                        android:lineSpacingExtra="@dimen/dp_3"
+                        android:text="@string/home_refuse_tips"
+                        android:textColor="@color/text_inverse"
+                        android:textSize="@dimen/sp_12"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPreTimes" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </FrameLayout>
+            </com.velora.portal.platform.design.component.CurvedHeaderLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ticketActionLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/dp_18"
+                android:layout_marginTop="@dimen/dp_m_60"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/homeTicketMainContainer">
+                app:layout_constraintTop_toBottomOf="@id/homeCurvedHeader">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/unAuthActionLayout"
@@ -355,15 +283,103 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
+                        android:id="@+id/rate_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:paddingVertical="@dimen/dp_16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:panelCornerRadius="@dimen/dp_12"
+                        app:panelFillColor="@color/color_order_over">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/unAuthMoneyGuide"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                        <TextView
+                            android:id="@+id/tvRate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/annual_rate"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_14"
+                            app:layout_constraintEnd_toStartOf="@id/unAuthMoneyGuide"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvLoanPeriod"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/loan_period"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_14"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/unAuthMoneyGuide"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvPercent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:gravity="center"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_16"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@id/unAuthMoneyGuide"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvRate"
+                            tools:text="7-34%" />
+
+                        <TextView
+                            android:id="@+id/tvPeriod"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_16"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/unAuthMoneyGuide"
+                            app:layout_constraintTop_toBottomOf="@id/tvLoanPeriod"
+                            tools:text="91-180" />
+
+                        <View
+                            android:id="@+id/rateDivider"
+                            android:layout_width="@dimen/dp_1"
+                            android:layout_height="0dp"
+                            android:layout_marginVertical="@dimen/dp_8"
+                            android:alpha="0.35"
+                            android:background="@color/text_tertiary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/unAuthMoneyGuide"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
                     <FrameLayout
                         android:id="@+id/borrowNowButtonFrame"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/dp_65"
+                        android:layout_marginHorizontal="@dimen/dp_20"
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toBottomOf="@id/rate_layout">
 
                         <com.velora.portal.platform.design.component.StatefulActionButton
                             android:id="@+id/btnStartApplication"
@@ -371,29 +387,32 @@
                             android:layout_height="@dimen/dp_54"
                             android:layout_gravity="bottom"
                             android:text="@string/withdraw_now"
+                            app:buttonSolidColor="@color/brand_secondary"
                             app:buttonTextColor="@color/text_inverse" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/tv_rate_label"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/dp_42"
-                            android:layout_gravity="top"
-                            android:layout_marginStart="@dimen/dp_12"
-                            android:layout_marginEnd="@dimen/dp_50"
-                            android:background="@mipmap/ic_btn_tip_bg"
-                            android:ellipsize="end"
-                            android:gravity="center"
-                            android:includeFontPadding="false"
-                            android:maxLines="1"
-                            android:paddingStart="@dimen/dp_12"
-                            android:paddingEnd="@dimen/dp_12"
-                            android:paddingBottom="@dimen/dp_8"
-                            android:text="@string/home_approval_rate_label"
-                            android:textColor="@color/text_body"
-                            android:textSize="@dimen/sp_12"
-                            android:textStyle="bold"
-                            android:visibility="gone" />
                     </FrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_rate_label"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_42"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:background="@mipmap/image_approve_bg"
+                        android:elevation="@dimen/dp_16"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:paddingStart="@dimen/dp_12"
+                        android:paddingEnd="@dimen/dp_12"
+                        android:paddingBottom="@dimen/dp_8"
+                        android:text="@string/home_approval_rate_label"
+                        android:textColor="@color/text_body"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="bold"
+                        android:translationY="@dimen/dp_m_8"
+                        app:layout_constraintEnd_toEndOf="@id/borrowNowButtonFrame"
+                        app:layout_constraintStart_toStartOf="@id/borrowNowButtonFrame"
+                        app:layout_constraintTop_toTopOf="@id/borrowNowButtonFrame" />
 
                     <TextView
                         android:id="@+id/tvRefuse18"
@@ -404,7 +423,6 @@
                         android:text="@string/refuse_18"
                         android:textColor="@color/text_tertiary"
                         android:textSize="@dimen/sp_11"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/borrowNowButtonFrame" />
@@ -419,15 +437,108 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
+                        android:id="@+id/amount_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:paddingVertical="@dimen/dp_16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:panelCornerRadius="@dimen/dp_12"
+                        app:panelFillColor="@color/color_order_over">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/authMoneyGuide"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                        <TextView
+                            android:id="@+id/tvMax"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/maximum_mortgage_amount"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_14"
+                            app:layout_constraintEnd_toStartOf="@id/authMoneyGuide"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvUsed"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/used_credit_str"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_14"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/authMoneyGuide"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.constraintlayout.widget.Barrier
+                            android:id="@+id/authLabelBottomBarrier"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="bottom"
+                            app:constraint_referenced_ids="tvMax,tvUsed" />
+
+                        <TextView
+                            android:id="@+id/tvMaxAmount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:gravity="center"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_16"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@id/authMoneyGuide"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/authLabelBottomBarrier"
+                            tools:text="5,000,000" />
+
+                        <TextView
+                            android:id="@+id/tvUsedAmount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/sp_16"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/authMoneyGuide"
+                            app:layout_constraintTop_toBottomOf="@id/authLabelBottomBarrier"
+                            tools:text="5,000,000" />
+
+                        <View
+                            android:id="@+id/authAmountDivider"
+                            android:layout_width="@dimen/dp_1"
+                            android:layout_height="0dp"
+                            android:layout_marginVertical="@dimen/dp_8"
+                            android:alpha="0.35"
+                            android:background="@color/text_tertiary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/authMoneyGuide"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
                     <FrameLayout
                         android:id="@+id/loanButtonFrame"
                         android:layout_width="0dp"
-                        android:layout_height="@dimen/dp_76"
+                        android:layout_height="@dimen/dp_65"
+                        android:layout_marginHorizontal="@dimen/dp_20"
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toBottomOf="@id/amount_layout">
 
                         <com.velora.portal.platform.design.component.StatefulActionButton
                             android:id="@+id/btnOpenOffers"
@@ -435,29 +546,33 @@
                             android:layout_height="@dimen/dp_54"
                             android:layout_gravity="bottom"
                             android:text="@string/withdrawal"
+                            app:buttonSolidColor="@color/brand_secondary"
                             app:buttonTextColor="@color/text_inverse" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/tv_loan_rate_label"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/dp_42"
-                            android:layout_gravity="top"
-                            android:layout_marginStart="@dimen/dp_12"
-                            android:layout_marginEnd="@dimen/dp_50"
-                            android:background="@mipmap/ic_btn_tip_bg"
-                            android:ellipsize="end"
-                            android:gravity="center"
-                            android:includeFontPadding="false"
-                            android:maxLines="1"
-                            android:paddingStart="@dimen/dp_12"
-                            android:paddingEnd="@dimen/dp_12"
-                            android:paddingBottom="@dimen/dp_8"
-                            android:text="@string/home_approval_rate_label"
-                            android:textColor="@color/text_body"
-                            android:textSize="@dimen/sp_12"
-                            android:textStyle="bold"
-                            android:visibility="gone" />
                     </FrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_loan_rate_label"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_42"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:background="@mipmap/image_approve_bg"
+                        android:elevation="@dimen/dp_16"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:paddingStart="@dimen/dp_12"
+                        android:paddingEnd="@dimen/dp_12"
+                        android:paddingBottom="@dimen/dp_8"
+                        android:text="@string/home_approval_rate_label"
+                        android:textColor="@color/text_body"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="bold"
+                        android:translationY="@dimen/dp_m_8"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@id/loanButtonFrame"
+                        app:layout_constraintStart_toStartOf="@id/loanButtonFrame"
+                        app:layout_constraintTop_toTopOf="@id/loanButtonFrame" />
 
                     <TextView
                         android:id="@+id/tvQuick"
@@ -468,124 +583,34 @@
                         android:text="@string/quick_withdraw"
                         android:textColor="@color/text_tertiary"
                         android:textSize="@dimen/sp_11"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/loanButtonFrame" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/reviewActionLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.velora.portal.platform.design.component.StatefulActionButton
+                        android:id="@+id/btnReloadDashboard"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_42"
+                        android:layout_marginHorizontal="@dimen/dp_20"
+                        android:text="@string/refresh"
+                        app:buttonSolidColor="@color/brand_secondary"
+                        app:buttonTextColor="@color/text_inverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.velora.portal.platform.design.component.SurfacePanelLayout>
-
-        <!-- Credit rejected state. -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/rejectionStatusPanel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_12"
-            android:paddingHorizontal="@dimen/dp_14"
-            android:paddingVertical="@dimen/dp_18"
-            android:background="@mipmap/ic_main_card_bg"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <TextView
-                android:id="@+id/tvRefuseTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/home_pre"
-                android:textColor="@color/status_error"
-                android:textSize="@dimen/sp_16"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvPreTips"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_8"
-                android:gravity="center"
-                android:lineSpacingExtra="@dimen/dp_3"
-                android:text="@string/home_pre_tips"
-                android:textColor="@color/text_inverse"
-                android:textSize="@dimen/sp_12"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvRefuseTitle" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!-- Credit review state. -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/reviewStatusPanel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_12"
-            android:padding="@dimen/dp_16"
-            android:background="@mipmap/ic_main_card_bg"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tvPreTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/home_refuse"
-                android:textColor="@color/text_inverse"
-                android:textSize="@dimen/sp_16"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvPreTimes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_4"
-                android:text="@string/home_refuse_times"
-                android:textColor="@color/text_inverse"
-                android:textSize="@dimen/sp_12"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPreTitle" />
-
-            <TextView
-                android:id="@+id/tvPreDesc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_6"
-                android:gravity="start"
-                android:lineSpacingExtra="@dimen/dp_3"
-                android:text="@string/home_refuse_tips"
-                android:textColor="@color/text_inverse"
-                android:textSize="@dimen/sp_12"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPreTimes" />
-
-            <com.velora.portal.platform.design.component.StatefulActionButton
-                android:id="@+id/btnReloadDashboard"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/dp_42"
-                android:layout_marginHorizontal="@dimen/dp_20"
-                android:layout_marginTop="@dimen/dp_12"
-                android:text="@string/refresh"
-                app:buttonSolidColor="@color/text_inverse"
-                app:buttonTextColor="@color/text_primary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPreDesc" />
-        </androidx.constraintlayout.widget.ConstraintLayout>>
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/homePrimaryContentBottom"
@@ -593,7 +618,7 @@
             android:layout_height="wrap_content"
             app:barrierAllowsGoneWidgets="false"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="homeTicketCard,rejectionStatusPanel,reviewStatusPanel" />
+            app:constraint_referenced_ids="homeTicketCard" />
 
         <com.velora.portal.journey.lending.dashboard.presentation.component.BannerView
             android:id="@+id/campaignBanner"
@@ -607,30 +632,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/homePrimaryContentBottom" />
 
-        <com.velora.portal.platform.design.component.SurfacePanelLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/question_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginHorizontal="@dimen/dp_16"
             android:layout_marginTop="@dimen/dp_20"
-            android:paddingTop="@dimen/dp_14"
-            android:paddingHorizontal="@dimen/dp_12"
-            android:paddingBottom="@dimen/dp_12"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/campaignBanner"
-            app:panelCornerRadius="@dimen/dp_24"
-            app:panelFillColor="@color/aide_color">
+            app:layout_constraintTop_toBottomOf="@id/campaignBanner">
 
-            <com.velora.portal.platform.design.component.DecoratedTitleView
+            <TextView
                 android:id="@+id/questionTitleLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:decoratedTitleIcon="@mipmap/ic_state_img"
-                app:decoratedTitleText="@string/home_question_title"
-                app:decoratedTitleTextColor="@color/brand_primary"
-                app:decoratedTitleTextSize="@dimen/sp_20"
+                android:gravity="center"
+                android:text="@string/home_question_title"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -648,19 +669,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/questionTitleLayout" />
 
-            <com.velora.portal.platform.design.component.StyledLinearLayout
+            <LinearLayout
                 android:id="@+id/questionItems"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_10"
                 android:orientation="vertical"
-                android:paddingHorizontal="@dimen/dp_10"
-                android:paddingVertical="@dimen/dp_10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvQuestionDesc"
-                app:radius="@dimen/dp_24"
-                app:solidColor="@color/surface_primary">
+                app:layout_constraintTop_toBottomOf="@id/tvQuestionDesc">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -668,16 +685,19 @@
                     android:baselineAligned="false"
                     android:orientation="horizontal">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        app:panelCornerRadius="@dimen/dp_12"
+                        app:panelFillColor="@color/color_order_over">
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/premiumTipImage"
                             android:layout_width="@dimen/dp_46"
                             android:layout_height="@dimen/dp_46"
-                            android:src="@mipmap/ic_credit_tip"
+                            android:src="@mipmap/ic_credit_lg"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -696,19 +716,22 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/premiumTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/dp_12"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        app:panelCornerRadius="@dimen/dp_12"
+                        app:panelFillColor="@color/color_card_tab_bg">
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/applyTipImage"
                             android:layout_width="@dimen/dp_46"
                             android:layout_height="@dimen/dp_46"
-                            android:src="@mipmap/ic_online_tip"
+                            android:src="@mipmap/ic_online_lg"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -727,57 +750,29 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/applyTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_90"
-                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_10"
                     android:baselineAligned="false"
                     android:orientation="horizontal">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/informationTipImage"
-                            android:layout_width="@dimen/dp_46"
-                            android:layout_height="@dimen/dp_46"
-                            android:src="@mipmap/ic_security_tip"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/dp_8"
-                            android:gravity="start"
-                            android:includeFontPadding="false"
-                            android:maxLines="3"
-                            android:text="@string/home_question3"
-                            android:textColor="@color/text_body"
-                            android:textSize="@dimen/sp_14"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/informationTipImage"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/dp_12"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        app:panelCornerRadius="@dimen/dp_12"
+                        app:panelFillColor="@color/color_card_tab_bg">
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/clearTipImage"
                             android:layout_width="@dimen/dp_46"
                             android:layout_height="@dimen/dp_46"
-                            android:src="@mipmap/ic_rates_tip"
+                            android:src="@mipmap/ic_rates_lg"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -796,10 +791,44 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/clearTipImage"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
+                    <com.velora.portal.platform.design.component.SurfacePanelLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dp_12"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        app:panelCornerRadius="@dimen/dp_12"
+                        app:panelFillColor="@color/color_order_over">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/informationTipImage"
+                            android:layout_width="@dimen/dp_46"
+                            android:layout_height="@dimen/dp_46"
+                            android:src="@mipmap/ic_security_lg"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:gravity="start"
+                            android:includeFontPadding="false"
+                            android:maxLines="3"
+                            android:text="@string/home_question3"
+                            android:textColor="@color/text_body"
+                            android:textSize="@dimen/sp_14"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/informationTipImage"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </com.velora.portal.platform.design.component.SurfacePanelLayout>
                 </LinearLayout>
-            </com.velora.portal.platform.design.component.StyledLinearLayout>
-        </com.velora.portal.platform.design.component.SurfacePanelLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/homeSupplementaryContentBottom"
@@ -821,22 +850,46 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/homeSupplementaryContentBottom"
-            app:panelCornerRadius="@dimen/dp_24"
+            app:panelCornerRadius="@dimen/dp_12"
             app:panelFillColor="@color/surface_primary">
 
-            <TextView
-                android:id="@+id/tvFailed"
+            <com.velora.portal.platform.design.component.SurfacePanelLayout
+                android:id="@+id/payoutAccountAlertHeader"
                 android:layout_width="@dimen/dp_0"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_12"
-                android:gravity="center"
-                android:text="@string/home_payment_failed"
-                android:textColor="@color/status_error"
-                android:textSize="@dimen/sp_16"
-                android:textStyle="bold"
+                android:layout_height="@dimen/dp_52"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:panelBottomLeftRadius="@dimen/dp_0"
+                app:panelBottomRightRadius="@dimen/dp_0"
+                app:panelFillColor="@color/action_withdraw"
+                app:panelTopLeftRadius="@dimen/dp_12"
+                app:panelTopRightRadius="@dimen/dp_12">
+
+                <TextView
+                    android:id="@+id/tvFailed"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/home_payment_failed"
+                    android:textColor="@color/text_inverse"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnDismissAccountAlert"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_marginEnd="@dimen/dp_12"
+                    android:src="@mipmap/icon_close_lg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
             <TextView
                 android:id="@+id/tvFailedDesc"
@@ -851,33 +904,24 @@
                 android:textSize="@dimen/sp_12"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvFailed" />
+                app:layout_constraintTop_toBottomOf="@id/payoutAccountAlertHeader" />
 
             <com.velora.portal.platform.design.component.StatefulActionButton
                 android:id="@+id/btnManagePayoutAccount"
                 android:layout_width="@dimen/dp_0"
-                android:layout_height="@dimen/dp_36"
+                android:layout_height="@dimen/dp_40"
                 android:layout_marginHorizontal="@dimen/dp_28"
                 android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginBottom="@dimen/dp_10"
                 android:text="@string/modify_bank_card"
                 android:textSize="@dimen/sp_14"
-                app:buttonSolidColor="@color/brand_secondary"
+                app:buttonSolidColor="@color/brand_primary"
                 app:buttonTextColor="@color/text_inverse"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvFailedDesc" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/btnDismissAccountAlert"
-                android:layout_width="@dimen/dp_24"
-                android:layout_height="@dimen/dp_24"
-                android:layout_margin="@dimen/dp_8"
-                android:src="@mipmap/ic_dialog_bottom_close"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:tint="@color/text_secondary"
-                app:layout_constraintTop_toTopOf="parent" />
         </com.velora.portal.platform.design.component.SurfacePanelLayout>
 
         <!--product list-->
@@ -885,23 +929,21 @@
             android:id="@+id/offerSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dp_16"
             android:layout_marginTop="@dimen/dp_10"
-            app:panelCornerRadius="@dimen/dp_24"
-            app:panelFillColor="@color/aide_color"
-            android:visibility="gone"
+            app:panelCornerRadius="@dimen/dp_12"
+            android:visibility="visible"
             app:layout_constraintTop_toBottomOf="@id/payoutAccountAlert"
             app:layout_goneMarginTop="@dimen/dp_25">
 
-            <com.velora.portal.platform.design.component.DecoratedTitleView
+            <TextView
                 android:id="@+id/tvHomeProducts"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                app:decoratedTitleIcon="@mipmap/ic_state_img"
-                app:decoratedTitleText="@string/products"
-                app:decoratedTitleTextColor="@color/text_primary"
-                app:decoratedTitleTextSize="@dimen/sp_16"
+                android:text="@string/products"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

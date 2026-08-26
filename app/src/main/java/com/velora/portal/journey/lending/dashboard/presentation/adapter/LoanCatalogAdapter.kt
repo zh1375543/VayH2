@@ -26,7 +26,6 @@ class LoanCatalogAdapter :
         tvOfferTerm.text = context.formatLoanTerm(product.timeLimit)
         btnOfferAction.isEnabled = item.canApply
         unavailableOverlay.isVisible = !btnOfferAction.isEnabled
-        ivNewOfferBadge.setImageResource(R.mipmap.ic_new_product)
         ivNewOfferBadge.isVisible = product.newSign == 1 && !product.isTogether
         rvOfferBenefits.adapter = LoanFeatureTagAdapter().apply {
             submitItems(product.tagList?.distinct())

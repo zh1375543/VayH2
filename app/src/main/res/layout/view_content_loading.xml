@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:background="@color/text_inverse">
 
-    <com.velora.portal.platform.design.component.ShapeBounceLoadingView
+    <com.velora.portal.platform.design.component.CubeGridLoadingView
         android:layout_width="@dimen/dp_72"
         android:layout_height="@dimen/dp_72" />
 

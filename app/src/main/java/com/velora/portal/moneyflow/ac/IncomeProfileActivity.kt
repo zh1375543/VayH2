@@ -73,13 +73,15 @@ class IncomeProfileActivity : BaseActivity<ActivityIncomeProfileBinding>() {
         } ?: false
         val paydayValid = paydayView.getText().toIntOrNull() in
             SalaryFormOptions.MIN_WORKING_DAY..SalaryFormOptions.MAX_WORKING_DAY
+        val workLocationValid = workLocationView.getText().isNotBlank()
 
         if (!salaryValid) monthlySalaryView.showError(getString(R.string.calculator_monthly_salary_error))
         if (!workingDaysValid) workingDaysView.showError(getString(R.string.calculator_working_days_error))
         if (!workHoursValid) hoursPerDayView.showError(getString(R.string.calculator_work_hours_error))
         if (!paydayValid) paydayView.showError(getString(R.string.calculator_payday_error))
+        if (!workLocationValid) workLocationView.showError(getString(R.string.calculator_work_location_error))
 
-        salaryValid && workingDaysValid && workHoursValid && paydayValid
+        salaryValid && workingDaysValid && workHoursValid && paydayValid && workLocationValid
     }
 
     private fun saveSalaryData() = with(binding) {

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_57"
-    tools:background="@color/page_bg_color1">
+    tools:background="@color/color_page_bg">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivBank"
         android:layout_width="@dimen/dp_45"
         android:layout_height="@dimen/dp_45"
-        android:src="@mipmap/ic_bank_header"
+        android:src="@mipmap/ic_bank_default"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

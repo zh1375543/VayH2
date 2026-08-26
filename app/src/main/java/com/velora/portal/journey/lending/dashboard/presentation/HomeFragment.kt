@@ -260,6 +260,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
             guestCreditPanel.isVisible = true
             authActionLayout.isVisible = false
             unAuthActionLayout.isVisible = true
+            reviewActionLayout.isVisible = false
             homeTicketCard.isVisible = true
             topLayout.isVisible = true
             questionLayout.isVisible = true
@@ -298,12 +299,15 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
             val showProductChrome = !state.showCalmPage
             val showMainCreditCard =
                 state.showCreditHeader && showProductChrome
+            val showHomeHeader =
+                showMainCreditCard || showReviewCard || showRejectedCard
 
             calmLayout.calmLayout.isVisible = state.showCalmPage
-            topLayout.isVisible = showMainCreditCard
-            homeTicketCard.isVisible = showMainCreditCard
+            topLayout.isVisible = showHomeHeader
+            homeTicketCard.isVisible = showHomeHeader
             reviewStatusPanel.isVisible = showReviewCard
             rejectionStatusPanel.isVisible = showRejectedCard
+            reviewActionLayout.isVisible = showReviewCard
             if (homeTicketCard.isVisible) {
                 marqueeView.setTexts()
             } else {
@@ -427,7 +431,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
         tvPreTimes.setClickableTextWithScale(
             fullText,
             seconds.toString(),
-            root.context.resolveColorCompat(R.color.action_withdraw)
+            root.context.resolveColorCompat(R.color.surface_primary)
         )
     }
 

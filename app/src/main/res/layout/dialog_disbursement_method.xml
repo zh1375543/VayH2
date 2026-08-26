@@ -30,7 +30,7 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/dp_10"
         android:paddingVertical="@dimen/dp_15"
-        app:radius="@dimen/dp_24"
+        app:radius="@dimen/dp_12"
         app:solidColor="@color/surface_secondary">
 
         <ImageView
@@ -69,7 +69,7 @@
                     android:textColor="@color/text_inverse"
                     android:textSize="@dimen/sp_12"
                     app:labelCornerRadius="@dimen/dp_8"
-                    app:labelFillColor="@color/brand_primary_light" />
+                    app:labelFillColor="@color/brand_secondary" />
 
                 <com.velora.portal.platform.design.component.StatefulLabelView
                     android:layout_width="wrap_content"
@@ -118,14 +118,14 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/dp_16"
         android:paddingVertical="@dimen/dp_15"
-        app:radius="@dimen/dp_24"
+        app:radius="@dimen/dp_12"
         app:solidColor="@color/surface_secondary">
 
         <ImageView
             android:layout_width="@dimen/dp_36"
             android:layout_height="@dimen/dp_36"
             android:contentDescription="@null"
-            android:src="@mipmap/ic_bank_header" />
+            android:src="@mipmap/ic_bank_default" />
 
         <FrameLayout
             android:layout_width="@dimen/dp_0"
@@ -151,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_10"
                     android:text="@string/all_major_banks"
-                    android:textColor="@color/brand_secondary"
+                    android:textColor="@color/brand_primary"
                     android:textSize="@dimen/sp_12" />
             </LinearLayout>
 
@@ -159,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|start"
-                android:layout_marginStart="@dimen/dp_35"
+                android:layout_marginStart="@dimen/dp_45"
                 android:gravity="center"
                 android:paddingHorizontal="@dimen/dp_10"
                 android:paddingVertical="@dimen/dp_3"
@@ -167,7 +167,7 @@
                 android:textColor="@color/text_inverse"
                 android:textSize="@dimen/sp_12"
                 app:labelCornerRadius="@dimen/dp_24"
-                app:labelFillColor="@color/brand_secondary" />
+                app:labelFillColor="@color/brand_primary" />
         </FrameLayout>
 
         <ImageView

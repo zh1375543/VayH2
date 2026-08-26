@@ -15,7 +15,7 @@ class ChooseBankDialogAdapter :
         item: AccountChannelResponse,
         position: Int,
     ) = with(binding) {
-        ivBank.loadImage(item.logoUrl, R.mipmap.ic_bank_header)
+        ivBank.loadImage(item.logoUrl, R.mipmap.ic_bank_default)
         tvTitle.text = item.longCode
         tvContent.text = item.bankName
         divider.isVisible = position < items.lastIndex

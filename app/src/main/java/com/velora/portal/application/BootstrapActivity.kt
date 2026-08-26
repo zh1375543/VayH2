@@ -76,8 +76,8 @@ class BootstrapActivity :
         if (hasJump) return
         hasJump = true
         if (SessionStore.isLoggedIn) {
-          MainNavigator.launch(this@BootstrapActivity, clearTask = true)
-           // PayPilotActivity.launch(this)
+//          MainNavigator.launch(this@BootstrapActivity, clearTask = true)
+            PortalHostActivity.launch(this)
         } else {
             startActivity(
                 Intent(this@BootstrapActivity, PhoneAuthActivity::class.java).apply {

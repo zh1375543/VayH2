@@ -176,16 +176,6 @@
         <attr name="srcSelected" format="reference" />
         <attr name="android:src" />
     </declare-styleable>
-    <declare-styleable name="CloudLoadingView">
-        <attr name="cl_barColor" format="color" />
-        <attr name="cl_barCount" format="integer" />
-        <attr name="cl_barWidth" format="dimension" />
-        <attr name="cl_barSpacing" format="dimension" />
-        <attr name="cl_radius" format="dimension" />
-        <attr name="cl_minHeightRatio" format="float" /> <!-- Height ratio relative to View (0~1) -->
-        <attr name="cl_maxHeightRatio" format="float" /> <!-- Height ratio relative to View (0~1) -->
-        <attr name="cl_duration" format="integer" /> <!-- ms -->
-    </declare-styleable>
     <declare-styleable name="RepaymentTimelineConnectorView">
         <attr name="connectorColor" format="color" />
         <attr name="connectorWidth" format="dimension" />
@@ -212,6 +202,7 @@
         <attr name="editMaxLength" format="integer" />
         <attr name="showErrorIcon" format="boolean" />
         <attr name="showContactIcon" format="boolean" />
+        <attr name="formStartIcon" format="reference" />
         <attr name="formEndIcon" format="reference" />
         <attr name="inputBackgroundColor" format="color" />
         <attr name="inputStrokeColor" format="color" />

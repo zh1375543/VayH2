@@ -46,6 +46,7 @@ data class MemberHomeUiState(
     val canShowAvailableCreditDialog: Boolean
         get() =
             isApprovedCredit &&
+                loanEnabled &&
                 availableAmount.isPositive() &&
                 products.isNotEmpty()
 }

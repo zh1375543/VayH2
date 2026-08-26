@@ -23,6 +23,8 @@ internal class FormItemAttributeReader(
                 maxLength = getInt(R.styleable.FormItemView_editMaxLength, -1),
                 showErrorIcon = getBoolean(R.styleable.FormItemView_showErrorIcon, false),
                 showContactIcon = getBoolean(R.styleable.FormItemView_showContactIcon, false),
+                startIconRes = getResourceId(R.styleable.FormItemView_formStartIcon, 0)
+                    .takeIf { it != 0 },
                 endIconRes = getResourceId(R.styleable.FormItemView_formEndIcon, 0)
                     .takeIf { it != 0 },
                 inputBackgroundColor = if (hasValue(R.styleable.FormItemView_inputBackgroundColor)) {

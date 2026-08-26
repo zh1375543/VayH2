@@ -77,11 +77,11 @@ class RollingNoticeView @JvmOverloads constructor(
     private fun createTextView(text: String, isWhiteColor: Boolean): TextView {
         return TextView(context).apply {
             this.text = text
-            gravity = Gravity.START or Gravity.CENTER_VERTICAL
+            gravity = Gravity.CENTER
             maxLines = 1
             setTextColor(
                 context.resolveColorCompat(
-                    if (isWhiteColor) R.color.text_inverse else R.color.text_primary
+                    if (isWhiteColor) R.color.text_inverse else R.color.text_inverse
                 )
             )
             textSize = textSizeSp

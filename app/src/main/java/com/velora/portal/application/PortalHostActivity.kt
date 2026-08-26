@@ -119,6 +119,20 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
         }
     }
 
+    private fun updateStatusBarAppearance(page: Int) {
+        val isHomePage = page == 0
+        setStatusBarAppearance(
+            statusBarColor = if (isHomePage) R.color.brand_primary else R.color.transparent,
+            useDarkStatusBarIcons = !isHomePage,
+        )
+        binding.topHeaderBackground.setBackgroundColor(
+            getColor(if (isHomePage) R.color.brand_primary else R.color.page_bg_color1)
+        )
+        binding.tvAppName.setTextColor(
+            getColor(if (isHomePage) R.color.text_inverse else R.color.text_primary)
+        )
+    }
+
     private fun setupClickListeners() = with(binding) {
         vHome.singleClick {
             selectPage(0)
@@ -170,6 +184,8 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
     }
 
     fun selectPage(page: Int) {
+        currentPage = page
+        updateStatusBarAppearance(page)
         binding.apply {
             vpMain.setCurrentItem(page, false)
         }

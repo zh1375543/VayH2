@@ -7,7 +7,7 @@
     android:paddingBottom="@dimen/dp_20"
     app:panelTopLeftRadius="@dimen/dp_20"
     app:panelTopRightRadius="@dimen/dp_20"
-    app:panelFillColor="@color/page_bg_color1">
+    app:panelFillColor="@color/color_page_bg">
 
     <TextView
         android:id="@+id/tvTitle"
@@ -17,7 +17,7 @@
         android:layout_marginTop="@dimen/dp_16"
         android:gravity="center"
         android:text="@string/select_e_wallet"
-        android:textColor="@color/brand_primary"
+        android:textColor="@color/text_primary"
         android:textSize="@dimen/sp_18"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />

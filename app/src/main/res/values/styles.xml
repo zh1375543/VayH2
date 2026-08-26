@@ -49,6 +49,18 @@
         <item name="labelFillColor">@color/aide_color</item>
     </style>
 
+    <style name="PayoutFormSectionTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_40</item>
+        <item name="android:layout_margin">@dimen/dp_2</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_inverse</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textStyle">bold</item>
+        <item name="labelCornerRadius">@dimen/dp_12</item>
+        <item name="labelFillColor">@color/brand_secondary</item>
+    </style>
+
     <style name="KycExampleImage">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>

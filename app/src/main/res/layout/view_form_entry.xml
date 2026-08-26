@@ -35,6 +35,15 @@
             app:strokeWidth="@dimen/dp_1"
             app:textColorSelected="@color/status_error" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivStartIcon"
+            android:layout_width="@dimen/dp_44"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|center_vertical"
+            android:contentDescription="@null"
+            android:padding="@dimen/dp_10"
+            android:visibility="gone" />
+
         <LinearLayout
             android:id="@+id/prefixContainer"
             android:layout_width="wrap_content"
