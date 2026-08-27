@@ -32,19 +32,17 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_24"
         android:layout_marginEnd="@dimen/dp_8"
-        android:ellipsize="end"
-        android:gravity="start"
+        android:gravity="center"
         app:layout_constrainedWidth="true"
-        android:maxLines="1"
         android:text="@string/contact_us"
         android:textColor="@color/brand_primary"
         android:textSize="@dimen/sp_20"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/ivCustomer"
         app:layout_constraintEnd_toStartOf="@id/ivCustomer"
         app:layout_constraintStart_toStartOf="@id/cardLayout"
         app:layout_constraintTop_toTopOf="@id/cardLayout" />

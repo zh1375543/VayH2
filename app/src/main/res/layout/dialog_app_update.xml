@@ -38,7 +38,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/update_img"
         android:layout_width="wrap_content"
-        android:src="@mipmap/icon_update_img"
+        android:src="@mipmap/ic_app_update"
         android:layout_marginTop="@dimen/dp_10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

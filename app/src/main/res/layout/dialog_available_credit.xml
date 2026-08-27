@@ -1,92 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clipToOutline="true"
-    app:cardBackgroundColor="@color/surface_primary"
-    app:cardCornerRadius="@dimen/dp_16"
-    app:cardElevation="0dp">
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_450">
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_24"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:maxLines="2"
+        android:text="@string/credit_dialog_title"
+        android:textColor="@color/text_inverse"
+        android:textSize="@dimen/sp_24"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivLeftCoin"
-            android:layout_width="@dimen/dp_79"
-            android:layout_height="@dimen/dp_66"
-            android:layout_marginTop="@dimen/dp_116"
-            android:importantForAccessibility="no"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/icon_credit_left"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
+        android:id="@+id/creditGradientLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_44"
+        app:layout_constraintBottom_toBottomOf="@id/contentLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivCreditHeader"
+        app:panelCornerRadius="@dimen/dp_16"
+        app:panelGradientCenterColor="@color/credit_dialog_gradient_center"
+        app:panelGradientDirection="topToBottom"
+        app:panelGradientEndColor="@color/credit_dialog_gradient_end"
+        app:panelGradientStartColor="@color/credit_dialog_gradient_start" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivRightCoin"
-            android:layout_width="@dimen/dp_85"
-            android:layout_height="@dimen/dp_89"
-            android:layout_marginTop="@dimen/dp_102"
-            android:elevation="@dimen/dp_1"
-            android:importantForAccessibility="no"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/icon_credit_right"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivCreditHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_20"
+        android:adjustViewBounds="true"
+        android:importantForAccessibility="no"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_dialog_credit_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivCreditBottomBackground"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/dp_136"
-            android:importantForAccessibility="no"
-            android:scaleType="fitXY"
-            android:src="@mipmap/icon_credit_bottom_bg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_m_60"
+        android:paddingBottom="@dimen/dp_12"
+        android:elevation="@dimen/dp_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivCreditHeader"
+        app:panelBorderColor="@color/text_inverse"
+        app:panelBorderWidth="@dimen/dp_1"
+        app:panelCornerRadius="@dimen/dp_16"
+        app:panelFillColor="@color/p40_FFFFFF">
 
         <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="0dp"
+            android:id="@+id/tvAmountLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_36"
-            android:layout_marginTop="@dimen/dp_24"
-            android:layout_marginEnd="@dimen/dp_36"
-            android:gravity="center"
+            android:layout_marginTop="@dimen/dp_12"
             android:includeFontPadding="false"
-            android:maxLines="2"
-            android:text="@string/credit_dialog_title"
+            android:text="@string/credit_dialog_available_amount"
             android:textColor="@color/text_body"
-            android:textSize="@dimen/sp_18"
+            android:textSize="@dimen/sp_16"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvAmountLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:includeFontPadding="false"
-            android:text="@string/credit_dialog_available_amount"
-            android:textColor="@color/text_body"
-            android:textSize="@dimen/sp_12"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
-
-        <TextView
             android:id="@+id/tvAmount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_20"
-            android:layout_marginTop="@dimen/dp_4"
-            android:layout_marginEnd="@dimen/dp_20"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_8"
             android:gravity="center"
             android:includeFontPadding="false"
             android:maxLines="1"
@@ -102,9 +102,8 @@
             android:id="@+id/tvBenefitsTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_208"
-            android:layout_marginEnd="@dimen/dp_24"
+            android:layout_marginHorizontal="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_15"
             android:includeFontPadding="false"
             android:text="@string/credit_dialog_benefits_title"
             android:textColor="@color/text_body"
@@ -112,7 +111,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvAmount" />
 
         <com.velora.portal.platform.design.component.StatefulLabelView
             android:id="@+id/tvStepOne"
@@ -126,12 +125,13 @@
             android:textColor="@color/text_inverse"
             android:textSize="@dimen/sp_14"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBenefitsTitle"
             app:labelCornerRadius="@dimen/dp_12"
-            app:labelFillColor="@color/credit_dialog_badge" />
+            app:labelFillColor="@color/brand_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBenefitsTitle" />
 
         <TextView
+            android:id="@+id/tvStepOneText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_12"
@@ -157,12 +157,13 @@
             android:textColor="@color/text_inverse"
             android:textSize="@dimen/sp_14"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/tvStepOne"
-            app:layout_constraintTop_toBottomOf="@id/tvStepOne"
             app:labelCornerRadius="@dimen/dp_12"
-            app:labelFillColor="@color/credit_dialog_badge" />
+            app:labelFillColor="@color/brand_primary"
+            app:layout_constraintStart_toStartOf="@id/tvStepOne"
+            app:layout_constraintTop_toBottomOf="@id/tvStepOne" />
 
         <TextView
+            android:id="@+id/tvStepTwoText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_12"
@@ -188,12 +189,13 @@
             android:textColor="@color/text_inverse"
             android:textSize="@dimen/sp_14"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/tvStepOne"
-            app:layout_constraintTop_toBottomOf="@id/tvStepTwo"
             app:labelCornerRadius="@dimen/dp_12"
-            app:labelFillColor="@color/credit_dialog_badge" />
+            app:labelFillColor="@color/brand_primary"
+            app:layout_constraintStart_toStartOf="@id/tvStepOne"
+            app:layout_constraintTop_toBottomOf="@id/tvStepTwo" />
 
         <TextView
+            android:id="@+id/tvStepThreeText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_12"
@@ -213,9 +215,8 @@
             android:id="@+id/btnWithdraw"
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_48"
-            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginHorizontal="@dimen/dp_24"
             android:layout_marginTop="@dimen/dp_18"
-            android:layout_marginEnd="@dimen/dp_24"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
@@ -224,13 +225,11 @@
             android:textColor="@color/text_inverse"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
-            app:labelGradientEndColor="@color/credit_dialog_button_end"
-            app:labelGradientDirection="leftToRight"
-            app:labelGradientStartColor="@color/brand_primary"
+            app:labelCornerRadius="@dimen/dp_12"
+            app:labelFillColor="@color/brand_primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvStepThree"
-            app:labelCornerRadius="@dimen/dp_16" />
+            app:layout_constraintTop_toBottomOf="@id/tvStepThree" />
 
         <TextView
             android:id="@+id/tvLater"
@@ -245,9 +244,11 @@
             android:text="@string/credit_dialog_later"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnWithdraw" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

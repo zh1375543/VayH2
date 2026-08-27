@@ -24,6 +24,9 @@
     <color name="action_withdraw">#FA560D</color>
     <color name="credit_dialog_badge">#3E7D32</color>
     <color name="credit_dialog_button_end">#4BD329</color>
+    <color name="credit_dialog_gradient_start">#FFFFA270</color>
+    <color name="credit_dialog_gradient_center">#FFFFC4A6</color>
+    <color name="credit_dialog_gradient_end">#FFFFFAF8</color>
 
     <color name="border_default">#D2D5DA</color>
     <color name="status_error">#F62909</color>

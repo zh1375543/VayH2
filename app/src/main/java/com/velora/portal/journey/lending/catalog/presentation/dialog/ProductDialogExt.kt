@@ -76,7 +76,7 @@ fun Context.createNewProductDialog(
                 if (start >= 0) {
                     setSpan(
                         ForegroundColorSpan(
-                            this@createNewProductDialog.resolveColorCompat(R.color.brand_secondary)
+                            this@createNewProductDialog.resolveColorCompat(R.color.action_withdraw)
                         ),
                         start,
                         start + productCount.length,
