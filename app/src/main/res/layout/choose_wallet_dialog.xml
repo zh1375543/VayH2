@@ -48,7 +48,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvWallet"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_500"
+        android:layout_height="@dimen/dp_400"
         android:layout_marginHorizontal="@dimen/dp_20"
         android:layout_marginTop="@dimen/dp_12"
         android:layout_marginBottom="@dimen/dp_16"

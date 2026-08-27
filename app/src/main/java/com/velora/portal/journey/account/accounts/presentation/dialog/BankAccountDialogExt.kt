@@ -1,8 +1,13 @@
 package com.velora.portal.journey.account.accounts.presentation.dialog
 
 import android.content.Context
+import android.view.WindowManager
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.core.widget.doAfterTextChanged
+import androidx.recyclerview.widget.RecyclerView
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseDialog
 import com.velora.portal.platform.design.base.BaseSheetDialog
@@ -118,6 +123,11 @@ fun Context.chooseAccountsDialog(
 
 fun Context.chooseBankDialog(list: List<AccountChannelResponse>, chooseAction: (AccountChannelResponse) -> Unit) {
     object : BaseSheetDialog<ChooseBankDialogBinding>(this, ChooseBankDialogBinding::inflate) {
+        override fun onStart() {
+            super.onStart()
+            fitListAboveKeyboard(binding.rvBank)
+        }
+
         override fun initView() = with(binding) {
             super.initView()
             val adapter = ChooseBankDialogAdapter().apply {
@@ -145,6 +155,11 @@ fun Context.chooseBankDialog(list: List<AccountChannelResponse>, chooseAction: (
 
 fun Context.chooseWalletDialog(list: List<AccountMethodResponse>, chooseAction: (AccountMethodResponse) -> Unit) {
     object : BaseSheetDialog<ChooseWalletDialogBinding>(this, ChooseWalletDialogBinding::inflate) {
+        override fun onStart() {
+            super.onStart()
+            fitListAboveKeyboard(binding.rvWallet)
+        }
+
         override fun initView() = with(binding) {
             super.initView()
             val adapter = ChooseWalletDialogAdapter().apply {
@@ -166,6 +181,32 @@ fun Context.chooseWalletDialog(list: List<AccountMethodResponse>, chooseAction: 
             tvEmpty.setOnClickListener { etSearch.hideKeyboard() }
         }
     }.show()
+}
+
+@Suppress("DEPRECATION")
+private fun BaseSheetDialog<*>.fitListAboveKeyboard(listView: RecyclerView) {
+    window?.apply {
+        setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.MATCH_PARENT,
+        )
+        setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+    }
+
+    val originalBottomPadding = listView.paddingBottom
+    listView.clipToPadding = false
+    ViewCompat.setOnApplyWindowInsetsListener(listView) { view, insets ->
+        val ime = insets.getInsets(WindowInsetsCompat.Type.ime())
+        val location = IntArray(2).also(view::getLocationInWindow)
+        val coveredHeight = if (insets.isVisible(WindowInsetsCompat.Type.ime())) {
+            (location[1] + view.height - (view.rootView.height - ime.bottom)).coerceAtLeast(0)
+        } else {
+            0
+        }
+        view.updatePadding(bottom = originalBottomPadding + coveredHeight)
+        insets
+    }
+    ViewCompat.requestApplyInsets(listView)
 }
 
 fun Context.showWithdrawMethodDialog(

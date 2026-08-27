@@ -28,6 +28,7 @@
     <string name="Taborder">Order</string>
     <string name="stats">Tips</string>
     <string name="mine">Profile</string>
+    <string name="tab_mine">Mine</string>
     <string name="again_exit">Press again to exit the app.</string>
 
     <string name="otp_enter">Enter OTP</string>
@@ -224,7 +225,7 @@ No personal SMS messages will be accessed, read, or collected.</string>
     <string name="repayment">Repayment</string>
     <string name="repayment_amount">Repayment Amount</string>
     <string name="bank_account">Bank Account</string>
-    <string name="confirm_bank_account">Re-enter bank account</string>
+    <string name="confirm_bank_account">Confirm account number</string>
 
     <string name="bank">Bank</string>
     <string name="e_wallet">E-Wallet</string>

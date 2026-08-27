@@ -23,6 +23,7 @@
         <androidx.core.widget.NestedScrollView
             android:id="@+id/contentScroll"
             android:layout_width="match_parent"
+            android:paddingBottom="@dimen/dp_20"
             android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout

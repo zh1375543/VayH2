@@ -96,7 +96,7 @@ class LoanSubmissionResultActivity :
     private val homeAdapter by lazy {
         LoanCatalogAdapter().apply {
             setOnChildClickListener { view, _, position ->
-                if (view.id == R.id.tvApply) {
+                if (view.id == R.id.btnOfferAction) {
                     items.getOrNull(position)?.let { item ->
                         handleRecommendedProductClick(item)
                     }
