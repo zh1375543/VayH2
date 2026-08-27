@@ -75,7 +75,7 @@
         android:layout_marginTop="@dimen/dp_m_8"
         app:layout_constraintBottom_toBottomOf="@id/rvInstallmentSchedule"
         app:layout_constraintTop_toTopOf="@id/tvDueDateTitle"
-        app:labelCornerRadius="@dimen/dp_16"
+        app:labelCornerRadius="@dimen/dp_12"
         app:labelFillColor="@color/surface_secondary" />
 
     <TextView

@@ -154,7 +154,7 @@
         android:id="@+id/topGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="ivAppIcon,ivCustomer,ivMsg,tvAppName" />
+        app:constraint_referenced_ids="ivAppIcon,tvAppName" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpMain"

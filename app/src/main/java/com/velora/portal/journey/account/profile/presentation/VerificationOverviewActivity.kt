@@ -106,19 +106,19 @@ class VerificationOverviewActivity : BaseActivity<ScreenVerificationOverviewBind
         mapOf(
             "KYC" to Triple(
                 R.string.kyc_certification,
-                R.mipmap.icon_cert_kyc
+                R.mipmap.ic_cert_kyc
             ) { bean: VerificationProgressResponse ->
                 bean.kycState == "30"
             },
             "ID" to Triple(
                 R.string.personal_info,
-                R.mipmap.icon_cert_personal
+                R.mipmap.ic_cert_infomation
             ) { bean ->
                 bean.idState == "30"
             },
             "BANK" to Triple(
                 R.string.contact_info,
-                R.mipmap.icon_cert_contact
+                R.mipmap.ic_cert_contact
             ) { bean ->
                 bean.bankCardState == "30"
             },

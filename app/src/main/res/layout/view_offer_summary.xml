@@ -4,73 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@mipmap/ic_main_card_bg"
-    android:paddingStart="@dimen/dp_20"
-    android:paddingTop="@dimen/dp_20"
-    android:paddingEnd="@dimen/dp_20"
-    android:paddingBottom="@dimen/dp_18">
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
-    <TextView
-        android:id="@+id/tvOfferName"
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
+        android:id="@+id/offerCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textColor="@color/text_inverse"
-        android:textSize="@dimen/sp_16"
-        app:layout_constraintEnd_toStartOf="@id/tvOfferDetails"
+        android:paddingBottom="@dimen/dp_12"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Product Name" />
+        app:panelCornerRadius="@dimen/dp_12"
+        app:panelFillColor="@color/brand_primary">
 
-    <TextView
-        android:id="@+id/tvOfferDetails"
+        <TextView
+            android:id="@+id/tvOfferAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_68"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_23"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="₱200,000,000" />
+
+        <TextView
+            android:id="@+id/tvLoanLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_6"
+            android:text="@string/l_amount"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="@id/tvOfferAmount"
+            app:layout_constraintStart_toStartOf="@id/tvOfferAmount"
+            app:layout_constraintTop_toBottomOf="@id/tvOfferAmount" />
+
+        <TextView
+            android:id="@+id/tvOfferDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:text="@string/product_details"
+            android:textColor="@color/text_inverse"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/tvLoanLabel"
+            app:layout_constraintEnd_toStartOf="@id/ivExpandArrow"
+            app:layout_constraintTop_toTopOf="@id/tvLoanLabel" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivExpandArrow"
+            android:layout_width="@dimen/dp_28"
+            android:layout_height="@dimen/dp_28"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:padding="@dimen/dp_4"
+            android:src="@mipmap/order_arrow_bottom"
+            android:tint="@color/text_inverse"
+            app:layout_constraintBottom_toBottomOf="@id/tvLoanLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvLoanLabel" />
+
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
+    <com.velora.portal.platform.design.component.StatefulLabelView
+        android:id="@+id/tvOfferName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp_8"
-        android:text="@string/product_details"
-        android:textColor="@color/text_inverse"
-        android:textSize="@dimen/sp_13"
-        app:layout_constraintBottom_toBottomOf="@id/tvOfferName"
-        app:layout_constraintEnd_toStartOf="@id/ivExpandArrow"
-        app:layout_constraintTop_toTopOf="@id/tvOfferName" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivExpandArrow"
-        android:layout_width="@dimen/dp_28"
-        android:layout_height="@dimen/dp_28"
-        android:padding="@dimen/dp_4"
-        android:src="@mipmap/order_arrow_bottom"
-        android:tint="@color/text_inverse"
-        app:layout_constraintBottom_toBottomOf="@id/tvOfferName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvOfferName" />
-
-    <TextView
-        android:id="@+id/tvLoanLabel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_18"
-        android:text="@string/l_amount"
-        android:textColor="@color/text_inverse"
-        android:textSize="@dimen/sp_14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvOfferName" />
-
-    <TextView
-        android:id="@+id/tvOfferAmount"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_2"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:elevation="@dimen/dp_4"
         android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
         android:maxLines="1"
-        android:textColor="@color/text_inverse"
-        android:textSize="@dimen/sp_20"
+        android:paddingStart="@dimen/dp_20"
+        android:paddingEnd="@dimen/dp_20"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/sp_16"
         android:textStyle="bold"
+        app:labelBottomLeftRadius="@dimen/dp_0"
+        app:labelBottomRightRadius="@dimen/dp_6"
+        app:labelFillColor="@color/color_order_over"
+        app:labelTopLeftRadius="@dimen/dp_12"
+        app:labelTopRightRadius="@dimen/dp_6"
+        app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLoanLabel"
-        tools:text="200,000,000đ" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Product Name A" />
+
+    <ImageView
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_16"
+        android:contentDescription="@null"
+        android:elevation="@dimen/dp_4"
+        android:src="@drawable/ic_offer_name_label_tail"
+        app:layout_constraintStart_toStartOf="@id/tvOfferName"
+        app:layout_constraintTop_toBottomOf="@id/tvOfferName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

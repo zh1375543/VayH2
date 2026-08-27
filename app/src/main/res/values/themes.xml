@@ -68,6 +68,10 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/dp_8</item>
     </style>
+    <style name="Round_12">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/dp_12</item>
+    </style>
 
     <style name="Round_Circle">
         <item name="cornerFamily">rounded</item>

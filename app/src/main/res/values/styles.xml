@@ -107,11 +107,11 @@
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">@dimen/sp_14</item>
         <item name="labelSelectedDrawableStart">@mipmap/icon_account_select</item>
-        <item name="labelCornerRadius">@dimen/dp_24</item>
+        <item name="labelCornerRadius">@dimen/dp_12</item>
         <item name="labelFillColor">@color/surface_primary</item>
         <item name="labelBorderColor">@color/border_default</item>
         <item name="labelBorderWidth">@dimen/dp_1</item>
-        <item name="labelSelectedFillColor">@color/aide_color</item>
+        <item name="labelSelectedFillColor">@color/color_order_over</item>
         <item name="labelSelectedBorderColor">@color/brand_primary</item>
         <item name="labelSelectedTextColor">@color/text_primary</item>
     </style>

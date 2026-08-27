@@ -20,7 +20,7 @@ class PayoutAccountPickerAdapter(var selectPosition: Int) :
         tvCard.text = item.account ?: item.bankNo
         tvBank.text = item.name ?: item.bankName
         ivAccountIcon.setImageResource(
-            if (isSelected) R.mipmap.icon_dialog_bank_select else R.mipmap.icon_dialog_bank_unselect
+            if (isSelected) R.mipmap.ic_account_check else R.mipmap.ic_account_uncheck
         )
         ivBankState.isVisible = !isWallet
         accountItemBackground.isSelected = isSelected

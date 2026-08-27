@@ -6,11 +6,11 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dp_10"
     android:paddingVertical="@dimen/dp_12"
-    app:panelCornerRadius="@dimen/dp_16"
+    app:panelCornerRadius="@dimen/dp_12"
     app:panelSelectedBorderColor="@color/brand_primary"
     app:panelFillColor="@color/surface_primary"
     app:panelBorderColor="@color/border_default"
-    app:panelBorderWidth="@dimen/dp_1">
+    app:panelBorderWidth="@dimen/dp_2">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivAccountIcon"

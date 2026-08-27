@@ -26,8 +26,8 @@ class PayoutAccountAdapter :
         val accentColor = root.context.resolveColorCompat(
             if (item.payWay == "WALLET") R.color.action_withdraw else R.color.brand_primary,
         )
-        root.setBackgroundResource(
-            if (item.payWay == "WALLET") R.mipmap.icon_account_wallet else R.mipmap.icon_account_bank,
+        ivCardBackground.setImageResource(
+            if (item.payWay == "WALLET") R.mipmap.ic_wallet_bg else R.mipmap.ic_bank_bg,
         )
         menuGroup.isVisible = !isDefault
         tvDefaultStatus.isVisible = isDefault

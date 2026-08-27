@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.velora.portal.platform.design.component.SurfacePanelLayout
+        android:id="@+id/summaryDetailsCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:panelCornerRadius="@dimen/dp_12"
+        app:panelFillColor="@color/surface_primary">
+
+        <com.velora.portal.platform.design.component.StatefulLabelView
+            android:id="@+id/tvLeaseInfo"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:drawableEnd="@mipmap/mine_right"
+            android:drawablePadding="@dimen/dp_8"
+            android:drawableTint="@color/brand_primary"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/dp_16"
+            android:text="@string/about_lease"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/sp_15"
+            app:labelCornerRadius="@dimen/dp_12"
+            app:labelFillColor="@color/page_bg_color1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvLoanAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:gravity="center"
+            android:text="@string/home_product_loan_amount_title"
+            android:textColor="@color/text_body"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLeaseInfo" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_2"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/brand_secondary"
+            android:textSize="@dimen/sp_28"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLoanAmount"
+            tools:text="₫200,000,000" />
+
+        <View
+            android:id="@+id/ticketDivider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:layout_marginHorizontal="@dimen/dp_28"
+            android:layout_marginTop="@dimen/dp_14"
+            android:background="@color/border_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAmount" />
+
+        <View
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:background="@drawable/bg_loan_product_ticket_notch"
+            android:translationX="@dimen/dp_m_12"
+            app:layout_constraintBottom_toBottomOf="@id/ticketDivider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ticketDivider" />
+
+        <View
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:background="@drawable/bg_loan_product_ticket_notch"
+            android:translationX="@dimen/dp_12"
+            app:layout_constraintBottom_toBottomOf="@id/ticketDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ticketDivider" />
+
+        <com.velora.portal.journey.lending.catalog.presentation.component.LoanProductDetailsView
+            android:id="@+id/productDetailsView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ticketDivider" />
+    </com.velora.portal.platform.design.component.SurfacePanelLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

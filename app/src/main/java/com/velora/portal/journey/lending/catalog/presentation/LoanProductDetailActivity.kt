@@ -61,6 +61,10 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
     private var isAddCard = false
 
     override fun initView() {
+        setStatusBarAppearance(
+            statusBarColor = R.color.brand_primary,
+            useDarkStatusBarIcons = false,
+        )
         prepareProductExperience()
         connectProductExploration()
         connectRepaymentPlan()
@@ -89,6 +93,13 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
     }
 
     private fun connectProductExploration() = with(binding) {
+        loanSummaryDetails.tvLeaseInfo.singleClick {
+            ContentBrowserActivity.Companion.launch(
+                this@LoanProductDetailActivity,
+                loanSummaryDetails.tvLeaseInfo.text.toString(),
+                AGREEMENT_ABOUT,
+            )
+        }
         tvPrivacy.setSpannableClickableTexts(
             String.format(
                 getString(R.string.product_detail_agreement),
@@ -113,12 +124,6 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
             LoanEventRecorder.record(LoanEvent.CLICK_CHOOSE_WALLET)
             accountVm.getLoanAccountList {}
         }
-        tvLeaseInfo.singleClick {
-            ContentBrowserActivity.Companion.launch(
-                this@LoanProductDetailActivity, tvLeaseInfo.text.toString(), AGREEMENT_ABOUT
-            )
-        }
-        productDetailsCard.isVisible = true
     }
 
     private fun connectRepaymentPlan() = with(binding) {
@@ -269,7 +274,7 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
                         PRODUCT_AGREEMENT + "userId=${SessionStore.loginInfo?.id}&productId=${productDetail.id}&amount=${productDetail.loanAmount}"
                     pawnUrl =
                         PRODUCT_AGREEMENT + "userId=${SessionStore.loginInfo?.id}&productId=${productDetail.id}&amount=${productDetail.loanAmount}"
-                    tvAmount.text = productDetail.loanAmount.formatAmountWithPrefix(productDetail.currencySymbol)
+                    loanSummaryDetails.tvAmount.text = productDetail.loanAmount.formatAmountWithPrefix(productDetail.currencySymbol)
                     renderOfferSummary(productDetail)
                     restoreOfferSelection(productDetail)
 
@@ -288,9 +293,6 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
                             else -> 0
                         }
                     }
-                    LogUtil.e("selectIndex1:${productDetail.selectedTermIndex}")
-
-                    productDetailsCard.isVisible = true
                     repaymentPlanCard.isVisible = !productDetail.loanTermConfigDTOList.isNullOrEmpty()
                     repaymentPlanView.setData(productDetail)
                     renderPayoutAccount(
@@ -339,6 +341,6 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
 
     private fun renderOfferSummary(plan: CatalogEntry) = with(binding) {
         val currencySymbol = plan.currencySymbol ?: product?.currencySymbol
-        productDetailsView.bind(plan, currencySymbol)
+        loanSummaryDetails.productDetailsView.bind(plan, currencySymbol)
     }
 }

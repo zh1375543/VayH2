@@ -3,188 +3,172 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/page_bg_color1"
+    android:background="@color/color_page_bg"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/outcomeBackgroundBottom"
-        android:layout_width="wrap_content"
+    <com.velora.portal.platform.design.component.CurvedHeaderLayout
+        android:id="@+id/outcomeHeader"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/dp_450" />
+        app:curvedHeaderArcDepth="@dimen/dp_36"
+        app:curvedHeaderContentSpacing="@dimen/dp_20"
+        app:curvedHeaderFillColor="@color/brand_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivOutcomeBackground"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:contentDescription="@null"
-        android:scaleType="fitXY"
-        android:src="@mipmap/image_verify_success_bg"
-        app:layout_constraintBottom_toTopOf="@id/outcomeBackgroundBottom"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFail"
+            android:layout_width="@dimen/dp_102"
+            android:layout_height="@dimen/dp_102"
+            android:layout_marginTop="@dimen/dp_64"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/icon_loan_fail"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSuccess"
+            android:layout_width="@dimen/dp_102"
+            android:layout_height="@dimen/dp_102"
+            android:layout_marginTop="@dimen/dp_64"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/icon_loan_success"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/success_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_12"
+            android:paddingBottom="@dimen/dp_12"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSuccess">
+
+            <TextView
+                android:id="@+id/tvApplySuccessTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="@dimen/dp_2"
+                android:text="@string/application_submit_title"
+                android:textColor="@color/text_inverse"
+                android:textSize="@dimen/sp_24"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvApplySuccessDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="center"
+                android:text="@string/application_submit_desc"
+                android:textColor="@color/text_inverse"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvApplySuccessTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fail_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_12"
+            android:paddingBottom="@dimen/dp_12"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivFail">
+
+            <TextView
+                android:id="@+id/tvApplyFailTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="@dimen/dp_2"
+                android:text="@string/submit_failed_title"
+                android:textColor="@color/text_inverse"
+                android:textSize="@dimen/sp_24"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvApplyFailDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="center"
+                android:text="@string/submit_failed_desc"
+                android:textColor="@color/text_inverse"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvApplyFailTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.velora.portal.platform.design.component.CurvedHeaderLayout>
 
     <FrameLayout
         android:id="@+id/pageContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleBar">
+        app:layout_constraintTop_toBottomOf="@id/outcomeHeader">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/pageContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivFail"
-                android:layout_width="@dimen/dp_102"
-                android:layout_height="@dimen/dp_102"
-                android:layout_marginTop="@dimen/dp_8"
-                android:contentDescription="@null"
-                android:scaleType="fitCenter"
-                android:src="@mipmap/icon_apply_fail"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivSuccess"
-                android:layout_width="@dimen/dp_102"
-                android:layout_height="@dimen/dp_102"
-                android:layout_marginTop="@dimen/dp_8"
-                android:contentDescription="@null"
-                android:scaleType="fitCenter"
-                android:src="@mipmap/icon_apply_ok"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/success_layout"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/dp_118"
-                android:layout_marginHorizontal="@dimen/dp_20"
-                android:layout_marginTop="@dimen/dp_12"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivSuccess">
-
-                <TextView
-                    android:id="@+id/tvApplySuccessTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:lineSpacingExtra="@dimen/dp_2"
-                    android:text="@string/application_submit_title"
-                    android:textColor="@color/text_inverse"
-                    android:textSize="@dimen/sp_24"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@id/tvApplySuccessDesc"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-                <TextView
-                    android:id="@+id/tvApplySuccessDesc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/dp_16"
-                    android:layout_marginTop="@dimen/dp_8"
-                    android:gravity="center"
-                    android:text="@string/application_submit_desc"
-                    android:textColor="@color/brand_primary"
-                    android:textSize="@dimen/sp_12"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvApplySuccessTitle" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/fail_layout"
+            <com.velora.portal.platform.design.component.StatefulLabelView
+                android:id="@+id/tvLoanResultTip"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/dp_20"
-                android:layout_marginTop="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_10"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/dp_3"
+                android:paddingHorizontal="@dimen/dp_20"
+                android:paddingVertical="@dimen/dp_16"
+                android:text="@string/loan_result"
+                android:textColor="@color/text_body"
+                android:textSize="@dimen/sp_12"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivFail">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/failCardGroup"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/dp_118"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/tvApplyFailTitle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:lineSpacingExtra="@dimen/dp_2"
-                        android:text="@string/submit_failed_title"
-                        android:textColor="@color/status_error"
-                        android:textSize="@dimen/sp_24"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toTopOf="@id/tvApplyFailDesc"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_chainStyle="packed" />
-
-                    <TextView
-                        android:id="@+id/tvApplyFailDesc"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/dp_16"
-                        android:layout_marginTop="@dimen/dp_8"
-                        android:gravity="center"
-                        android:text="@string/submit_failed_desc"
-                        android:textColor="@color/brand_primary"
-                        android:textSize="@dimen/sp_12"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvApplyFailTitle" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <com.velora.portal.platform.design.component.StatefulLabelView
-                    android:id="@+id/tvLoanResultTip"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_20"
-                    android:gravity="center"
-                    android:lineSpacingExtra="@dimen/dp_3"
-                    android:paddingHorizontal="@dimen/dp_20"
-                    android:paddingVertical="@dimen/dp_16"
-                    android:text="@string/loan_result"
-                    android:textColor="@color/text_body"
-                    android:textSize="@dimen/sp_12"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/failCardGroup"
-                    app:labelCornerRadius="@dimen/dp_16"
-                    app:labelFillColor="@color/text_inverse" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toTopOf="parent"
+                app:labelCornerRadius="@dimen/dp_16"
+                app:labelFillColor="@color/text_inverse" />
 
             <androidx.constraintlayout.widget.Barrier
                 android:id="@+id/outcomeCardBarrier"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:barrierDirection="bottom"
-                app:constraint_referenced_ids="success_layout,fail_layout" />
+                app:constraint_referenced_ids="tvLoanResultTip" />
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/outcomeScrollView"
@@ -207,7 +191,7 @@
                         android:id="@+id/resultsCard"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_20"
+                        android:layout_marginTop="@dimen/dp_10"
                         android:paddingHorizontal="@dimen/dp_16"
                         android:paddingBottom="@dimen/dp_12"
                         android:visibility="gone"
@@ -234,7 +218,7 @@
                             tools:itemCount="4"
                             tools:listitem="@layout/item_application_status"
                             tools:visibility="visible"
-                            app:radius="@dimen/dp_16"
+                            app:radius="@dimen/dp_12"
                             app:solidColor="@color/surface_secondary" />
 
                         <com.velora.portal.platform.design.component.SurfacePanelLayout
@@ -247,19 +231,17 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/rvProduct"
-                            app:panelCornerRadius="@dimen/dp_16"
-                            app:panelFillColor="@color/aide_color"
                             tools:visibility="visible">
 
-                            <com.velora.portal.platform.design.component.DecoratedTitleView
+                            <TextView
                                 android:id="@+id/tvRecommendTitle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dp_10"
-                                app:decoratedTitleIcon="@mipmap/ic_state_img"
-                                app:decoratedTitleText="@string/products"
-                                app:decoratedTitleTextColor="@color/text_primary"
-                                app:decoratedTitleTextSize="@dimen/sp_16"
+                                android:text="@string/products"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/sp_16"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -268,7 +250,6 @@
                                 android:id="@+id/rvCashableProduct"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="@dimen/dp_16"
                                 android:nestedScrollingEnabled="false"
                                 android:orientation="vertical"
                                 android:overScrollMode="never"

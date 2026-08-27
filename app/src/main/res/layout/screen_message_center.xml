@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
 
     <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
@@ -37,7 +37,7 @@
             android:textColor="@color/text_inverse"
             android:textSize="@dimen/sp_12"
             android:textStyle="bold"
-            app:labelCornerRadius="@dimen/dp_24"
+            app:labelCornerRadius="@dimen/dp_12"
             app:labelFillColor="@color/brand_primary" />
 
         <TextView

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/page_bg_color1">
+    android:background="@color/color_page_bg">
 
     <com.velora.portal.platform.design.component.PageHeaderView
         android:id="@+id/titleBar"
@@ -120,8 +120,8 @@
             app:layout_constraintBottom_toBottomOf="@id/tvAccountTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvAccountTitle"
-            app:labelCornerRadius="@dimen/dp_15"
-            app:labelFillColor="@color/brand_primary" />
+            app:labelCornerRadius="@dimen/dp_12"
+            app:labelFillColor="@color/brand_secondary" />
 
         <com.velora.portal.platform.design.component.SurfacePanelLayout
             android:id="@+id/walletTipPanel"
@@ -132,14 +132,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAccountTitle"
-            app:panelCornerRadius="@dimen/dp_16"
-            app:panelFillColor="@color/color_verify_tip">
+            app:panelCornerRadius="@dimen/dp_12"
+            app:panelFillColor="@color/color_page_bg">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivLoanTip"
                 android:layout_width="@dimen/dp_30"
                 android:layout_height="@dimen/dp_30"
-                android:src="@mipmap/ic_loan_tip"
+                android:src="@mipmap/icon_image_tips"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -186,7 +186,7 @@
                 android:id="@+id/tvTotalAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/brand_primary"
+                android:textColor="@color/text_primary"
                 android:textSize="@dimen/sp_18"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"

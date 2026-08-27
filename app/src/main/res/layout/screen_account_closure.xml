@@ -21,7 +21,9 @@
         android:layout_marginTop="@dimen/dp_10"
         app:layout_constraintTop_toBottomOf="@id/titleBar"
         app:panelCornerRadius="@dimen/dp_12"
-        app:panelFillColor="@color/brand_primary">
+        app:panelGradientDirection="leftToRight"
+        app:panelGradientEndColor="@color/brand_primary_light"
+        app:panelGradientStartColor="@color/brand_secondary">
 
         <TextView
             android:id="@+id/tvAppName"
@@ -73,7 +75,7 @@
             android:layout_marginBottom="@dimen/dp_16"
             android:lineSpacingExtra="@dimen/dp_4"
             android:text="@string/close_account_tips"
-            android:textColor="@color/status_error"
+            android:textColor="@color/text_inverse"
             android:textSize="@dimen/sp_12"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

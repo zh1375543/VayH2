@@ -112,6 +112,9 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
                         tvHome.setSelected(position == 0)
                         tvOrder.setSelected(position == 1)
                         tvMine.setSelected(position == 2)
+                        // Keep message and customer service available on every tab.  Only the
+                        // brand area is hidden for the profile page, where it would overlap the
+                        // profile header.
                         topGroup.isVisible = position != 2
                     }
                 }
@@ -119,17 +122,16 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
         }
     }
 
-    private fun updateStatusBarAppearance(page: Int) {
-        val usesBrandHeader = page != 2
+    private fun updateStatusBarAppearance() {
         setStatusBarAppearance(
-            statusBarColor = if (usesBrandHeader) R.color.brand_primary else R.color.transparent,
-            useDarkStatusBarIcons = !usesBrandHeader,
+            statusBarColor = R.color.brand_primary,
+            useDarkStatusBarIcons = false,
         )
         binding.topHeaderBackground.setBackgroundColor(
-            getColor(if (usesBrandHeader) R.color.brand_primary else R.color.page_bg_color1)
+            getColor(R.color.brand_primary)
         )
         binding.tvAppName.setTextColor(
-            getColor(if (usesBrandHeader) R.color.text_inverse else R.color.text_primary)
+            getColor(R.color.text_inverse)
         )
     }
 
@@ -185,7 +187,7 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
 
     fun selectPage(page: Int) {
         currentPage = page
-        updateStatusBarAppearance(page)
+        updateStatusBarAppearance()
         binding.apply {
             vpMain.setCurrentItem(page, false)
         }

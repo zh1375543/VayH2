@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_72"
     android:layout_marginBottom="@dimen/dp_10"
-    app:panelCornerRadius="@dimen/dp_24"
+    app:panelCornerRadius="@dimen/dp_12"
     app:panelFillColor="@color/text_inverse">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -14,7 +14,7 @@
         android:layout_height="@dimen/dp_44"
         android:layout_marginStart="@dimen/dp_16"
         android:padding="@dimen/dp_2"
-        android:src="@mipmap/icon_notice"
+        android:src="@mipmap/ic_message_notice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

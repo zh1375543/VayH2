@@ -26,15 +26,6 @@ class LoanProductDetailsView @JvmOverloads constructor(
 
     init {
         binding.rvFeeSummary.adapter = headerFeeAdapter
-
-        binding.ivExpandDetails.rotation = 0f
-        val toggleDetails = {
-            binding.detailsToggleGroup.isVisible = !binding.detailsToggleGroup.isVisible
-            binding.ivExpandDetails.rotation = if (binding.detailsToggleGroup.isVisible) 0f else 180f
-            updateInstallmentFeeVisibility()
-        }
-        binding.ivExpandDetails.setOnClickListener { toggleDetails() }
-        binding.tvDetailsTitle.setOnClickListener { toggleDetails() }
     }
 
     fun bind(plan: CatalogEntry, currencySymbol: String?) = with(binding) {
@@ -58,11 +49,11 @@ class LoanProductDetailsView @JvmOverloads constructor(
 
     fun setHeaderVisible(visible: Boolean) = with(binding) {
         tvDetailsTitle.isVisible = visible
-        ivExpandDetails.isVisible = visible
+        ivExpandDetails.isVisible = false
     }
 
     private fun updateInstallmentFeeVisibility() = with(binding) {
-        val shouldShow = detailsToggleGroup.isVisible && hasInstallmentFee
+        val shouldShow = hasInstallmentFee
         tvServiceFeeLabel.isVisible = shouldShow
         tvServiceFee.isVisible = shouldShow
     }

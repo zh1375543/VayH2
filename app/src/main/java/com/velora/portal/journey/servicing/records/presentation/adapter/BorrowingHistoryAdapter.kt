@@ -1,6 +1,6 @@
 package com.velora.portal.journey.servicing.records.presentation.adapter
 
-import android.graphics.Color
+import android.content.res.ColorStateList
 import android.graphics.drawable.GradientDrawable
 import com.velora.portal.R
 import com.velora.portal.platform.design.base.BaseAdapter
@@ -77,19 +77,40 @@ class BorrowingHistoryAdapter :
         }
         val isOverdue = item.status == ORDER_STATUS_OVERDUE ||
             item.status == ORDER_STATUS_BAD_DEBTS
-        val startColor = root.context.resolveColorCompat(
+        val accentColor = root.context.resolveColorCompat(
             if (isOverdue) {
-                R.color.action_withdraw
+                R.color.status_error
             } else {
                 R.color.brand_primary
             },
         )
-        val endColor = Color.parseColor(if (isOverdue) "#FF9F76" else "#8BBB78")
+        val cardRadius = root.resources.getDimension(R.dimen.dp_16)
+        val borderWidth = root.resources.getDimensionPixelSize(R.dimen.dp_1)
         root.background = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
-            cornerRadius = root.resources.getDimension(R.dimen.dp_16)
-            orientation = GradientDrawable.Orientation.TOP_BOTTOM
-            colors = intArrayOf(startColor, endColor)
+            cornerRadius = cardRadius
+            setColor(root.context.resolveColorCompat(R.color.surface_primary))
+            setStroke(borderWidth, accentColor)
         }
+        detailContainer.background = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            setColor(
+                root.context.resolveColorCompat(
+                    if (isOverdue) R.color.record_detail_overdue else R.color.record_detail_normal,
+                ),
+            )
+            cornerRadii = floatArrayOf(
+                0f, 0f, 0f, 0f,
+                cardRadius - borderWidth, cardRadius - borderWidth,
+                cardRadius - borderWidth, cardRadius - borderWidth,
+            )
+        }
+        ivStatusBullet.imageTintList = ColorStateList.valueOf(accentColor)
+        tvStatus.setTextColor(
+            root.context.resolveColorCompat(
+                if (isOverdue) R.color.status_error else R.color.text_primary,
+            ),
+        )
+        tvDetail.setTextColor(accentColor)
     }
 }

@@ -35,6 +35,8 @@
     <color name="color_goal">#6717D7</color>
     <color name="color_order_over">#FFD4BB</color>
     <color name="installment_tip_bg">#FFF4E5</color>
+    <color name="record_detail_normal">#FFF1E9</color>
+    <color name="record_detail_overdue">#FFF0EE</color>
 
     <color name="color_page_bg">#F5F5F5</color>
     <color name="color_page_color_bg">#F9F9F1</color>

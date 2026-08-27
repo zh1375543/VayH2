@@ -107,6 +107,10 @@ class LoanSubmissionResultActivity :
 
     @SuppressLint("MissingPermission")
     override fun initView() = with(binding) {
+        setStatusBarAppearance(
+            statusBarColor = R.color.brand_primary,
+            useDarkStatusBarIcons = false,
+        )
         registerTrackedBackHandler(vm) {
             returnToDashboard()
         }
@@ -343,6 +347,7 @@ class LoanSubmissionResultActivity :
             pageState.hide()
             successLayout.isVisible = true
             failLayout.isVisible = false
+            tvLoanResultTip.isVisible = false
             ivSuccess.isVisible = true
             ivFail.isVisible = false
             updateResultsCardVisibility()
@@ -357,6 +362,7 @@ class LoanSubmissionResultActivity :
             pageState.hide()
             successLayout.isVisible = false
             failLayout.isVisible = true
+            tvLoanResultTip.isVisible = true
             ivSuccess.isVisible = false
             ivFail.isVisible = true
             updateResultsCardVisibility()

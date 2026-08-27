@@ -7,7 +7,7 @@
     android:layout_marginEnd="@dimen/dp_6"
     app:panelCornerRadius="@dimen/dp_8"
     app:panelSelectedFillColor="@color/surface_secondary"
-    app:panelSelectedBorderColor="@color/brand_primary"
+    app:panelSelectedBorderColor="@color/brand_secondary"
     app:panelFillColor="@color/surface_secondary"
     app:panelBorderColor="@color/transparent"
     app:panelBorderWidth="@dimen/dp_1">
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:labelTopLeftRadius="@dimen/dp_8"
         app:labelTopRightRadius="@dimen/dp_8"
-        app:labelSelectedFillColor="@color/brand_primary"
+        app:labelSelectedFillColor="@color/brand_secondary"
         app:labelFillColor="@color/border_default"
         app:labelSelectedTextColor="@color/text_inverse" />
 
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPeriod1"
-        app:labelSelectedTextColor="@color/text_primary" />
+        app:labelSelectedTextColor="@color/brand_secondary" />
 
     <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvFirst"
@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvFirst"
-        app:labelSelectedTextColor="@color/text_primary" />
+        app:labelSelectedTextColor="@color/brand_secondary" />
 
     <com.velora.portal.platform.design.component.StatefulLabelView
         android:id="@+id/tvNoInstall"
