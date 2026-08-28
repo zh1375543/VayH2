@@ -82,16 +82,16 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
     }
 
     override fun initView() {
-        setLightSystemBarIcons(enabled = true)
-        configureLoginHeader()
-        initializeLoginSession()
-        observePhoneNumberInput()
-        bindLoginActions()
+        setupAccessScreen()
+        startAccessSession()
+        trackPhoneInput()
+        bindAccessEvents()
     }
 
-    private fun configureLoginHeader() = with(binding) {
+    private fun setupAccessScreen() = with(binding) {
+        setLightSystemBarIcons(enabled = true)
         accessPageHeader.showNavigation(false)
-        accessPageHeader.setNavigationAction { handleLoginBack() }
+        accessPageHeader.setNavigationAction { processAccessBack() }
         tvAccessHeadline.text = getString(
             R.string.welcome_to_app,
             getString(R.string.app_name)
@@ -125,7 +125,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
         cbAccept.isSelected = true
     }
 
-    private fun initializeLoginSession() {
+    private fun startAccessSession() {
         smsHelper.register(this@PhoneAuthActivity)
         vm.submitTrackingEvent(
             TrackBean(
@@ -136,13 +136,13 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
         onBackPressedDispatcher.addCallback(
             this@PhoneAuthActivity,
             object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() = handleLoginBack()
+                override fun handleOnBackPressed() = processAccessBack()
             },
         )
         homeVm.getUnAuthData()
     }
 
-    private fun observePhoneNumberInput() = with(binding) {
+    private fun trackPhoneInput() = with(binding) {
         formPhone.getEditText().doOnTextChanged { _, _, _, _ ->
             val now = System.currentTimeMillis()
 
@@ -177,7 +177,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
     }
 
     @SuppressLint("MissingPermission")
-    private fun bindLoginActions() = with(binding) {
+    private fun bindAccessEvents() = with(binding) {
         tvAccessHeadline.singleClick {
             vm.submitTrackingEvent(
                 TrackBean(
@@ -219,14 +219,14 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
             cbAccept.isSelected = !cbAccept.isSelected
         }
         tvGetOtp.singleClick {
-            if (tvGetOtp.isEnabled) requestVerificationCode()
+            if (tvGetOtp.isEnabled) requestOtpCode()
         }
         tvLogin.singleClick {
             if (!cbAccept.isSelected) {
                 getString(R.string.privacy_toast_agree2).showToastMessage()
                 return@singleClick
             }
-            submitLogin()
+            performOtpLogin()
         }
         if (location.first == 0.0
             && PermissionCoordinator.hasPermission(
@@ -261,7 +261,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
         }
     }
 
-    private fun handleLoginBack() {
+    private fun processAccessBack() {
         if (canNavigateBack) {
             showConfirmDialog(
                 title = getString(R.string.login_prompt_title),
@@ -297,7 +297,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
         MainNavigator.launch(this, clearTask = true)
     }
 
-    private fun requestVerificationCode() {
+    private fun requestOtpCode() {
         val phoneNumber = binding.formPhone.getText()
         when {
             phoneNumber.isBlank() -> {
@@ -348,7 +348,7 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
         tvGetOtp.text = getString(R.string.resend_after_short, seconds)
     }
 
-    private fun submitLogin() {
+    private fun performOtpLogin() {
         val phoneNumber = binding.formPhone.getText()
         when {
             phoneNumber.isBlank() -> {

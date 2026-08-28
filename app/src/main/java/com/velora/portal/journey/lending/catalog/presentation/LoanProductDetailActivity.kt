@@ -65,13 +65,13 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
             statusBarColor = R.color.brand_primary,
             useDarkStatusBarIcons = false,
         )
-        prepareProductExperience()
-        connectProductExploration()
-        connectRepaymentPlan()
-        connectLoanApplication()
+        configureLoanProductScreen()
+        bindLoanProductInformationActions()
+        bindRepaymentPlanSelection()
+        bindLoanProductApplication()
     }
 
-    private fun prepareProductExperience() = with(binding) {
+    private fun configureLoanProductScreen() = with(binding) {
         vm.submitTrackingEvent(
             TrackBean(
                 p = PageProductDetail,
@@ -80,9 +80,9 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
             )
         )
         LoanEventRecorder.setEventFileSuffix((SessionStore.loginInfo?.id ?: 111).toString())
-        titleBar.setNavigationAction { exitOfferFlow() }
+        titleBar.setNavigationAction { exitLoanProductFlow() }
         registerTrackedBackHandler(vm) {
-            exitOfferFlow()
+            exitLoanProductFlow()
         }
         pageState.setOnRetryClickListener {
             vm.getProductDetail(
@@ -92,7 +92,7 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
         }
     }
 
-    private fun connectProductExploration() = with(binding) {
+    private fun bindLoanProductInformationActions() = with(binding) {
         loanSummaryDetails.tvLeaseInfo.singleClick {
             ContentBrowserActivity.Companion.launch(
                 this@LoanProductDetailActivity,
@@ -126,7 +126,7 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
         }
     }
 
-    private fun connectRepaymentPlan() = with(binding) {
+    private fun bindRepaymentPlanSelection() = with(binding) {
         repaymentPlanView.apply {
             onTermChanged = { productId, termId ->
                 termIdMap.clear()
@@ -139,12 +139,12 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
             }
 
             onPlanSelected = { selectedPlan ->
-                renderOfferSummary(selectedPlan)
+                renderLoanProductSummary(selectedPlan)
             }
         }
     }
 
-    private fun connectLoanApplication() = with(binding) {
+    private fun bindLoanProductApplication() = with(binding) {
         btnWithdraw.resetScale()
         btnWithdraw.singleClick {
             vm.submitTrackingEvent(
@@ -199,7 +199,7 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
         }
     }
 
-    private fun exitOfferFlow() {
+    private fun exitLoanProductFlow() {
         finish()
     }
 
@@ -240,7 +240,7 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
     override fun initObserve() = with(vm) {
         super.initObserve()
         productDetailState.observe(this@LoanProductDetailActivity) { state ->
-            render(state)
+            renderLoanProductState(state)
         }
         accountVm.loanAccountList.observe(this@LoanProductDetailActivity) {
             it?.let {
@@ -250,13 +250,13 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
                     selectedAccountId = cardInfo?.id,
                     selectedPayWay = cardInfo?.payWay,
                 ) { card ->
-                    renderPayoutAccount(card)
+                    displaySelectedPayoutAccount(card)
                 }
             }
         }
     }
 
-    private fun render(state: PageLoadState<CatalogEntry>) = with(binding) {
+    private fun renderLoanProductState(state: PageLoadState<CatalogEntry>) = with(binding) {
         contentScroll.isVisible = state is PageLoadState.Content
         bottomUiGroup.isVisible = state is PageLoadState.Content
         when (state) {
@@ -265,18 +265,18 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
                 pageState.showError()
             }
             PageLoadState.Empty -> Unit
-            is PageLoadState.Content -> renderProductDetail(state.data)
+            is PageLoadState.Content -> renderLoanProductContent(state.data)
         }
     }
 
-    private fun renderProductDetail(productDetail: CatalogEntry) = with(binding) {
+    private fun renderLoanProductContent(productDetail: CatalogEntry) = with(binding) {
                     leaseUrl =
                         PRODUCT_AGREEMENT + "userId=${SessionStore.loginInfo?.id}&productId=${productDetail.id}&amount=${productDetail.loanAmount}"
                     pawnUrl =
                         PRODUCT_AGREEMENT + "userId=${SessionStore.loginInfo?.id}&productId=${productDetail.id}&amount=${productDetail.loanAmount}"
                     loanSummaryDetails.tvAmount.text = productDetail.loanAmount.formatAmountWithPrefix(productDetail.currencySymbol)
-                    renderOfferSummary(productDetail)
-                    restoreOfferSelection(productDetail)
+                    renderLoanProductSummary(productDetail)
+                    restoreLoanProductSelection(productDetail)
 
                     // if state was never saved (savedTermIndex < 0),
                     // ignore the Bean value (may be GSON default 0) and find the item with defaultSign == 1
@@ -295,7 +295,7 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
                     }
                     repaymentPlanCard.isVisible = !productDetail.loanTermConfigDTOList.isNullOrEmpty()
                     repaymentPlanView.setData(productDetail)
-                    renderPayoutAccount(
+                    displaySelectedPayoutAccount(
                         LinkedAccountResponse(
                             id = productDetail.bankInfoId ?: productDetail.userCashWalletId,
                             bankNo = productDetail.bankNo ?: productDetail.walletAccount,
@@ -319,7 +319,7 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
         pageState.hide()
     }
 
-    private fun renderPayoutAccount(account: LinkedAccountResponse) = with(binding) {
+    private fun displaySelectedPayoutAccount(account: LinkedAccountResponse) = with(binding) {
         cardInfo = account
         tvAccountType.text = getPayoutAccountTypeLabel(account.payWay)
         tvCard.text = (account.account ?: account.bankNo).maskSensitive().orEmpty()
@@ -332,14 +332,14 @@ class LoanProductDetailActivity : BaseActivity<ScreenLoanProductDetailBinding>()
         }, 200)
     }
 
-    private fun restoreOfferSelection(newProduct: CatalogEntry) {
+    private fun restoreLoanProductSelection(newProduct: CatalogEntry) {
         // savedTermIndex == -1 means first load, no merge needed
         if (savedTermIndex < 0) return
 
         newProduct.selectedTermIndex = savedTermIndex
     }
 
-    private fun renderOfferSummary(plan: CatalogEntry) = with(binding) {
+    private fun renderLoanProductSummary(plan: CatalogEntry) = with(binding) {
         val currencySymbol = plan.currencySymbol ?: product?.currencySymbol
         loanSummaryDetails.productDetailsView.bind(plan, currencySymbol)
     }

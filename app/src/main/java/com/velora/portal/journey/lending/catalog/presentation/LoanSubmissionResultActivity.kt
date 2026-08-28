@@ -98,7 +98,7 @@ class LoanSubmissionResultActivity :
             setOnChildClickListener { view, _, position ->
                 if (view.id == R.id.btnOfferAction) {
                     items.getOrNull(position)?.let { item ->
-                        handleRecommendedProductClick(item)
+                        handleRecommendedLoanOfferClick(item)
                     }
                 }
             }
@@ -112,17 +112,17 @@ class LoanSubmissionResultActivity :
             useDarkStatusBarIcons = false,
         )
         registerTrackedBackHandler(vm) {
-            returnToDashboard()
+            returnFromLoanSubmission()
         }
-        titleBar.setNavigationAction { returnToDashboard() }
+        titleBar.setNavigationAction { returnFromLoanSubmission() }
         tvWithdrawal.singleClick {
-            openCombinedLoanOffer()
+            openMultiLoanOffer()
         }
         rvProduct.adapter = resultAdapter
         rvCashableProduct.adapter = homeAdapter
         pageContent.isVisible = false
         pageState.showLoading()
-        initRisk()
+        initializeLoanSubmissionRisk()
         if (location.first == 0.0) {
             PermissionCoordinator.request(this@LoanSubmissionResultActivity, PermissionScenario.DEVICE_RISK) {
                 val locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
@@ -133,7 +133,7 @@ class LoanSubmissionResultActivity :
         }
     }
 
-    private fun returnToDashboard() {
+    private fun returnFromLoanSubmission() {
         AppStackUtil.finishActivity(MultiLoanOfferActivity::class.java)
         AppStackUtil.finishActivity(SignatureCaptureActivity::class.java)
         AppStackUtil.finishActivity(LoanProductDetailActivity::class.java)
@@ -141,7 +141,7 @@ class LoanSubmissionResultActivity :
         PortalHostActivity.Companion.launch(this)
     }
 
-    private fun handleRecommendedProductClick(item: HomeProductUi) {
+    private fun handleRecommendedLoanOfferClick(item: HomeProductUi) {
         trackEvent(LOAN_GET_NOW_CLICK)
         if (!item.canApply) return
 
@@ -161,7 +161,7 @@ class LoanSubmissionResultActivity :
                 ExternalActionLauncher.openBrowser(this, it)
             }
             2 -> ExternalActionLauncher.openStoreListing(this, product.downloadUrl)
-            4 -> openCombinedLoanOffer()
+            4 -> openMultiLoanOffer()
             else -> productVm.getProductDetail(
                 PageHome,
                 product.productId.toString(),
@@ -171,19 +171,19 @@ class LoanSubmissionResultActivity :
         }
     }
 
-    private fun refreshRecommendedProducts() {
+    private fun requestRecommendedLoanProducts() {
         binding.apply {
             cashableProductLayout.isVisible = false
             tvWithdrawal.isVisible = false
-            updateResultsCardVisibility()
+            updateLoanSubmissionCardVisibility()
         }
         homeAdapter.submitItems(emptyList())
         vm.getTogetherLoan(showLoading = true) {
-            collapseOfferRecommendations()
+            hideRecommendedLoanProducts()
         }
     }
 
-    private fun updateRecommendedProducts(data: MemberOverviewResponse?) {
+    private fun renderRecommendedLoanProducts(data: MemberOverviewResponse?) {
         val products = data?.showProducts.orEmpty().onEach { product ->
             product.canApply = true
             product.isTogether = true
@@ -199,40 +199,40 @@ class LoanSubmissionResultActivity :
         binding.apply {
             cashableProductLayout.isVisible = hasCashableProducts
             tvWithdrawal.isVisible = hasCashableProducts
-            updateResultsCardVisibility()
+            updateLoanSubmissionCardVisibility()
         }
     }
 
-    private fun collapseOfferRecommendations() = with(binding) {
+    private fun hideRecommendedLoanProducts() = with(binding) {
         cashableProductLayout.isVisible = false
         tvWithdrawal.isVisible = false
-        updateResultsCardVisibility()
+        updateLoanSubmissionCardVisibility()
     }
 
-    private fun updateResultsCardVisibility() = with(binding) {
+    private fun updateLoanSubmissionCardVisibility() = with(binding) {
         resultsCard.isVisible = rvProduct.isVisible || cashableProductLayout.isVisible
     }
 
-    private fun handleProductDetail(data: CatalogEntry?) {
+    private fun navigateToSelectedLoanProduct(data: CatalogEntry?) {
         data ?: return
-        finishPreviousLoanFlow()
+        clearPreviousLoanFlow()
         start<LoanProductDetailActivity> {
             putExtra("product", data)
         }
     }
 
-    private fun openCombinedLoanOffer() {
-        finishPreviousLoanFlow()
+    private fun openMultiLoanOffer() {
+        clearPreviousLoanFlow()
         start<MultiLoanOfferActivity>()
         finish()
     }
 
-    private fun finishPreviousLoanFlow() {
+    private fun clearPreviousLoanFlow() {
         AppStackUtil.finishActivity(MultiLoanOfferActivity::class.java)
         AppStackUtil.finishActivity(SignatureCaptureActivity::class.java)
         AppStackUtil.finishActivity(LoanProductDetailActivity::class.java)
     }
-    private fun startLoan(eventFile: File?) = with(binding) {
+    private fun submitLoanRequest(eventFile: File?) = with(binding) {
 //        LogUtil.e("signature image provided: $signPath")
         val builder: MultipartBody.Builder = MultipartBody.Builder().setType(MultipartBody.Companion.FORM)
         if (signPath != null) {
@@ -313,11 +313,11 @@ class LoanSubmissionResultActivity :
         }
     }
 
-    private fun initRisk() {
+    private fun initializeLoanSubmissionRisk() {
         MainApplication.Companion.appViewModel.hasDeviceInfo(PageProductDetail) {
             if (it) {
-                getEventFile { file ->
-                    startLoan(file)
+                loadLoanEventFile { file ->
+                    submitLoanRequest(file)
                 }
                 return@hasDeviceInfo
             }
@@ -325,23 +325,23 @@ class LoanSubmissionResultActivity :
                 PageProductDetail
             ) { isSuccess ->
                 if (isSuccess) {
-                    getEventFile { file ->
-                        startLoan(file)
+                    loadLoanEventFile { file ->
+                        submitLoanRequest(file)
                     }
                 } else {
-                    loanFailed()
+                    renderLoanSubmissionFailure()
                 }
             }
         }
     }
 
-    private fun getEventFile(action: (File?) -> Unit) {
+    private fun loadLoanEventFile(action: (File?) -> Unit) {
         lifecycleScope.launch {
             action(LoanEventRecorder.prepareUploadFile())
         }
     }
 
-    private fun loanSuccess() {
+    private fun renderLoanSubmissionSuccess() {
         binding.apply {
             pageContent.isVisible = true
             pageState.hide()
@@ -350,13 +350,13 @@ class LoanSubmissionResultActivity :
             tvLoanResultTip.isVisible = false
             ivSuccess.isVisible = true
             ivFail.isVisible = false
-            updateResultsCardVisibility()
+            updateLoanSubmissionCardVisibility()
         }
         signBackHome = false
-        refreshRecommendedProducts()
+        requestRecommendedLoanProducts()
     }
 
-    private fun loanFailed() {
+    private fun renderLoanSubmissionFailure() {
         binding.apply {
             pageContent.isVisible = true
             pageState.hide()
@@ -365,20 +365,20 @@ class LoanSubmissionResultActivity :
             tvLoanResultTip.isVisible = true
             ivSuccess.isVisible = false
             ivFail.isVisible = true
-            updateResultsCardVisibility()
+            updateLoanSubmissionCardVisibility()
         }
         signBackHome = false
-        refreshRecommendedProducts()
+        requestRecommendedLoanProducts()
     }
 
     override fun initObserve() {
         super.initObserve()
         vm.loanResult.observe(this@LoanSubmissionResultActivity) {
             binding.rvProduct.isVisible = false
-            loanSuccess()
+            renderLoanSubmissionSuccess()
         }
         vm.loanFailResult.observe(this@LoanSubmissionResultActivity) {
-            loanFailed()
+            renderLoanSubmissionFailure()
         }
         vm.togetherLoanResult.observe(this@LoanSubmissionResultActivity) {
             resultAdapter.submitItems(it?.onEach { it1 ->
@@ -386,13 +386,13 @@ class LoanSubmissionResultActivity :
                 it1.currencySymbol = productList?.get(0)?.currencySymbol
             })
             binding.rvProduct.isVisible = !it.isNullOrEmpty()
-            loanSuccess()
+            renderLoanSubmissionSuccess()
         }
         vm.togetherInfo.observe(this@LoanSubmissionResultActivity) {
-            updateRecommendedProducts(it)
+            renderRecommendedLoanProducts(it)
         }
         productVm.detailResult.observe(this@LoanSubmissionResultActivity) {
-            handleProductDetail(it)
+            navigateToSelectedLoanProduct(it)
         }
     }
 }

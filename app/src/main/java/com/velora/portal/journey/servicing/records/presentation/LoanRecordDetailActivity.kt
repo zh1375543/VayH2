@@ -82,12 +82,6 @@ class LoanRecordDetailActivity :
                         t.isSelect = true
                     }
                 }
-//                if (firstProcessIndex >= 0) {
-//                    items[firstProcessIndex].isSelect = true
-//                }
-//                if (lastDueIndex >= 0 && lastDueIndex + 1 < items.size) {
-//                    items[lastDueIndex + 1].isSelect = true
-//                }
                 if (item.isDueAndSettle()) {
                     item.isSelect = true
                 }
@@ -106,14 +100,14 @@ class LoanRecordDetailActivity :
     }
 
     override fun initView() {
-        trackOrderDetailPage()
-        configureDetailViews()
-        connectPaymentEntry()
-        connectRenewalControls()
+        bindDetailLoadRetry()
+        setupDetailContent()
+        bindPaymentLink()
+        bindRenewalActions()
     }
 
     /** Reports the detail-page tracking event and wires up the retry action. */
-    private fun trackOrderDetailPage() = with(binding) {
+    private fun bindDetailLoadRetry() = with(binding) {
         trackEvent(LOAN_ORDER_CONFIRMATION_PAGE)
         pageState.setOnRetryClickListener {
             vm.getOrderDetail(orderId)
@@ -121,7 +115,7 @@ class LoanRecordDetailActivity :
     }
 
     /** Binds adapters, the clickable agreement text, and the shortcut buttons in state 1. */
-    private fun configureDetailViews() = with(binding) {
+    private fun setupDetailContent() = with(binding) {
         rvFee.adapter = feeAdapter
         contractLayout.setSpannableClickableTexts(
             String.format(
@@ -142,7 +136,7 @@ class LoanRecordDetailActivity :
         state1Borrow.singleClick { tvBorrow.performClick() }
     }
 
-    private fun connectPaymentEntry() = with(binding) {
+    private fun bindPaymentLink() = with(binding) {
         tvApply.singleClick {
             val payGoUrl = orderDetail?.appOrderRepayDto?.payGoUrl
             if (payGoUrl.isNullOrBlank()) {
@@ -162,7 +156,7 @@ class LoanRecordDetailActivity :
         }
     }
 
-    private fun connectRenewalControls() = with(binding) {
+    private fun bindRenewalActions() = with(binding) {
         tvRepay.singleClick {
             if (detailLayout.isVisible && installAdapter.items.none { it1 -> !it1.isSettle() && it1.isSelect }) {
                 getString(R.string.toast_repayment_select).showToastMessage()
@@ -170,10 +164,10 @@ class LoanRecordDetailActivity :
             }
             if (currentButtonSign == "2" || currentButtonSign == "3"|| currentButtonSign == "4") {
                 vm.cancelReloanApplication(orderId) {
-                    proceedWithSelectedRepayment()
+                    continueSelectedRepayment()
                 }
             } else {
-                proceedWithSelectedRepayment()
+                continueSelectedRepayment()
             }
         }
         tvBorrow.singleClick {
@@ -187,7 +181,7 @@ class LoanRecordDetailActivity :
             }
             if (currentButtonSign == "1") {
                 vm.applyForReloan(orderId, 1) {
-                    proceedWithSelectedRepayment()
+                    continueSelectedRepayment()
                 }
             } else if (tvBorrow.text.toString() == getString(R.string.repay)) {
                 tvRepay.performClick()
@@ -196,7 +190,7 @@ class LoanRecordDetailActivity :
                     isDue = tvBorrow.isSelected,
                     confirmAction = {
                         vm.applyForReloan(orderId, 1) {
-                            proceedWithSelectedRepayment()
+                            continueSelectedRepayment()
                         }
                     }
                 )
@@ -212,7 +206,7 @@ class LoanRecordDetailActivity :
                 isApplyAll = true,
                 confirmAction = {
                     vm.applyForReloan(orderId, 2) {
-                        proceedWithSelectedRepayment()
+                        continueSelectedRepayment()
                     }
                 },
             )
@@ -227,7 +221,7 @@ class LoanRecordDetailActivity :
         }
     }
 
-    private fun proceedWithSelectedRepayment() = with(binding) {
+    private fun continueSelectedRepayment() = with(binding) {
         if (detailLayout.isVisible) {
             vm.loadRepaymentUrl(
                 orderNo = orderDetail?.appOrderInfoDto?.orderNo,
@@ -447,21 +441,21 @@ class LoanRecordDetailActivity :
         super.initObserve()
 
         orderDetailState.observe(this@LoanRecordDetailActivity) { state ->
-            render(state)
+            renderDetailLoadState(state)
         }
         buttonResult.observe(this@LoanRecordDetailActivity) { sign ->
             if (isAwaitingBottomActionState) {
-                renderRepaymentActionState("4")
+                renderRepaymentActionState(sign)
                 binding.bottomActionLayout.visibility = View.VISIBLE
                 isAwaitingBottomActionState = false
             }
         }
         installmentRepayResult.observe(this@LoanRecordDetailActivity) {
-            openRepaymentPage(it?.payUrl)
+            launchRepaymentBrowser(it?.payUrl)
         }
     }
 
-    private fun render(state: PageLoadState<RecordDetailResponse>) = with(binding) {
+    private fun renderDetailLoadState(state: PageLoadState<RecordDetailResponse>) = with(binding) {
         contentLayout.isVisible = state is PageLoadState.Content
         when (state) {
             PageLoadState.Loading -> pageState.showLoading()
@@ -474,7 +468,7 @@ class LoanRecordDetailActivity :
         }
     }
 
-    private fun openRepaymentPage(payUrl: String?) {
+    private fun launchRepaymentBrowser(payUrl: String?) {
         if (!payUrl.isNullOrBlank()) {
             ContentBrowserActivity.launch(this, getString(R.string.repayment), payUrl)
             return

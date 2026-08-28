@@ -91,16 +91,16 @@ class BorrowerProfileActivity :
     }
 
     override fun initView() {
-        prepareApplicantProfileScreen()
-        bindProfileTextFields()
-        bindProfileOptionSelectors()
-        configureProfileActions()
+        initializeApplicantForm()
+        bindApplicantTextInput()
+        bindApplicantSelectionFields()
+        bindProfileSubmission()
     }
 
-    private fun prepareApplicantProfileScreen() = with(binding) {
+    private fun initializeApplicantForm() = with(binding) {
         shouldShowBottomAction = !isCert
         applicantSubmitBar.isVisible = shouldShowBottomAction
-        configureFormEditing(isEditable = !isCert)
+        applyProfileEditability(isEditable = !isCert)
         trackEvent(PERSON_INFO_PAGE)
         vm.submitTrackingEvent(
             TrackBean(
@@ -108,9 +108,9 @@ class BorrowerProfileActivity :
                 act = ACT_in,
             )
         )
-        applicantDetailsHeader.setNavigationAction { confirmProfileExit() }
+        applicantDetailsHeader.setNavigationAction { handleProfileExit() }
         registerTrackedBackHandler(vm) {
-            confirmProfileExit()
+            handleProfileExit()
         }
         applicantDetailsHeader.setAction(
             "${authConfigList.indexOf("ID") + 1}/${authConfigList.size}"
@@ -123,7 +123,7 @@ class BorrowerProfileActivity :
         }
     }
 
-    private fun configureFormEditing(isEditable: Boolean) = with(binding) {
+    private fun applyProfileEditability(isEditable: Boolean) = with(binding) {
         listOf(
             fieldFamilyName,
             fieldGivenName,
@@ -144,7 +144,7 @@ class BorrowerProfileActivity :
         }
     }
 
-    private fun bindProfileTextFields() = with(binding) {
+    private fun bindApplicantTextInput() = with(binding) {
         fieldFamilyName.getEditText().doOnTextChanged { _, _, _, _ ->
             val now = System.currentTimeMillis()
             // 1. first input → record start time
@@ -271,7 +271,7 @@ class BorrowerProfileActivity :
         }
     }
 
-    private fun bindProfileOptionSelectors() = with(binding) {
+    private fun bindApplicantSelectionFields() = with(binding) {
         fieldGenderSelection.setOnClick {
             vm.getEnums {
                 val genderList = it.gender ?: arrayListOf()
@@ -497,7 +497,7 @@ class BorrowerProfileActivity :
         }
     }
 
-    private fun configureProfileActions() = with(binding) {
+    private fun bindProfileSubmission() = with(binding) {
         applicantDetailsHeader.showAction(!isCert)
         if (!isCert) {
             btnSubmitApplicantDetails.resetScale()
@@ -735,7 +735,7 @@ class BorrowerProfileActivity :
                     provinceId = it.province
                     cityId = it.city
                     areaId = it.region
-                    restoreSelectionStates()
+                    restoreProfileSelectionStates()
                 }
             }
         }
@@ -748,7 +748,7 @@ class BorrowerProfileActivity :
         }
     }
 
-    private fun restoreSelectionStates() {
+    private fun restoreProfileSelectionStates() {
         vm.getEnums { options ->
             eduStatus = options.education.orEmpty()
                 .firstOrNull { it.info == binding.fieldEducationLevel.getText() }
@@ -770,7 +770,7 @@ class BorrowerProfileActivity :
         }
     }
 
-    private fun confirmProfileExit() {
+    private fun handleProfileExit() {
         if (shouldShowBottomAction) {
             val list = authConfigList.filterNot { it1 -> it1.isBlank() }
             val step =

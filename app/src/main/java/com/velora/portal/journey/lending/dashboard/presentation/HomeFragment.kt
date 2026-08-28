@@ -112,17 +112,17 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
     private var hasShownCreditDialog = false
 
     override fun initView() {
-        setupProductList()
-        setupPayoutAccountAction()
-        setupApplicationActions()
-        setupRefreshTriggers()
+        attachOfferList()
+        bindPayoutAccountEntry()
+        bindBorrowingActions()
+        bindDashboardReloads()
     }
 
-    private fun setupProductList() {
+    private fun attachOfferList() {
         binding.contentLayout.rvOffers.adapter = homeAdapter
     }
 
-    private fun setupPayoutAccountAction() = with(binding.contentLayout) {
+    private fun bindPayoutAccountEntry() = with(binding.contentLayout) {
         btnManagePayoutAccount.singleClick {
             vm.submitTrackingEvent(
                 TrackBean(
@@ -134,7 +134,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
         }
     }
 
-    private fun setupApplicationActions() = with(binding.contentLayout) {
+    private fun bindBorrowingActions() = with(binding.contentLayout) {
         btnStartApplication.singleClick {
             it.context.requireLogin {
                 isGoAuth = true
@@ -151,7 +151,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
         }
     }
 
-    private fun setupRefreshTriggers() = with(binding) {
+    private fun bindDashboardReloads() = with(binding) {
         contentLayout.btnReloadDashboard.singleClick {
             refreshData()
         }
@@ -196,19 +196,19 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
 
     override fun initObserve() {
         vm.loadFailedResult.observe(this@HomeFragment) {
-            renderLoadError()
+            displayDashboardLoadFailure()
         }
         loanDashboardVm.loadFailedResult.observe(this@HomeFragment) {
-            renderLoadError()
+            displayDashboardLoadFailure()
         }
         authStatusVm.loadFailedResult.observe(this@HomeFragment) {
-            renderLoadError()
+            displayDashboardLoadFailure()
         }
         authStatusVm.userAuthStatusResult.observe(this@HomeFragment) {
-            handleUserAuthStatus(it)
+            resolveAuthenticationState(it)
         }
         vm.guestResult.observe(this@HomeFragment) {
-            it?.let(::handleUnAuthData)
+            it?.let(::renderVisitorDashboard)
         }
         loanDashboardVm.memberHomeState.observe(this@HomeFragment, ::renderMemberHome)
         loanDashboardVm.homeEffect.observe(this@HomeFragment, ::handleHomeEffectEvent)
@@ -221,7 +221,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
         }
     }
 
-    private fun renderLoadError() {
+    private fun displayDashboardLoadFailure() {
         if (hasRenderedLoadError) return
 
         hasRenderedLoadError = true
@@ -230,7 +230,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
         binding.pageState.showError()
     }
 
-    private fun handleUserAuthStatus(data: VerificationProgressResponse?) {
+    private fun resolveAuthenticationState(data: VerificationProgressResponse?) {
         if (isGoAuth) {
             data?.routeToNextAuthStep(binding.root.context, false)
             return
@@ -245,7 +245,7 @@ class HomeFragment : BaseFragment<FragmentDashboardHomeBinding>(R.layout.fragmen
         }
     }
 
-    private fun handleUnAuthData(data: VisitorPortalResponse) = with(binding) {
+    private fun renderVisitorDashboard(data: VisitorPortalResponse) = with(binding) {
         pageContent.isVisible = true
         pageState.hide()
         swipeRefreshLayout.isRefreshing = false

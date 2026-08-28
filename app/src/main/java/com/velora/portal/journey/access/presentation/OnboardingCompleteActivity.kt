@@ -17,12 +17,12 @@ class OnboardingCompleteActivity :
     override val binding by viewBinding(ScreenOnboardingCompleteBinding::inflate)
 
     override fun initView() {
-        configureSystemBarAndBack()
-        configureCountdownAndConfirm()
+        prepareCompletionScreen()
+        bindReturnHomeActions()
     }
 
     /** Sets the immersive success header system bar and routes the hardware back action home. */
-    private fun configureSystemBarAndBack() = with(binding) {
+    private fun prepareCompletionScreen() = with(binding) {
         setStatusBarAppearance(
             statusBarColor = R.color.brand_primary,
             useDarkStatusBarIcons = false,
@@ -35,7 +35,7 @@ class OnboardingCompleteActivity :
     }
 
     /** Drives the countdown tip text and wires up the confirm button to go back home. */
-    private fun configureCountdownAndConfirm() = with(binding) {
+    private fun bindReturnHomeActions() = with(binding) {
         tvTips.setClickableTextWithScale(
             String.format(getString(R.string.back_to_home_tips), "10"),
             "10",

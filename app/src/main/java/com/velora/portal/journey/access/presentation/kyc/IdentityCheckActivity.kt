@@ -180,14 +180,14 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
     private var hasUploadedCardImages = false
 
     override fun initView() {
-        prepareDocumentReviewScreen()
-        bindDocumentTypeSelection()
-        configureCaptureActions()
-        configureKycSubmissionAndLoading()
+        setUpKycReviewPage()
+        bindIdentityTypeControls()
+        bindDocumentCaptureActions()
+        bindKycSubmissionFlow()
     }
 
-    private fun prepareDocumentReviewScreen() = with(binding) {
-        configureKycMode(isEditable = !isCert)
+    private fun setUpKycReviewPage() = with(binding) {
+        applyKycEditability(isEditable = !isCert)
         trackEvent(KYC_INFO_PAGE)
         vm.submitTrackingEvent(
             TrackBean(
@@ -195,9 +195,9 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
                 act = ACT_in
             )
         )
-        documentReviewHeader.setNavigationAction { handleBackPressed() }
+        documentReviewHeader.setNavigationAction { processKycExit() }
         registerTrackedBackHandler(vm) {
-            handleBackPressed()
+            processKycExit()
         }
         documentReviewHeader.setAction(
             "${authConfigList.indexOf("KYC") + 1}/${authConfigList.size}"
@@ -205,7 +205,7 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
         documentReviewHeader.showAction(!isCert)
     }
 
-    private fun bindDocumentTypeSelection() = with(binding) {
+    private fun bindIdentityTypeControls() = with(binding) {
         tvDocumentExampleAction.singleClick {
             showKycCardExampleDialog()
         }
@@ -223,13 +223,13 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
                     documentTypeField.setText(cardTypes[index].info)
                     documentTypeField.hideError()
                     idType = cardTypes[index].state
-                    updateIdImageSections()
+                    refreshIdentityImageSections()
                 }
             }
         }
     }
 
-    private fun configureKycMode(isEditable: Boolean) = with(binding) {
+    private fun applyKycEditability(isEditable: Boolean) = with(binding) {
         documentTypeField.isVisible = isEditable
         documentTypeField.setEnableEdit(isEditable)
         ivDocumentFront.isEnabled = isEditable
@@ -241,7 +241,7 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
         submissionActionContainer.isVisible = isEditable
     }
 
-    private fun configureCaptureActions() = with(binding) {
+    private fun bindDocumentCaptureActions() = with(binding) {
         ivDocumentFront.singleClick {
             if (documentTypeField.getText().isBlank()) {
                 documentTypeField.showError()
@@ -344,7 +344,7 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
         }
     }
 
-    private fun configureKycSubmissionAndLoading() = with(binding) {
+    private fun bindKycSubmissionFlow() = with(binding) {
         btnSubmitReview.singleClick {
             if (documentIdentitySection.isVisible && documentTypeField.getText().isBlank()) {
                 documentTypeField.showError()
@@ -401,8 +401,8 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
                 binding.documentTypeField.setText(it.idCardType)
                 hasUploadedCardImages =
                     !it.frontImageUrl.isNullOrBlank() || !it.backImageUrl.isNullOrBlank()
-                resolveIdType(it.idCardType)
-                updateIdImageSections()
+                resolveDocumentType(it.idCardType)
+                refreshIdentityImageSections()
             }
         }
         compareResult.observe(this@IdentityCheckActivity) {
@@ -416,7 +416,7 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
             binding.documentIdentitySection.isVisible =
                 it != null && (it.KYC_FRONT != 0 || it.KYC_BACK != 0)
             binding.selfieCaptureSection.isVisible = it != null && it.FACE != 0
-            updateIdImageSections()
+            refreshIdentityImageSections()
             isCompare = it?.FACE_COMPARE == 1
             kycType = it?.FACE ?: 1
             vm.getKycInfo {
@@ -495,7 +495,7 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
         }
     }
 
-    private fun resolveIdType(cardTypeName: String?) {
+    private fun resolveDocumentType(cardTypeName: String?) {
         if (cardTypeName.isNullOrBlank()) return
         personalVm.getEnums { options ->
             idType = options.idCardTypeV2
@@ -504,7 +504,7 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
         }
     }
 
-    private fun updateIdImageSections() = with(binding) {
+    private fun refreshIdentityImageSections() = with(binding) {
         val hasCardType = documentTypeField.getText().isNotBlank()
         val shouldShowCardImages = isCert || hasUploadedCardImages || hasCardType
         documentFrontSection.isVisible = shouldShowCardImages && vm.configResult.value?.KYC_FRONT != 0
@@ -535,7 +535,7 @@ class IdentityCheckActivity : BaseActivity<ScreenIdentityCheckBinding>() {
         intent.putExtra("android.intent.extras.CAMERA_FACING", if (isFace) 1 else 0)
     }
 
-    private fun handleBackPressed() {
+    private fun processKycExit() {
         if (binding.submissionActionContainer.isVisible) {
             val list = authConfigList.filterNot { it1 -> it1.isBlank() }
             val step = list.size - max(0, list.indexOf("KYC"))

@@ -9,7 +9,7 @@
     <string name="phone_number_required">Please enter your phone number.</string>
     <string name="invalid_phone_number_format">Error: Invalid phone number format.</string>
     <string name="verification_code_required">Please enter the verification code.</string>
-    <string name="resend_after_short">%1$ss</string>
+    <string name="resend_after_short">%1$ds</string>
     <string name="get_otp">Get</string>
     <string name="login_prompt_title">Login to use more features</string>
     <string name="login_prompt_description">Continue without login?</string>

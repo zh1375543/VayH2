@@ -23,21 +23,21 @@ class BulkRepaymentActivity :
 
     private val orderAdapter by lazy {
         BulkRepaymentLoanAdapter().apply {
-            configLoanItemClick(this)
+            attachLoanItemListeners(this)
         }
     }
 
     override fun initView() = with(binding) {
-        setupLoanRecyclerView()
-        setupSubmitButton()
-        setupRetryHandler()
+        configureRepaymentList()
+        bindBulkPaymentAction()
+        bindListRetry()
     }
 
-    private fun setupLoanRecyclerView() = with(binding) {
+    private fun configureRepaymentList() = with(binding) {
         rvLoanList.adapter = orderAdapter
     }
 
-    private fun setupSubmitButton() = with(binding) {
+    private fun bindBulkPaymentAction() = with(binding) {
         btnSubmitRepayment.singleClick {
             if (orderAdapter.items.none { it1 -> it1.isCheck }) {
                 getString(R.string.toast_empty_choose_repayment).showToastMessage()
@@ -51,21 +51,21 @@ class BulkRepaymentActivity :
         }
     }
 
-    private fun setupRetryHandler() = with(binding) {
+    private fun bindListRetry() = with(binding) {
         pageState.setOnRetryClickListener {
-            loadOrderList()
+            requestRepaymentOrders()
         }
     }
 
     override fun onResume() {
         super.onResume()
-        loadOrderList()
+        requestRepaymentOrders()
     }
 
     override fun initObserve() = with(vm) {
         super.initObserve()
         orderListState.observe(this@BulkRepaymentActivity) { state ->
-            render(state)
+            renderRepaymentOrders(state)
         }
         selectedOrderAmount.observe(this@BulkRepaymentActivity) { amount ->
             binding.tvTotalAmount.text = amount
@@ -88,11 +88,11 @@ class BulkRepaymentActivity :
         }
     }
 
-    private fun loadOrderList() {
+    private fun requestRepaymentOrders() {
         vm.getOrderList()
     }
 
-    private fun configLoanItemClick(adapter: BulkRepaymentLoanAdapter) {
+    private fun attachLoanItemListeners(adapter: BulkRepaymentLoanAdapter) {
         adapter.setOnItemClickListener { item, position ->
             item.isCheck = !item.isCheck
             adapter.notifyItemRangeChanged(position, 1, 0)
@@ -108,7 +108,7 @@ class BulkRepaymentActivity :
         }
     }
 
-    private fun render(state: PageLoadState<List<CatalogEntry>>) = with(binding) {
+    private fun renderRepaymentOrders(state: PageLoadState<List<CatalogEntry>>) = with(binding) {
         contentLayout.isVisible = state is PageLoadState.Content
         when (state) {
             PageLoadState.Loading -> pageState.showLoading()

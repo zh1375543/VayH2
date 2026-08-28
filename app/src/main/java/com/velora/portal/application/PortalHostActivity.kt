@@ -69,20 +69,20 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
         if (isAuthToFillBank) {
             vm.getAuthData()
         }
-        recordDeviceSnapshot()
+        reportDeviceRisk()
     }
 
     private var lastBackPressTime = 0L
     private val EXIT_INTERVAL = 2000
 
     override fun initView() {
-        setupPager()
-        setupClickListeners()
-        setupBackPressHandler()
-        recordDeviceSnapshot()
+        configurePortalPager()
+        bindPortalControls()
+        registerExitHandler()
+        reportDeviceRisk()
     }
 
-    private fun setupPager() = with(binding) {
+    private fun configurePortalPager() = with(binding) {
         vm.submitTrackingEvent(
             TrackBean(
                 p = PageHome, act = ACT_in
@@ -135,7 +135,7 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
         )
     }
 
-    private fun setupClickListeners() = with(binding) {
+    private fun bindPortalControls() = with(binding) {
         vHome.singleClick {
             selectPage(0)
         }
@@ -159,7 +159,7 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
         }
     }
 
-    private fun setupBackPressHandler() {
+    private fun registerExitHandler() {
         onBackPressedDispatcher.addCallback(
             this, object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
@@ -180,7 +180,7 @@ class PortalHostActivity : BaseActivity<ScreenPortalHostBinding>() {
             })
     }
 
-    private fun recordDeviceSnapshot() {
+    private fun reportDeviceRisk() {
         MainApplication.appViewModel.postRiskInfo(PageHome) {}
 
     }

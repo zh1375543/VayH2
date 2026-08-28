@@ -90,15 +90,15 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
     }
 
     override fun initView() {
-        preparePayoutAndContactForm()
-        bindWithdrawalMethodFields()
-        bindEmergencyContactFields()
-        configurePageNavigationAndLoading()
+        initializePayoutScreen()
+        bindPayoutMethodInputs()
+        bindContactInputs()
+        bindPageFlow()
     }
 
     /** Render the page mode, title and bottom action area for the current auth step. */
-    private fun preparePayoutAndContactForm() = with(binding) {
-        configureFormEditing(isEditable = !isCert)
+    private fun initializePayoutScreen() = with(binding) {
+        applyFormEditability(isEditable = !isCert)
         vm.submitTrackingEvent(TrackBean(p = PageInfoBank, act = ACT_in))
         payoutContactHeader.setAction("${authConfigList.indexOf("BANK") + 1}/${authConfigList.size}")
         clearWithdrawMethodSelection()
@@ -112,7 +112,7 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
         }
     }
 
-    private fun configureFormEditing(isEditable: Boolean) = with(binding) {
+    private fun applyFormEditability(isEditable: Boolean) = with(binding) {
         payoutMethodSection.isVisible = isEditable
         tvContactGuidance.isVisible = isEditable
         listOf(
@@ -134,7 +134,7 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
     }
 
     /** Bind bank account and wallet input actions. */
-    private fun bindWithdrawalMethodFields() = with(binding.disbursementForm) {
+    private fun bindPayoutMethodInputs() = with(binding.disbursementForm) {
         disbursementMethodField.setOnClick {
             showWithdrawMethodDialog(
                 walletAction = { selectDefaultWallet() },
@@ -201,7 +201,7 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
     }
 
     /** Bind relationship selectors and system contact pickers. */
-    private fun bindEmergencyContactFields() = with(binding) {
+    private fun bindContactInputs() = with(binding) {
         primaryRelationshipField.setOnClick {
             vm.getContactEnum {
                 val relativesList = it.relatives ?: arrayListOf()
@@ -275,11 +275,11 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
     }
 
     /** Connect navigation, validation, permission-gated submission and initial data loading. */
-    private fun configurePageNavigationAndLoading() = with(binding) {
-        payoutContactHeader.setNavigationAction { confirmPayoutSetupExit() }
-        registerTrackedBackHandler(vm) { confirmPayoutSetupExit() }
+    private fun bindPageFlow() = with(binding) {
+        payoutContactHeader.setNavigationAction { handlePayoutSetupExit() }
+        registerTrackedBackHandler(vm) { handlePayoutSetupExit() }
         btnContinue.singleClick {
-            if (!validateBankPage()) {
+            if (!validatePayoutDetails()) {
                 return@singleClick
             }
             PermissionCoordinator.request(this@ContactPayoutActivity, PermissionScenario.DEVICE_RISK) {
@@ -314,7 +314,7 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
         personalVm.getPersonalInfo {}
     }
 
-    private fun validateBankPage(): Boolean = with(binding) {
+    private fun validatePayoutDetails(): Boolean = with(binding) {
         with(disbursementForm) {
             when (selectedWithdrawMethod) {
                 WithdrawMethod.BANK -> {
@@ -481,7 +481,7 @@ class ContactPayoutActivity : BaseActivity<ScreenContactPayoutBinding>() {
         walletDetailsSection.isVisible = false
     }
 
-    private fun confirmPayoutSetupExit() {
+    private fun handlePayoutSetupExit() {
         if (shouldShowBottomAction) {
             val step =
                 authConfigList.size - max(0, authConfigList.indexOf("BANK"))

@@ -31,12 +31,12 @@ class LoanHistoryActivity : BaseActivity<ScreenLoanHistoryBinding>() {
     }
 
     override fun initView() {
-        submitPageTracking()
-        bindOrderListView()
+        reportHistoryEntry()
+        setupHistoryList()
     }
 
     /** Report page-entry tracking event for the order history screen. */
-    private fun submitPageTracking() {
+    private fun reportHistoryEntry() {
         vm.submitTrackingEvent(
             TrackBean(
                 p = PageHistory,
@@ -47,7 +47,7 @@ class LoanHistoryActivity : BaseActivity<ScreenLoanHistoryBinding>() {
     }
 
     /** Wire up the order list adapter and the retry action for the page state view. */
-    private fun bindOrderListView() = with(binding) {
+    private fun setupHistoryList() = with(binding) {
         pageState.setOnRetryClickListener {
             vm.getOrderList()
         }
@@ -62,11 +62,11 @@ class LoanHistoryActivity : BaseActivity<ScreenLoanHistoryBinding>() {
     override fun initObserve() = with(vm) {
         super.initObserve()
         borrowingHistoryUiState.observe(this@LoanHistoryActivity) {
-            render(it)
+            renderHistoryState(it)
         }
     }
 
-    private fun render(state: PageLoadState<List<LoanRecordItem>>) = with(binding) {
+    private fun renderHistoryState(state: PageLoadState<List<LoanRecordItem>>) = with(binding) {
         rvOrder.isVisible = state is PageLoadState.Content
         when (state) {
             PageLoadState.Loading -> pageState.showLoading()

@@ -43,13 +43,13 @@ class MultiLoanOfferActivity : BaseActivity<ScreenMultiLoanOfferBinding>() {
     private var hasRecordedEnterEvent = false
 
     override fun initView() {
-        prepareBundleScreen()
-        connectAccountSwitcher()
-        connectRetryHandler()
-        connectBundleApplication()
+        configureMultiOfferScreen()
+        bindPayoutAccountSwitcher()
+        bindMultiOfferRetry()
+        bindMultiOfferApplication()
     }
 
-    private fun prepareBundleScreen() = with(binding) {
+    private fun configureMultiOfferScreen() = with(binding) {
         LoanEventRecorder.setEventFileSuffix((SessionStore.loginInfo?.id ?: 111).toString())
 
         titleBar.setNavigationAction { finish() }
@@ -57,7 +57,7 @@ class MultiLoanOfferActivity : BaseActivity<ScreenMultiLoanOfferBinding>() {
         rvBundleList.adapter = togetherAdapter
     }
 
-    private fun connectAccountSwitcher() = with(binding) {
+    private fun bindPayoutAccountSwitcher() = with(binding) {
         btnSwitchAccount.singleClick {
             vm.submitTrackingEvent(
                 TrackBean(
@@ -70,25 +70,25 @@ class MultiLoanOfferActivity : BaseActivity<ScreenMultiLoanOfferBinding>() {
         }
     }
 
-    private fun connectRetryHandler() = with(binding) {
+    private fun bindMultiOfferRetry() = with(binding) {
         pageState.setOnRetryClickListener {
             vm.getTogetherLoan()
         }
     }
 
-    private fun connectBundleApplication() = with(binding) {
+    private fun bindMultiOfferApplication() = with(binding) {
         btnWithdraw.resetScale()
         btnWithdraw.singleClick {
             vm.submitTrackingEvent(
                 TrackBean(
                     p = PageProductDetail,
                     act = ACT_clickApply,
-                    result = productIdsForTrack() + "|" + System.currentTimeMillis(),
+                    result = multiOfferProductIdsForTracking() + "|" + System.currentTimeMillis(),
                 ),
             )
             LoanEventRecorder.record(LoanEvent.CLICK_APPLY_LOAN)
             PermissionCoordinator.request(this@MultiLoanOfferActivity, PermissionScenario.DEVICE_RISK) {
-                val (productInstallmentMap, termIdMap) = buildSubmissionMaps()
+                val (productInstallmentMap, termIdMap) = buildMultiOfferSubmissionMaps()
                 trackEvent(ORDER_COMMIT)
                 showLoanAgreementDialog(isTogether = true) {
                     vm.submitTrackingEvent(
@@ -133,23 +133,25 @@ class MultiLoanOfferActivity : BaseActivity<ScreenMultiLoanOfferBinding>() {
     override fun initObserve() = with(vm) {
         super.initObserve()
         togetherLoanState.observe(this@MultiLoanOfferActivity) { state ->
-            render(state)
+            renderMultiOfferState(state)
         }
-        observeAccounts()
+        observePayoutAccountOptions()
     }
 
-    private fun render(state: PageLoadState<com.velora.portal.domain.credit.model.MemberOverviewResponse>) {
+    private fun renderMultiOfferState(
+        state: PageLoadState<com.velora.portal.domain.credit.model.MemberOverviewResponse>,
+    ) {
         binding.contentLayout.isVisible = state is PageLoadState.Content
         binding.bottomUiGroup.isVisible = state is PageLoadState.Content
         when (state) {
             PageLoadState.Loading -> binding.pageState.showLoading()
             PageLoadState.Error -> binding.pageState.showError()
             PageLoadState.Empty -> Unit
-            is PageLoadState.Content -> renderLoanOffer(state.data)
+            is PageLoadState.Content -> renderMultiOfferContent(state.data)
         }
     }
 
-    private fun renderLoanOffer(loan: com.velora.portal.domain.credit.model.MemberOverviewResponse) {
+    private fun renderMultiOfferContent(loan: com.velora.portal.domain.credit.model.MemberOverviewResponse) {
 
             val products = loan.showProducts.orEmpty().onEach { product ->
                 product.canApply = true
@@ -163,12 +165,12 @@ class MultiLoanOfferActivity : BaseActivity<ScreenMultiLoanOfferBinding>() {
                     TrackBean(
                         p = PageProductDetail,
                         act = ACT_in,
-                        result = productIdsForTrack() + "|" + System.currentTimeMillis(),
+                        result = multiOfferProductIdsForTracking() + "|" + System.currentTimeMillis(),
                     ),
                 )
             }
 
-                 renderPayoutAccount(
+                 displaySelectedPayoutAccount(
                 LinkedAccountResponse(
                     id = loan.bankInfoId ?: loan.userCashWalletId,
                     bankNo = loan.bankNo ?: loan.walletAccount,
@@ -180,7 +182,7 @@ class MultiLoanOfferActivity : BaseActivity<ScreenMultiLoanOfferBinding>() {
             binding.pageState.hide()
     }
 
-    private fun observeAccounts() {
+    private fun observePayoutAccountOptions() {
         accountVm.loanAccountList.observe(this@MultiLoanOfferActivity) { accounts ->
             accounts ?: return@observe
             chooseAccountsDialog(
@@ -189,12 +191,12 @@ class MultiLoanOfferActivity : BaseActivity<ScreenMultiLoanOfferBinding>() {
                 selectedAccountId = cardInfo?.id,
                 selectedPayWay = cardInfo?.payWay,
             ) { card ->
-                renderPayoutAccount(card)
+                displaySelectedPayoutAccount(card)
             }
         }
     }
 
-    private fun renderPayoutAccount(account: LinkedAccountResponse) = with(binding) {
+    private fun displaySelectedPayoutAccount(account: LinkedAccountResponse) = with(binding) {
         cardInfo = account
         tvPayWay.text = getPayoutAccountTypeLabel(account.payWay)
         tvAccountNo.text = (account.account ?: account.bankNo).maskSensitive().orEmpty()
@@ -207,11 +209,11 @@ class MultiLoanOfferActivity : BaseActivity<ScreenMultiLoanOfferBinding>() {
         LoanEventRecorder.flush()
     }
 
-    private fun productIdsForTrack(): String = togetherAdapter.items.joinToString(",") { product ->
+    private fun multiOfferProductIdsForTracking(): String = togetherAdapter.items.joinToString(",") { product ->
         (product.id ?: product.productId).toString()
     }
 
-    private fun buildSubmissionMaps(): Pair<MutableMap<Long?, Int?>, MutableMap<Long?, Long?>> {
+    private fun buildMultiOfferSubmissionMaps(): Pair<MutableMap<Long?, Int?>, MutableMap<Long?, Long?>> {
         val productInstallmentMap = mutableMapOf<Long?, Int?>()
         val termIdMap = mutableMapOf<Long?, Long?>()
 

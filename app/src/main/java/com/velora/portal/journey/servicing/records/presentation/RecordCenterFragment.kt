@@ -42,12 +42,12 @@ class RecordCenterFragment : BaseFragment<FragmentRecordCenterBinding>(R.layout.
     }
 
     override fun initView() {
-        bindOrderList()
-        connectRefreshAndRepayment()
+        setupRecordList()
+        bindRecordActions()
     }
 
     /** Binds the order adapter and wires up the retry action of the page state view. */
-    private fun bindOrderList() = with(binding) {
+    private fun setupRecordList() = with(binding) {
         rvOrder.adapter = orderAdapter
         rvOrder.addItemDecoration(
             VerticalItemSpacingDecoration(resources.getDimensionPixelSize(R.dimen.dp_10)),
@@ -58,7 +58,7 @@ class RecordCenterFragment : BaseFragment<FragmentRecordCenterBinding>(R.layout.
     }
 
     /** Connects the repayment shortcut and the pull-to-refresh gesture. */
-    private fun connectRefreshAndRepayment() = with(binding) {
+    private fun bindRecordActions() = with(binding) {
         tvRepayment.singleClick {
             it.context.start<BulkRepaymentActivity>()
         }
@@ -97,11 +97,11 @@ class RecordCenterFragment : BaseFragment<FragmentRecordCenterBinding>(R.layout.
 
     override fun initObserve() =with(vm){
         authDataState.observe(this@RecordCenterFragment) { state ->
-            render(state)
+            renderRecordState(state)
         }
     }
 
-    private fun render(state: PageLoadState<MemberOverviewResponse>) = with(binding) {
+    private fun renderRecordState(state: PageLoadState<MemberOverviewResponse>) = with(binding) {
         when (state) {
             PageLoadState.Loading -> {
                 contentLayout.isVisible = false
