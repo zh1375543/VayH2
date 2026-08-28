@@ -25,12 +25,22 @@ class MemberSpaceFragment : BaseFragment<FragmentMemberSpaceBinding>(
 ) {
     override val binding by viewBinding(FragmentMemberSpaceBinding::bind)
     private val vm by viewModels<VisitorPortalViewModel>()
-    override fun initView() = with(binding) {
+
+    override fun initView() {
+        configureAccountHeader()
+        bindAccountActions()
+        bindSupportActions()
+    }
+
+    private fun configureAccountHeader() = with(binding) {
         applyTopInset(accountScroll)
         tvRatingPrompt.text = getString(
             R.string.account_rating_prompt,
             requireContext().applicationInfo.loadLabel(requireContext().packageManager),
         )
+    }
+
+    private fun bindAccountActions() = with(binding) {
         tvRate.singleClick {
             val opened = context?.let {
                 ExternalActionLauncher.openRatingPage(it)
@@ -45,6 +55,9 @@ class MemberSpaceFragment : BaseFragment<FragmentMemberSpaceBinding>(
         tvSettings.singleClick {
             context?.start<AccountSettingsActivity>()
         }
+    }
+
+    private fun bindSupportActions() = with(binding) {
         tvHelpCenter.singleClick {
             vm.getUnAuthData(true)
         }

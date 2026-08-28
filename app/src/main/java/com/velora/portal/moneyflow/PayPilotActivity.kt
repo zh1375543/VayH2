@@ -27,9 +27,9 @@ class PayPilotActivity : BaseActivity<ActivityPayPilotBinding>() {
     private var selectedPage = HOME_PAGE
 
     override fun initView() {
-        setupPages(intent.getIntExtra(EXTRA_PAGE, HOME_PAGE))
-        configurePageInsets()
-        setupExitOnBackPress()
+        initializePageContainer()
+        bindPageNavigation(intent.getIntExtra(EXTRA_PAGE, HOME_PAGE))
+        initializePageCallbacks()
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -38,8 +38,8 @@ class PayPilotActivity : BaseActivity<ActivityPayPilotBinding>() {
         selectPage(intent.getIntExtra(EXTRA_PAGE, HOME_PAGE))
     }
 
-    private fun setupPages(initialPage: Int) = with(binding) {
-        vpMain.apply {
+    private fun initializePageContainer() {
+        binding.vpMain.apply {
             isUserInputEnabled = false
             offscreenPageLimit = PAGE_COUNT - 1
             adapter = object : FragmentStateAdapter(this@PayPilotActivity) {
@@ -54,26 +54,33 @@ class PayPilotActivity : BaseActivity<ActivityPayPilotBinding>() {
             }
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
-                    updatePageUi(position)
+                    renderSelectedPage(position)
                 }
             })
         }
+    }
 
+    private fun bindPageNavigation(initialPage: Int) = with(binding) {
         vHome.setOnClickListener { selectPage(HOME_PAGE) }
-        vOrder.setOnClickListener { openAuthenticatedPage(CALCULATOR_PAGE) }
-        vStats.setOnClickListener { openAuthenticatedPage(TIPS_PAGE) }
-        vMine.setOnClickListener { openAuthenticatedPage(ACCOUNT_PAGE) }
+        vOrder.setOnClickListener { openSecuredPage(CALCULATOR_PAGE) }
+        vStats.setOnClickListener { openSecuredPage(TIPS_PAGE) }
+        vMine.setOnClickListener { openSecuredPage(ACCOUNT_PAGE) }
 
         selectPage(initialPage)
     }
 
+    private fun initializePageCallbacks() {
+        configurePageInsets()
+        setupExitOnBackPress()
+    }
+
     fun selectPage(page: Int) {
         val targetPage = page.coerceIn(HOME_PAGE, ACCOUNT_PAGE)
-        updatePageUi(targetPage)
+        renderSelectedPage(targetPage)
         binding.vpMain.setCurrentItem(targetPage, false)
     }
 
-    private fun openAuthenticatedPage(page: Int) {
+    private fun openSecuredPage(page: Int) {
         if (SessionStore.isLoggedIn) {
             selectPage(page)
         } else {
@@ -81,7 +88,7 @@ class PayPilotActivity : BaseActivity<ActivityPayPilotBinding>() {
         }
     }
 
-    private fun updatePageUi(page: Int) = with(binding) {
+    private fun renderSelectedPage(page: Int) = with(binding) {
         selectedPage = page
         tvHome.isSelected = page == HOME_PAGE
         tvOrder.isSelected = page == CALCULATOR_PAGE

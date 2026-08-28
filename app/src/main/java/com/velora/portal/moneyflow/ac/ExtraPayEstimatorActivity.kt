@@ -31,17 +31,28 @@ class ExtraPayEstimatorActivity : BaseActivity<ActivityExtraPayEstimatorBinding>
     private var overtimeHours = MIN_OVERTIME_HOURS
     private var selectedOvertimeType: OvertimeType? = null
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        configurePageChrome()
+        bindOvertimeFormActions()
+        bindCalculationActions()
+    }
+
+    private fun configurePageChrome() = with(binding) {
         applyTopInset(root)
         titleBar.setNavigationAction(::finish)
         monthlySalaryView.getEditText().inputType =
             InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+    }
 
+    private fun bindOvertimeFormActions() = with(binding) {
         overtimeTypeView.setOnClick(::showOvertimeTypePicker)
         workingDaysView.setOnClick { showPicker(workingDaysView, SalaryFormOptions.workingDays) }
         hoursPerDayView.setOnClick { showPicker(hoursPerDayView, SalaryFormOptions.workHours) }
         btnDecrease.singleClick { updateOvertimeHours(overtimeHours - OVERTIME_HOURS_STEP) }
         btnIncrease.singleClick { updateOvertimeHours(overtimeHours + OVERTIME_HOURS_STEP) }
+    }
+
+    private fun bindCalculationActions() = with(binding) {
         basedOnSalaryToggle.singleClick {
             ivBasedOnSalary.isSelected = !ivBasedOnSalary.isSelected
             if (ivBasedOnSalary.isSelected) viewModel.getSalaryData()

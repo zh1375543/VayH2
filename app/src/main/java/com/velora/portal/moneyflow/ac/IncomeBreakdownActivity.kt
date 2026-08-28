@@ -27,14 +27,25 @@ class IncomeBreakdownActivity : BaseActivity<ActivityIncomeBreakdownBinding>() {
     override val binding by viewBinding(ActivityIncomeBreakdownBinding::inflate)
     private val viewModel by viewModels<SideHomeViewModel>()
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        configurePageChrome()
+        bindInputPickers()
+        bindCalculationAction()
+    }
+
+    private fun configurePageChrome() = with(binding) {
         applyTopInset(root)
         titleBar.setNavigationAction(::finish)
         monthlySalaryView.getEditText().inputType =
             InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+    }
 
+    private fun bindInputPickers() = with(binding) {
         workingDaysView.setOnClick { showPicker(workingDaysView, SalaryFormOptions.workingDays) }
         hoursPerDayView.setOnClick { showPicker(hoursPerDayView, SalaryFormOptions.workHours) }
+    }
+
+    private fun bindCalculationAction() = with(binding) {
         tvCalculate.singleClick {
             if (validateForm()) {
                 viewModel.getCalSalary(

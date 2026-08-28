@@ -22,7 +22,13 @@ class PayToolsFragment : BaseFragment<FragmentPayToolsBinding>(
 
     override val binding by viewBinding(FragmentPayToolsBinding::bind)
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        bindIncomeToolEntries()
+        bindWorkToolEntries()
+        bindPlanningToolEntries()
+    }
+
+    private fun bindIncomeToolEntries() = with(binding) {
         bindMenu(
             menuSalary,
             R.mipmap.image_salary,
@@ -41,6 +47,9 @@ class PayToolsFragment : BaseFragment<FragmentPayToolsBinding>(
         menuOvertime.root.singleClick {
             ExtraPayEstimatorActivity.launch(requireContext())
         }
+    }
+
+    private fun bindWorkToolEntries() = with(binding) {
         bindMenu(
             menuWorkHour,
             R.mipmap.image_work,
@@ -59,6 +68,9 @@ class PayToolsFragment : BaseFragment<FragmentPayToolsBinding>(
         menuTax.root.singleClick {
             WithholdingEstimatorActivity.launch(requireContext())
         }
+    }
+
+    private fun bindPlanningToolEntries() = with(binding) {
         bindMenu(
             menuBonus,
             R.mipmap.image_bonus,

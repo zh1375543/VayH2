@@ -7,7 +7,7 @@ import com.velora.portal.databinding.ItemHomeProductBinding
 import com.velora.portal.journey.lending.dashboard.presentation.state.HomeProductUi
 import com.velora.portal.platform.design.extension.loadImage
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
-import com.velora.portal.platform.common.util.platform.formatLoanTerm
+import com.velora.portal.platform.common.util.context.formatLoanTerm
 
 class LoanCatalogAdapter :
     BaseAdapter<HomeProductUi, ItemHomeProductBinding>(ItemHomeProductBinding::inflate) {

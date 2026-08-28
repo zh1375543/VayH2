@@ -26,7 +26,7 @@ import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 import com.velora.portal.platform.common.util.maskSensitive
 import com.velora.portal.platform.common.util.text.toJsonString
 import com.velora.portal.platform.common.util.trackEvent
-import com.velora.portal.platform.common.util.getPayoutAccountTypeLabel
+import com.velora.portal.platform.common.util.context.getPayoutAccountTypeLabel
 import com.velora.portal.platform.common.util.viewBinding
 import com.velora.portal.databinding.ScreenMultiLoanOfferBinding
 import com.velora.portal.journey.account.accounts.presentation.LinkedAccountViewModel

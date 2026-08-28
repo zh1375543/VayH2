@@ -8,7 +8,7 @@ import com.velora.portal.moneyflow.bindCalculationQuickTools
 import com.velora.portal.moneyflow.ac.IncomeProfileActivity
 import com.velora.portal.moneyflow.model.CalculationHomeResponse
 import com.velora.portal.platform.common.util.PageLoadState
-import com.velora.portal.platform.common.util.platform.requireLogin
+import com.velora.portal.platform.common.util.context.requireLogin
 import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
 import com.velora.portal.platform.common.util.viewBinding
@@ -28,7 +28,13 @@ class IncomeSnapshotFragment : BaseFragment<FragmentIncomeSnapshotBinding>(
     private val vm by viewModels<SideHomeViewModel>()
     private var profileConfigured: Boolean? = null
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        bindHeaderActions()
+        bindReloadActions()
+        renderSessionState()
+    }
+
+    private fun bindHeaderActions() = with(binding) {
         ivMessage.singleClick {
             requireContext().requireLogin {
                 requireContext().start<MessageCenterActivity>()
@@ -39,13 +45,15 @@ class IncomeSnapshotFragment : BaseFragment<FragmentIncomeSnapshotBinding>(
                 IncomeProfileActivity.launch(requireContext())
             }
         }
+    }
+
+    private fun bindReloadActions() = with(binding) {
         pageState.setOnRetryClickListener {
             refreshCalculationHome()
         }
         swipeRefreshLayout.setOnRefreshListener {
             refreshCalculationHome()
         }
-        renderSessionState()
     }
 
     override fun onResume() {

@@ -27,7 +27,7 @@ import com.velora.portal.journey.lending.dashboard.presentation.VisitorPortalVie
 import com.velora.portal.journey.lending.dashboard.presentation.HomeFragment
 import com.velora.portal.journey.account.profile.presentation.ProfileCenterFragment
 import com.velora.portal.journey.servicing.records.presentation.RecordCenterFragment
-import com.velora.portal.platform.common.util.platform.requireLogin
+import com.velora.portal.platform.common.util.context.requireLogin
 import com.velora.portal.platform.design.extension.addStatusBarTopMargin
 import com.velora.portal.platform.common.util.showToastMessage
 import com.velora.portal.platform.design.extension.singleClick

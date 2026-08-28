@@ -18,9 +18,17 @@ class SpendingPlanGuideActivity : BaseActivity<ActivitySpendingPlanGuideBinding>
 
     override val binding by viewBinding(ActivitySpendingPlanGuideBinding::inflate)
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        setupGuideChrome()
+        populateGuideContent()
+    }
+
+    private fun setupGuideChrome() = with(binding) {
         setLightSystemBarIcons(enabled = true)
         titleBar.setNavigationAction(::finish)
+    }
+
+    private fun populateGuideContent() = with(binding) {
         quickTools.bindCalculationQuickTools()
         setExamples(tvNeedsExamples, R.string.calculator_budget_tip_needs_examples)
         setExamples(tvWantsExamples, R.string.calculator_budget_tip_wants_examples)

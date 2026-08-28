@@ -5,7 +5,7 @@ import com.velora.portal.moneyflow.ac.ExtraPayEstimatorActivity
 import com.velora.portal.moneyflow.ac.IncomeBreakdownActivity
 import com.velora.portal.moneyflow.ac.WithholdingEstimatorActivity
 import com.velora.portal.moneyflow.ac.ShiftDurationActivity
-import com.velora.portal.platform.common.util.platform.requireLogin
+import com.velora.portal.platform.common.util.context.requireLogin
 import com.velora.portal.platform.design.extension.singleClick
 import com.velora.portal.databinding.ItemMoneyflowQuickToolBinding
 import com.velora.portal.databinding.ViewMoneyflowQuickToolsBinding

@@ -16,13 +16,21 @@ class MoneyGuideFragment : BaseFragment<FragmentMoneyGuideBinding>(
 
     override val binding by viewBinding(FragmentMoneyGuideBinding::bind)
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        bindEarningsGuideActions()
+        bindPlanningGuideActions()
+    }
+
+    private fun bindEarningsGuideActions() = with(binding) {
         cardSalaryTip.singleClick {
             SavingsPlaybookActivity.launch(requireContext())
         }
         cardBudgetTip.singleClick {
             SpendingPlanGuideActivity.launch(requireContext())
         }
+    }
+
+    private fun bindPlanningGuideActions() = with(binding) {
         cardExpensesTip.singleClick {
             ExpenseHabitsGuideActivity.launch(requireContext())
         }

@@ -46,8 +46,8 @@ import com.velora.portal.platform.common.util.context.resolveColorCompat
 import com.velora.portal.platform.common.util.ExternalActionLauncher
 import com.velora.portal.platform.common.util.countdownTimer
 import com.velora.portal.platform.common.util.text.formatAmountWithPrefix
-import com.velora.portal.platform.common.util.platform.formatLoanTerm
-import com.velora.portal.platform.common.util.platform.requireLogin
+import com.velora.portal.platform.common.util.context.formatLoanTerm
+import com.velora.portal.platform.common.util.context.requireLogin
 import com.velora.portal.platform.common.util.showToastMessage
 import com.velora.portal.platform.common.util.start
 import com.velora.portal.platform.common.util.text.toJsonString

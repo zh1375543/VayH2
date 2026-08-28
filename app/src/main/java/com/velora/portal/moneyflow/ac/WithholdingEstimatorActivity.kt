@@ -27,16 +27,24 @@ class WithholdingEstimatorActivity : BaseActivity<ActivityWithholdingEstimatorBi
     private val viewModel by viewModels<SideHomeViewModel>()
     private var selectedIncomePeriod: IncomePeriod? = null
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        setupTaxCalculatorScreen()
+        bindTaxCalculatorActions()
+    }
+
+    private fun setupTaxCalculatorScreen() = with(binding) {
         applyTopInset(root)
         titleBar.setNavigationAction(::finish)
         listOf(grossIncomeView, additionalIncomeView, deductionsView).forEach { field ->
             field.getEditText().inputType =
                 InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
         }
-        incomePeriodView.setOnClick(::showIncomePeriodPicker)
+    }
+
+    private fun bindTaxCalculatorActions() = with(binding) {
+        incomePeriodView.setOnClick(::displayIncomePeriodSelector)
         tvCalculate.singleClick {
-            if (validateForm()) calculateTax()
+            if (validateForm()) requestTaxCalculation()
         }
     }
 
@@ -55,7 +63,7 @@ class WithholdingEstimatorActivity : BaseActivity<ActivityWithholdingEstimatorBi
         }
     }
 
-    private fun showIncomePeriodPicker() {
+    private fun displayIncomePeriodSelector() {
         val options = IncomePeriod.entries.mapIndexed { index, period ->
             SelectionOption(info = period.name, id = index)
         }
@@ -71,7 +79,7 @@ class WithholdingEstimatorActivity : BaseActivity<ActivityWithholdingEstimatorBi
         }
     }
 
-    private fun calculateTax() = with(binding) {
+    private fun requestTaxCalculation() = with(binding) {
         val incomePeriod = selectedIncomePeriod ?: return@with
         viewModel.getCalTax(
             TaxCalculationRequest(

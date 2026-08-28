@@ -32,23 +32,34 @@ class ShiftDurationActivity : BaseActivity<ActivityShiftDurationBinding>() {
     private var endTime: WorkTime? = null
     private var selectedBreakMinutes: Int? = null
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        setupTimeCalculatorLayout()
+        bindTimeEntryActions()
+        bindCalculationControls()
+    }
+
+    private fun setupTimeCalculatorLayout() = with(binding) {
         applyTopInset(root)
         titleBar.setNavigationAction(::finish)
         monthlySalaryView.getEditText().inputType =
             InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+    }
 
-        startTimeView.setOnClick { showTimePicker(isStartTime = true) }
-        endTimeView.setOnClick { showTimePicker(isStartTime = false) }
-        breakTimeView.setOnClick(::showBreakTimePicker)
+    private fun bindTimeEntryActions() = with(binding) {
+        startTimeView.setOnClick { openWorkTimeSelector(isStartTime = true) }
+        endTimeView.setOnClick { openWorkTimeSelector(isStartTime = false) }
+        breakTimeView.setOnClick(::openBreakDurationSelector)
         workingDaysView.setOnClick { showPicker(workingDaysView, SalaryFormOptions.workingDays) }
         hoursPerDayView.setOnClick { showPicker(hoursPerDayView, SalaryFormOptions.workHours) }
+    }
+
+    private fun bindCalculationControls() = with(binding) {
         basedOnSalaryToggle.singleClick {
             ivBasedOnSalary.isSelected = !ivBasedOnSalary.isSelected
             if (ivBasedOnSalary.isSelected) viewModel.getSalaryData()
         }
         tvCalculate.singleClick {
-            if (validateForm()) calculateWorkHours()
+            if (validateForm()) submitWorkHoursCalculation()
         }
     }
 
@@ -70,7 +81,7 @@ class ShiftDurationActivity : BaseActivity<ActivityShiftDurationBinding>() {
         }
     }
 
-    private fun showTimePicker(isStartTime: Boolean) {
+    private fun openWorkTimeSelector(isStartTime: Boolean) {
         val selected = if (isStartTime) startTime else endTime
         showWorkTimePickerDialog(selected?.hour ?: 0, selected?.minute ?: 0) { hour, minute ->
             val time = WorkTime(hour, minute)
@@ -86,7 +97,7 @@ class ShiftDurationActivity : BaseActivity<ActivityShiftDurationBinding>() {
         }
     }
 
-    private fun showBreakTimePicker() {
+    private fun openBreakDurationSelector() {
         val selectedIndex = selectedBreakMinutes
             ?.let(BREAK_MINUTES::indexOf)
             ?.coerceAtLeast(0)
@@ -110,7 +121,7 @@ class ShiftDurationActivity : BaseActivity<ActivityShiftDurationBinding>() {
         }
     }
 
-    private fun calculateWorkHours() = with(binding) {
+    private fun submitWorkHoursCalculation() = with(binding) {
         val selectedStartTime = startTime ?: return@with
         val selectedEndTime = endTime ?: return@with
         val breakMinutes = selectedBreakMinutes ?: return@with

@@ -28,17 +28,29 @@ class RewardPayoutActivity : BaseActivity<ActivityRewardPayoutBinding>() {
     private var selectedBonusType: BonusType? = null
     private var selectedTaxYear: Int? = null
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        configurePageChrome()
+        configureBonusInputs()
+        bindBonusActions()
+    }
+
+    private fun configurePageChrome() = with(binding) {
         applyTopInset(root)
         titleBar.setNavigationAction(::finish)
+    }
+
+    private fun configureBonusInputs() = with(binding) {
         listOf(monthlyBasicSalaryView, bonusAmountView).forEach { field ->
             field.getEditText().inputType =
                 InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
         }
-        bonusTypeView.setOnClick(::showBonusTypePicker)
-        taxYearView.setOnClick(::showTaxYearPicker)
+    }
+
+    private fun bindBonusActions() = with(binding) {
+        bonusTypeView.setOnClick(::displayBonusTypeSelector)
+        taxYearView.setOnClick(::displayTaxYearSelector)
         tvCalculate.singleClick {
-            if (validateForm()) calculateBonus()
+            if (validateForm()) requestBonusCalculation()
         }
     }
 
@@ -57,7 +69,7 @@ class RewardPayoutActivity : BaseActivity<ActivityRewardPayoutBinding>() {
         }
     }
 
-    private fun showBonusTypePicker() {
+    private fun displayBonusTypeSelector() {
         val options = BonusType.entries.mapIndexed { index, type ->
             SelectionOption(info = getString(type.displayRes), id = index)
         }
@@ -73,7 +85,7 @@ class RewardPayoutActivity : BaseActivity<ActivityRewardPayoutBinding>() {
         }
     }
 
-    private fun showTaxYearPicker() {
+    private fun displayTaxYearSelector() {
         val options = (MIN_TAX_YEAR..MAX_TAX_YEAR).mapIndexed { index, year ->
             SelectionOption(info = year.toString(), id = index)
         }
@@ -85,7 +97,7 @@ class RewardPayoutActivity : BaseActivity<ActivityRewardPayoutBinding>() {
         }
     }
 
-    private fun calculateBonus() = with(binding) {
+    private fun requestBonusCalculation() = with(binding) {
         val bonusType = selectedBonusType ?: return@with
         val taxYear = selectedTaxYear ?: return@with
         viewModel.getCalBonus(

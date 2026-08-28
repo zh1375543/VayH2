@@ -29,15 +29,26 @@ class IncomeProfileActivity : BaseActivity<ActivityIncomeProfileBinding>() {
     override val binding by viewBinding(ActivityIncomeProfileBinding::inflate)
     private val repository = SideHomeRepository()
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        configurePageChrome()
+        bindProfileFieldActions()
+        bindSaveAction()
+    }
+
+    private fun configurePageChrome() = with(binding) {
         applyTopInset(root)
         titleBar.setNavigationAction(::finish)
         configureMonthlySalaryInput()
+    }
 
+    private fun bindProfileFieldActions() = with(binding) {
         workingDaysView.setOnClick { showPicker(workingDaysView, SalaryFormOptions.workingDays) }
         hoursPerDayView.setOnClick { showPicker(hoursPerDayView, SalaryFormOptions.workHours) }
         paydayView.setOnClick { showPicker(paydayView, SalaryFormOptions.workingDays) }
         workLocationView.setEndIconClick(::requestLocationPermission)
+    }
+
+    private fun bindSaveAction() = with(binding) {
         tvSave.singleClick {
             if (validateForm()) saveSalaryData()
         }

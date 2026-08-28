@@ -23,13 +23,25 @@ class GoalPlannerActivity : BaseActivity<ActivityGoalPlannerBinding>() {
     override val binding by viewBinding(ActivityGoalPlannerBinding::inflate)
     private val viewModel by viewModels<SideHomeViewModel>()
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        configurePageChrome()
+        configureAmountInputs()
+        bindCalculationAction()
+    }
+
+    private fun configurePageChrome() = with(binding) {
         applyTopInset(root)
         titleBar.setNavigationAction(::finish)
+    }
+
+    private fun configureAmountInputs() = with(binding) {
         listOf(savingsGoalView, currentSavingsView, monthlySavingsView, monthlyIncomeView).forEach {
             it.getEditText().inputType =
                 InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
         }
+    }
+
+    private fun bindCalculationAction() = with(binding) {
         tvCalculate.singleClick {
             if (validateForm()) calculateSavings()
         }
