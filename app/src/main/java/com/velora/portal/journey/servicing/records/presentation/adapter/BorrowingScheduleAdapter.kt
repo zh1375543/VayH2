@@ -41,7 +41,6 @@ class BorrowingScheduleAdapter :
         val isSelect =
             if (position == items.size - 1) item.isSelect else (items[position + 1].isSelect)
         tvStatus.setTextColor(context.resolveColorCompat(R.color.text_body))
-        repaymentTimelineConnector.isVisible = position != items.size - 1
         dueFeeItem.isVisible = false
         when (item.planStatus) {
             34, 35 -> {

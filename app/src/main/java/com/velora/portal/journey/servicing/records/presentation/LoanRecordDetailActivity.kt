@@ -402,13 +402,6 @@ class LoanRecordDetailActivity :
                 leftTopRadius = headerCornerRadius,
                 rightTopRadius = headerCornerRadius,
             )
-            headerInfoLayout.setRoundedRectangleBackground(
-                solidColor = resolveColorCompat(
-                    if (isDue) R.color.color_order_over else R.color.aide_color
-                ),
-                rightBottomRadius = headerCornerRadius,
-                leftBottomRadius = headerCornerRadius,
-            )
             tvOrderStatusTop.isSelected = isDue
             tvApply.isSelected = isDue
             tvBorrow.isSelected = isDue

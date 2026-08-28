@@ -2,6 +2,7 @@ package com.velora.portal.platform.design.component
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
 import com.velora.portal.R
 
@@ -34,5 +35,11 @@ class SelectableImageView @JvmOverloads constructor(
         } else if (defaultResId != 0) {
             setImageResource(defaultResId)
         }
+    }
+
+    /** Replaces the image used for the selected state without affecting the default image. */
+    fun setSelectedImageResource(@DrawableRes resourceId: Int) {
+        srcSelected = resourceId
+        if (isSelected) setImageResource(resourceId)
     }
 }

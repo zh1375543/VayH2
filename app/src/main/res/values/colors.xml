@@ -31,7 +31,6 @@
     <color name="border_default">#D2D5DA</color>
     <color name="status_error">#F62909</color>
     <color name="status_success">#08994E</color>
-   <color name="page_bg_color1">#FBF5EE</color>
    <color name="aide_color">#E4EED4</color>
     <color name="color_verify_tip">#FFEFA0</color>
     <color name="color_track">#1D3BFD</color>

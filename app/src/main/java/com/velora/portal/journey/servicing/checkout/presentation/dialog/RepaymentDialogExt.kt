@@ -31,6 +31,9 @@ fun Context.showRepayAndReapplyDialog(
         override fun initView() = with(binding) {
             super.initView()
             cbUnderstand.isSelected = true
+            if (isApplyAll) {
+                cbUnderstand.setSelectedImageResource(R.mipmap.icon_repay_all_select)
+            }
             tvTitle.isVisible = !isApplyAll
             messageLayout.isSelected = isApplyAll
             tvDesc.setText(

@@ -513,7 +513,7 @@ class BorrowerProfileActivity :
                 scrollToInvalidField(fieldGivenName)
                 return@singleClick
             }
-            if (fieldGenderSelection.getText().isBlank()) {
+            if (fieldGenderSelection.getText().isBlank() || genderStatus == null) {
                 fieldGenderSelection.showError()
                 scrollToInvalidField(fieldGenderSelection)
                 return@singleClick
@@ -536,27 +536,27 @@ class BorrowerProfileActivity :
                 scrollToInvalidField(fieldIdentityNumber)
                 return@singleClick
             }
-            if (fieldEducationLevel.getText().isBlank()) {
+            if (fieldEducationLevel.getText().isBlank() || eduStatus == null) {
                 fieldEducationLevel.showError()
                 scrollToInvalidField(fieldEducationLevel)
                 return@singleClick
             }
-            if (fieldEmploymentIndustry.getText().isBlank()) {
+            if (fieldEmploymentIndustry.getText().isBlank() || industryStatus == null) {
                 fieldEmploymentIndustry.showError()
                 scrollToInvalidField(fieldEmploymentIndustry)
                 return@singleClick
             }
-            if (fieldJobRole.getText().isBlank()) {
+            if (fieldJobRole.getText().isBlank() || professionStatus == null) {
                 fieldJobRole.showError()
                 scrollToInvalidField(fieldJobRole)
                 return@singleClick
             }
-            if (fieldEmploymentDuration.getText().isBlank()) {
+            if (fieldEmploymentDuration.getText().isBlank() || workTimeStatus == null) {
                 fieldEmploymentDuration.showError()
                 scrollToInvalidField(fieldEmploymentDuration)
                 return@singleClick
             }
-            if (fieldLoanPurpose.getText().isBlank()) {
+            if (fieldLoanPurpose.getText().isBlank() || reasonStatus == null) {
                 fieldLoanPurpose.showError()
                 scrollToInvalidField(fieldLoanPurpose)
                 return@singleClick
@@ -566,7 +566,7 @@ class BorrowerProfileActivity :
                 scrollToInvalidField(fieldMonthlyIncome)
                 return@singleClick
             }
-            if (fieldMaritalStatus.getText().isBlank()) {
+            if (fieldMaritalStatus.getText().isBlank() || marStatus == null) {
                 fieldMaritalStatus.showError()
                 scrollToInvalidField(fieldMaritalStatus)
                 return@singleClick
@@ -670,22 +670,22 @@ class BorrowerProfileActivity :
         trackEvent(PERSON_INFO_COMMIT)
         vm.saveApplicantProfile(
             ApiRequest(
-                education = eduStatus.toString(),
-                sex = genderStatus.toString(),
-                marryState = marStatus.toString(),
+                education = eduStatus?.toString(),
+                sex = genderStatus?.toString(),
+                marryState = marStatus?.toString(),
                 lastName = binding.fieldFamilyName.getText(),
                 firstName = binding.fieldGivenName.getText(),
                 cardNo = binding.fieldIdentityNumber.getText(),
                 birthDate = binding.fieldBirthDate.getText().toYmdDateString(),
-                province = provinceId.toString(),
+                province = provinceId?.toString(),
                 address = binding.fieldStreetAddress.getText(),
-                region = areaId.toString(),
-                city = cityId.toString(),
+                region = areaId?.toString(),
+                city = cityId?.toString(),
                 salary = binding.fieldMonthlyIncome.getText(),
-                jobNature = professionStatus.toString(),
-                industry = industryStatus.toString(),
-                loanPurpose = reasonStatus.toString(),
-                workTime = workTimeStatus.toString(),
+                jobNature = professionStatus?.toString(),
+                industry = industryStatus?.toString(),
+                loanPurpose = reasonStatus?.toString(),
+                workTime = workTimeStatus?.toString(),
 //                                userCommunicationRecordStr = Gson().toJson(getCallLog()).encodeBase64()
             )
         )

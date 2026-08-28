@@ -30,7 +30,7 @@
             android:textColor="@color/brand_primary"
             android:textSize="@dimen/sp_15"
             app:labelCornerRadius="@dimen/dp_12"
-            app:labelFillColor="@color/page_bg_color1"
+            app:labelFillColor="@color/installment_tip_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

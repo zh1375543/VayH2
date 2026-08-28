@@ -60,15 +60,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.velora.portal.platform.design.component.RepaymentTimelineConnectorView
-        android:id="@+id/repaymentTimelineConnector"
-        android:layout_width="@dimen/dp_1"
-        android:layout_height="0dp"
-        app:connectorWidth="@dimen/dp_1"
-        app:layout_constraintBottom_toBottomOf="@id/spaceView"
-        app:layout_constraintEnd_toEndOf="@id/ivCheck"
-        app:layout_constraintStart_toStartOf="@id/ivCheck"
-        app:layout_constraintTop_toBottomOf="@id/ivCheck" />
 
     <com.velora.portal.platform.design.component.SurfacePanelLayout
         android:id="@+id/detail_layout"
