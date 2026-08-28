@@ -8,7 +8,7 @@
     android:gravity="center"
     android:paddingHorizontal="@dimen/dp_12"
     android:text="fast"
-    android:textColor="@color/brand_primary"
+    android:textColor="@color/text_primary"
     android:textSize="@dimen/sp_12"
     app:labelCornerRadius="@dimen/dp_6"
-    app:labelFillColor="@color/aide_color" />
+    app:labelFillColor="@color/color_card_tab_bg" />

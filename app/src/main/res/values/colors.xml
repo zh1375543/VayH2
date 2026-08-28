@@ -15,14 +15,12 @@
     <color name="surface_tertiary">#EFEFEF</color>
     <color name="surface_muted">#ECEEF3</color>
     <color name="surface_disabled">#9CA3AF</color>
-    <color name="surface_tint">#F8F7F3</color>
     <color name="badge_promotion">#FFDD00</color>
 
     <color name="brand_primary">#FB7B42</color>
     <color name="brand_primary_light">#A3B2FF</color>
     <color name="brand_secondary">#3955F9</color>
     <color name="action_withdraw">#FA560D</color>
-    <color name="credit_dialog_badge">#3E7D32</color>
     <color name="credit_dialog_button_end">#4BD329</color>
     <color name="credit_dialog_gradient_start">#FFFFA270</color>
     <color name="credit_dialog_gradient_center">#FFFFC4A6</color>
@@ -31,7 +29,6 @@
     <color name="border_default">#D2D5DA</color>
     <color name="status_error">#F62909</color>
     <color name="status_success">#08994E</color>
-   <color name="aide_color">#E4EED4</color>
     <color name="color_verify_tip">#FFEFA0</color>
     <color name="color_track">#1D3BFD</color>
     <color name="color_goal">#6717D7</color>

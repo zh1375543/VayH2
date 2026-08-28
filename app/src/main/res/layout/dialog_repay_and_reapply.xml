@@ -17,8 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:panelCornerRadius="@dimen/dp_16"
-        app:panelSelectedFillColor="@color/installment_tip_bg"
-        app:panelFillColor="@color/aide_color">
+        app:panelSelectedFillColor="@color/color_order_over"
+        app:panelFillColor="@color/color_card_tab_bg">
 
         <TextView
             android:id="@+id/tvTitle"

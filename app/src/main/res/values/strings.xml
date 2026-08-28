@@ -9,17 +9,13 @@
     <string name="phone_number_required">Please enter your phone number.</string>
     <string name="invalid_phone_number_format">Error: Invalid phone number format.</string>
     <string name="verification_code_required">Please enter the verification code.</string>
-    <string name="resend_after">Resend after %1$ss</string>
     <string name="resend_after_short">%1$ss</string>
-    <string name="resend_verification_code">Resend verification code</string>
     <string name="get_otp">Get</string>
-    <string name="verification_code_sent">We have sent a verification code to %1$s.\nPlease enter the code to verify your account.</string>
     <string name="login_prompt_title">Login to use more features</string>
     <string name="login_prompt_description">Continue without login?</string>
     <string name="login_now">Login Now</string>
 
     <string name="reject">Reject</string>
-    <string name="agree">Agree</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="privacy_toast_agree2">Please consent to the Privacy Policy and Service Agreement</string>
 
@@ -36,7 +32,6 @@
     <string name="privacy_agreement">Privacy Policy</string>
     <string name="privacy_blue">Service Agreement</string>
     <string name="retry">Retry</string>
-    <string name="authenticate">Login</string>
 
     <string name="sure_logout">Are you sure you want to log out of the app?</string>
     <string name="new_version">New version</string>
@@ -66,9 +61,6 @@
     <string name="contact_us">Contact Us</string>
     <string name="share_app">Share App</string>
     <string name="contact_support">Contact Support</string>
-    <string name="mine_share_arrow">→</string>
-    <string name="current_version">Current Version</string>
-    <string name="version_value">V%1$s</string>
     <string name="delete_account">Delete Account</string>
     <string name="delete_account_title">Are you sure you want to close your account?</string>
     <string name="delete_account_description">After closing your account, all your plans will be permanently removed.\n\nyou can register again using the same mobile number, but your previous records will not be restored.\n\n</string>
@@ -149,7 +141,6 @@
 
     <string name="i_know">I Know</string>
 
-    <string name="immediate_loan">Immediate loan</string>
     <string name="empty_home">Sorry, there are no products available to borrow .Please maintain good credit and look forward to the next products！</string>
     <string name="pending_repayment">Pending repayment</string>
     <string name="overdue">Overdue</string>
@@ -186,7 +177,6 @@
     <string name="home_payment_failed">Payment failed</string>
     <string name="home_payment_failed_desc">Your last order failed due to incorrect bank card information. Please modify your bank card and resubmit the order.</string>
     <string name="modify_bank_card">Modify bank card</string>
-    <string name="bank_card">Bank Card</string>
     <string name="card_error_tips">Your last order failed due to incorrect bankcard information. Please modify your bankcard and resubmit the order.</string>
     <string name="already_edited">Already edited</string>
     <string name="revise">Revise</string>
@@ -425,8 +415,6 @@ No personal SMS messages will be accessed, read, or collected.</string>
     <string name="read_msg_title">Mark all messages as read?</string>
 
     <string name="view_sample">View Sample</string>
-    <string name="phone_collect_title">Notice Regarding Phone Number Collection</string>
-    <string name="phone_collect_desc">%s collects, transmits, synchronizes, processes, and stores your phone number information to support SMS verification code authenticate during user authentication.</string>
     <string name="otp">OTP</string>
 
 
@@ -552,64 +540,46 @@ No personal SMS messages will be accessed, read, or collected.</string>
     <string name="calculator_tips_read_more">Read More</string>
     <string name="calculator_savings_tip_updated">Updated Jul 2026</string>
     <string name="calculator_savings_tip_start_title">Start With a Saving Plan</string>
-    <string name="calculator_savings_tip_start_highlight">Saving Plan</string>
     <string name="calculator_savings_tip_start_description">Saving money becomes easier when you have a clear plan. Before spending your salary, decide how much you want to save each month and fit it into your budget.</string>
     <string name="calculator_savings_tip_save_first_title">Save First, Spend Later</string>
-    <string name="calculator_savings_tip_save_first_highlight">Save First</string>
     <string name="calculator_savings_tip_save_first_description">Instead of saving what is left after spending, try saving first when you receive your salary. Even a small amount regularly can help you build a stronger financial habit.</string>
     <string name="calculator_savings_tip_reduce_title">Reduce Unnecessary Expenses</string>
-    <string name="calculator_savings_tip_reduce_highlight">Reduce</string>
     <string name="calculator_savings_tip_reduce_description">Review your monthly spending and identify expenses that are not essential. Small changes, such as reducing unnecessary purchases, can help you save more over time.</string>
     <string name="calculator_savings_tip_goal_title">Keep Your Savings Goal Visible</string>
-    <string name="calculator_savings_tip_goal_highlight">Keep</string>
     <string name="calculator_savings_tip_goal_description">A clear goal can help you stay motivated. Whether you are saving for emergencies, personal goals, or future plans, tracking your progress makes saving easier.</string>
     <string name="calculator_budget_tip_updated">Updated Jul 2026</string>
     <string name="calculator_budget_tip_rule_title">What Is the 50/30/20 Rule?</string>
-    <string name="calculator_budget_tip_rule_highlight">50/30/20 Rule?</string>
     <string name="calculator_budget_tip_rule_description">The 50/30/20 rule is a simple budgeting method that helps you divide your income into three categories.</string>
     <string name="calculator_budget_tip_needs_title">50% - Needs</string>
-    <string name="calculator_budget_tip_needs_highlight">50% - Needs</string>
     <string name="calculator_budget_tip_needs_description">Use around 50% of your income for essential expenses.</string>
     <string name="calculator_budget_tip_needs_examples">Food\nTransportation\nRent\nUtilities\nBills</string>
     <string name="calculator_budget_tip_wants_title">30% - Wants</string>
-    <string name="calculator_budget_tip_wants_highlight">30% - Wants</string>
     <string name="calculator_budget_tip_wants_description">Use around 30% of your income for personal spending.</string>
     <string name="calculator_budget_tip_wants_examples">Entertainment\nShopping\nHobbies\nDining out</string>
     <string name="calculator_budget_tip_savings_title">20% - Savings</string>
-    <string name="calculator_budget_tip_savings_highlight">20% - Savings</string>
     <string name="calculator_budget_tip_savings_description">Try to save around 20% of your income for future goals.</string>
     <string name="calculator_budget_tip_savings_examples">Emergency funds\nPersonal goals\nFuture expenses</string>
     <string name="calculator_budget_tip_adjust_title">Adjust Based on Your Situation</string>
-    <string name="calculator_budget_tip_adjust_highlight">Adjust</string>
     <string name="calculator_budget_tip_adjust_description">The 50/30/20 rule is only a guideline. Everyone has different income levels and expenses, so adjust the categories to fit your situation.</string>
     <string name="calculator_budget_tip_examples">Examples</string>
     <string name="calculator_track_tip_updated">Updated Jul 2026</string>
     <string name="calculator_track_tip_habits_title">Know Your Spending Habits</string>
-    <string name="calculator_track_tip_habits_highlight">Spending Habits</string>
     <string name="calculator_track_tip_habits_description">Tracking expenses helps you understand your financial habits.\n\nBy recording your spending, you can see where your money goes and make better decisions.</string>
     <string name="calculator_track_tip_categorize_title">Categorize Your Expenses</string>
-    <string name="calculator_track_tip_categorize_highlight">Categorize</string>
     <string name="calculator_track_tip_categorize_description">Group your expenses into different categories.</string>
-    <string name="calculator_track_tip_examples">Food\nTransportation\nRent\nUtilities\nBills</string>
     <string name="calculator_track_tip_categorize_note">This makes it easier to manage your budget.</string>
     <string name="calculator_track_tip_improve_title">Find Areas to Improve</string>
-    <string name="calculator_track_tip_improve_highlight">Find</string>
     <string name="calculator_track_tip_improve_description">Review your expenses regularly and look for areas where you can reduce your spending. Small improvements can create meaningful savings over time.</string>
     <string name="calculator_track_tip_review_title">Review Every Month</string>
-    <string name="calculator_track_tip_review_highlight">Review</string>
     <string name="calculator_track_tip_review_description">Take a few minutes each month to review your spending. Understanding your expenses helps you create a better financial plan.</string>
     <string name="calculator_goal_tip_updated">Updated Jul 2026</string>
     <string name="calculator_goal_tip_define_title">Define Your Goal</string>
-    <string name="calculator_goal_tip_define_highlight">Goal</string>
     <string name="calculator_goal_tip_define_description">A specific goal makes saving easier. Instead of saying “I want to save more,” decide exactly how much you want to save and when you want to achieve it.</string>
     <string name="calculator_goal_tip_target_title">Choose a Target Amount</string>
-    <string name="calculator_goal_tip_target_highlight">Target Amount</string>
     <string name="calculator_goal_tip_target_description">Set a realistic savings target based on your income and monthly budget.</string>
     <string name="calculator_goal_tip_plan_title">Create a Monthly Saving Plan</string>
-    <string name="calculator_goal_tip_plan_highlight">Monthly Saving Plan</string>
     <string name="calculator_goal_tip_plan_description">Divide your target amount into smaller monthly steps. A regular saving plan can make large goals feel easier to achieve.</string>
     <string name="calculator_goal_tip_progress_title">Track Your Progress</string>
-    <string name="calculator_goal_tip_progress_highlight">Progress</string>
     <string name="calculator_goal_tip_progress_description">Checking your progress helps you stay motivated. Celebrate small milestones as you move closer to your goal.</string>
 
 </resources>
