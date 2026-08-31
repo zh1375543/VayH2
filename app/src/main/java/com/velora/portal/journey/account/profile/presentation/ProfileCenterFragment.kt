@@ -30,8 +30,12 @@ class ProfileCenterFragment : BaseFragment<FragmentProfileCenterBinding>(
         requireContext().createPaybackDialog()
     }
 
-    override fun initView() = with(binding) {
+    override fun initView() {
+        configureProfileShortcuts()
+        configureAccountServiceActions()
+    }
 
+    private fun configureProfileShortcuts() = with(binding) {
         tvContactUs.singleClick {
             context?.start<CustomerSupportActivity>()
         }
@@ -51,6 +55,9 @@ class ProfileCenterFragment : BaseFragment<FragmentProfileCenterBinding>(
         tvAccount.singleClick {
             it.context.start<PayoutAccountListActivity>()
         }
+    }
+
+    private fun configureAccountServiceActions() = with(binding) {
         tvOrder.singleClick {
             context?.start<LoanHistoryActivity>()
         }

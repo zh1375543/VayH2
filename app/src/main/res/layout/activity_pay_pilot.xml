@@ -114,7 +114,7 @@
         android:layout_height="wrap_content"
         android:drawableTop="@mipmap/ic_tab_profile_unselect"
         android:gravity="center"
-        android:text="@string/mine"
+        android:text="@string/tab_mine"
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/sp_12"
         app:labelSelectedDrawableTop="@mipmap/ic_tab_profile_select"

@@ -32,23 +32,19 @@ class MessageCenterActivity : BaseActivity<ScreenMessageCenterBinding>() {
     }
 
     override fun initView() {
-        setupMessageList()
-        setupLoadingActions()
-        setupToolbarActions()
+        configureMessageContent()
+        configureTopBarActions()
     }
 
-    private fun setupMessageList() = with(binding) {
+    private fun configureMessageContent() = with(binding) {
         rvMessage.adapter = messageAdapter
-    }
-
-    private fun setupLoadingActions() = with(binding) {
         pageState.setOnRetryClickListener {
             vm.getMessageList()
         }
         vm.getMessageList()
     }
 
-    private fun setupToolbarActions() = with(binding) {
+    private fun configureTopBarActions() = with(binding) {
         tvOpen.singleClick {
             PermissionCoordinator.request(
                 this@MessageCenterActivity,

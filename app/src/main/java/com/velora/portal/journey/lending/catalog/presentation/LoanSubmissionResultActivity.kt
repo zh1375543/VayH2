@@ -219,6 +219,7 @@ class LoanSubmissionResultActivity :
         start<LoanProductDetailActivity> {
             putExtra("product", data)
         }
+        finish()
     }
 
     private fun openMultiLoanOffer() {

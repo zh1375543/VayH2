@@ -104,7 +104,6 @@
         android:layout_height="@dimen/dp_35"
         android:padding="@dimen/sp_5"
         android:layout_marginEnd="@dimen/dp_16"
-        android:layout_marginStart="@dimen/dp_10"
         android:scaleType="fitXY"
         android:src="@mipmap/image_message_ic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +116,7 @@
         android:src="@mipmap/image_contract_ic"
         android:scaleType="fitXY"
         android:padding="@dimen/sp_5"
-        android:layout_marginEnd="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_5"
         app:layout_constraintBottom_toBottomOf="@id/ivCustomer"
         app:layout_constraintEnd_toStartOf="@id/ivCustomer"
         app:layout_constraintTop_toTopOf="@id/ivCustomer" />

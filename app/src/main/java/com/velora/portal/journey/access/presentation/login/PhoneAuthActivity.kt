@@ -4,13 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.graphics.Typeface
 import android.location.LocationManager
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.ForegroundColorSpan
-import android.text.style.RelativeSizeSpan
-import android.text.style.StyleSpan
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
@@ -41,7 +35,6 @@ import com.velora.portal.application.MainNavigator
 import com.velora.portal.platform.design.dialog.showConfirmDialog
 import com.velora.portal.moneyflow.PayPilotActivity
 import com.velora.portal.journey.access.presentation.authenticate.AccessSessionViewModel
-import com.velora.portal.journey.access.presentation.authenticate.SmsAutoFillHelper
 import com.velora.portal.journey.lending.dashboard.presentation.VisitorPortalViewModel
 import com.velora.portal.platform.common.util.LOGIN_VIA_OTP
 import com.velora.portal.platform.common.util.PermissionCoordinator
@@ -96,32 +89,6 @@ class PhoneAuthActivity : BaseActivity<ScreenPhoneAuthBinding>() {
             R.string.welcome_to_app,
             getString(R.string.app_name)
         )
-        loginPhoneHint.text = SpannableString(
-            getString(R.string.login_invalid_phone_hint),
-        ).apply {
-            val suffix = "modify it."
-            val start = lastIndexOf(suffix)
-            if (start >= 0) {
-                setSpan(
-                    ForegroundColorSpan(resolveColorCompat(R.color.brand_secondary)),
-                    start,
-                    start + suffix.length,
-                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-                )
-                setSpan(
-                    RelativeSizeSpan(1.17f),
-                    start,
-                    start + suffix.length,
-                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-                )
-                setSpan(
-                    StyleSpan(Typeface.BOLD),
-                    start,
-                    start + suffix.length,
-                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-                )
-            }
-        }
         cbAccept.isSelected = true
     }
 

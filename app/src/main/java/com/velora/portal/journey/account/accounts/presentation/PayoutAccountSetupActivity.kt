@@ -36,19 +36,19 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
     private var shouldShowWalletPicker = false
 
     override fun initView() {
-        bindWithdrawFieldEvents()
-        bindAccountValidators()
-        handleKeyboardVisibility()
-        setupNextButtonAndPrefill()
+        configurePayoutMethodSelectors()
+        configureAccountInputFeedback()
+        syncTipsWithKeyboard()
+        prepareSubmitAction()
     }
 
     /** Wires up the withdraw-method selector fields and clears any previous selection. */
-    private fun bindWithdrawFieldEvents() = with(binding.withdrawAccountForm) {
-        clearWithdrawMethodSelection()
+    private fun configurePayoutMethodSelectors() = with(binding.withdrawAccountForm) {
+        resetMethodForm()
 
         disbursementMethodField.setOnClick {
             showWithdrawMethodDialog(
-                walletAction = { selectDefaultWallet() },
+                walletAction = { initializeDefaultWallet() },
                 bankAction = { vm.getPayChannelList() },
             )
         }
@@ -60,7 +60,7 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
     }
 
     /** Validates account numbers against their confirmation fields as the user types. */
-    private fun bindAccountValidators() = with(binding.withdrawAccountForm) {
+    private fun configureAccountInputFeedback() = with(binding.withdrawAccountForm) {
         bankAccountNumberField.getEditText().doAfterTextChanged {
             bankAccountNumberField.hideError()
             if (it.toString() == bankAccountConfirmationField.getText()) bankAccountConfirmationField.hideError()
@@ -86,7 +86,7 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
     }
 
     /** Toggles the tips visibility while the soft keyboard is shown or hidden. */
-    private fun handleKeyboardVisibility() = with(binding) {
+    private fun syncTipsWithKeyboard() = with(binding) {
         window.decorView.observeKeyboardVisibility { isShow, _ ->
             if (isShow) {
                 tvTips.isVisible = false
@@ -97,7 +97,7 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
     }
 
     /** Prepares the submit button and pre-fills the account holder from personal info. */
-    private fun setupNextButtonAndPrefill() = with(binding) {
+    private fun prepareSubmitAction() = with(binding) {
         tvNext.resetScale()
         tvNext.singleClick {
             when (selectedWithdrawMethod) {
@@ -163,7 +163,7 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
         }
     }
 
-    private fun selectWithdrawMethod(method: WithdrawMethod) = with(binding.withdrawAccountForm) {
+    private fun displaySelectedMethod(method: WithdrawMethod) = with(binding.withdrawAccountForm) {
         selectedWithdrawMethod = method
         disbursementMethodField.setText(getString(
             if (method == WithdrawMethod.BANK) R.string.bank else R.string.e_wallet,
@@ -173,7 +173,7 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
         walletDetailsSection.isVisible = method == WithdrawMethod.WALLET
     }
 
-    private fun clearWithdrawMethodSelection() = with(binding.withdrawAccountForm) {
+    private fun resetMethodForm() = with(binding.withdrawAccountForm) {
         selectedWithdrawMethod = null
         shouldShowWalletPicker = false
         walletBean = null
@@ -183,17 +183,17 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
         walletDetailsSection.isVisible = false
     }
 
-    private fun selectDefaultWallet() = with(binding.withdrawAccountForm) {
+    private fun initializeDefaultWallet() = with(binding.withdrawAccountForm) {
         shouldShowWalletPicker = false
         walletBean = null
-        selectWithdrawMethod(WithdrawMethod.WALLET)
+        displaySelectedMethod(WithdrawMethod.WALLET)
         walletProviderField.setText(getString(R.string.gcash))
         walletProviderField.hideError()
         vm.getWalletList()
     }
 
-    private fun applyWalletSelection(wallet: AccountMethodResponse) = with(binding.withdrawAccountForm) {
-        selectWithdrawMethod(WithdrawMethod.WALLET)
+    private fun updateWalletSelection(wallet: AccountMethodResponse) = with(binding.withdrawAccountForm) {
+        displaySelectedMethod(WithdrawMethod.WALLET)
         walletProviderField.setText(wallet.walletName)
         walletProviderField.hideError()
         walletBean = wallet
@@ -203,7 +203,7 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
         super.initObserve()
         payChannelList.observe(this@PayoutAccountSetupActivity) {
             chooseBankDialog(it ?: emptyList()) { bean ->
-                selectWithdrawMethod(WithdrawMethod.BANK)
+                displaySelectedMethod(WithdrawMethod.BANK)
                 binding.withdrawAccountForm.bankSelectorField.setText(bean.bankName)
                 binding.withdrawAccountForm.bankSelectorField.hideError()
                 bankBean = bean
@@ -214,7 +214,7 @@ class PayoutAccountSetupActivity : BaseActivity<ScreenPayoutAccountSetupBinding>
             if (shouldShowWalletPicker) {
                 shouldShowWalletPicker = false
                 chooseWalletDialog(walletItems) { wallet ->
-                    applyWalletSelection(wallet)
+                    updateWalletSelection(wallet)
                 }
             } else if (selectedWithdrawMethod == WithdrawMethod.WALLET) {
                 walletBean = walletItems.firstOrNull {

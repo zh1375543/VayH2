@@ -4,7 +4,7 @@
     <string name="net_error">Please check if your network status is good</string>
 
     <string name="welcome_to_app">Welcome to %1$s</string>
-    <string name="login_invalid_phone_hint">If your phone number is invalid, click here to modify it.</string>
+    <string name="login_invalid_phone_hint">We will send you a confirmation code via SMS or voice call.</string>
     <string name="lets_go">Let\'s go</string>
     <string name="phone_number_required">Please enter your phone number.</string>
     <string name="invalid_phone_number_format">Error: Invalid phone number format.</string>
